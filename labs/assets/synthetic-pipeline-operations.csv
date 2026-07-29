@@ -1,0 +1,7 @@
+job_id,run_id,phase,cycle_minutes,cost_sgd,accepted_status,rework_required,unresolved_rights_items,blocking_review_findings,duplicate_release_actions,rollback_tested,human_review_capacity_slots,human_reviews_required
+JOB-B01,HB-B01,baseline,138,13.20,accepted,true,0,0,0,true,3,1
+JOB-B02,HB-B02,baseline,151,15.10,accepted,true,0,0,0,true,3,1
+JOB-B03,HB-B03,baseline,144,14.40,rejected,true,1,1,0,true,3,1
+JOB-P01,HB-P01,pilot,101,9.45,accepted,false,0,0,0,true,3,1
+JOB-P02,HB-P02,pilot,104,9.10,accepted,true,0,0,0,true,3,1
+JOB-P03,HB-P03,pilot,112,10.25,rejected,false,1,1,0,true,3,1

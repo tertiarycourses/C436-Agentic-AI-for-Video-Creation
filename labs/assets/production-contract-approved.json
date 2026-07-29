@@ -1,0 +1,39 @@
+{
+  "run_id": "HB-001",
+  "contract_version": "contract-v1",
+  "status": "design_ready",
+  "audience": "busy Singapore office workers who make coffee in a shared pantry",
+  "viewer_problem": "pantry coffee often tastes bitter and inconsistent",
+  "desired_outcome": "viewers can remember and try three controllable fixes",
+  "channel": "short-form vertical video",
+  "duration_seconds": 30,
+  "aspect_ratio": "9:16",
+  "approved_facts": [
+    "Use a consistent coffee-to-water ratio.",
+    "Water that is too hot can contribute to unwanted bitterness.",
+    "Extending contact time can increase extraction and may intensify bitterness.",
+    "Changing one variable at a time makes it easier to identify the cause."
+  ],
+  "prohibited_claims": [
+    "health or medical claims",
+    "guaranteed taste outcomes",
+    "unsupported product comparisons"
+  ],
+  "brand": {
+    "tone": "warm, practical, calm",
+    "primary_colour": "#0F5C5E",
+    "accent_colour": "#F2A23A"
+  },
+  "publishing_mode": "dry_run_private",
+  "max_generation_attempts_per_scene": 2,
+  "cost_budget_sgd": 25.0,
+  "human_approval_required": [
+    "claims",
+    "rights",
+    "final_edit",
+    "disclosure",
+    "release_scope"
+  ],
+  "finish_condition": "release package approved for a private dry run or routed to a named owner",
+  "open_questions": []
+}

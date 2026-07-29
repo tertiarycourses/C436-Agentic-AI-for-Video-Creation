@@ -1,0 +1,19 @@
+{
+  "decision": "Choose one hook family for the next controlled private-draft test.",
+  "primary_metric": {
+    "name": "completion_rate",
+    "formula": "completed_views / views",
+    "unit": "proportion",
+    "grain": "video_id",
+    "window": "first seven complete days after posting",
+    "exclusions": ["rows with missing or zero views"]
+  },
+  "guardrail_metrics": [
+    {"name": "save_rate", "formula": "saves / views", "unit": "proportion"},
+    {"name": "share_rate", "formula": "shares / views", "unit": "proportion"}
+  ],
+  "minimum_views": 1000,
+  "comparison_grain": "hook_family within the same topic and 28-32 second duration band",
+  "window": "2026-06-01 to 2026-06-30",
+  "causal_claims_allowed": false
+}

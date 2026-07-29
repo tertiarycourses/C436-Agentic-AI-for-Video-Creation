@@ -1,0 +1,12 @@
+{
+  "run_id": "HB-001",
+  "review_status": "review_clear",
+  "findings": [],
+  "duration_seconds": 30,
+  "caption_cue_count": 5,
+  "caption_timeline_valid": true,
+  "owner_approval_status": "pending",
+  "requires_human_preview": true,
+  "release_allowed": false,
+  "external_action_count": 0
+}

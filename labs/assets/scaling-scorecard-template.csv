@@ -1,0 +1,9 @@
+control,mandatory,baseline,pilot_evidence,threshold,owner,status,action
+accepted_video_cycle_time,yes,<COMPLETE_ME>,<COMPLETE_ME>,no increase after three-video canary,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+estimated_cost_per_accepted_video,yes,<COMPLETE_ME>,<COMPLETE_ME>,within approved budget,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+rework_rate,yes,<COMPLETE_ME>,<COMPLETE_ME>,no more than 20 percent,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+unresolved_rights_items,yes,<COMPLETE_ME>,<COMPLETE_ME>,zero at release gate,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+blocking_review_findings,yes,<COMPLETE_ME>,<COMPLETE_ME>,zero before private package,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+duplicate_release_actions,yes,<COMPLETE_ME>,<COMPLETE_ME>,zero,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+rollback_readiness,yes,<COMPLETE_ME>,<COMPLETE_ME>,tested checkpoint restore,<COMPLETE_ME>,not_ready,<COMPLETE_ME>
+human_review_capacity,yes,<COMPLETE_ME>,<COMPLETE_ME>,covers every canary draft,<COMPLETE_ME>,not_ready,<COMPLETE_ME>

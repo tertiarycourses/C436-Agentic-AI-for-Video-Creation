@@ -1,0 +1,10 @@
+task,autonomy_level,input_evidence,allowed_action,human_gate,stop_or_escalate_rule
+validate_contract,deterministic,production contract,check schema and required values,no,block on missing fields
+cluster_research,model_assisted,source register,group evidence and propose original angles,review shortlist,escalate unsupported claims
+approve_claims,human_approved,script and sources,approve edit or reject,required,stop until named reviewer decides
+request_media,model_assisted,approved storyboard,create bounded media requests,approve cost and rights,stop at two attempts per scene
+probe_render,deterministic,draft video,report technical properties,no,block outside release specification
+approve_final_edit,human_approved,complete preview and issue register,approve private package only,required,stop on unresolved blocker
+prepare_release,deterministic,approved package,validate and create dry-run request,required before external action,block missing disclosure or rights
+publish_publicly,prohibited,release package,no action allowed in course,always,public publishing remains disabled
+expose_secret,prohibited,credential,no action allowed,always,store only in managed credentials

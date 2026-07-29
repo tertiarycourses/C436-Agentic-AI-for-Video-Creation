@@ -1,0 +1,11 @@
+{
+  "run_id": "HB-001",
+  "decision_version": "scale-v1",
+  "scale_decision": "HOLD",
+  "reason": "",
+  "canary_limit": 3,
+  "visibility": "private",
+  "human_review_rate": 1.0,
+  "next_owner": "",
+  "rollback_path": "restore the last accepted Lab checkpoint and disable downstream tools"
+}

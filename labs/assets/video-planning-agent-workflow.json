@@ -1,0 +1,65 @@
+{
+  "name": "C436-HB-001-Planning-Agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "plan-01",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [-760, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const contractText = String.raw`PASTE_THE_EXACT_LAB_1_PRODUCTION_CONTRACT_JSON_HERE`;\nif (contractText.startsWith('PASTE_')) throw new Error('Paste the exact Lab 1 production-contract.json into contractText.');\nconst contract=JSON.parse(contractText);\nlet fingerprint=0; for(const ch of contractText){fingerprint=(fingerprint*31+ch.charCodeAt(0))>>>0;}\nreturn [{json:{...contract,source_fingerprint:`fnv31-${fingerprint.toString(16)}`,iteration:0}}];"
+      },
+      "id": "plan-02",
+      "name": "Load Exact Production Contract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-520, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const c=$input.first().json; const blockers=[];\nif(c.run_id!=='HB-001') blockers.push('run_id_mismatch');\nif(c.contract_version!=='contract-v1') blockers.push('contract_version_mismatch');\nif(!c.source_fingerprint) blockers.push('missing_source_fingerprint');\nif(!Array.isArray(c.approved_facts)||c.approved_facts.length===0) blockers.push('missing_approved_facts');\nif(c.duration_seconds!==30) blockers.push('invalid_duration');\nif(c.aspect_ratio!=='9:16') blockers.push('invalid_aspect_ratio');\nif(c.publishing_mode!=='dry_run_private') blockers.push('unsafe_publishing_mode');\nif(typeof c.cost_budget_sgd!=='number'||c.cost_budget_sgd<=0) blockers.push('generation_budget_missing');\nreturn [{json:{...c,contract_valid:blockers.length===0,blockers}}];"
+      },
+      "id": "plan-03",
+      "name": "Validate Contract and Version",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-260, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const c=$input.first().json;\nif(!c.contract_valid){return [{json:{run_id:c.run_id||'UNKNOWN',contract_version:c.contract_version||'UNKNOWN',source_fingerprint:c.source_fingerprint||null,status:'blocked',current_stage:'planning',next_stage:'human_clarification',actions:[],blockers:c.blockers,iteration:(c.iteration||0)+1,publish_allowed:false}}];}\nreturn [{json:{run_id:c.run_id,contract_version:c.contract_version,source_fingerprint:c.source_fingerprint,status:'plan_ready',current_stage:'planning',next_stage:'research_and_script',actions:[{order:1,stage:'research',contract:'source_register_to_evidence_clusters',owner:'research_agent'},{order:2,stage:'script',contract:'approved_evidence_to_timed_storyboard',owner:'script_agent'},{order:3,stage:'human_gate',contract:'claims_and_storyboard_approval',owner:'campaign_owner'}],blockers:[],iteration:(c.iteration||0)+1,publish_allowed:false}}];"
+      },
+      "id": "plan-04",
+      "name": "Plan or Block",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const s=$input.first().json; return [{json:{...s,evidence:{workflow:'C436-HB-001-Planning-Agent',live_external_actions:0,recorded_at:new Date().toISOString()}}}];"
+      },
+      "id": "plan-05",
+      "name": "Emit Run State",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {"main": [[{"node": "Load Exact Production Contract", "type": "main", "index": 0}]]},
+    "Load Exact Production Contract": {"main": [[{"node": "Validate Contract and Version", "type": "main", "index": 0}]]},
+    "Validate Contract and Version": {"main": [[{"node": "Plan or Block", "type": "main", "index": 0}]]},
+    "Plan or Block": {"main": [[{"node": "Emit Run State", "type": "main", "index": 0}]]}
+  },
+  "pinData": {},
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "versionId": "43600001-0001-4000-8000-000000000001",
+  "meta": {"templateCredsSetupCompleted": true},
+  "tags": []
+}
