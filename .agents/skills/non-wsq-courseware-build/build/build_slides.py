@@ -216,7 +216,13 @@ def cards3(title,cards,kicker):
         x=xs[i]; col=c[0]
         rect(s,x,Inches(1.95),Inches(3.65),Inches(4.7),_panel()); rect(s,x,Inches(1.95),Inches(3.65),Inches(0.12),col)
         txt(s,x+Inches(0.25),Inches(2.2),Inches(3.2),Inches(0.6),[[(c[1],19,col,True)]])
-        bullets(s,x+Inches(0.25),Inches(2.95),Inches(3.2),Inches(3.4),c[2],size=14,color=_ink(),mcolor=col,gap=9)
+        # Auto-fit the body so a long WHAT/WHY paragraph can never grow the
+        # autosized text box past the card's fixed bottom edge (1.95+4.7=6.65")
+        # and overprint the footer. 3.2" wide at 14pt Arial fits ~34 chars per
+        # line; the 3.4" box holds ~18 lines at the 14pt line pitch.
+        body=" ".join(it[0] if isinstance(it,tuple) else str(it) for it in c[2])
+        bsize = 14 if len(body)<=470 else (13 if len(body)<=560 else 12)
+        bullets(s,x+Inches(0.25),Inches(2.95),Inches(3.2),Inches(3.4),c[2],size=bsize,color=_ink(),mcolor=col,gap=9)
     footer(s); return s
 def big_statement(line1,line2,kicker,color=BLUE):
     s=slide(); rect(s,0,0,SW,SH,_bg()); rect(s,0,0,Inches(0.28),SH,color)
