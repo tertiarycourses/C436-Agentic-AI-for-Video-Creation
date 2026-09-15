@@ -20,6 +20,15 @@
 > **Duration:** 2 days · 15 instructional hours<br>
 > **Course page:** https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html
 
+| Course detail | Information |
+|---|---|
+| Course code | `C436` |
+| Programme | Non-WSQ (commercial short course) |
+| Duration | 2 days · 15 instructional hours |
+| Assessment | None — this is a non-WSQ course |
+| Registration | [View course details and register](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) |
+| Funding | No funding is available for this course. A WSQ counterpart is offered separately. |
+
 ---
 
 ## Lab Activities
@@ -57,12 +66,36 @@ Each lab package ships copy-ready prompts in Markdown and PDF, synthetic inputs,
 
 This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. Learners configure the Hermes runtime, turn a creative brief into structured prompts, route specialist video tools, build a reusable branded video skill, coordinate research/production/review/upload roles, and prepare a governed publishing schedule — verifying each result before moving on.
 
+### Learning outcomes
+
+- **LO1** — Develop an editing strategy and work plan in Hermes Agent using MiniMax M3, structured video prompts and governed tool selection.
+- **LO2** — Create and customise an evidence-backed video with Hermes skills, Remotion, Manim, Higgsfield-compatible requests and deterministic media checks.
+- **LO3** — Orchestrate research, production, review and YouTube release agents through a durable Kanban board and controlled scheduled publishing.
+
+### Topics covered
+
+- Hermes Desktop runtime boundary, shared desktop/CLI state and diagnostics
+- MiniMax M3 provider contract, live trial/quota verification and credential isolation
+- FRAME-CUT video prompt engineering and strict shot-plan JSON
+- The agent loop with cost ceilings, attempt caps and stop rules
+- Tool-versus-skill decisions, Hermes skill anatomy and progressive loading
+- Remotion, Manim, Higgsfield and FFmpeg routing
+- Brand tokens, tone and style controls, and a reusable custom video skill
+- Technical quality gates, asset provenance and versioned repair evidence
+- Agent role contracts, delegation context and parallel work
+- Durable Kanban dependencies, approval hashes, private YouTube upload and idempotency
+- Hermes cron jobs and controlled scheduled release operations
+
 ### What you'll learn
 
 - Complete **8 connected hands-on activities** and carry their outputs through one coherent learning journey.
 - Practise with **Hermes Agent · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API** and the supporting resources supplied in the repository.
 - Begin with **Set Up Hermes Desktop and Connect MiniMax M3** and finish with **Schedule Controlled Video Publishing with Hermes Cron**.
 - Apply safe data handling, deterministic evidence checks and named human review before any release action.
+
+### Public package boundary
+
+This repository is learner-facing. It contains the presentation deck, Learner Guide, Lesson Plan, Learner Guide Markdown, lab instructions, prompt PDFs, synthetic data, example skills, scripts and safe sample outputs. Credentials, private configuration and QA renders are excluded. This is a non-WSQ course and therefore has **no assessment, answer keys or marking guides** of any kind.
 
 > 📖 **Full walkthrough:** see the [Learner Guide](<LG-Agentic AI for Video Creation.md>) for the complete course narrative, and [labs/README.md](labs/README.md) for the lab index. Slides, the Learner Guide and the Lesson Plan are in [courseware/](courseware/).
 
