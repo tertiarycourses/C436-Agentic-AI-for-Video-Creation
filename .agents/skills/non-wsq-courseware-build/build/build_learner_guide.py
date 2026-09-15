@@ -46,11 +46,15 @@ def _readme_steps(num):
     cands=_glob.glob(os.path.join(REPO,"labs",f"lab-{num:02d}-*.md"))
     if not cands:
         cands=_glob.glob(os.path.join(REPO,"labs",f"lab{num:02d}-*","README.md"))
+    if not cands:
+        # Lab packages copied from the WSQ counterpart use "lab-NN-<slug>/README.md"
+        # and title their body section "Detailed procedure" rather than "Steps".
+        cands=_glob.glob(os.path.join(REPO,"labs",f"lab-{num:02d}-*","README.md"))
     if not cands: return None
     txt=open(cands[0],encoding="utf-8").read()
     # Terminate the Steps body only at a 2-hash section heading ("## Verification"),
     # NOT at 3-hash "### N." step headers used by some labs.
-    m=_re.search(r'\n##\s*Steps\s*\n(.*?)(?=\n##\s|\Z)', txt, _re.S)
+    m=_re.search(r'\n##\s*(?:Steps|Detailed procedure)\s*\n(.*?)(?=\n##\s|\Z)', txt, _re.S)
     if not m: return None
     body=m.group(1).strip()
     # Handle both step formats: "N. **Title.** prose" list items AND "### N. Title" headers.

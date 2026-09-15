@@ -1,215 +1,281 @@
-"""Topic 1 labs: agent foundations and end-to-end workflow design."""
+"""Topic 1 labs: Hermes runtime, MiniMax M3 and video prompt engineering.
+
+Lab bodies live in labs/lab-NN-<slug>/ (README.md, AI-PROMPTS.md, data/,
+starter/, solution/, evidence/, verify.py). These entries are the single source
+for the deck, Lesson Plan and Learner Guide and must stay aligned with them.
+"""
 
 DOMAIN1 = [
     dict(
         num=1,
         topic=1,
-        title="Design the Video Agent Production Contract and Autonomy Matrix",
-        objective="LO1: explain agentic AI and design a controlled video workflow with explicit human decision points",
-        duration=45,
-        goal="Create the authoritative contract that every later C436 lab will consume.",
+        title="Set Up Hermes Desktop and Connect MiniMax M3",
+        objective="LO1: configure the Hermes runtime and prove a tool-capable MiniMax M3 handshake without exposing a credential",
+        duration=50,
+        goal="Establish the verified runtime boundary that every later C436 lab depends on.",
         desc=(
-            "You will turn the synthetic Harbour Bean campaign brief into a "
-            "structured production contract, classify each task by autonomy level, "
-            "and mark the evidence, approval, retry, and stop rules for the workflow."
+            "You will install Hermes Desktop from the official source, configure the "
+            "MiniMax provider for MiniMax-M3, run the diagnostic command, compare the "
+            "desktop and CLI state, and record the live trial terms you actually see. "
+            "Every piece of published evidence carries placeholders instead of secrets."
         ),
         build=(
-            "A completed production-contract.json and autonomy-matrix.csv for run "
-            "HB-001, saved in the connected project checkpoint."
+            "A setup-evidence.json recording the official source, version and "
+            "diagnostic status, plus a redacted diagnostic screenshot."
         ),
-        services="Text editor, supplied synthetic brief, JSON validator",
+        services="Hermes Desktop, Hermes CLI, MiniMax M3, credential storage",
         prerequisites=[
-            "Download or clone the C436 repository and open labs/assets.",
-            "Confirm that harbour-bean-brand-brief.md and production-contract-template.json are present.",
-            "Know the local path to the C436 repository; do not use real customer or account data.",
+            "A laptop with administrator rights to install desktop software.",
+            "A MiniMax account able to create an API key.",
+            "Open labs/lab-01-setup-hermes-and-connect-minimax-m3/ as the current Hermes project.",
         ],
         workflow=[
-            "Inspect the synthetic brief",
-            "Define the production contract",
-            "Classify task autonomy",
-            "Validate the files",
-            "Save Lab checkpoint 01 in stage folder 01-design",
+            "Download the official installer",
+            "Complete Hermes setup",
+            "Configure MiniMax-M3",
+            "Run hermes doctor",
+            "Verify the model response",
+            "Redact the evidence",
         ],
         steps=[
             (
-                "Set the repository root and fail fast if the course assets are absent",
-                "Set-Location '<PATH_TO_C436_REPOSITORY>'\nif (-not (Test-Path -LiteralPath labs/assets/harbour-bean-brand-brief.md -PathType Leaf)) { throw 'Run this lab from the C436 repository root.' }",
+                "Download the installer from the official Hermes desktop page and confirm the platform build",
+                "",
             ),
             (
-                "Create the connected project folders",
-                "New-Item -ItemType Directory -Force -Path C436-work/HB-001/01-design,C436-work/HB-001/02-create,C436-work/HB-001/03-edit,C436-work/HB-001/04-release,C436-work/HB-001/05-learn | Out-Null",
+                "Complete setup, then run the diagnostic and read every reported dependency",
+                "hermes doctor",
             ),
             (
-                "Read the synthetic brief and identify only approved facts",
-                "Get-Content -LiteralPath labs/assets/harbour-bean-brand-brief.md",
+                "Create the MiniMax API key and store it in credential storage, referenced by name",
+                "",
             ),
             (
-                "Copy the contract and autonomy templates into stage folder 01-design",
-                "Copy-Item -LiteralPath labs/assets/production-contract-template.json -Destination C436-work/HB-001/01-design/production-contract.json\nCopy-Item -LiteralPath labs/assets/autonomy-matrix-template.csv -Destination C436-work/HB-001/01-design/autonomy-matrix.csv",
+                "Configure provider minimax with model MiniMax-M3, then verify the returned model identifier",
+                "",
             ),
             (
-                "Open production-contract.json and replace every text placeholder using only the supplied brief",
-                "notepad C436-work/HB-001/01-design/production-contract.json",
+                "Compare the desktop profile and the CLI session for provider, model and skill root",
+                "",
             ),
             (
-                "Set the required contract controls",
-                "Set run_id to HB-001; retain contract_version contract-v1; duration_seconds 30; aspect_ratio 9:16; publishing_mode dry_run_private; max_generation_attempts_per_scene 2; cost_budget_sgd 25.0; finish_condition to release package approved or routed to named owner. Keep numbers unquoted.",
+                "Open the live trial offer, record the observed terms with today's date, and nominate a fallback model",
+                "",
             ),
             (
-                "Complete the autonomy matrix for all listed tasks",
-                "Use deterministic for schema validation, file naming, media probing, arithmetic, and packaging; model_assisted for research clustering, script alternatives, and review suggestions; human_approved for claims, rights, final edit, and release; prohibited for secret exposure, unreviewed public posting, and unapproved likeness use.",
-            ),
-            (
-                "Run the fail-closed Lab 1 validator and retain the evidence",
-                "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 1 2>&1 | Tee-Object C436-work/HB-001/01-design/lab-01-test-output.txt",
-            ),
-            (
-                "Check that no template placeholder remains",
-                "Select-String -Path C436-work/HB-001/01-design/production-contract.json,C436-work/HB-001/01-design/autonomy-matrix.csv -Pattern '<COMPLETE_ME>'",
-            ),
-            (
-                "Write the Lab checkpoint 01 marker",
-                "Set-Content -LiteralPath C436-work/HB-001/01-design/LAB-CHECKPOINT-01.txt -Value 'Lab 1 passed; stage folder 01-design is ready.'",
+                "Run the lab verifier and retain the PASS output with redacted evidence",
+                "python3 verify.py",
             ),
         ],
         test=(
-            "The validator must print LAB-01 PASS. It enforces JSON types, positive "
-            "budget, all nine autonomy rows, prohibition of public publishing, "
-            "and prohibition of secret exposure. The placeholder search must return "
-            "no matches."
+            "verify.py must print PASS Lab 01. Hermes launches, the configured "
+            "provider is minimax, the model is MiniMax-M3, hermes doctor reports no "
+            "blocking failure, and the published evidence contains placeholders only."
         ),
         checkpoint=(
-            "Lab checkpoint 01 is stored in stage folder C436-work/HB-001/01-design. If you fall behind, copy "
-            "labs/assets/production-contract-approved.json and "
-            "labs/assets/autonomy-matrix-approved.csv into this folder, then rerun "
-            "the tests before continuing."
+            "The verified runtime boundary is recorded in setup-evidence.json. Every "
+            "later lab assumes this provider, model and skill root."
         ),
         troubleshooting=[
             (
-                "ConvertFrom-Json reports an invalid object.",
-                "Open the file, check the line named in the error, remove trailing commas, and ensure every key and text value is in double quotes.",
+                "Hermes reports a different model than the one configured.",
+                "Start a new session after selecting MiniMax-M3; an existing session can retain its original model.",
             ),
             (
-                "The brief does not contain a value requested by the template.",
-                "Write null or add it to open_questions; do not invent a fact.",
+                "hermes doctor reports a failed dependency.",
+                "Repair the dependency before continuing; a failed diagnostic is a reason to stop, not a warning to pass.",
             ),
             (
-                "A task seems both model-assisted and human-approved.",
-                "Classify the model's draft as model_assisted and the consequential decision or action as human_approved.",
+                "The live trial terms differ from the course note.",
+                "Record the current live account terms with the date and use the fallback path; the offer is time-sensitive.",
             ),
         ],
         challenge=(
-            "Add a budget warning threshold at 80% of the required cost_budget_sgd "
-            "and prove the rule returns a named owner rather than another generation attempt."
+            "Write the runtime boundary as a single JSON object and prove the desktop "
+            "and CLI both report the same values for every field in it."
         ),
         reflection=(
-            "Which video-production decision was most tempting to automate fully, "
-            "and what evidence convinced you to keep a human approval point?"
+            "Which runtime fact, if it silently changed between sessions, would be "
+            "hardest to diagnose from the model's behaviour alone?"
         ),
     ),
     dict(
         num=2,
         topic=1,
-        title="Build and Run the Bounded Video Planning Agent in n8n",
-        objective="LO1: use structured prompts and tool boundaries to implement a resumable planning workflow",
+        title="Prompt Hermes to Create a Simple Video",
+        objective="LO1: convert a bounded brief into a validated shot plan and a deterministically rendered preview",
         duration=50,
-        goal="Import, inspect, and run a planning workflow that stops on missing evidence and emits a valid production plan.",
+        goal="Produce a first end-to-end video whose plan and output are both machine-checked.",
         desc=(
-            "You will import a supplied n8n workflow, trace its trigger, validation, "
-            "planning, guardrail, and output stages, then run one ready case and one "
-            "blocked case. The agent uses deterministic mock planning so everyone "
-            "can verify the control pattern without a paid API."
+            "You will use a copy-ready Hermes prompt to turn a supplied 15-second "
+            "brief into a strict-JSON shot plan, validate that the plan totals the "
+            "target duration with no gaps or overlaps, run the deterministic preview "
+            "renderer and probe the resulting MP4."
         ),
-        build=(
-            "An n8n workflow named C436-HB-001-Planning-Agent plus exported ready "
-            "and blocked execution evidence."
-        ),
-        services="n8n, supplied workflow JSON, production contract",
+        build="A simple-video.mp4 with its shot-plan.json and ffprobe.json evidence.",
+        services="Hermes Desktop, MiniMax M3, Python preview renderer, FFprobe",
         prerequisites=[
-            "Complete Lab 1 or restore Lab checkpoint 01 in stage folder 01-design.",
-            "Access an n8n Cloud workspace or trainer-provided n8n instance.",
-            "Keep live credentials disconnected; this lab uses deterministic Code nodes.",
+            "Complete Lab 1 so the provider and model are verified.",
+            "Open labs/lab-02-prompt-hermes-to-create-a-simple-video/ as the current Hermes project.",
+            "Confirm data/video-brief.json and starter/render_preview.py are present.",
         ],
         workflow=[
-            "Import the workflow",
-            "Inspect contracts and gates",
-            "Run the ready job",
-            "Force a blocked job",
-            "Export evidence",
+            "Open the project folder",
+            "Submit the bounded prompt",
+            "Validate the shot plan",
+            "Run the preview renderer",
+            "Probe the MP4",
+            "Record the evidence",
         ],
         steps=[
             (
-                "Open n8n and import the supplied workflow",
-                "In n8n, select Workflows > Create Workflow. Open the top-right three-dot menu, select Import from File, and choose labs/assets/video-planning-agent-workflow.json.",
+                "Open the lab folder as the current project and ask Hermes to inspect the local files before planning",
+                "",
             ),
             (
-                "Rename and save the imported workflow",
-                "Set the workflow name to C436-HB-001-Planning-Agent and select Save. Keep the workflow inactive.",
+                "Read AI-PROMPTS.md and replace only the named placeholders with the supplied synthetic values",
+                "",
             ),
             (
-                "Inspect the five-node control path",
-                "Confirm the main path is Manual Trigger > Load Exact Production Contract > Validate Contract and Version > Plan or Block > Emit Run State. Confirm a blocked result calls no external tool.",
+                "Submit the bounded prompt and require strict JSON for the shot plan",
+                "",
             ),
             (
-                "Paste the exact Lab 1 artifact into the input node",
-                "Open Load Exact Production Contract. Copy the entire contents of C436-work/HB-001/01-design/production-contract.json between the contractText backticks. Do not retype or use the supplied approved fixture. Run once and verify contract_version=contract-v1 plus a non-empty source_fingerprint.",
+                "Validate that the plan is valid JSON, totals 15 seconds, and uses only supplied assets",
+                "",
             ),
             (
-                "Execute the complete ready workflow",
-                "Select Test Workflow. After execution, select Emit Run State and open the JSON output.",
+                "Run the deterministic preview renderer, requiring a preview before any paid or network side effect",
+                "python3 starter/render_preview.py",
             ),
             (
-                "Verify the ready-state schema",
-                "The output must contain run_id=HB-001, status=plan_ready, current_stage=planning, next_stage=research_and_script, a non-empty actions array, iteration=1, and publish_allowed=false.",
+                "Probe the rendered MP4 and compare dimensions, codec and duration against the contract",
+                "ffprobe -v error -show_streams -show_format simple-video.mp4",
             ),
             (
-                "Create a controlled missing-evidence case",
-                "Copy the complete Emit Run State output to C436-work/HB-001/01-design/ready-run.json. Then open Load Exact Production Contract, set approved_facts to an empty array inside the pasted JSON, save, and select Test Workflow again.",
-            ),
-            (
-                "Verify the workflow stops safely",
-                "Open Emit Run State. Confirm status=blocked, next_stage=human_clarification, publish_allowed=false, and blockers includes missing_approved_facts. Save the complete output as C436-work/HB-001/01-design/blocked-run.json.",
-            ),
-            (
-                "Restore the ready case and export the workflow",
-                "Restore the exact approved_facts array from the Lab 1 file, rerun from Manual Trigger, and save the complete output as C436-work/HB-001/01-design/ready-restored-run.json. Download the workflow as planning-agent-reviewed.json.",
-            ),
-            (
-                "Save a short execution evidence note",
-                "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 2 2>&1 | Tee-Object C436-work/HB-001/01-design/lab-02-test-output.txt\nSet-Content C436-work/HB-001/01-design/LAB-CHECKPOINT-02.txt 'Lab 2 passed; planning evidence retained in stage folder 01-design.'",
+                "Run the lab verifier and retain the PASS output",
+                "python3 verify.py",
             ),
         ],
         test=(
-            "The Lab 2 validator must print LAB-02 PASS after reading ready-run.json, "
-            "blocked-run.json, and ready-restored-run.json. Both ready results must "
-            "remain non-publishing; the controlled missing-evidence result must fail closed."
+            "verify.py must print PASS Lab 02. The shot plan is valid JSON, totals 15 "
+            "seconds, uses only supplied assets, and the generated MP4 passes the "
+            "dimensions, codec and duration checks."
         ),
         checkpoint=(
-            "Lab checkpoint 02 adds three execution JSON files, test evidence, and "
-            "planning-agent-reviewed.json to stage folder C436-work/HB-001/01-design. The template remains "
-            "available at labs/assets/video-planning-agent-workflow.json."
+            "shot-plan.json and ffprobe.json establish the plan-then-probe pattern "
+            "reused by every later production lab."
         ),
         troubleshooting=[
             (
-                "n8n rejects the imported JSON.",
-                "Confirm that you selected the workflow file rather than a course data file, then ask the trainer for the current n8n import fallback.",
+                "The shot durations do not total the target.",
+                "Fix the plan before rendering; a duration mismatch is a schema failure, not a rendering problem.",
             ),
             (
-                "The path after Validate Contract does not reach Emit Run State.",
-                "Open the validation output and confirm required fields use the exact supplied names and approved_facts is an array.",
+                "The renderer cannot find an asset.",
+                "Check that the plan references only the supplied assets by their exact names.",
             ),
             (
-                "The blocked run still shows plan_ready.",
-                "Execute from Manual Trigger after saving the edited contract node; running only the final node may reuse pinned data.",
+                "A tool is missing.",
+                "Use the documented deterministic fallback and record the limitation instead of inventing a successful call.",
             ),
         ],
         challenge=(
-            "Add a deterministic budget check that returns blocker "
-            "generation_budget_missing when cost_budget_sgd is absent."
+            "Introduce a deliberate one-second overlap between two shots and prove the "
+            "validator rejects the plan before any render is attempted."
         ),
         reflection=(
-            "Why is the blocked result a successful agent behavior rather than a "
-            "workflow failure?"
+            "Why is it cheaper to fail on the shot plan than on the rendered output, "
+            "and what does that imply about where checks belong?"
+        ),
+    ),
+    dict(
+        num=3,
+        topic=1,
+        title="Engineer Video Prompts with FRAME-CUT",
+        objective="LO1: apply the FRAME-CUT contract to make creative intent portable, comparable and checkable",
+        duration=60,
+        goal="Turn a vague creative request into field-complete, scorable shot prompts.",
+        desc=(
+            "You will diagnose a deliberately vague prompt, complete every FRAME field "
+            "and every CUT field, generate strict shot JSON, score the result against a "
+            "deterministic rubric and repair the single highest-severity defect."
+        ),
+        build="A prompt-pack.json with its prompt-score.csv rubric evidence.",
+        services="Hermes Desktop, MiniMax M3, FRAME-CUT template, scoring rubric",
+        prerequisites=[
+            "Complete Lab 2 so the plan-and-probe pattern is familiar.",
+            "Open labs/lab-03-engineer-video-prompts-with-frame-cut/ as the current Hermes project.",
+            "Review starter/frame-cut-template.md and data/prompt-cases.csv.",
+        ],
+        workflow=[
+            "Diagnose the vague prompt",
+            "Complete the FRAME fields",
+            "Complete the CUT fields",
+            "Generate the shot JSON",
+            "Score against the rubric",
+            "Repair one defect",
+        ],
+        steps=[
+            (
+                "Read the supplied vague prompt and name each decision it leaves to the model",
+                "",
+            ),
+            (
+                "Complete the FRAME fields: format and finish, role and references, action, motion and environment",
+                "",
+            ),
+            (
+                "Complete the CUT fields: continuity tokens, unwanted elements and the technical output schema",
+                "",
+            ),
+            (
+                "Require one dominant subject action and one camera move per timed shot",
+                "",
+            ),
+            (
+                "Generate the shot JSON and confirm every FRAME-CUT field is present",
+                "",
+            ),
+            (
+                "Score the pack against the rubric and identify the highest-severity defect",
+                "",
+            ),
+            (
+                "Repair that one defect, rescore, then run the verifier and retain the PASS output",
+                "python3 verify.py",
+            ),
+        ],
+        test=(
+            "verify.py must print PASS Lab 03. Every shot carries all FRAME-CUT "
+            "fields, one dominant action, one camera move, explicit continuity and "
+            "negative constraints, and a measurable output check."
+        ),
+        checkpoint=(
+            "prompt-pack.json is the reusable prompt contract that the tool-routing "
+            "and brand-skill labs consume."
+        ),
+        troubleshooting=[
+            (
+                "A shot contains two competing camera moves.",
+                "Split it into two timed shots; one action-motion pair per shot keeps the result comparable.",
+            ),
+            (
+                "Identity or palette drifts between shots.",
+                "Reuse the continuity token and compare keyframes against the explicit invariant list.",
+            ),
+            (
+                "The rubric score is high but the output still looks wrong.",
+                "Check that the rubric measures the defect you observed; add the missing check rather than overriding the score.",
+            ),
+        ],
+        challenge=(
+            "Hand your prompt pack to another learner and have them generate from it "
+            "without discussion; every difference reveals a field still left implicit."
+        ),
+        reflection=(
+            "Which FRAME-CUT field did you most want to leave blank, and what would "
+            "the model have invented in its place?"
         ),
     ),
 ]

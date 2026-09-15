@@ -54,7 +54,15 @@ python3 "$HERE/build_slides.py"
 python3 "$HERE/build_lesson_plan.py"
 # Labs must exist before the LG: its parser deliberately imports the detailed
 # lab Markdown so both artifacts carry identical current step text.
-python3 "$HERE/build_labs.py"
+# C436 carries hand-maintained lab PACKAGES (labs/lab-NN-<slug>/ with README.md,
+# AI-PROMPTS, data/, starter/, solution/, evidence/ and verify.py) ported from the
+# WSQ counterpart. build_labs.py would emit flat lab-NN-*.md files beside them and
+# overwrite labs/README.md, so it is skipped unless LABS_GENERATE=1 is set.
+if [ "${LABS_GENERATE:-0}" = "1" ]; then
+  python3 "$HERE/build_labs.py"
+else
+  echo "    (skipping build_labs.py — labs/ holds hand-maintained lab packages)"
+fi
 python3 "$HERE/build_learner_guide.py"
 
 PPT="$(ls -t "$CW"/*.pptx | head -1)"

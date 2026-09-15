@@ -1,8 +1,0 @@
-run_id,asset_id,beat_id,type,prompt_version,tool,source_path,provenance,rights_status,status
-HB-001,S01,B-01,video,visual-v1,placeholder_or_approved_tool,media/scene-01-placeholder.txt,course-supplied synthetic placeholder,approved_for_course_use,accepted
-HB-001,S02,B-02,video,visual-v1,placeholder_or_approved_tool,media/scene-02-placeholder.txt,course-supplied synthetic placeholder,approved_for_course_use,accepted
-HB-001,S03,B-03,video,visual-v1,placeholder_or_approved_tool,media/scene-03-placeholder.txt,course-supplied synthetic placeholder,approved_for_course_use,accepted
-HB-001,S04,B-04,video,visual-v1,placeholder_or_approved_tool,media/scene-04-placeholder.txt,course-supplied synthetic placeholder,approved_for_course_use,accepted
-HB-001,S05,B-05,video,visual-v1,placeholder_or_approved_tool,media/scene-05-placeholder.txt,course-supplied synthetic placeholder,approved_for_course_use,accepted
-HB-001,A01,ALL,narration,script-v1,placeholder_or_approved_tool,narration.txt,approved script text,approved_for_course_use,accepted
-HB-001,A02,ALL,music,music-v1,licensed_or_platform_library,music-brief.md,learner-completed rights brief,approved_for_course_use,accepted

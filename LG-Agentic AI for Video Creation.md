@@ -1,40 +1,35 @@
 # Agentic AI for Video Creation — Learner Guide
 
-**Course Code:** C436  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v1.0 · 29 July 2026**
+**Course Code:** C436  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v2.0 · 16 September 2026**
 
 ## Contents
 
 - [Introduction](#introduction)
 - [Course Learning Outcomes](#course-learning-outcomes)
 - [Before You Start — Preparation](#before-you-start--preparation)
-- [Topic 01 — Getting Started with Agentic AI for Video](#topic-01--getting-started-with-agentic-ai-for-video)
-  - [Introduction to Agentic AI for Video Creation](#introduction-to-agentic-ai-for-video-creation)
-  - [Popular AI Video, Voice, and Agent Tools](#popular-ai-video-voice-and-agent-tools)
-  - [Writing Effective Prompts for Video](#writing-effective-prompts-for-video)
-  - [Designing an End-to-End Video Agent Workflow](#designing-an-end-to-end-video-agent-workflow)
-  - [Lab 1 — Design the Video Agent Production Contract and Autonomy Matrix](#lab-1--design-the-video-agent-production-contract-and-autonomy-matrix)
-  - [Lab 2 — Build and Run the Bounded Video Planning Agent in n8n](#lab-2--build-and-run-the-bounded-video-planning-agent-in-n8n)
-- [Topic 02 — Scripting and Generating Content with AI](#topic-02--scripting-and-generating-content-with-ai)
-  - [Researching Trends and Ideas](#researching-trends-and-ideas)
-  - [Generating Scripts and Storyboards](#generating-scripts-and-storyboards)
-  - [Creating Visuals and B-Roll with AI](#creating-visuals-and-b-roll-with-ai)
-  - [Generating Voiceovers and Music](#generating-voiceovers-and-music)
-  - [Lab 3 — Run the Research-to-Script Agent and Approve a Timed Storyboard](#lab-3--run-the-research-to-script-agent-and-approve-a-timed-storyboard)
-  - [Lab 4 — Build the Visual, Voiceover, and Music Asset Request Pack](#lab-4--build-the-visual-voiceover-and-music-asset-request-pack)
-- [Topic 03 — Editing and Assembling Videos with AI](#topic-03--editing-and-assembling-videos-with-ai)
-  - [Automating Video Editing](#automating-video-editing)
-  - [Adding Captions, Effects, and Branding](#adding-captions-effects-and-branding)
-  - [Assembling Short-Form Videos](#assembling-short-form-videos)
-  - [Reviewing and Refining with AI](#reviewing-and-refining-with-ai)
-  - [Lab 5 — Assemble and Probe the Captioned Vertical Video](#lab-5--assemble-and-probe-the-captioned-vertical-video)
-  - [Lab 6 — Run the Independent Video Review Gate and Repair One Finding](#lab-6--run-the-independent-video-review-gate-and-repair-one-finding)
-- [Topic 04 — Automating and Scaling Video Production](#topic-04--automating-and-scaling-video-production)
-  - [Building Multi-Step Video Agents](#building-multi-step-video-agents)
-  - [Publishing and Scheduling Across Platforms](#publishing-and-scheduling-across-platforms)
-  - [Analysing Performance](#analysing-performance)
-  - [Scaling Your Video Content Pipeline](#scaling-your-video-content-pipeline)
-  - [Lab 7 — Orchestrate the Private Release Package with Human Approval](#lab-7--orchestrate-the-private-release-package-with-human-approval)
-  - [Lab 8 — Analyse Synthetic Performance and Build the Scaling Control Plan](#lab-8--analyse-synthetic-performance-and-build-the-scaling-control-plan)
+- [Topic 01 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering](#topic-01--hermes-agent-setup-minimax-m3-and-video-prompt-engineering)
+  - [Hermes Desktop Runtime and Shared CLI State](#hermes-desktop-runtime-and-shared-cli-state)
+  - [MiniMax M3 Provider, Trial Terms and Credential Isolation](#minimax-m3-provider-trial-terms-and-credential-isolation)
+  - [The FRAME-CUT Video Prompt Contract](#the-frame-cut-video-prompt-contract)
+  - [The Simple Video Agent Loop with Cost and Stop Rules](#the-simple-video-agent-loop-with-cost-and-stop-rules)
+  - [Lab 1 — Set Up Hermes Desktop and Connect MiniMax M3](#lab-1--set-up-hermes-desktop-and-connect-minimax-m3)
+  - [Lab 2 — Prompt Hermes to Create a Simple Video](#lab-2--prompt-hermes-to-create-a-simple-video)
+  - [Lab 3 — Engineer Video Prompts with FRAME-CUT](#lab-3--engineer-video-prompts-with-frame-cut)
+- [Topic 02 — Video Tools, Hermes Skills and Custom Brand Production](#topic-02--video-tools-hermes-skills-and-custom-brand-production)
+  - [Choosing Between a Tool and a Hermes Skill](#choosing-between-a-tool-and-a-hermes-skill)
+  - [Routing Remotion, Manim, Higgsfield and FFmpeg](#routing-remotion-manim-higgsfield-and-ffmpeg)
+  - [Brand Tokens, Tone and the Custom Video Skill](#brand-tokens-tone-and-the-custom-video-skill)
+  - [The Technical Quality Gate, Provenance and Repair](#the-technical-quality-gate-provenance-and-repair)
+  - [Lab 4 — Install Video Tools and Hermes Skills](#lab-4--install-video-tools-and-hermes-skills)
+  - [Lab 5 — Create a Custom Branded Video Skill](#lab-5--create-a-custom-branded-video-skill)
+- [Topic 03 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing](#topic-03--multi-agent-kanban-youtube-release-and-scheduled-publishing)
+  - [Agent Role Contracts and the Four Specialist Roles](#agent-role-contracts-and-the-four-specialist-roles)
+  - [Delegation Context, Parallel Work and the Durable Kanban](#delegation-context-parallel-work-and-the-durable-kanban)
+  - [Human Approval, the YouTube Contract and Publishing Idempotency](#human-approval-the-youtube-contract-and-publishing-idempotency)
+  - [Hermes Cron and Controlled Scheduled Release Operations](#hermes-cron-and-controlled-scheduled-release-operations)
+  - [Lab 6 — Build the Multi-Agent Video Workflow](#lab-6--build-the-multi-agent-video-workflow)
+  - [Lab 7 — Orchestrate Kanban Review and YouTube Upload](#lab-7--orchestrate-kanban-review-and-youtube-upload)
+  - [Lab 8 — Schedule Controlled Video Publishing with Hermes Cron](#lab-8--schedule-controlled-video-publishing-with-hermes-cron)
 - [Integrated Workflow Wrap-Up](#integrated-workflow-wrap-up)
 - [Next Steps](#next-steps)
 - [Glossary](#glossary)
@@ -42,1668 +37,1010 @@
 
 ## Introduction
 
-This Learner Guide accompanies Agentic AI for Video Creation (C436). It is a self-contained study text and practical reference for designing, generating, assembling, reviewing, and scaling a controlled short-form video workflow.
+This Learner Guide accompanies Agentic AI for Video Creation (C436). It is a self-contained study text and practical reference for building an evidence-led video production system in Hermes Agent, from runtime setup and prompt engineering to custom video skills, multi-agent review, and controlled release.
 
-The four topics and eight connected labs follow one synthetic Harbour Bean campaign. Work in order and retain each checkpoint: later labs consume the production contracts, manifests, decisions, and evidence created earlier.
+The three topics and eight connected labs follow one Hermes-native journey. Work in order and retain each lab's evidence: later labs consume the runtime configuration, prompt contracts, skills, and approved masters created earlier.
 
 
 ## Course Learning Outcomes
 
-- LO1: Explain agentic AI, select suitable video-production tools, write bounded prompts, and design a controlled end-to-end workflow.
-- LO2: Build AI-assisted research, scripting, storyboard, visual, voiceover, and music hand-offs from an approved creative brief.
-- LO3: Assemble and refine a short-form video through automated editing, captioning, branding, and evidence-based quality checks.
-- LO4: Orchestrate multi-step video agents with human approval, prepare safe publishing actions, analyse performance, and plan responsible scale.
+- LO1: Develop an editing strategy and work plan in Hermes Agent using MiniMax M3, structured video prompts and governed tool selection.
+- LO2: Create and customise an evidence-backed video with Hermes skills, Remotion, Manim, Higgsfield-compatible requests and deterministic media checks.
+- LO3: Orchestrate research, production, review and YouTube release agents through a durable Kanban board and controlled scheduled publishing.
 
 
 ## Before You Start — Preparation
 
 **What you need**
 
-- A Windows or macOS laptop with a modern browser and permission to create local folders.
-- Access to an approved AI assistant such as ChatGPT or Claude; do not paste confidential data into an unapproved service.
-- An n8n Cloud workspace or trainer-provided n8n instance for importing the supplied workflow templates.
+- A Windows or macOS laptop with a modern browser, administrator rights to install desktop software, and permission to create local folders.
+- Hermes Desktop installed from the official page at https://hermes-agent.nousresearch.com/desktop.
+- A MiniMax account and API key for the MiniMax-M3 model; trial, quota, and region terms are time-sensitive and must be confirmed live at sign-up.
+- Python 3 on PATH for the supplied verify.py scripts and preview renderers.
 - FFmpeg and FFprobe on PATH. On Windows, install with 'winget install --id Gyan.FFmpeg -e'; on macOS, use 'brew install ffmpeg'. Reopen the terminal and verify both commands.
-- Optional approved accounts for a video generator and voice service; supplied placeholder assets keep every lab completable without paid generation.
-- The repository's labs/assets folder, which contains the synthetic brief, templates, sample analytics, manifests, and workflow JSON.
+- A Google account with a YouTube channel for the release labs; uploads stay private and public visibility is never required to complete a lab.
+- The repository's labs folder, which contains eight lab packages with copy-ready prompts, synthetic data, starter files, evidence checklists, and verifiers.
 
 **Verify your setup**
 
-Confirm that the course files are readable, n8n opens, and the media tools return a version. Never place real secret values in a prompt, lab file, screenshot, or public repository.
+Confirm that Hermes launches, the configured provider is minimax, the model is MiniMax-M3, and the media tools return a version. Never place a real secret value in a prompt, lab file, screenshot, or public repository.
 
 ```bash
+hermes doctor
 ffmpeg -version
 ffprobe -version
-# In n8n, open Workflows > Create Workflow and confirm Import from File is available.
+python3 --version
 ```
 
 **Conventions used in every lab**
 
-- Replace placeholders such as <RUN_ID> or <API_KEY> only in an approved credential store or local environment.
-- Use the supplied synthetic Harbour Bean data. Do not add real customer, employee, creator, or account data.
-- Keep public publishing disabled. The labs produce private or dry-run release packages for review.
-- Save accepted artifacts under the named checkpoint path before starting the next lab.
-- If an optional generation service is unavailable, use the supplied placeholder media and continue the full control workflow.
-- For platform request design, use the current official YouTube Data API documentation at https://developers.google.com/youtube/v3/docs/videos and TikTok Content Posting API documentation at https://developers.tiktok.com/doc/content-posting-api-get-started; the labs keep every request non-executing.
+- Replace placeholders such as <RUN_ID> or <API_KEY> only in Hermes credential or configuration storage, never in a prompt or lab file.
+- Use the supplied synthetic lab data. Do not add real customer, employee, creator, or account data.
+- Keep YouTube visibility private. Public release requires an explicit trainer-supervised decision.
+- Require a preview before any network call, paid generation, upload, or scheduling side effect.
+- Run the lab's verify.py and retain the PASS output before starting the next lab.
+- If a tool is unavailable, use the documented deterministic fallback and record the limitation rather than inventing a successful call.
+- Confirm live trial, quota, and pricing terms in your own account at sign-up; treat any figure in this guide as an example, not a current offer.
 
 
-## Topic 01 — Getting Started with Agentic AI for Video
+## Topic 01 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
 
-Course coverage: Day 1 morning | 2 labs.
+Course coverage: Day 1 morning and early afternoon | 3 labs.
 
-Agentic AI foundations | Video, voice, and agent tools | Effective prompts | End-to-end workflow design
+Hermes Desktop runtime | MiniMax M3 provider contract | FRAME-CUT prompting | Structured shot plans
 
 **Key concepts**
 
-- Agent loop — A bounded cycle of observe, plan, act with tools, inspect evidence, and stop or escalate.
-- Production contract — A structured brief that fixes the audience, goal, source facts, constraints, deliverables, and approval gates.
-- Tool boundary — A named capability with explicit inputs, outputs, permissions, cost limits, and failure behavior.
-- Human control — People approve high-impact creative, rights, privacy, brand, and publishing decisions.
+- Runtime boundary — The installed Hermes surface, its profile, configuration path and skill root that every run depends on.
+- Provider contract — The named provider, base URL, model identifier and credential reference used for reasoning.
+- FRAME-CUT — A prompt contract covering Format, Role, Action, Motion, Environment plus Continuity, Unwanted and Technical output.
+- Shot plan — Strict JSON of timed shots whose durations total the approved target with no gaps or overlaps.
 
 
-### Introduction to Agentic AI for Video Creation
+### Hermes Desktop Runtime and Shared CLI State
 
-Agentic AI combines a model with instructions, tools, state, and a control loop so that the system can decide which bounded action to take next. In video production, an agent may inspect a brief, request missing facts, call research or generation tools, record outputs, check quality, and route an item for human approval. It is different from a one-shot chatbot because the workflow carries state and can take several tool-mediated steps toward a defined completion condition.
+Hermes Agent runs as a desktop application with a matching command-line surface. Both read the same profile, configuration path and skill directory, so a change made in one surface is visible to the other. Installation is completed from the official desktop page, after which a diagnostic command reports the health of each required dependency. The runtime boundary is the set of facts that define where the agent executes: platform, installer source, version, active profile, configuration path and skill root.
 
-Video work contains creative uncertainty as well as operational dependencies. A reliable agent must know what it may decide, what evidence it must retain, and when it must stop. Treating every step as autonomous creates rights, privacy, cost, and brand risk; treating every step as fixed automation misses the value of reasoning. The practical design is bounded autonomy: deterministic rules for known operations, model judgment for well-framed choices, and human review for consequential actions.
+An agent that cannot describe its own runtime cannot produce reproducible work. If the desktop and the terminal disagree about the active provider or skill directory, a lab that passes in one surface fails in the other for reasons that look like model behaviour. Recording the runtime boundary before any production work converts a class of confusing failures into a single observable check, and a failed dependency becomes a reason to stop rather than a problem to discover halfway through a render.
 
 **How it works**
 
-- Observe the approved brief and current production state.
-- Plan the next smallest useful action against a completion checklist.
-- Call only an allowed tool with structured inputs and a budget.
-- Inspect the returned artifact, provenance, and quality evidence.
-- Continue, retry within limits, or escalate to a named human owner.
+- Download the installer from the official Hermes desktop page and confirm the platform build.
+- Complete setup, then run the diagnostic command and read every reported dependency.
+- Open the desktop profile and note the configuration path and skill root.
+- Open the terminal and compare provider, model and skill directory against the desktop.
+- Stop and repair when a required diagnostic fails; do not continue into production work.
 
 **Worked example**
 
-- Harbour Bean needs a 30-second vertical video about three ways to reduce bitter office coffee.
-- A coordinator agent checks the brief, delegates research and scripting, then prepares scene requests.
-- Every generator result is written to an asset register; publishing remains disabled until a person approves the final package.
+- hermes doctor reports all required dependencies healthy on a supported platform.
+- The desktop profile and the CLI session report the same provider, model and skill root.
+- setup-evidence.json records the official source, version and diagnostic status with no credential value.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The task has several dependent steps and the next action depends on intermediate evidence. | The goal is vague, the source facts are unapproved, or there is no accountable owner. |
-| Inputs, tool permissions, completion rules, and escalation paths can be stated clearly. | The proposed action would publish, spend, or use a person's likeness without explicit review. |
+| A new machine, a new learner account or a fresh profile is being prepared for production work. | A required diagnostic fails and the failure has not been repaired or recorded. |
+| Results differ between the desktop and the terminal and the cause is not yet known. | The installer came from an unofficial mirror or the platform build is unverified. |
 
 **Practitioner quality lens**
 
-- Failure signal: The system keeps generating options without reaching a defined finish state.
-- Repair move: Add a completion checklist, iteration cap, and escalation rule.
-- Quality evidence: The run log shows why each tool was called and who approved the release.
+- Failure signal: The same prompt behaves differently in the desktop and the terminal.
+- Repair move: Name the active profile and compare provider, model and skill directory across both surfaces.
+- Quality evidence: profile-check.json shows matching settings and the diagnostic reports no blocking failure.
 
 ---
 
 
-### Popular AI Video, Voice, and Agent Tools
+### MiniMax M3 Provider, Trial Terms and Credential Isolation
 
-A production stack usually separates orchestration from specialist tools. The orchestrator holds the workflow state and routes tasks. Language models research and write. Image or video generators create candidate shots. Speech services produce narration. Editors and command-line media tools assemble, caption, mix, and export. Publishing and analytics APIs act only after credentials and permissions are configured.
+The provider contract names the service, base URL, model identifier and a reference to a stored credential. This course configures provider minimax with model MiniMax-M3 and verifies a tool-capable response before any production run. Trial availability, duration, quota and region terms are time-sensitive commercial terms rather than fixed course facts, so they are observed live at sign-up and recorded with a date. Credentials live in Hermes credential or configuration storage and are referenced by name; published evidence carries placeholders only.
 
-Product names and features change, but the jobs remain stable. A portable architecture defines each tool by capability, contract, and fallback instead of hiding the project inside one vendor. Structured outputs reduce broken hand-offs: a script agent should return timed beats, a visual tool should return a file plus provenance, and an editor should receive a validated manifest rather than free-form prose.
+A model handshake that is assumed rather than verified is the most common cause of a lab that fails much later, at the point of an expensive call. Verifying the returned model identifier proves that the configured model is the model actually answering. Separating the credential from the evidence keeps the lab package publishable: a secret that never enters a prompt, file, screenshot or repository cannot be leaked by one of them. Recording trial terms with a date and a fallback model means a changed offer becomes a planned decision rather than a blocked class.
 
 **How it works**
 
-- List each production job and the data it consumes or creates.
-- Assign one primary tool and one manual or alternate fallback to each job.
-- Define structured fields, file names, size limits, and accepted formats.
-- Restrict credentials to the smallest permissions the tool needs.
-- Record cost, latency, rights terms, and failure behavior before use.
+- Create the account and an API key, then store the key in credential storage and reference it by name.
+- Configure provider minimax with model MiniMax-M3 and confirm the returned model identifier.
+- Open the live offer, read the current terms and record what was seen, the date and the expiry.
+- Reserve a quota budget and nominate a fallback model before production work begins.
+- Scan the lab package and confirm zero live tokens before publishing any evidence.
 
 **Worked example**
 
-- n8n coordinates eight stages without storing secret values in prompts.
-- ChatGPT or Claude creates structured research and script outputs from approved source material.
-- A chosen video generator supplies clips, ElevenLabs or an equivalent supplies narration, and FFmpeg or an editor assembles the vertical master.
+- model-check.json records MiniMax-M3 and a successful tool-capable response without recording the key.
+- trial-checklist.md contains the observed terms, the date seen and the learner's fallback decision.
+- A secret scan over the lab package reports no live token pattern.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| A specialist capability materially improves a defined stage and produces a portable output. | A tool requires confidential material that is not approved for that service. |
-| The team has an approved account, a fallback, and a clear rights and privacy position. | The workflow cannot export files, preserve provenance, or cap cost and retries. |
+| A provider or model is being configured for the first time, or a key has been rotated. | The returned model identifier does not match the configured model. |
+| Quota, billing or region terms materially affect how much generation the run can afford. | A key would have to be pasted into a prompt, lab file, screenshot or repository to proceed. |
 
 **Practitioner quality lens**
 
-- Failure signal: A downstream stage cannot understand the previous tool's free-form response.
-- Repair move: Define a JSON or file manifest contract with required fields.
-- Quality evidence: Each stage can be swapped without redesigning the complete workflow.
+- Failure signal: The session answers but reports a different model than the one configured.
+- Repair move: Start a new session after selecting the model; an existing session can retain its original model.
+- Quality evidence: budget-ledger.csv reconciles attempts, latency and cost against the approved ceiling.
 
 ---
 
 
-### Writing Effective Prompts for Video
+### The FRAME-CUT Video Prompt Contract
 
-An effective agent prompt is an operating contract, not a slogan. This course uses B-R-I-E-F: Background, Role and responsibility, Inputs and evidence, Execution constraints, and Format plus finish condition. The prompt states which facts are authoritative, which tools may be used, what must never happen, and exactly what valid output looks like.
+FRAME-CUT is the prompt contract used throughout this course. FRAME fixes Format and finish, Role and references, Action, Motion and Environment. CUT fixes Continuity tokens, Unwanted elements as explicit negative constraints, and the Technical output schema. A compliant prompt names one dominant subject action and one camera move per timed shot, states the palette and identity tokens that must persist, lists what must never appear, and requires strict JSON that can be validated before anything is generated.
 
-A creative request such as 'make a viral video' leaves the system to invent the audience, claims, style, and success rule. A structured prompt produces comparable alternatives, exposes missing evidence, and makes hand-offs machine-readable. Separate stable system instructions from per-run input, and validate important fields before a later tool acts on them.
+A vague creative request such as 'make it cinematic' leaves the model to invent the channel, duration, subject, camera language and acceptance rule, and every regeneration invents them differently. A field-complete contract makes shots comparable across attempts, makes drift observable against named invariants, and makes the output checkable by a validator rather than by opinion. Because the contract is validated before generation, a defective plan costs a schema error instead of a paid render.
 
 **How it works**
 
-- Set the audience, business purpose, channel, duration, and desired viewer action.
-- Provide approved source facts and mark unknown information explicitly.
-- Name the agent's role, allowed tools, cost and iteration limits, and prohibited actions.
-- Require a schema for scripts, scenes, claims, assets, risks, and open questions.
-- Define a finish condition and conditions that require human clarification.
+- Choose the channel, then freeze duration, aspect ratio and delivery codec before any shot work.
+- Assign the role, attach the brief and register the source and asset identifiers that reasoning may use.
+- Write one dominant action and one camera move for each timed shot.
+- Lock continuity tokens and palette values, then list the must-avoid elements explicitly.
+- Require strict JSON and fail the plan on gaps, overlaps, unknown fields or a duration mismatch.
 
 **Worked example**
 
-- Background: a Singapore cafe campaign for busy office workers.
-- Inputs: only the supplied brand brief and audience signals may support claims.
-- Execution: return three 25-35 second concepts; do not publish or imitate a living creator.
-- Format: valid JSON with hook, timed beats, scene list, evidence, risks, and status.
+- A 15-second brief becomes a shot plan whose shot durations total exactly 15 seconds with no overlap.
+- Each shot carries one action-motion pair, a continuity token and an explicit must-avoid list.
+- prompt-contract.json passes the schema and duration checks before a renderer is called.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| Inputs and desired outputs can be bounded and checked. | The instruction hides a policy decision that an accountable person must make. |
-| Several tools or agents need a common production contract. | The output cannot be validated before a costly or external action follows. |
+| A creative intent must survive several regenerations or be handed to another agent or tool. | The request asks for imitation of a living artist or a named creator's identity. |
+| The output will feed a deterministic renderer that requires named, typed fields. | The delivery format is still unsettled, so shot work would be rebuilt after the format changes. |
 
 **Practitioner quality lens**
 
-- Failure signal: The output looks plausible but omits required fields or invents a source.
-- Repair move: Add a schema, evidence citations, explicit unknown handling, and a validator.
-- Quality evidence: A second run can use the same prompt contract and produce structurally valid output.
+- Failure signal: Shots look plausible individually but identity, palette or screen direction drifts between them.
+- Repair move: Reuse the continuity token and compare keyframes against the explicit invariant list.
+- Quality evidence: continuity-review.json records each deviation and the acceptance decision.
 
 ---
 
 
-### Designing an End-to-End Video Agent Workflow
+### The Simple Video Agent Loop with Cost and Stop Rules
 
-A workflow turns the production contract into observable stages: intake, research, concept selection, script and storyboard, asset generation, assembly, quality review, approval, publishing preparation, and learning. Each stage receives a defined input, writes a durable output, and returns a status such as ready, needs-revision, blocked, or approved.
+The agent loop receives a brief, plans shots, calls one tool, inspects the returned artifact and then stops or escalates. Its controls are numeric: an estimated cost, a maximum number of attempts, a timeout and a recorded stop reason. A run ledger links the run identifier, the plan hash, each tool call and each result so that the run can be reconstructed after the fact. The default posture is one render attempt, one review pass and an explicit repair decision rather than open-ended retrying.
 
-Large all-in-one agents are difficult to debug and may repeat expensive work. Stage boundaries create checkpoints, allow deterministic validation, and let a learner restart from the last accepted artifact. Idempotency keys prevent a retry from duplicating external actions; run identifiers connect every artifact and log entry to the same job.
+Generation costs money and time, and an unbounded loop spends both without converging. Capping attempts converts a runaway loop into a decision that reaches a named person with the evidence already assembled. Recording the stop reason matters as much as recording success: a run that stopped because a dependency failed is a different operational fact from one that stopped because the budget ceiling was reached, and the two require different repairs.
 
 **How it works**
 
-- Draw the stages and mark every external system or generated artifact.
-- Define one input/output contract and owner for each stage.
-- Place validation before expensive generation and approval before publishing.
-- Add retry limits, timeouts, idempotency keys, and a dead-letter or rework route.
-- Log run ID, prompt version, tool, cost, result, evidence, and approval decision.
+- Estimate the number of calls and the cost before the first paid action.
+- Set the maximum attempts, the timeout and the budget ceiling as explicit numbers.
+- Run the loop: receive the brief, plan the shots, call one tool, inspect the result.
+- Stop at the cap and record the stop reason rather than attempting another generation.
+- Require a human decision before any additional paid generation is authorised.
 
 **Worked example**
 
-- Run HB-001 advances only when brief_status=approved and script_status=approved.
-- Scene generation retries once for a technical failure but routes a rights concern to human review.
-- The publishing node receives a release package only; it cannot see raw research or use an unapproved file.
+- run-ledger.json contains the plan, the tool call, the result reference and the stop reason.
+- A 15-second preview is produced in one render attempt and probed before it is accepted.
+- A second paid attempt is not started automatically; it is escalated with the evidence attached.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The work has repeatable stages and accepted artifacts can be reused. | The process is a one-off creative conversation with no reusable structure. |
-| The system can save state and resume safely after a failure. | A retry might duplicate an external action and no idempotency or approval control exists. |
+| Work involves paid generation, external calls or any action with a real cost. | Attempts, timeouts and budget have not been given numeric limits. |
+| A run must be explainable later to a reviewer who was not present when it executed. | The loop can start another paid generation without a recorded human decision. |
 
 **Practitioner quality lens**
 
-- Failure signal: A failed final step forces the whole production to regenerate.
-- Repair move: Persist accepted stage outputs and resume from a checkpoint.
-- Quality evidence: A run can stop, rejoin, and explain its complete state without guesswork.
+- Failure signal: The loop keeps regenerating without reaching a defined finish state.
+- Repair move: Cap attempts, add an explicit finish condition and route the remainder to a named owner.
+- Quality evidence: The ledger shows one committed result per run identifier and a recorded stop reason.
 
 ---
 
 
-### Lab 1 — Design the Video Agent Production Contract and Autonomy Matrix
+### Lab 1 — Set Up Hermes Desktop and Connect MiniMax M3
 
-Learning outcome: LO1: explain agentic AI and design a controlled video workflow with explicit human decision points.
+Learning outcome: LO1: configure the Hermes runtime and prove a tool-capable MiniMax M3 handshake without exposing a credential.
 
-Goal: Create the authoritative contract that every later C436 lab will consume.
+Goal: Establish the verified runtime boundary that every later C436 lab depends on.
 
-You will turn the synthetic Harbour Bean campaign brief into a structured production contract, classify each task by autonomy level, and mark the evidence, approval, retry, and stop rules for the workflow.
+You will install Hermes Desktop from the official source, configure the MiniMax provider for MiniMax-M3, run the diagnostic command, compare the desktop and CLI state, and record the live trial terms you actually see. Every piece of published evidence carries placeholders instead of secrets.
 
 **What you'll build**
 
-A completed production-contract.json and autonomy-matrix.csv for run HB-001, saved in the connected project checkpoint.   (Tools: Text editor, supplied synthetic brief, JSON validator.)
+A setup-evidence.json recording the official source, version and diagnostic status, plus a redacted diagnostic screenshot.   (Tools: Hermes Desktop, Hermes CLI, MiniMax M3, credential storage.)
 
 **Prerequisites**
 
-- Download or clone the C436 repository and open labs/assets.
-- Confirm that harbour-bean-brand-brief.md and production-contract-template.json are present.
-- Know the local path to the C436 repository; do not use real customer or account data.
+- A laptop with administrator rights to install desktop software.
+- A MiniMax account able to create an API key.
+- Open labs/lab-01-setup-hermes-and-connect-minimax-m3/ as the current Hermes project.
 
 **Step-by-step**
 
-1. Set the repository root and fail fast if the course assets are absent
-
-   ```bash
-   Set-Location '<PATH_TO_C436_REPOSITORY>'
-if (-not (Test-Path -LiteralPath labs/assets/harbour-bean-brand-brief.md -PathType Leaf)) { throw 'Run this lab from the C436 repository root.' }
-   ```
-
-2. Create the connected project folders
-
-   ```bash
-   New-Item -ItemType Directory -Force -Path C436-work/HB-001/01-design,C436-work/HB-001/02-create,C436-work/HB-001/03-edit,C436-work/HB-001/04-release,C436-work/HB-001/05-learn | Out-Null
-   ```
-
-3. Read the synthetic brief and identify only approved facts
-
-   ```bash
-   Get-Content -LiteralPath labs/assets/harbour-bean-brand-brief.md
-   ```
-
-4. Copy the contract and autonomy templates into stage folder 01-design
-
-   ```bash
-   Copy-Item -LiteralPath labs/assets/production-contract-template.json -Destination C436-work/HB-001/01-design/production-contract.json
-Copy-Item -LiteralPath labs/assets/autonomy-matrix-template.csv -Destination C436-work/HB-001/01-design/autonomy-matrix.csv
-   ```
-
-5. Open production-contract.json and replace every text placeholder using only the supplied brief
-
-   ```bash
-   notepad C436-work/HB-001/01-design/production-contract.json
-   ```
-
-6. Set the required contract controls
-
-   ```bash
-   Set run_id to HB-001; retain contract_version contract-v1; duration_seconds 30; aspect_ratio 9:16; publishing_mode dry_run_private; max_generation_attempts_per_scene 2; cost_budget_sgd 25.0; finish_condition to release package approved or routed to named owner. Keep numbers unquoted.
-   ```
-
-7. Complete the autonomy matrix for all listed tasks
-
-   ```bash
-   Use deterministic for schema validation, file naming, media probing, arithmetic, and packaging; model_assisted for research clustering, script alternatives, and review suggestions; human_approved for claims, rights, final edit, and release; prohibited for secret exposure, unreviewed public posting, and unapproved likeness use.
-   ```
-
-8. Run the fail-closed Lab 1 validator and retain the evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 1 2>&1 | Tee-Object C436-work/HB-001/01-design/lab-01-test-output.txt
-   ```
-
-9. Check that no template placeholder remains
-
-   ```bash
-   Select-String -Path C436-work/HB-001/01-design/production-contract.json,C436-work/HB-001/01-design/autonomy-matrix.csv -Pattern '<COMPLETE_ME>'
-   ```
-
-10. Write the Lab checkpoint 01 marker
-
-   ```bash
-   Set-Content -LiteralPath C436-work/HB-001/01-design/LAB-CHECKPOINT-01.txt -Value 'Lab 1 passed; stage folder 01-design is ready.'
-   ```
-
+1. Download official installer
+2. Complete Hermes setup
+3. Configure MiniMax-M3
+4. Run hermes doctor
+5. Verify model response
+6. Redact evidence
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-01 PASS. It enforces JSON types, positive budget, all nine autonomy rows, prohibition of public publishing, and prohibition of secret exposure. The placeholder search must return no matches.
+verify.py must print PASS Lab 01. Hermes launches, the configured provider is minimax, the model is MiniMax-M3, hermes doctor reports no blocking failure, and the published evidence contains placeholders only.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 01 is stored in stage folder C436-work/HB-001/01-design. If you fall behind, copy labs/assets/production-contract-approved.json and labs/assets/autonomy-matrix-approved.csv into this folder, then rerun the tests before continuing.
+The verified runtime boundary is recorded in setup-evidence.json. Every later lab assumes this provider, model and skill root.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| ConvertFrom-Json reports an invalid object. | Open the file, check the line named in the error, remove trailing commas, and ensure every key and text value is in double quotes. |
-| The brief does not contain a value requested by the template. | Write null or add it to open_questions; do not invent a fact. |
-| A task seems both model-assisted and human-approved. | Classify the model's draft as model_assisted and the consequential decision or action as human_approved. |
+| Hermes reports a different model than the one configured. | Start a new session after selecting MiniMax-M3; an existing session can retain its original model. |
+| hermes doctor reports a failed dependency. | Repair the dependency before continuing; a failed diagnostic is a reason to stop, not a warning to pass. |
+| The live trial terms differ from the course note. | Record the current live account terms with the date and use the fallback path; the offer is time-sensitive. |
 
 **Challenge**
 
-Add a budget warning threshold at 80% of the required cost_budget_sgd and prove the rule returns a named owner rather than another generation attempt.
+Write the runtime boundary as a single JSON object and prove the desktop and CLI both report the same values for every field in it.
 
 **Reflection**
 
-Which video-production decision was most tempting to automate fully, and what evidence convinced you to keep a human approval point?
+Which runtime fact, if it silently changed between sessions, would be hardest to diagnose from the model's behaviour alone?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-01-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-01-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-### Lab 2 — Build and Run the Bounded Video Planning Agent in n8n
+### Lab 2 — Prompt Hermes to Create a Simple Video
 
-Learning outcome: LO1: use structured prompts and tool boundaries to implement a resumable planning workflow.
+Learning outcome: LO1: convert a bounded brief into a validated shot plan and a deterministically rendered preview.
 
-Goal: Import, inspect, and run a planning workflow that stops on missing evidence and emits a valid production plan.
+Goal: Produce a first end-to-end video whose plan and output are both machine-checked.
 
-You will import a supplied n8n workflow, trace its trigger, validation, planning, guardrail, and output stages, then run one ready case and one blocked case. The agent uses deterministic mock planning so everyone can verify the control pattern without a paid API.
+You will use a copy-ready Hermes prompt to turn a supplied 15-second brief into a strict-JSON shot plan, validate that the plan totals the target duration with no gaps or overlaps, run the deterministic preview renderer and probe the resulting MP4.
 
 **What you'll build**
 
-An n8n workflow named C436-HB-001-Planning-Agent plus exported ready and blocked execution evidence.   (Tools: n8n, supplied workflow JSON, production contract.)
+A simple-video.mp4 with its shot-plan.json and ffprobe.json evidence.   (Tools: Hermes Desktop, MiniMax M3, Python preview renderer, FFprobe.)
 
 **Prerequisites**
 
-- Complete Lab 1 or restore Lab checkpoint 01 in stage folder 01-design.
-- Access an n8n Cloud workspace or trainer-provided n8n instance.
-- Keep live credentials disconnected; this lab uses deterministic Code nodes.
+- Complete Lab 1 so the provider and model are verified.
+- Open labs/lab-02-prompt-hermes-to-create-a-simple-video/ as the current Hermes project.
+- Confirm data/video-brief.json and starter/render_preview.py are present.
 
 **Step-by-step**
 
-1. Open n8n and import the supplied workflow
-
-   ```bash
-   In n8n, select Workflows > Create Workflow. Open the top-right three-dot menu, select Import from File, and choose labs/assets/video-planning-agent-workflow.json.
-   ```
-
-2. Rename and save the imported workflow
-
-   ```bash
-   Set the workflow name to C436-HB-001-Planning-Agent and select Save. Keep the workflow inactive.
-   ```
-
-3. Inspect the five-node control path
-
-   ```bash
-   Confirm the main path is Manual Trigger > Load Exact Production Contract > Validate Contract and Version > Plan or Block > Emit Run State. Confirm a blocked result calls no external tool.
-   ```
-
-4. Paste the exact Lab 1 artifact into the input node
-
-   ```bash
-   Open Load Exact Production Contract. Copy the entire contents of C436-work/HB-001/01-design/production-contract.json between the contractText backticks. Do not retype or use the supplied approved fixture. Run once and verify contract_version=contract-v1 plus a non-empty source_fingerprint.
-   ```
-
-5. Execute the complete ready workflow
-
-   ```bash
-   Select Test Workflow. After execution, select Emit Run State and open the JSON output.
-   ```
-
-6. Verify the ready-state schema
-
-   ```bash
-   The output must contain run_id=HB-001, status=plan_ready, current_stage=planning, next_stage=research_and_script, a non-empty actions array, iteration=1, and publish_allowed=false.
-   ```
-
-7. Create a controlled missing-evidence case
-
-   ```bash
-   Copy the complete Emit Run State output to C436-work/HB-001/01-design/ready-run.json. Then open Load Exact Production Contract, set approved_facts to an empty array inside the pasted JSON, save, and select Test Workflow again.
-   ```
-
-8. Verify the workflow stops safely
-
-   ```bash
-   Open Emit Run State. Confirm status=blocked, next_stage=human_clarification, publish_allowed=false, and blockers includes missing_approved_facts. Save the complete output as C436-work/HB-001/01-design/blocked-run.json.
-   ```
-
-9. Restore the ready case and export the workflow
-
-   ```bash
-   Restore the exact approved_facts array from the Lab 1 file, rerun from Manual Trigger, and save the complete output as C436-work/HB-001/01-design/ready-restored-run.json. Download the workflow as planning-agent-reviewed.json.
-   ```
-
-10. Save a short execution evidence note
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 2 2>&1 | Tee-Object C436-work/HB-001/01-design/lab-02-test-output.txt
-Set-Content C436-work/HB-001/01-design/LAB-CHECKPOINT-02.txt 'Lab 2 passed; planning evidence retained in stage folder 01-design.'
-   ```
-
+1. Open project folder
+2. Submit bounded prompt
+3. Validate shot plan
+4. Run preview renderer
+5. Probe MP4
+6. Record evidence
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The Lab 2 validator must print LAB-02 PASS after reading ready-run.json, blocked-run.json, and ready-restored-run.json. Both ready results must remain non-publishing; the controlled missing-evidence result must fail closed.
+verify.py must print PASS Lab 02. The shot plan is valid JSON, totals 15 seconds, uses only supplied assets, and the generated MP4 passes the dimensions, codec and duration checks.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 02 adds three execution JSON files, test evidence, and planning-agent-reviewed.json to stage folder C436-work/HB-001/01-design. The template remains available at labs/assets/video-planning-agent-workflow.json.
+shot-plan.json and ffprobe.json establish the plan-then-probe pattern reused by every later production lab.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| n8n rejects the imported JSON. | Confirm that you selected the workflow file rather than a course data file, then ask the trainer for the current n8n import fallback. |
-| The path after Validate Contract does not reach Emit Run State. | Open the validation output and confirm required fields use the exact supplied names and approved_facts is an array. |
-| The blocked run still shows plan_ready. | Execute from Manual Trigger after saving the edited contract node; running only the final node may reuse pinned data. |
+| The shot durations do not total the target. | Fix the plan before rendering; a duration mismatch is a schema failure, not a rendering problem. |
+| The renderer cannot find an asset. | Check that the plan references only the supplied assets by their exact names. |
+| A tool is missing. | Use the documented deterministic fallback and record the limitation instead of inventing a successful call. |
 
 **Challenge**
 
-Add a deterministic budget check that returns blocker generation_budget_missing when cost_budget_sgd is absent.
+Introduce a deliberate one-second overlap between two shots and prove the validator rejects the plan before any render is attempted.
 
 **Reflection**
 
-Why is the blocked result a successful agent behavior rather than a workflow failure?
+Why is it cheaper to fail on the shot plan than on the rendered output, and what does that imply about where checks belong?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-02-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-02-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-## Topic 02 — Scripting and Generating Content with AI
+### Lab 3 — Engineer Video Prompts with FRAME-CUT
 
-Course coverage: Day 1 afternoon | 2 labs.
+Learning outcome: LO1: apply the FRAME-CUT contract to make creative intent portable, comparable and checkable.
 
-Trend and idea research | Scripts and storyboards | Visuals and B-roll | Voiceovers and music
+Goal: Turn a vague creative request into field-complete, scorable shot prompts.
+
+You will diagnose a deliberately vague prompt, complete every FRAME field and every CUT field, generate strict shot JSON, score the result against a deterministic rubric and repair the single highest-severity defect.
+
+**What you'll build**
+
+A prompt-pack.json with its prompt-score.csv rubric evidence.   (Tools: Hermes Desktop, MiniMax M3, FRAME-CUT template, scoring rubric.)
+
+**Prerequisites**
+
+- Complete Lab 2 so the plan-and-probe pattern is familiar.
+- Open labs/lab-03-engineer-video-prompts-with-frame-cut/ as the current Hermes project.
+- Review starter/frame-cut-template.md and data/prompt-cases.csv.
+
+**Step-by-step**
+
+1. Diagnose vague prompt
+2. Complete FRAME fields
+3. Complete CUT fields
+4. Generate shot JSON
+5. Score rubric
+6. Repair one defect
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
+
+**Test it**
+
+verify.py must print PASS Lab 03. Every shot carries all FRAME-CUT fields, one dominant action, one camera move, explicit continuity and negative constraints, and a measurable output check.
+
+**Checkpoint and rejoin point**
+
+prompt-pack.json is the reusable prompt contract that the tool-routing and brand-skill labs consume.
+
+**Troubleshooting**
+
+| If this happens | Fix |
+|---|---|
+| A shot contains two competing camera moves. | Split it into two timed shots; one action-motion pair per shot keeps the result comparable. |
+| Identity or palette drifts between shots. | Reuse the continuity token and compare keyframes against the explicit invariant list. |
+| The rubric score is high but the output still looks wrong. | Check that the rubric measures the defect you observed; add the missing check rather than overriding the score. |
+
+**Challenge**
+
+Hand your prompt pack to another learner and have them generate from it without discussion; every difference reveals a field still left implicit.
+
+**Reflection**
+
+Which FRAME-CUT field did you most want to leave blank, and what would the model have invented in its place?
+
+> **Note:** The complete lab and its support-file references are in labs/lab-03-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
+
+---
+
+
+## Topic 02 — Video Tools, Hermes Skills and Custom Brand Production
+
+Course coverage: Day 1 late afternoon and Day 2 morning | 2 labs.
+
+Tool versus skill | Remotion, Manim and FFmpeg | Brand tokens | Technical quality gate
 
 **Key concepts**
 
-- Source register — A dated record of evidence, relevance, permissions, and claims that may be used.
-- Timed beat sheet — A sequence linking narration, visual, on-screen text, sound, and duration.
-- Asset manifest — The authoritative list of scene files, prompts, versions, rights notes, and status.
-- Continuity bible — Stable character, product, lighting, palette, camera, and negative constraints across generations.
+- Tool versus skill — A tool performs precise integrated execution; a skill packages repeatable instructions plus scripts.
+- Skill anatomy — A directory holding SKILL.md with frontmatter, a procedure, bundled scripts and verification commands.
+- Brand token — A stored, editable value for logo, palette, typography or motion referenced by the video skill.
+- Quality gate — A fail-closed technical check on container, streams, dimensions, frame rate, duration and captions.
 
 
-### Researching Trends and Ideas
+### Choosing Between a Tool and a Hermes Skill
 
-Agentic research is a bounded evidence-gathering workflow. It starts with a question and approved source types, retrieves observations, records provenance, separates evidence from inference, and produces candidate ideas that are traceable to audience need. Trend signals are clues for timing and format, not permission to copy another creator.
+A tool is the right choice when a capability needs precise, integrated execution with its own authentication and error handling. A skill is the right choice when a procedure must be repeated reliably: it bundles instructions, scripts and templates in a directory containing SKILL.md, whose frontmatter declares the name, description and version. Hermes discovers skills by searching the catalogue, then loads the selected skill and only the resources it references, so context stays proportionate to the task.
 
-A research agent can gather many examples quickly, but search results may be stale, duplicated, promotional, or detached from the target audience. A source register and evidence threshold prevent a script agent from treating popularity as truth. The output should include open questions and rejected ideas, not only a polished recommendation.
+Wrapping everything as a skill produces brittle prose where an integration was needed; wrapping everything as a tool produces unrepeatable one-off calls where a documented procedure was needed. Deciding explicitly, and recording why, keeps the production stack legible to the next person. Progressive loading matters for the same reason: a skill that pulls its entire reference tree into context on every invocation crowds out the working material the task actually needs.
 
 **How it works**
 
-- State the audience problem, research window, market, and allowed sources.
-- Collect dated signals and record source, observation, and confidence separately.
-- Cluster repeated needs, questions, formats, and language patterns.
-- Generate original angles from the brand's own proof and feasible assets.
-- Human-review the shortlist for relevance, truth, rights, and production effort.
+- Identify the capability and its authentication mode, then decide tool or skill and name an owner.
+- Create the skill directory and write frontmatter that describes the exact trigger.
+- Add the procedure, bundle the scripts and include deterministic verification commands.
+- Search the catalogue first, then view the selected skill and load only referenced resources.
+- Test invocation and confirm the expected artifacts are produced.
 
 **Worked example**
 
-- Audience signals mention bitter office coffee, inconsistent scoops, and limited time.
-- The agent groups these into three teachable variables instead of copying a trending cafe video.
-- Each candidate idea cites the supplied observation and the brand fact that supports it.
+- decision-record.md states why each capability was implemented as a tool or as a skill.
+- SKILL.md and a test transcript together show correct activation from the intended trigger.
+- skill-usage.json records the selected skill and the resources that were loaded.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The question, time window, source types, and evidence threshold are explicit. | The workflow would scrape personal data or bypass platform access controls. |
-| A person can inspect the source register before ideas move to scripting. | Trend volume is being used as proof for a product or health claim. |
+| A procedure will be repeated across runs, learners or courses and must behave the same way each time. | A single ad-hoc call would do and no repetition is expected. |
+| The capability needs bundled scripts and templates alongside its instructions. | The capability requires integrated authentication and precise error handling better served by a tool. |
 
 **Practitioner quality lens**
 
-- Failure signal: The idea bank contains unsourced claims and near-copies of examples.
-- Repair move: Require provenance, originality notes, and a reason for every retained idea.
-- Quality evidence: The chosen idea can be traced to audience evidence and approved brand facts.
+- Failure signal: A skill is not discovered when its trigger phrase is used.
+- Repair move: Check the YAML frontmatter, the directory name and the SKILL.md filename, then restart discovery.
+- Quality evidence: Repeated runs of the skill produce matching outputs from a clean start.
 
 ---
 
 
-### Generating Scripts and Storyboards
+### Routing Remotion, Manim, Higgsfield and FFmpeg
 
-A script translates the selected promise into spoken words and on-screen text; a storyboard translates the same promise into timed visual evidence. The agent should work in beats rather than a single paragraph. Every beat states time, narration, picture, overlay, sound, claim source, and transition so production and review share one model.
+Each media tool has a distinct contract. Remotion renders code-driven compositions where duration in frames divided by frames per second gives the duration in seconds. Manim renders programmatic explanatory scenes whose labels and values are bound to an approved evidence model. A Higgsfield-compatible request selects a model, attaches references and writes a motion prompt, and is prepared as a preview before any account or quota is consumed. FFmpeg performs deterministic assembly: normalise every source, build the timeline, mix audio and encode the master.
 
-Short-form videos fail when words, visuals, and captions compete or when the final edit exceeds the target duration. Time budgeting before generation constrains scope and avoids unnecessary media cost. A storyboard also exposes scenes that cannot be produced safely or consistently before the system requests them.
+Routing a task to a tool that cannot satisfy its contract is the most expensive category of error in a video pipeline, because the cost is usually discovered after generation. Deriving frames from duration rather than guessing prevents a composition that is silently the wrong length. Normalising sources before concatenation prevents the class of failures where clips join but the container reports inconsistent streams. Preparing a generation request as a preview keeps an unapproved asset or an exhausted quota from becoming a failed paid call.
 
 **How it works**
 
-- Lock one hook, promise, evidence set, and viewer action.
-- Allocate seconds to hook, proof beats, synthesis, and close.
-- Write concise narration and a shorter complementary text overlay.
-- Specify a feasible shot, motion, composition, and transition for each beat.
-- Run claim, duration, continuity, accessibility, and rights checks before approval.
+- Classify the task, check the required modality and route it to a capable tool.
+- For Remotion, derive duration frames from the approved duration and validate width, height, fps and codec after render.
+- For Manim, bind labels and values to the approved evidence model and review the rendered frames.
+- For a Higgsfield request, build a request preview first and call the service only with approved assets and quota.
+- For FFmpeg, normalise every source before concatenation and probe the final container.
 
 **Worked example**
 
-- A 30-second script allocates 3 seconds to the hook, 21 seconds to three fixes, and 6 seconds to recap and close.
-- The spoken line explains the fix while on-screen text labels only the variable.
-- Every claim points back to an approved source row; the storyboard marks one synthetic scene for disclosure.
+- tool-routing.csv links every task to a capable model or tool with a recorded fallback.
+- remotion-render.json and ffprobe.json agree with the composition contract.
+- ffprobe.json confirms H.264 video, AAC audio, the expected dimensions, frame rate and duration.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The message and source facts are approved and a duration can be fixed. | The script requires unsupported before-and-after proof or an unapproved likeness. |
-| The next stage needs structured scene requests and voice text. | The storyboard depends on complex continuity the chosen generator cannot maintain. |
+| A media task has a clear modality and an approved tool exists for it. | The required assets are unapproved or the account quota has not been confirmed. |
+| The output must be verified deterministically rather than accepted on appearance. | A deterministic renderer would produce the result more reliably than a generative call. |
 
 **Practitioner quality lens**
 
-- Failure signal: Narration, captions, and visuals repeat the same sentence.
-- Repair move: Assign a distinct job to each channel: explain, label, or demonstrate.
-- Quality evidence: A cold reader can produce the intended cut from the timed beat sheet.
+- Failure signal: Clips concatenate but the final container reports inconsistent streams or the wrong duration.
+- Repair move: Normalise every source to the same codec, dimensions and frame rate before rebuilding the timeline.
+- Quality evidence: The probe of the final master matches the approved delivery specification field for field.
 
 ---
 
 
-### Creating Visuals and B-Roll with AI
+### Brand Tokens, Tone and the Custom Video Skill
 
-Visual generation converts storyboard beats into candidate images or clips. A strong scene request defines subject, action, environment, composition, camera, lighting, palette, duration, and negative constraints. The asset manifest records the prompt, model or tool, date, version, rights note, and accepted use for every file.
+A brand token system stores the logo reference, palette values, font stack and motion rules as editable values that the video skill references rather than hard-codes. Tone and style controls describe the audience, the voice, the pacing in words per minute and an explicit list of stylistic exclusions. The custom brand-video skill combines these: it bundles scripts and templates, declares its inputs and outputs, and ships an acceptance test so that repeated runs can be compared rather than merely rerun.
 
-One attractive clip does not create a coherent video. Continuity, editability, and factual fit matter more than isolated novelty. Generate short modular shots, preserve safe areas for vertical overlays, and review anatomy, text, logos, product details, and motion before a clip is accepted.
+Brand rules written into prose drift as soon as two people apply them. Stored as tokens and referenced from a skill, they become checkable: a frame either uses the approved palette value or it does not. Describing tone through attributes and exclusions, rather than by naming a living artist to imitate, keeps the output original and defensible. An acceptance test converts 'the skill works' into a repeatable comparison between a clean run and the expected artifacts.
 
 **How it works**
 
-- Create a continuity bible from the approved brand and storyboard.
-- Generate low-cost candidates or still frames before expensive motion.
-- Inspect each result against scene purpose, composition, continuity, and rights.
-- Record accepted and rejected versions in the asset manifest.
-- Use approved stock or a supplied fallback if generation fails.
+- Extract the identity, then set the palette, typography and motion rules as stored tokens.
+- Define the audience, voice and pacing, and write the style exclusions explicitly.
+- Write the skill, bundle its scripts and bind its templates using relative or Hermes template paths.
+- Render the video through the skill and review the frame samples against the checklist.
+- Run the acceptance test from a clean start and version the resulting evidence.
 
 **Worked example**
 
-- Scene 02 shows a measured scoop and timer on a clean office pantry counter.
-- The prompt fixes the Harbour Bean palette and leaves the lower third clear for captions.
-- A clip with a malformed product label is rejected even if its motion is appealing.
+- brand-profile.yaml holds editable tokens and the frame samples pass the brand checklist.
+- The custom skill is discoverable, produces an MP4 and passes the technical probe.
+- A repeat run from a clean state produces matching outputs and the same evidence artifacts.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The scene is synthetic, clearly bounded, and does not require a real person's identity. | The scene impersonates a person, fabricates a real event, or uses protected material without permission. |
-| The team can retain provenance and has a fallback for failed generation. | The required text or exact product geometry should be produced deterministically in the editor. |
+| The same brand treatment must be applied across many videos or by several people. | The style brief asks for imitation of a living artist or a specific creator's identity. |
+| Brand compliance needs to be demonstrated rather than asserted. | Brand values are still changing, so tokens would be rewritten immediately after use. |
 
 **Practitioner quality lens**
 
-- Failure signal: Accepted scenes vary in lighting, product form, and screen direction.
-- Repair move: Reuse a continuity bible and generate by shot family with reference frames where allowed.
-- Quality evidence: Every accepted file has provenance and supports a named storyboard beat.
+- Failure signal: Two runs of the same skill produce visibly different brand treatment.
+- Repair move: Move the varying value into a stored token and reference it from the skill.
+- Quality evidence: brand-review.json records the passed checks against the applicable brand tokens.
 
 ---
 
 
-### Generating Voiceovers and Music
+### The Technical Quality Gate, Provenance and Repair
 
-Voice generation turns approved narration into timed audio. Music supports pace and emotion without masking speech. The workflow selects a permitted voice, normalises written text for speech, produces an audio file, checks pronunciation and duration, and records the service, settings, consent, and usage terms.
+The quality gate probes the container, inspects representative frames, checks that captions are readable and then either passes or fails the master. It fails closed: a missing stream, an out-of-bounds dimension or an unreadable caption blocks the master rather than producing a warning. Provenance runs alongside it — every asset is registered with its source, licence and a SHA-256 hash, so approval binds to an immutable version. A finding opens a repair, the repair renders a new version, and every affected check is rerun against that new version.
 
-Audio can make a visually strong video inaccessible or untrustworthy. Unauthorised voice cloning, poor pronunciation, excessive loudness, and unclear licensing create avoidable risk. Voice and music are therefore separate reviewed assets with explicit owners and fallback options.
+A video that looks correct in a player can still be technically invalid for the destination platform, and the failure surfaces at upload rather than in review. Deterministic probing catches that class of defect while it is still cheap to fix. Binding approval to a hash prevents the most damaging version-control error in a release pipeline: approving one master and shipping another. Re-testing the affected scope after a repair is what stops a fix in one place from silently breaking another.
 
 **How it works**
 
-- Use an approved synthetic or licensed voice; obtain consent for any personal voice clone.
-- Rewrite symbols, dates, acronyms, and names for the intended spoken form.
-- Generate a test line, review pronunciation and pace, then render the full narration.
-- Choose licensed music or a platform-approved library and retain the rights note.
-- Mix for intelligible speech, inspect peaks, and preview on speakers and headphones.
+- Probe the container and record the observed width, height, average frame rate and duration.
+- Inspect frames and confirm captions are present and readable.
+- Register each asset with its source, rights status and SHA-256 hash.
+- Open a finding with its severity, assign the repair and render a new immutable version.
+- Rerun every affected check against the new version and record the outcome.
 
 **Worked example**
 
-- The agent converts '3 fixes in 30 sec' to natural spoken wording before synthesis.
-- The narrator file is saved with the script version and chosen settings.
-- Background music is ducked under speech and the no-music export remains available as a fallback.
+- technical-qc.json and the contact sheet show the observed values against the required bounds.
+- asset-manifest.csv verifies rights status and hashes for every manifest row.
+- repair-log.json links the finding, the change, the new hash and the re-test result.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The voice identity and music rights are explicit and suitable for the intended channel. | The workflow clones a voice without documented permission. |
-| A person can listen to and approve the complete audio before assembly. | Licensing, commercial use, or territorial rights cannot be established. |
+| A master is a candidate for release and must meet a declared delivery specification. | The delivery specification has not been agreed, so there is nothing to check against. |
+| Approval will be given now and acted on later, so the approved artifact must be identifiable. | A finding would be closed without re-testing the checks it affects. |
 
 **Practitioner quality lens**
 
-- Failure signal: The narration sounds natural but mispronounces the brand or exceeds the scene timing.
-- Repair move: Add a pronunciation dictionary, rewrite for speech, and regenerate only the affected line.
-- Quality evidence: The approved audio matches the timed script and has a recorded rights basis.
+- Failure signal: A repair closes one finding and reopens another that was previously passing.
+- Repair move: Write a new immutable version and rerun the full affected scope rather than the single check.
+- Quality evidence: Closed findings outnumber reopened findings and each closure names its re-test.
 
 ---
 
 
-### Lab 3 — Run the Research-to-Script Agent and Approve a Timed Storyboard
+### Lab 4 — Install Video Tools and Hermes Skills
 
-Learning outcome: LO2: create evidence-linked research, script, caption, and storyboard hand-offs from an approved brief.
+Learning outcome: LO2: build a governed tool registry and install learner-safe skills with recorded permissions and fallbacks.
 
-Goal: Produce one approved 30-second concept whose claims and scenes are traceable to the supplied evidence.
+Goal: Establish which capability is a tool, which is a skill, and what each is permitted to do.
 
-You will use an approved AI assistant with a structured B-R-I-E-F prompt, or the supplied offline result, to cluster synthetic audience signals, propose distinct concepts, and return a timed script and storyboard. You will validate the schema and manually approve only evidence-linked content.
+You will inventory the local media tools, search the Hermes skill catalogue, install or create skills for Remotion, Manim, Higgsfield request preparation and FFmpeg verification, run a smoke test on each, and record the authentication mode, side effects and fallback for every entry in the registry.
 
 **What you'll build**
 
-A source-register.csv, research-script-prompt.txt, script-storyboard.json, captions-script-v1.vtt, and storyboard-approval.md in stage folder 02-create.   (Tools: Approved AI assistant or offline fallback, text editor, supplied synthetic data.)
+A tool-routing.json registry with skill-smoke-test.json evidence.   (Tools: Hermes skills, Remotion, Manim, Higgsfield request preview, FFmpeg.)
 
 **Prerequisites**
 
-- Complete Labs 1 and 2 or restore Lab checkpoint 02, including ready-restored-run.json, from stage folder 01-design.
-- Confirm labs/assets/audience-signals.csv, harbour-bean-brand-brief.md, and research-script-prompt-template.txt are present.
-- Use only the supplied synthetic inputs; do not search for or add personal audience data.
+- Complete Lab 3 so a validated prompt pack exists to route.
+- Open labs/lab-04-install-video-tools-and-skills/ as the current Hermes project.
+- Confirm FFmpeg and FFprobe return a version on PATH.
 
 **Step-by-step**
 
-1. Validate and consume the Lab 2 planning hand-off
-
-   ```bash
-   $plan=Get-Content -Raw C436-work/HB-001/01-design/ready-restored-run.json | ConvertFrom-Json
-if($plan.status -ne 'plan_ready' -or $plan.next_stage -ne 'research_and_script' -or [string]::IsNullOrWhiteSpace($plan.source_fingerprint)){throw 'Lab 2 planning hand-off is invalid.'}
-$plan | Select-Object run_id,contract_version,source_fingerprint,status,next_stage
-   ```
-
-2. Create the topic 2 checkpoint folder
-
-   ```bash
-   New-Item -ItemType Directory -Force -Path C436-work/HB-001/02-create | Out-Null
-   ```
-
-3. Copy the synthetic evidence and prompt template
-
-   ```bash
-   Copy-Item -LiteralPath labs/assets/audience-signals.csv -Destination C436-work/HB-001/02-create/source-register.csv
-Copy-Item -LiteralPath labs/assets/research-script-prompt-template.txt -Destination C436-work/HB-001/02-create/research-script-prompt.txt
-   ```
-
-4. Inspect the source register before prompting
-
-   ```bash
-   Import-Csv C436-work/HB-001/02-create/source-register.csv | Format-Table source_id,observation,evidence_type,allowed_use
-   ```
-
-5. Complete the prompt placeholders from the approved production contract
-
-   ```bash
-   Open research-script-prompt.txt. Set run ID HB-001 and paste the exact source_fingerprint from ready-restored-run.json. Set the audience, 30-second duration, 9:16 aspect ratio, three concepts, and required JSON schema. Paste the approved facts and source rows.
-   ```
-
-6. Run the prompt in an approved AI assistant
-
-   ```bash
-   Start a new chat, paste the completed prompt, and do not enable external actions. If unavailable, run: Copy-Item labs/assets/script-storyboard-approved.json C436-work/HB-001/02-create/script-storyboard.json, then continue at validation.
-   ```
-
-7. Save only the JSON response
-
-   ```bash
-   Copy the assistant's JSON object into C436-work/HB-001/02-create/script-storyboard.json. Remove text outside the outer braces and ensure the root contains script_version='script-v1' and plan_source_fingerprint copied exactly from ready-restored-run.json.
-   ```
-
-8. Validate the JSON and inspect the selected concept
-
-   ```bash
-   Get-Content -Raw C436-work/HB-001/02-create/script-storyboard.json | ConvertFrom-Json | Select-Object run_id,plan_source_fingerprint,status,selected_concept_id,total_duration_seconds | Format-List
-   ```
-
-9. Generate a versioned caption hand-off from the exact storyboard
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/captions-from-storyboard.ps1 -StoryboardPath C436-work/HB-001/02-create/script-storyboard.json -OutputPath C436-work/HB-001/02-create/captions-script-v1.vtt
-   ```
-
-10. Review every claim and mark the human decision
-
-   ```bash
-   Create storyboard-approval.md with four headings: Approved concept, Evidence checked, Required revisions, Decision. Set Decision to APPROVED_FOR_ASSET_REQUESTS only after each factual statement maps to an allowed source ID and no scene uses a real person's likeness.
-   ```
-
-11. Record the approved script version
-
-   ```bash
-   Add script_version=script-v1 and approved_by=<YOUR_NAME> to storyboard-approval.md. Do not write credentials or personal account identifiers.
-   ```
-
-12. Run the fail-closed Lab 3 validator and retain the evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 3 2>&1 | Tee-Object C436-work/HB-001/02-create/lab-03-test-output.txt
-Set-Content C436-work/HB-001/02-create/LAB-CHECKPOINT-03.txt 'Lab 3 passed; script and caption hand-offs accepted.'
-   ```
-
+1. Inventory local tools
+2. Search Hermes skills
+3. Install or create skills
+4. Run smoke tests
+5. Record permissions
+6. Choose fallback
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-03 PASS. It enforces run ID, script_ready status, exact Lab 2 fingerprint hand-off, human approval token, three concepts, required beat fields/source IDs, contiguous timing, and captions.
+verify.py must print PASS Lab 04. The registry records capability, installation state, auth mode, side effects and fallback, and every supplied SKILL.md passes its frontmatter and path checks.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 03 is stored in stage folder C436-work/HB-001/02-create. The complete rejoin block below restores the approved storyboard, binds it to the exact Lab 2 plan fingerprint, regenerates captions, restores the human approval, and runs the same fail-closed validator.
+tool-routing.json governs which tool or skill each later production task is permitted to call.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| The assistant returns Markdown around the JSON. | Copy only the content from the first opening brace to the final closing brace, then rerun ConvertFrom-Json. |
-| The beats total more than 30 seconds. | Ask for a repair that preserves the approved claim order and reduces narration; do not silently speed up the voice. |
-| A claim has no source ID. | Remove the claim or route it to open_questions. Do not approve it for asset generation. |
+| A skill is not discovered when its trigger is used. | Check the YAML frontmatter, the directory name and the SKILL.md filename, then restart skill discovery. |
+| A smoke test loads far more context than the task needs. | Search first and load only the resources the selected skill actually references. |
+| A tool is unavailable on this machine. | Record the limitation and route the task to the documented deterministic fallback. |
 
 **Challenge**
 
-Generate a second concept that uses the same evidence but a different angle family, then compare relevance, proof, feasibility, and estimated generation cost before choosing.
+Add one capability to the registry that you deliberately implement as a tool rather than a skill, and record the reasoning in the decision record.
 
 **Reflection**
 
-Which part of the script required human judgment even after the schema and source checks passed?
+Which capability was genuinely ambiguous between tool and skill, and which requirement finally decided it?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-03-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-04-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-### Lab 4 — Build the Visual, Voiceover, and Music Asset Request Pack
+### Lab 5 — Create a Custom Branded Video Skill
 
-Learning outcome: LO2: create structured media-generation requests with continuity, provenance, rights, and fallback controls.
+Learning outcome: LO2: package brand, tone and style rules into a reusable skill and verify the rendered output.
 
-Goal: Transform the approved storyboard into generator-ready requests without making paid or external actions mandatory.
+Goal: Make brand compliance repeatable and demonstrable rather than asserted.
 
-You will import a deterministic asset-request workflow, generate a continuity bible and one request per storyboard beat, prepare narration and music briefs, and review the resulting asset manifest. Optional live generation is kept outside the required path; supplied placeholder media lets everyone continue.
+You will approve a brand profile, write SKILL.md for a custom brand-video skill, bind its templates using relative or Hermes template paths, render a custom video through the skill, review the frame samples against the brand checklist and version the resulting evidence.
 
 **What you'll build**
 
-A continuity-bible.json, asset-requests.json, narration.txt, music-brief.md, and asset-manifest.csv with approved placeholders or authorised generated files.   (Tools: n8n, optional approved video/voice tools, supplied placeholder media.)
+A custom-video.mp4 with brand-review.json and render-evidence.json.   (Tools: Hermes skills, brand token profile, Remotion or FFmpeg renderer, FFprobe.)
 
 **Prerequisites**
 
-- Complete Lab 3 or restore its exact script-storyboard.json, captions-script-v1.vtt, and approval note.
-- Confirm labs/assets/asset-request-agent-workflow.json and asset-manifest-template.csv are present.
-- If using a live service, store its secret in managed credentials and confirm usage rights and budget with the trainer.
+- Complete Lab 4 so the tool registry and skills are installed.
+- Open labs/lab-05-create-custom-branded-video-skill/ as the current Hermes project.
+- Review data/brand-profile.yaml before editing any token.
 
 **Step-by-step**
 
-1. Import the asset-request workflow into n8n
-
-   ```bash
-   In n8n, select Workflows > Create Workflow, open the top-right three-dot menu, choose Import from File, and select labs/assets/asset-request-agent-workflow.json. Rename it C436-HB-001-Asset-Request-Agent and keep it inactive.
-   ```
-
-2. Inspect the workflow controls
-
-   ```bash
-   Confirm the path loads the exact storyboard, validates run_id HB-001 and script_version script-v1, creates one bounded request per beat, caps attempts at 2, and makes zero external actions.
-   ```
-
-3. Paste the exact Lab 3 storyboard into the workflow
-
-   ```bash
-   Open Load Exact Approved Storyboard. Copy the entire contents of C436-work/HB-001/02-create/script-storyboard.json between the storyboardText backticks. Run from Manual Trigger and verify source_fingerprint is non-empty.
-   ```
-
-4. Run the workflow and copy the output
-
-   ```bash
-   Select Test Workflow. Open Emit Asset Pack and copy the complete JSON output to C436-work/HB-001/02-create/asset-requests.json.
-   ```
-
-5. Extract the continuity bible
-
-   ```bash
-   $pack = Get-Content -Raw C436-work/HB-001/02-create/asset-requests.json | ConvertFrom-Json
-$pack.continuity_bible | ConvertTo-Json -Depth 8 | Set-Content C436-work/HB-001/02-create/continuity-bible.json
-   ```
-
-6. Create the narration file from approved beat text
-
-   ```bash
-   $story = Get-Content -Raw C436-work/HB-001/02-create/script-storyboard.json | ConvertFrom-Json
-($story.beats.narration -join ' ') | Set-Content C436-work/HB-001/02-create/narration.txt
-   ```
-
-7. Prepare the music brief
-
-   ```bash
-   Copy labs/assets/music-brief-template.md C436-work/HB-001/02-create/music-brief.md. Set mood to warm and practical, duration 30 seconds, dialogue priority high, and permitted source to the supplied course-use placeholder or an approved library. Resolve rights_status to approved_for_course_use before acceptance.
-   ```
-
-8. Create the asset manifest and register every requested scene
-
-   ```bash
-   Copy labs/assets/asset-manifest-template.csv C436-work/HB-001/02-create/asset-manifest.csv. Add exactly S01-S05, A01 narration, and A02 music. Every row must be accepted with approved_for_course_use rights. For rejoin, copy asset-manifest-approved.csv.
-   ```
-
-9. Use supplied placeholder media for the required path
-
-   ```bash
-   New-Item -ItemType Directory -Force C436-work/HB-001/02-create/media | Out-Null
-Copy-Item -Recurse -Force labs/assets/placeholder-media/* C436-work/HB-001/02-create/media/
-   ```
-
-10. Optionally replace one placeholder through an approved service
-
-   ```bash
-   Before a live call, confirm the provider, prompt, estimated cost, rights basis, and credential are approved. Generate only one bounded candidate, save it in media, and update its manifest row. Never paste a secret into the prompt or file.
-   ```
-
-11. Review the complete pack and record the decision
-
-   ```bash
-   Create asset-pack-approval.md with checks for storyboard coverage, continuity, narration, music rights, provenance, cost, and fallback. Set Decision to APPROVED_FOR_ASSEMBLY, manifest_version=asset-manifest-v1, and approved_by=<YOUR_NAME> only when every required asset is accepted.
-   ```
-
-12. Run the fail-closed Lab 4 validator and retain the evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 4 2>&1 | Tee-Object C436-work/HB-001/02-create/lab-04-test-output.txt
-Set-Content C436-work/HB-001/02-create/LAB-CHECKPOINT-04.txt 'Lab 4 passed; asset pack accepted for assembly.'
-   ```
-
+1. Approve brand profile
+2. Create SKILL.md
+3. Bind templates
+4. Render video
+5. Review frames
+6. Version evidence
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-04 PASS. It requires the exact S01-S05, A01, and A02 set, correct types, accepted approved-rights status, files, unique IDs, and the human APPROVED_FOR_ASSEMBLY token.
+verify.py must print PASS Lab 05. The custom skill is discoverable, uses relative or Hermes template paths, creates an MP4, passes the technical probe and meets every required brand token.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 04 is the complete 02-create stage folder. The rejoin block below restores every required accepted asset, narration, approved music brief, and human assembly decision before validating the checkpoint.
+The custom brand-video skill and its approved master are the production inputs for the multi-agent and release labs.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| The number of asset requests differs from the number of beats. | Check that every beat has a visual_request object and rerun from the workflow trigger without pinned output. |
-| A generated file has no usable provenance or rights information. | Mark it rejected, restore the placeholder, and route the rights question to the owner. |
-| Narration duration is likely too long. | Read it aloud at a natural pace, shorten the approved script, update script_version, and regenerate only the narration request. |
+| Two runs produce visibly different brand treatment. | Move the varying value into a stored token and reference it from the skill. |
+| The skill works interactively but fails from a clean start. | Replace any absolute or session-dependent path with a relative or Hermes template path. |
+| The render looks correct but the probe fails. | Fix the delivery properties; a master that fails the gate is not a candidate for release. |
 
 **Challenge**
 
-Add estimated_cost_sgd per request and a deterministic guard that compares the sum with the required cost_budget_sgd from the exact Lab 1 contract.
+Change one palette token and prove that the rendered frames and the brand review both reflect the change without any edit to the skill's procedure.
 
 **Reflection**
 
-Why is an accepted placeholder with complete provenance preferable to an impressive generated clip with unresolved rights?
+Which brand rule was hardest to express as a checkable token rather than as prose, and how did you make it measurable?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-04-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-05-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-## Topic 03 — Editing and Assembling Videos with AI
+## Topic 03 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing
 
-Course coverage: Day 2 morning | 2 labs.
+Course coverage: Day 2 afternoon | 3 labs.
 
-Automated editing | Captions, effects, and branding | Short-form assembly | AI-supported review and refinement
+Agent role contracts | Delegation and parallel work | Durable Kanban | Approval hash and cron release
 
 **Key concepts**
 
-- Edit decision list — A deterministic map from source assets to timeline order, in/out points, overlays, and transitions.
-- Media probe — Machine-readable evidence about codec, resolution, frame rate, duration, audio, and streams.
-- Caption track — Time-aligned text stored as a portable file and optionally burned into the picture.
-- Quality gate — A documented set of technical, editorial, accessibility, rights, and brand checks.
+- Role contract — One agent, one owned deliverable, a bounded tool list and one measurable completion rule.
+- Delegation context — The exact goal, paths, inputs, constraints and acceptance tests handed to a child agent.
+- Durable Kanban — Task state and dependencies that survive restarts and deliberate human pauses.
+- Approval hash — A named decision bound to the immutable hash of the release package it authorises.
 
 
-### Automating Video Editing
+### Agent Role Contracts and the Four Specialist Roles
 
-Automated editing turns an approved manifest and edit decision list into a repeatable render. Deterministic operations such as trim, scale, crop, concatenate, overlay, caption, and audio mix are best handled by an editor or media pipeline. A model may propose the sequence or repair plan, but the render command should be explicit and logged.
+Each agent receives a contract: a goal, a bounded list of allowed tools, one named deliverable and an explicit completion rule. This course uses four roles. The research agent reads the brief, retrieves sources, scores evidence and hands off claims with retrievable URLs and stated limitations. The video production agent consumes approved claims, creates the shot plan, invokes the brand skill and returns a master with its hash. The independent review agent inspects evidence against a rubric and creates timecoded findings. The upload agent verifies approval, builds metadata and uploads privately.
 
-Regenerating a full timeline for a small change wastes time and can introduce new errors. Manifest-driven assembly makes each input and transformation visible, supports selective reruns, and produces the same output from the same accepted files. A media probe before and after the render catches mismatched dimensions, missing audio, and duration drift.
+Roles without contracts drift into each other until no agent owns the outcome and two agents rewrite the same artifact. One deliverable per agent makes ownership unambiguous and makes a stalled pipeline diagnosable — the incomplete deliverable identifies the responsible role. The reviewer is deliberately denied approval authority: a reviewer that can approve its own findings provides no independent check, because the same assumptions that produced the work would clear it.
 
 **How it works**
 
-- Validate that every required scene and audio file exists and is approved.
-- Normalise aspect ratio, frame rate, codec, and naming before assembly.
-- Build the timeline from a versioned edit decision list.
-- Render to a draft path, then probe technical properties and duration.
-- Promote only the accepted draft to the release folder.
+- Define the goal, limit the tools, name the deliverable and set the completion rule for each role.
+- Require the research agent to produce retrievable URLs, bounded excerpts and explicit limitations.
+- Give the production agent immutable research input and require the custom brand-video skill.
+- Run the reviewer in an independent context and withhold approval authority from that role.
+- Block the upload agent until every parent deliverable and the current approval hash pass.
 
 **Worked example**
 
-- The manifest lists five vertical scenes, one narration track, music, and a caption file.
-- The assembly script scales to 1080x1920, applies bounded trims, mixes audio, and exports a draft.
-- A duration check routes a 33.8-second result back because the contract requires no more than 32 seconds.
+- agent-contracts.yaml validates all four specialist roles against the required fields.
+- research-handoff.json contains approved sources and claim identifiers.
+- review-handoff.json contains timecoded findings and a QA status but no approval decision.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The repeated edit can be expressed through a stable manifest or template. | The creative decision depends on subtle performance judgment that is not encoded in the plan. |
-| The team needs reproducible renders and traceable revisions. | The source media cannot be legally or technically processed by the chosen tool. |
+| Distinct roles have genuinely different tools, inputs or review criteria. | One bounded prompt and one tool would complete the task more reliably. |
+| An independent check is needed before a consequential external action. | Agents would share unrestricted credentials or be able to overwrite accepted artifacts. |
 
 **Practitioner quality lens**
 
-- Failure signal: A rerun changes unrelated parts of the video.
-- Repair move: Pin inputs, settings, and the edit decision list to a run version.
-- Quality evidence: The render log and media probe match the declared release specification.
+- Failure signal: Two agents disagree about which artifact is current.
+- Repair move: Give each deliverable one owning role and one immutable version identifier.
+- Quality evidence: Every factual claim in the output traces to a sourced claim identifier.
 
 ---
 
 
-### Adding Captions, Effects, and Branding
+### Delegation Context, Parallel Work and the Durable Kanban
 
-Captions represent speech and essential audio in time-aligned text. Branding uses controlled typography, colour, logo placement, and tone. Effects should guide attention or clarify change; they are not a substitute for a coherent story. Separate caption text from styling so the same approved content can be exported as WebVTT, platform captions, or burned-in text.
+A delegation context packages the goal, the required context, the exact paths and the acceptance tests before a child agent is dispatched. Independent tasks may run in parallel, but the join happens only on explicit verified artifacts rather than on elapsed time. The Hermes Kanban makes this durable: tasks carry an assignee, a status and parent identifiers, and the board survives restarts and deliberate human pauses, which is what allows a production run to span a break, a review or an overnight wait.
 
-Most short-form video is watched in varied sound and attention conditions. Accurate captions improve access and comprehension, while a consistent safe-area layout prevents text and controls from colliding. Automated transcription is a draft: names, numbers, timing, line breaks, and speaker meaning still require human review.
+A child agent that receives a goal without paths, inputs and tests will produce something plausible that does not fit the pipeline, and the mismatch is usually discovered at the join. Parallelising dependent work is worse: it appears faster while silently skipping a dependency. A durable board is what separates a multi-agent workflow from a long single conversation — work that must survive a restart cannot live only in a session, and a paused human review is a normal state rather than a failure.
 
 **How it works**
 
-- Create captions from the approved script or a reviewed transcript.
-- Check wording, timing, reading order, line length, and meaningful sound labels.
-- Apply brand typography and colours within channel-safe areas.
-- Use effects only when they support a story beat or viewer orientation.
-- Export a portable caption file and preview the full vertical frame at phone size.
+- Package the goal, context, exact paths and acceptance criteria into the delegation context.
+- Dispatch the child agent, receive its summary and verify the artifact it claims to have produced.
+- Identify genuinely independent tasks and dispatch those as a batch.
+- Create the board tasks, assign profiles and link every dependency before running the dispatcher.
+- Join only after all required parents are complete and verified.
 
 **Worked example**
 
-- The WebVTT file begins with the required header and contains ordered cue timings.
-- On-screen keywords complement rather than duplicate the complete caption line.
-- The logo and lower-third remain clear of common interface overlays.
+- delegation-log.json records the prompt, the agent and the verified result.
+- join-ledger.json shows every required parent complete before the join proceeded.
+- kanban-export.json shows the full dependency chain with no missing dependency.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The transcript can be reviewed against the final audio. | The system guesses inaudible speech or decorative text hides the subject. |
-| Brand assets and usage rules are approved and available. | A generated logo, typeface, or sound effect has uncertain rights. |
+| Work crosses several agents and must survive restarts or a human pause. | The tasks are dependent, so parallel dispatch would skip a dependency. |
+| Independent tasks exist and the join can be defined on verified artifacts. | The work fits one session and gains nothing from durable state. |
 
 **Practitioner quality lens**
 
-- Failure signal: Captions are accurate but unreadable on a phone or out of sync after an edit.
-- Repair move: Regenerate timings from the final audio and recheck safe area, contrast, and line breaks.
-- Quality evidence: The final file passes text, timing, contrast, and mobile-preview checks.
+- Failure signal: A task repeats the same failure and the pipeline retries it indefinitely.
+- Repair move: Cap attempts, classify the failure and block repeated failures for human intervention.
+- Quality evidence: Task history shows checkpoints, the review and the final evidence for each task.
 
 ---
 
 
-### Assembling Short-Form Videos
+### Human Approval, the YouTube Contract and Publishing Idempotency
 
-Assembly is the editorial act of making every visual, spoken line, caption, and sound serve one promise. The hook establishes relevance, the body delivers proof through a clear sequence, and the close completes the promise with a proportionate next action. Rhythm comes from information change, not from arbitrary rapid cuts.
+Before release the package is frozen and hashed, and a named reviewer approves that specific hash. Immediately before upload the current master hash is compared against the approved hash; a mismatch blocks the upload. The YouTube videos.insert contract requires OAuth authorisation, a snippet, a status block carrying the privacy setting and, where applicable, the synthetic-media disclosure. Uploads default to private. An idempotency key is created before the attempt and reconciled after it, so one approved package yields at most one committed video identifier.
 
-An agent can detect missing files, long gaps, repeated shots, or timing mismatches, but it cannot own the final communication judgment. The creator must watch the complete video as a viewer, with sound on and off, and confirm that the story remains understandable, truthful, and appropriately paced.
+Publishing is irreversible in a way that almost nothing earlier in the pipeline is. Approving a hash rather than a filename closes the gap where an artifact changes between approval and upload. Defaulting to private means a mistake is recoverable by deleting a private video rather than by retracting a public one. Reconciling an idempotency key before a retry prevents the specific failure where a network timeout on a successful upload produces a second copy on the channel.
 
 **How it works**
 
-- Start with the target promise and remove any beat that does not support it.
-- Align narration, picture, captions, and sound by function rather than repetition.
-- Use visual continuity and clear transitions to preserve orientation.
-- Preview from start to finish without stopping, then record only observable issues.
-- Apply the smallest revision that fixes the stated issue and rerender.
+- Freeze the release package, compute its hash and request approval against that hash.
+- Recheck the current master hash immediately before upload and block on any mismatch.
+- Authorise OAuth, confirm the channel identity, then set the snippet and the status block.
+- Default privacy to private and include the synthetic-media disclosure where applicable.
+- Create the publish key, check any prior result, then upload and commit the returned identifier.
 
 **Worked example**
 
-- The opening shows the bitter-cup problem while narration names the viewer situation.
-- Three proof beats demonstrate variables in the same order as the spoken explanation.
-- The close summarises the checklist and invites the viewer to save it.
+- approval-ledger.json proves the reviewer, the time, the decision and the approved hash.
+- request-preview.json and the private upload receipt match the approved package.
+- publication-ledger.csv contains exactly one committed video identifier per idempotency key.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The script, storyboard, media, and audio are approved enough for a complete draft. | Essential evidence is missing and the edit would disguise that gap. |
-| The team can preview on the intended aspect ratio and device. | The workflow optimises only for cut frequency or novelty. |
+| An external, irreversible action is about to be taken on an approved artifact. | The approved hash does not match the current master hash. |
+| Retries are possible and duplicate posts would be damaging. | Channel identity, disclosure or rights are unresolved, or public visibility is proposed without supervision. |
 
 **Practitioner quality lens**
 
-- Failure signal: The edit is energetic but the viewer cannot restate the three fixes.
-- Repair move: Restore causal order and remove decorative elements that compete with proof.
-- Quality evidence: A cold viewer identifies the promise, proof, and next action without explanation.
+- Failure signal: A retry after a timeout produces a second video on the channel.
+- Repair move: Reconcile the prior idempotency key and its committed video identifier before retrying.
+- Quality evidence: The duplicate publish rate is zero across all recorded attempts.
 
 ---
 
 
-### Reviewing and Refining with AI
+### Hermes Cron and Controlled Scheduled Release Operations
 
-A review agent inspects the draft against a declared rubric and returns evidence, severity, location, and a bounded repair suggestion. It may compare the script to captions, probe the file, detect missing manifest entries, or flag brand and rights questions. It does not give itself permission to approve or publish its own work.
+A cron job runs in a fresh session, so its prompt must be self-contained: every required path, gate and stop rule is written into the job, and the skills it needs are attached explicitly. The job is created paused. It is exercised with a dry run whose output is inspected, and the next scheduled run is confirmed before any cadence is enabled. Scheduled work in this course prepares the release and performs the private upload; public visibility remains a separate, explicitly approved decision.
 
-Unstructured feedback such as 'make it more engaging' causes uncontrolled rewrites. An issue register turns observations into reproducible decisions: issue ID, category, evidence, severity, owner, fix, and recheck result. Independent checks reduce the risk that the same assumptions survive from generation into review.
+A scheduled job inherits nothing from the session that created it, so a prompt that relies on conversational context will behave differently at three in the morning than it did during testing. Creating the job paused makes that difference observable before it matters. Restricting the schedule to preparation and private upload means the worst outcome of a scheduling defect is an unwanted private draft rather than an unapproved public post.
 
 **How it works**
 
-- Run deterministic technical and manifest checks first.
-- Review story, claims, captions, rights, privacy, branding, and disclosure separately.
-- Record each issue with timecode or asset reference and supporting evidence.
-- Assign an owner and apply the smallest controlled change.
-- Rerun affected checks and obtain human approval on the complete final preview.
+- Write a self-contained job prompt containing every required path, gate and stop rule.
+- Attach the custom video skill and any other required skills explicitly.
+- Create the schedule with an explicit timezone and leave the job paused.
+- Trigger a dry run, inspect the output and confirm the next run time.
+- Enable the cadence only after the evidence has been reviewed and the enablement approved.
 
 **Worked example**
 
-- The agent flags a caption mismatch at 00:12, a missing rights note for asset S03, and a 1.8-second duration overrun.
-- The editor fixes only those items and links the new render to the same run.
-- A person confirms the whole video after the automated checks return clear.
+- cron-preview.json records the schedule, the next run and the paused state.
+- operations-ledger.csv records each run, its outcome and the owner's decision.
+- The dry run cannot publish an unapproved or duplicate video.
 
 **Decision guide**
 
 | Use when | Avoid when |
 |---|---|
-| The rubric, evidence sources, and severity thresholds are explicit. | The reviewer shares the same hidden context and merely confirms its own output. |
-| A human remains accountable for ambiguous creative and release decisions. | A score is used without evidence, location, or a repair path. |
+| A release cadence is required and the preparation steps are already reliable. | The job prompt still depends on context from the session that created it. |
+| The job can be made fully self-contained and exercised with a dry run first. | Enabling the cadence would allow a public post without a separate approval. |
 
 **Practitioner quality lens**
 
-- Failure signal: The system gives a high quality score while required release evidence is missing.
-- Repair move: Use blocking gates for mandatory fields and evidence-linked findings for judgment.
-- Quality evidence: Every cleared issue has a recorded recheck and the final approval names a person.
+- Failure signal: A job that passed interactively behaves differently on its first scheduled run.
+- Repair move: Move every implicit path, gate and stop rule into the job prompt and re-run the dry run.
+- Quality evidence: The on-time success rate holds with zero unauthorised posts.
 
 ---
 
 
-### Lab 5 — Assemble and Probe the Captioned Vertical Video
+### Lab 6 — Build the Multi-Agent Video Workflow
 
-Learning outcome: LO3: assemble a reproducible short-form video with captions, branding, and technical evidence.
+Learning outcome: LO3: define four bounded specialist roles and prove that upload stays blocked until every gate passes.
 
-Goal: Render a 9:16 draft from approved checkpoint files and prove its technical properties.
+Goal: Give each stage one owner, one deliverable and one measurable completion rule.
 
-You will use the supplied PowerShell and FFmpeg assembly path to verify the accepted manifest sources, create deterministic scene clips, add narrated audio and a muxed WebVTT-derived caption track. You will then probe the draft and save machine-readable technical evidence.
+You will define and simulate four isolated Hermes roles for research, video creation, independent review and approved YouTube upload. Each role receives a bounded tool list and a named deliverable, the reviewer runs in an independent context without approval authority, and the uploader stays blocked until all parent evidence and the current approval hash pass.
 
 **What you'll build**
 
-A vertical-draft-v1.mp4, captions-v1.vtt, edit-decision-list.json, ffprobe-v1.json, render-log-v1.txt, and render-evidence-v1.json in stage folder 03-edit.   (Tools: PowerShell, FFmpeg, FFprobe, supplied assembly script.)
+A multi-agent-plan.json with four verified handoff records.   (Tools: Hermes delegation, agent contracts, handoff schema.)
 
 **Prerequisites**
 
-- Complete Lab 4 or restore the approved placeholder asset pack.
-- If FFmpeg is missing on Windows, run winget install --id Gyan.FFmpeg -e; on macOS, run brew install ffmpeg. Reopen the terminal.
-- Run ffmpeg -version and ffprobe -version successfully before assembly.
-- Confirm labs/assets/assemble-harbour-bean.ps1 and the Lab 3 captions-script-v1.vtt are present. If installation is not possible, use the supplied labs/assets/rejoin/lab-05 draft and probe package.
+- Complete Lab 5 so an approved branded master and its hash exist.
+- Open labs/lab-06-build-multi-agent-video-workflow/ as the current Hermes project.
+- Review data/agent-contracts.yaml and data/handoff-schema.json.
 
 **Step-by-step**
 
-1. Create the edit checkpoint and copy the controlled inputs
-
-   ```bash
-   New-Item -ItemType Directory -Force -Path C436-work/HB-001/03-edit/input/media,C436-work/HB-001/03-edit/output | Out-Null
-Copy-Item -Recurse -Force C436-work/HB-001/02-create/media/* C436-work/HB-001/03-edit/input/media/
-Copy-Item C436-work/HB-001/02-create/asset-manifest.csv C436-work/HB-001/03-edit/input/asset-manifest.csv
-Copy-Item C436-work/HB-001/02-create/narration.txt C436-work/HB-001/03-edit/input/narration.txt
-Copy-Item labs/assets/narration-fallback.wav C436-work/HB-001/03-edit/input/narration-fallback.wav
-Copy-Item C436-work/HB-001/02-create/captions-script-v1.vtt C436-work/HB-001/03-edit/captions-v1.vtt
-Copy-Item labs/assets/edit-decision-list-approved.json C436-work/HB-001/03-edit/edit-decision-list.json
-   ```
-
-2. Validate the edit decision list
-
-   ```bash
-   Get-Content -Raw C436-work/HB-001/03-edit/edit-decision-list.json | ConvertFrom-Json | Select-Object run_id,version,target_duration_seconds,width,height,frame_rate | Format-List
-   ```
-
-3. Inspect the caption header and cues
-
-   ```bash
-   Get-Content C436-work/HB-001/03-edit/captions-v1.vtt | Select-Object -First 20
-   ```
-
-4. Run the deterministic assembly script
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/assemble-harbour-bean.ps1 -ProjectRoot C436-work/HB-001/03-edit
-   ```
-
-5. Confirm the expected render files exist
-
-   ```bash
-   Get-Item C436-work/HB-001/03-edit/output/vertical-draft-v1.mp4,C436-work/HB-001/03-edit/output/render-log-v1.txt | Select-Object Name,Length,LastWriteTime
-   ```
-
-6. Probe the rendered video to JSON
-
-   ```bash
-   ffprobe -v quiet -print_format json -show_format -show_streams C436-work/HB-001/03-edit/output/vertical-draft-v1.mp4 | Set-Content C436-work/HB-001/03-edit/output/ffprobe-v1.json
-   ```
-
-7. Bind the actual MP4, probe, captions, and log into render evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/write-render-evidence.ps1 -ProjectRoot C436-work/HB-001/03-edit -Version v1
-   ```
-
-8. Run the fail-closed Lab 5 validator and retain technical evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 5 2>&1 | Tee-Object C436-work/HB-001/03-edit/lab-05-test-output.txt
-   ```
-
-9. Preview the complete draft with sound on and off
-
-   ```bash
-   Open C436-work/HB-001/03-edit/output/vertical-draft-v1.mp4 in a local media player. Confirm every scene appears in edit-decision-list order and the visual treatment does not obscure the subject.
-   ```
-
-10. Record the assembly decision
-
-   ```bash
-   Create assembly-approval.md with asset-manifest-v1, edl-v1, script-v1, render-evidence-v1, technical/editorial findings, and Decision=READY_FOR_QUALITY_REVIEW. Then write LAB-CHECKPOINT-05.txt.
-   ```
-
+1. Define role contracts
+2. Package context
+3. Delegate research
+4. Delegate production
+5. Request review
+6. Gate uploader
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-05 PASS. It hashes and inspects the actual MP4, probe, captions, and log; asserts H.264, 1080x1920, 30 fps, yuv420p, 30-second duration, audio/subtitles, ordered VTT, and approval.
+verify.py must print PASS Lab 06. All roles have bounded tools and outputs, the reviewer is independent, and upload is blocked until all parent evidence and the current approval hash pass.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 05 is the complete 03-edit stage folder. The block below restores the mutually hashed video, probe, caption, log, and evidence files plus the human assembly decision before running the validator.
+The four validated role contracts are the agents the Kanban board dispatches in the next lab.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| PowerShell cannot find ffmpeg or ffprobe. | Run the exact installer command in the prerequisites, reopen PowerShell, and rerun the version checks. If installation is unavailable, run the complete Checkpoint and Rejoin Point block; it restores all five mutually hashed evidence files and the assembly approval before validation. |
-| The render is landscape or square. | Confirm the edit decision list width is 1080 and height is 1920, then remove the incomplete output and rerun the supplied script. |
-| The caption cues no longer match the edited timing. | Update the cue times against the final narration and scene order, save a new caption version, and record the change before review. |
+| Two agents rewrite the same artifact. | Give each deliverable one owning role and one immutable version identifier. |
+| A child agent returns something plausible that does not fit the pipeline. | Add the exact paths, inputs and acceptance tests to the delegation context and redispatch. |
+| The reviewer clears its own findings. | Run the reviewer in an independent context; a reviewer with approval authority provides no independent check. |
 
 **Challenge**
 
-Copy the EDL to edit-decision-list-v2.json, change adjacent scene/cue boundaries while preserving 30 seconds, copy captions-v1.vtt to captions-v2.vtt and update those boundaries, then run with -Version v2 -EdlPath C436-work/HB-001/03-edit/edit-decision-list-v2.json.
+Change the master after approval and prove the uploader blocks on the hash mismatch rather than uploading the newer file.
 
 **Reflection**
 
-Which editing operations were safer as deterministic commands than as open-ended agent decisions?
+Where did splitting a stage into its own agent genuinely improve control, and where did it only add a handoff?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-05-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-06-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-### Lab 6 — Run the Independent Video Review Gate and Repair One Finding
+### Lab 7 — Orchestrate Kanban Review and YouTube Upload
 
-Learning outcome: LO3: review and refine a video through technical, editorial, accessibility, brand, rights, and release gates.
+Learning outcome: LO3: run a durable dependency chain and bind a named approval to the exact release hash.
 
-Goal: Produce an evidence-linked issue register, repair a controlled defect, and obtain a human release-readiness decision.
+Goal: Make the release decision durable, independent and reconcilable.
 
-You will import an n8n review workflow that reads exact technical, caption, and manifest evidence, validates 28–32 seconds plus ordered contiguous cues, creates blocking and advisory findings, and never self-approves. You will inject a controlled defect, verify that the gate blocks, repair the data, rerun, and record the final human decision after watching the complete draft.
+You will create a Hermes Kanban dependency chain, assign profiles, link every parent, require review, approve the exact package hash and then prepare or execute a private YouTube upload under explicit human authorisation with an idempotency key.
 
 **What you'll build**
 
-A review-agent workflow export, issue-register-v1.json, issue-register-v2.json, repair-log.md, and final-review-approval.json.   (Tools: n8n, FFprobe evidence, text editor, local media player.)
+A kanban-export.json, approval-ledger.json and a private-upload receipt or dry-run preview.   (Tools: Hermes Kanban, approval ledger, YouTube Data API videos.insert.)
 
 **Prerequisites**
 
-- Complete Lab 5 or restore Lab checkpoint 05 from stage folder 03-edit with a valid draft and probe.
-- Confirm labs/assets/video-review-agent-workflow.json and review-rubric.csv are present.
-- Keep the review workflow inactive and do not connect publishing tools.
+- Complete Lab 6 so the four role contracts are validated.
+- Open labs/lab-07-orchestrate-kanban-review-and-youtube-upload/ as the current Hermes project.
+- A Google account with a YouTube channel; uploads remain private throughout.
 
 **Step-by-step**
 
-1. Import and rename the review workflow
-
-   ```bash
-   In n8n, select Workflows > Create Workflow, import labs/assets/video-review-agent-workflow.json, rename it C436-HB-001-Video-Review-Gate, save it, and keep it inactive.
-   ```
-
-2. Inspect the gate structure
-
-   ```bash
-   Confirm it consumes exact FFprobe, WebVTT, and manifest evidence; enforces 28–32 seconds plus five ordered, positive, contiguous cues; keeps approval pending; and never emits release_approved.
-   ```
-
-3. Paste exact prior evidence and create a controlled missing-rights case
-
-   ```bash
-   Open Load Exact Review Evidence. Paste the complete Lab 5 ffprobe-v1.json, Lab 3 captions-script-v1.vtt, and Lab 4 asset-manifest.csv into the three named constants. In only the pasted manifest copy, change S01 rights_status to review_required and save.
-   ```
-
-4. Run the blocked review and save its output
-
-   ```bash
-   Select Test Workflow. Open Emit Issue Register, copy the complete JSON output, and save it to C436-work/HB-001/03-edit/issue-register-v1.json.
-   ```
-
-5. Verify the blocking finding
-
-   ```bash
-   $issues = Get-Content -Raw C436-work/HB-001/03-edit/issue-register-v1.json | ConvertFrom-Json
-$issues | Select-Object run_id,review_status,release_allowed
-$issues.findings | Format-Table issue_id,category,severity,evidence,required_action
-   ```
-
-6. Repair the controlled defect
-
-   ```bash
-   Return to Load Exact Review Evidence and repaste the unchanged exact Lab 4 asset-manifest.csv. Record the repair in C436-work/HB-001/03-edit/repair-log.md under issue RV-RIGHTS.
-   ```
-
-7. Rerun the review and save the clear result
-
-   ```bash
-   Select Test Workflow again. Save the Emit Issue Register JSON output as C436-work/HB-001/03-edit/issue-register-v2.json.
-   ```
-
-8. Verify that automation stops at review clear
-
-   ```bash
-   $clear = Get-Content -Raw C436-work/HB-001/03-edit/issue-register-v2.json | ConvertFrom-Json
-if ($clear.review_status -ne 'review_clear' -or $clear.release_allowed -ne $false -or $clear.owner_approval_status -ne 'pending') { throw 'Automated review did not stop before human approval.' }
-   ```
-
-9. Conduct the human full-length review
-
-   ```bash
-   Watch vertical-draft-v1.mp4 once with sound and once muted. Review the supplied rubric for story, claims, captions, mobile readability, brand, privacy, rights, disclosure, and technical output. Record timecoded observations.
-   ```
-
-10. Record the scoped decision
-
-   ```bash
-   $path='C436-work/HB-001/03-edit/final-review-approval.json'
-Copy-Item labs/assets/final-review-approval-template.json $path
-$a=Get-Content -Raw $path | ConvertFrom-Json
-$a.reviewer='<YOUR_NAME>'; $a.reviewed_at=[datetimeoffset]::UtcNow.ToString('o'); $a.decision='APPROVED_FOR_PRIVATE_RELEASE_PACKAGE'; $a.scope='private release package only; no public posting'; $a.reviewed_video_sha256=(Get-FileHash -Algorithm SHA256 C436-work/HB-001/03-edit/output/vertical-draft-v1.mp4).Hash.ToLowerInvariant(); $a.unresolved_blockers=@()
-$a | ConvertTo-Json -Depth 10 | Set-Content $path
-   ```
-
-11. Export the reviewed workflow
-
-   ```bash
-   Use n8n Download and save C436-work/HB-001/03-edit/video-review-agent-reviewed.json. Then run labs/assets/validate-lab-checkpoint.ps1 -Lab 6 and retain lab-06-test-output.txt.
-   ```
-
+1. Create board tasks
+2. Assign profiles
+3. Link dependencies
+4. Request review
+5. Approve exact hash
+6. Upload private
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-06 PASS: rights, invalid duration, or bad caption timing must block; repaired evidence stays non-releasing; the human JSON approval must bind the actual video hash and private-only scope.
+verify.py must print PASS Lab 07. The Kanban graph has no missing dependency, review is required, the request points to the approved master, privacy is private, and no credential is present in any artifact.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 06 adds both issue registers, the repair log, structured human final review, and exported workflow to C436-work/HB-001/03-edit. Keep v1 evidence to prove the defect. The trainer-approved rejoin block below restores exact review artifacts and verifies that the final approval names the SHA-256 of the supplied Lab 5 MP4.
+approval-ledger.json and the private upload receipt are the release evidence the scheduled-publishing lab operates against.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| The clear run still contains the rights blocker. | Confirm the edited evidence node was saved and run from the workflow trigger rather than a downstream node with pinned data. |
-| The review result sets release_allowed=true. | Stop. Restore the supplied workflow and confirm the final deterministic gate always sets release_allowed=false pending a separate approval token. |
-| The video preview reveals a new issue not in the automated output. | Record it with evidence and severity, repair it, and rerun only the affected technical checks plus the complete human preview. |
+| Review or upload is blocked. | Inspect the exact dependency status and compare the approved payload hash with the current master hash. |
+| A retry after a timeout produces a second video. | Reconcile the prior idempotency key and its committed video identifier before retrying. |
+| A task fails repeatedly. | Cap the attempts, classify the failure and block it for human intervention rather than retrying indefinitely. |
 
 **Challenge**
 
-Add a blocking rule for duplicate WebVTT cue identifiers, prove it with a controlled duplicate cue ID, then restore the approved caption file and confirm the full review returns review_clear.
+Remove one dependency link and prove the board lets a task start early, then restore it and show the join waiting on verified artifacts.
 
 **Reflection**
 
-What important quality judgment remained invisible to the automated review evidence?
+Why does approving a hash rather than a filename close a gap that filename-based approval leaves open?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-06-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
-
----
-
-
-## Topic 04 — Automating and Scaling Video Production
-
-Course coverage: Day 2 afternoon | 2 labs.
-
-Multi-step video agents | Publishing and scheduling | Performance analysis | Scalable content pipelines
-
-**Key concepts**
-
-- Orchestrator — The workflow component that routes state between specialist stages and enforces gates.
-- Approval token — A recorded, scoped decision that authorises one release action for one approved package.
-- Metric contract — A definition of the decision, grain, window, numerator, denominator, and exclusions for each KPI.
-- Scaling guardrail — A limit on volume, spend, retries, permissions, or variance that grows with automation.
-
-
-### Building Multi-Step Video Agents
-
-A multi-step video system may use a coordinator plus specialist research, script, asset, edit, review, and release stages. Specialisation is valuable when each role has a distinct tool set and output contract. The coordinator should route state and enforce policies, not rewrite every artifact.
-
-Adding agents increases hand-offs, cost, latency, and opportunities for inconsistent assumptions. Start with one workflow and split a stage only when the separation improves control, parallel work, specialist tooling, or evaluation. Shared run state must distinguish approved artifacts from drafts.
-
-**How it works**
-
-- Define a state machine with permitted transitions and blocking conditions.
-- Give each specialist the minimum context and tools required for its stage.
-- Validate every hand-off against the shared schema and artifact version.
-- Cap iterations and route unresolved work to a rework queue or human owner.
-- Trace tool calls, costs, decisions, errors, and approvals under one run ID.
-
-**Worked example**
-
-- HB-001 moves brief_approved -> script_ready -> assets_ready -> draft_ready -> release_ready.
-- A rights flag prevents the release stage from running even when all media files exist.
-- The coordinator sends the issue back to the asset owner rather than regenerating the script.
-
-**Decision guide**
-
-| Use when | Avoid when |
-|---|---|
-| Specialist roles have distinct contracts, tools, or review criteria. | One prompt and one tool would solve the bounded task more reliably. |
-| The orchestrator can persist state and enforce permitted transitions. | Agents share unrestricted credentials or can silently overwrite accepted artifacts. |
-
-**Practitioner quality lens**
-
-- Failure signal: Agents loop or disagree about which artifact is current.
-- Repair move: Use a state machine, immutable versions, and one authoritative manifest.
-- Quality evidence: The complete run can be reconstructed from state transitions and logs.
+> **Note:** The complete lab and its support-file references are in labs/lab-07-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
 
-### Publishing and Scheduling Across Platforms
+### Lab 8 — Schedule Controlled Video Publishing with Hermes Cron
 
-Publishing is an external, high-impact action. The release stage should receive only an approved video, captions, metadata, disclosure decision, rights record, target account, privacy setting, and schedule. The default learning path produces a dry-run request and keeps visibility private until an authorised person reviews platform-specific fields and consents.
+Learning outcome: LO3: create a paused, self-contained scheduled job and enable a cadence only after evidence review.
 
-Platforms have different permissions, quotas, disclosure fields, and audit requirements. Automating the final click without checking creator information, audience settings, privacy, and synthetic-media disclosure can cause irreversible mistakes. A scoped approval token and idempotency key ensure one approved package produces at most one intended post.
+Goal: Make scheduled release safe by default and observable before it runs unattended.
 
-**How it works**
-
-- Validate the release package and platform-specific required fields.
-- Query the authorised account or creator settings where the API requires it.
-- Show the exact title, description, captions, disclosure, privacy, and schedule to a person.
-- Record approval, then initialise one private or scheduled upload with an idempotency key.
-- Poll processing status, record the returned post ID, and route errors without duplicate posts.
-
-**Worked example**
-
-- The C436 lab creates a private dry-run package for YouTube and a TikTok request preview.
-- The release remains blocked until disclosure, rights, and owner_approval fields are complete.
-- The workflow records the intended target and package checksum before any live integration is enabled.
-
-**Decision guide**
-
-| Use when | Avoid when |
-|---|---|
-| The account owner has authorised the app and can preview every required field. | The workflow would post publicly without explicit consent and a complete preview. |
-| Private or draft mode, error handling, and duplicate prevention are available. | Credentials, disclosure, rights, or platform audit requirements are unresolved. |
-
-**Practitioner quality lens**
-
-- Failure signal: A retry produces two uploads or exposes an unreviewed caption.
-- Repair move: Gate the action with approval plus an idempotency key and reconcile the returned post ID.
-- Quality evidence: The release log links one approved package to one intended platform action.
-
----
-
-
-### Analysing Performance
-
-Performance analysis starts with a decision and a metric contract. Reach, starts, watch time, average view duration, completion, saves, shares, comments, and downstream actions describe different parts of audience response. The agent should calculate defined metrics at a consistent grain, compare appropriate windows, and separate observation from explanation.
-
-A large view count does not prove that a creative choice caused success. Platform metric definitions and counting rules can change, and small samples are unstable. A useful analysis agent preserves denominators, dates, segment, content version, and data source, then proposes a limited next test instead of declaring a universal rule.
-
-**How it works**
-
-- State the decision and choose one primary metric plus guardrails.
-- Validate dates, video IDs, denominators, missing values, and metric definitions.
-- Compare like with like and calculate rates at the intended grain.
-- Describe observed differences before proposing possible drivers.
-- Recommend one controlled creative or workflow change with a measurement window.
-
-**Worked example**
-
-- The Harbour Bean synthetic dataset compares eight posts by hook family and duration.
-- The agent calculates completion and save rates from the supplied counts, then flags low-impression rows.
-- It recommends testing the strongest clear-promise hook while holding topic and duration band stable.
-
-**Decision guide**
-
-| Use when | Avoid when |
-|---|---|
-| The data source, metric definitions, window, and comparison grain are known. | Denominators are missing or metrics from different platforms are treated as identical. |
-| A proposed action can be tested and reviewed against guardrails. | A single high-performing post is being treated as causal proof. |
-
-**Practitioner quality lens**
-
-- Failure signal: The dashboard ranks videos by a rate calculated from incompatible denominators.
-- Repair move: Write the metric contract and validate each row before analysis.
-- Quality evidence: Every recommendation cites a defined metric, segment, window, caveat, and next test.
-
----
-
-
-### Scaling Your Video Content Pipeline
-
-Scaling means increasing useful throughput without losing evidence, control, or quality. The team standardises production contracts, templates, reusable agent tools, asset naming, review rubrics, and telemetry. Work is queued and prioritised; capacity and cost budgets are visible; exceptions are handled explicitly.
-
-Volume magnifies small defects. A weak prompt creates many weak scripts, a permissive credential multiplies risk, and a missing rights record blocks an entire catalogue. Scale should follow demonstrated reliability at lower volume. Versioned templates, sampling, canary releases, and stop conditions keep growth reversible.
-
-**How it works**
-
-- Measure baseline lead time, rework, cost, quality findings, and release errors.
-- Standardise only stages with stable inputs, outputs, and owner acceptance.
-- Introduce queues, concurrency limits, budgets, and priority rules.
-- Use canary batches and sample-based human review before increasing volume.
-- Monitor drift, rights expiry, tool changes, and incidents; pause when thresholds fail.
-
-**Worked example**
-
-- The team moves from one video to a three-video weekly batch using the same approved production contract.
-- Generation is capped per run, every fifth draft receives an additional cold review, and public release stays human-approved.
-- A scorecard tracks cycle time, cost per accepted video, rework rate, blocked rights items, and post-release learning.
-
-**Decision guide**
-
-| Use when | Avoid when |
-|---|---|
-| The pilot is reliable, measurable, and recoverable. | Quality evidence is incomplete or rework already consumes more time than the workflow saves. |
-| Owners, limits, incident response, and manual fallback are in place. | The plan increases permissions or public actions faster than monitoring and review capacity. |
-
-**Practitioner quality lens**
-
-- Failure signal: Output volume rises while accepted-video cost and rework also rise.
-- Repair move: Throttle the queue and fix the earliest stage producing repeated defects.
-- Quality evidence: Throughput improves while guardrail metrics remain within agreed limits.
-
----
-
-
-### Lab 7 — Orchestrate the Private Release Package with Human Approval
-
-Learning outcome: LO4: orchestrate multi-step agents and prepare safe platform-specific publishing actions.
-
-Goal: Build a release-ready package that is blocked until a person approves one scoped private action.
-
-You will import a release orchestrator, inspect its state transitions, validate video, caption, metadata, rights, and disclosure fields, then exercise denial and approval paths. The lab creates a dry-run package only; no public account or live posting credential is used.
+You will write a self-contained cron prompt containing every required path, gate and stop rule, attach the custom video skill explicitly, create the schedule paused with an explicit timezone, trigger a dry run, inspect the next run time and approve enablement only after reviewing the evidence.
 
 **What you'll build**
 
-A release-package.json, denied-approval.json, private-release-approval.json, and release-orchestrator-reviewed.json in stage folder 04-release.   (Tools: n8n, supplied release workflow, reviewed video package.)
+A cron-preview.json with an operations-ledger.csv.   (Tools: Hermes cron, attached skills, operations ledger.)
 
 **Prerequisites**
 
-- Complete Lab 6 or restore Lab checkpoint 06 with final-review-approval.json bound to the reviewed video.
-- Confirm labs/assets/release-orchestrator-workflow.json and release-metadata-template.json are present.
-- Do not connect a YouTube, TikTok, or other publishing credential during the required lab path.
+- Complete Lab 7 so an approved release package and its ledger exist.
+- Open labs/lab-08-schedule-controlled-video-publishing/ as the current Hermes project.
+- Review starter/release-job-prompt.md and starter/cron-commands.md.
 
 **Step-by-step**
 
-1. Create the release checkpoint
-
-   ```bash
-   New-Item -ItemType Directory -Force C436-work/HB-001/04-release | Out-Null
-Copy-Item labs/assets/release-metadata-template.json C436-work/HB-001/04-release/release-metadata.json
-   ```
-
-2. Complete the release metadata without account secrets
-
-   ```bash
-   Open release-metadata.json and set title, description, caption_path='02-create/captions-script-v1.vtt', video_path='03-edit/output/vertical-draft-v1.mp4', rights_evidence_path='02-create/asset-manifest.csv', final_review_approval_path='03-edit/final-review-approval.json', and package_owner. Retain typed private/null/true values and public_release_allowed=false.
-   ```
-
-3. Build and hash the canonical release package manifest
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/build-release-package.ps1 -WorkRoot C436-work/HB-001
-Get-Content -Raw C436-work/HB-001/04-release/release-package-manifest.json | ConvertFrom-Json | Select-Object run_id,package_version,title,privacy_status,contains_synthetic_media
-   ```
-
-4. Import and inspect the release orchestrator
-
-   ```bash
-   In n8n, create a workflow from labs/assets/release-orchestrator-workflow.json, rename it C436-HB-001-Private-Release-Orchestrator, save it, and keep it inactive. Confirm the states are release_input -> validation -> awaiting_human_approval -> dry_run_ready or denied.
-   ```
-
-5. Run the input validation path
-
-   ```bash
-   Open Load Exact Release Metadata and paste the complete release-metadata.json between the releaseText backticks. Select Test Workflow and inspect Emit Release Package.
-   ```
-
-6. Save the awaiting-approval package
-
-   ```bash
-   Copy the Emit Release Package JSON output to C436-work/HB-001/04-release/release-package.json. Confirm publish_allowed=false and status=awaiting_human_approval.
-   ```
-
-7. Exercise the denial path
-
-   ```bash
-   Edit release-metadata.json to set human_decision='deny' and decision_reason='Controlled lab denial - verify no action'. Repaste the complete file, run, and save the complete output as C436-work/HB-001/04-release/denied-approval.json.
-   ```
-
-8. Verify denial causes no external action
-
-   ```bash
-   $denied = Get-Content -Raw C436-work/HB-001/04-release/denied-approval.json | ConvertFrom-Json
-$denied | Select-Object status,publish_allowed,external_action_count
-if ($denied.external_action_count -ne 0) { throw 'Denial must cause zero external actions' }
-   ```
-
-9. Create a scoped private approval
-
-   ```bash
-   $path='C436-work/HB-001/04-release/release-metadata.json'
-$m=Get-Content -Raw $path | ConvertFrom-Json
-$m.human_decision='approve_private_dry_run'; $m.decision_reason='Reviewed exact package for private dry run only'; $m.approval_scope='HB-001; private dry-run request preview; one package; no external execution'; $m.approval_package_sha256=$m.package_sha256; $m.approval_expires_at=[datetimeoffset]::UtcNow.AddHours(8).ToString('o')
-$m | ConvertTo-Json -Depth 10 | Set-Content $path
-Repaste the complete file into Load Exact Release Metadata and run.
-   ```
-
-10. Save and verify the approved dry-run output
-
-   ```bash
-   Save the final output as C436-work/HB-001/04-release/private-release-approval.json. Confirm dry_run_ready, non-publishing, zero actions, a non-empty idempotency key, and disclosure-complete non-executing platform previews.
-   ```
-
-11. Export the reviewed orchestrator
-
-   ```bash
-   Use n8n Download and save C436-work/HB-001/04-release/release-orchestrator-reviewed.json.
-   ```
-
-12. Run the fail-closed Lab 7 validator and retain the evidence
-
-   ```bash
-   PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 7 2>&1 | Tee-Object C436-work/HB-001/04-release/lab-07-test-output.txt
-Set-Content C436-work/HB-001/04-release/LAB-CHECKPOINT-07.txt 'Lab 7 passed; hash-bound private dry-run package retained.'
-   ```
-
+1. Write self-contained job
+2. Attach video skill
+3. Create paused cron
+4. Trigger dry run
+5. Inspect next run
+6. Approve enablement
+7. Open this lab folder as the current project in Hermes Desktop.
+8. Read AI-PROMPTS.md; replace only the named placeholders with supplied synthetic values.
+9. Ask Hermes to inspect the local files before it proposes a plan.
+10. Require a preview before any network, paid-generation, upload or scheduling side effect.
+11. Run python3 verify.py and retain the PASS output with the requested evidence.
 
 **Test it**
 
-The validator must print LAB-07 PASS. It recomputes the canonical package and every video/caption/rights/final-review hash, requires an exact approval hash plus future expiry, and validates zero-action platform previews.
+verify.py must print PASS Lab 08. The schedule and timezone are explicit, the prompt is self-contained, the custom skill is attached, the job begins paused, and the dry run cannot publish an unapproved or duplicate video.
 
 **Checkpoint and rejoin point**
 
-Lab checkpoint 07 is stored in stage folder C436-work/HB-001/04-release. It contains both decision paths and the private dry-run package. A live integration may be added later only by an authorised owner using current official platform documentation and managed credentials.
+cron-preview.json and operations-ledger.csv complete the handover package for the whole C436 pipeline.
 
 **Troubleshooting**
 
 | If this happens | Fix |
 |---|---|
-| The validator reports a missing disclosure decision. | Set contains_synthetic_media explicitly to true or false based on the reviewed content; never leave it implicit. |
-| The approved dry run sets publish_allowed=true. | Stop and restore the supplied workflow. This lab never authorises a live public action. |
-| The idempotency key changes every time the same package is retried. | Build it from the stable run ID, target, and package checksum rather than the current timestamp. |
+| A job that passed interactively behaves differently on its first scheduled run. | Move every implicit path, gate and stop rule into the job prompt; a cron job inherits no session context. |
+| The attached skill is not found at run time. | Attach the skill explicitly to the job rather than relying on discovery from the creating session. |
+| The dry run attempts a real publish. | Keep the job paused and confirm the release gate requires a separate approval for public visibility. |
 
 **Challenge**
 
-Set approval_expires_at to one minute in the past and prove the package is blocked with approval_hash_or_expiry_invalid and zero actions, then restore a future expiry.
+Remove one path from the job prompt and show the scheduled run failing in a way the interactive run did not, then restore it.
 
 **Reflection**
 
-Which release fields must a person see together before an approval can be considered informed?
+What is the worst outcome a defect in your schedule could now cause, and which control bounds it to that?
 
-> **Note:** The complete lab and its support-file references are in labs/lab-07-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
-
----
-
-
-### Lab 8 — Analyse Synthetic Performance and Build the Scaling Control Plan
-
-Learning outcome: LO4: analyse performance with metric contracts and scale the pipeline through measurable guardrails.
-
-Goal: Turn synthetic post data into a bounded next test and a scaling decision supported by operational evidence.
-
-You will import a deterministic analytics workflow, validate metric definitions and denominators, calculate completion and save rates, inspect low-volume caveats, and produce one creative experiment. You will then complete a scaling scorecard covering throughput, cost, rework, quality, rights, incidents, and rollback.
-
-**What you'll build**
-
-A metric-contract.json, analytics-result.json, next-test.md, scaling-scorecard.csv, and integrated-handover.md in stage folder 05-learn.   (Tools: n8n, supplied synthetic analytics CSV, spreadsheet or text editor.)
-
-**Prerequisites**
-
-- Complete Lab 7 or restore Lab checkpoint 07.
-- Confirm labs/assets/synthetic-video-analytics.csv, analytics-scale-workflow.json, and scaling-scorecard-template.csv are present.
-- Treat all analytics as synthetic; do not infer facts about real people or accounts.
-
-**Step-by-step**
-
-1. Create the learning checkpoint and copy the supplied data
-
-   ```bash
-   New-Item -ItemType Directory -Force C436-work/HB-001/05-learn | Out-Null
-Copy-Item labs/assets/synthetic-video-analytics.csv C436-work/HB-001/05-learn/synthetic-video-analytics.csv
-Copy-Item labs/assets/synthetic-pipeline-operations.csv C436-work/HB-001/05-learn/synthetic-pipeline-operations.csv
-Copy-Item labs/assets/metric-contract-approved.json C436-work/HB-001/05-learn/metric-contract.json
-Copy-Item labs/assets/scaling-scorecard-template.csv C436-work/HB-001/05-learn/scaling-scorecard.csv
-Copy-Item labs/assets/scale-decision-template.json C436-work/HB-001/05-learn/scale-decision.json
-   ```
-
-2. Inspect data grain and required denominators
-
-   ```bash
-   Import-Csv C436-work/HB-001/05-learn/synthetic-video-analytics.csv | Format-Table video_id,hook_family,duration_seconds,views,completed_views,saves,shares
-   ```
-
-3. Review the metric contract before calculation
-
-   ```bash
-   Get-Content -Raw C436-work/HB-001/05-learn/metric-contract.json | ConvertFrom-Json | Select-Object decision,primary_metric,minimum_views,comparison_grain,window | Format-List
-   ```
-
-4. Import the analytics workflow
-
-   ```bash
-   In n8n, create a workflow from labs/assets/analytics-scale-workflow.json, rename it C436-HB-001-Analytics-and-Scale, save it, and keep it inactive.
-   ```
-
-5. Inspect deterministic calculations
-
-   ```bash
-   Confirm completion_rate=completed_views/views and save_rate=saves/views after excluding rows below minimum_views. Confirm cost_per_accepted_video=sum(cost_sgd)/accepted_count and any rights, review, duplicate-release, rollback, or capacity blocker forces HOLD.
-   ```
-
-6. Paste the exact source artifacts into the workflow
-
-   ```bash
-   Open Load Exact Analytics Operations and Contract. Paste the complete synthetic-video-analytics.csv, synthetic-pipeline-operations.csv, and metric-contract.json into their named constants. Do not retype or use a subset.
-   ```
-
-7. Run the analytics workflow and save the result
-
-   ```bash
-   Select Test Workflow. Open Emit Analysis and save its complete JSON output as C436-work/HB-001/05-learn/analytics-result.json.
-   ```
-
-8. Verify rates and caveats
-
-   ```bash
-   $result = Get-Content -Raw C436-work/HB-001/05-learn/analytics-result.json | ConvertFrom-Json
-$result.summary_by_hook | Format-Table hook_family,video_count,total_views,completion_rate,save_rate
-$result.caveats
-if (-not $result.low_volume_video_ids) { Write-Host 'No low-volume rows in this supplied dataset' }
-   ```
-
-9. Calculate baseline, pilot, cost, rework, blocker, rollback, and capacity evidence
-
-   ```bash
-   $ops=@(Import-Csv C436-work/HB-001/05-learn/synthetic-pipeline-operations.csv); $base=@($ops|Where-Object phase -eq 'baseline'); $pilot=@($ops|Where-Object phase -eq 'pilot'); $accepted=@($ops|Where-Object accepted_status -eq 'accepted'); $rework=@($ops|Where-Object rework_required -eq 'true'); $blockers=@($ops|Where-Object {[int]$_.unresolved_rights_items -gt 0 -or [int]$_.blocking_review_findings -gt 0}); $summary=[ordered]@{baseline_job_count=$base.Count;pilot_job_count=$pilot.Count;baseline_average_cycle_minutes=[math]::Round((($base|Measure-Object cycle_minutes -Average).Average),2);pilot_average_cycle_minutes=[math]::Round((($pilot|Measure-Object cycle_minutes -Average).Average),2);cost_per_accepted_video_sgd=[math]::Round((($ops|Measure-Object cost_sgd -Sum).Sum/$accepted.Count),2);rework_rate=[math]::Round(($rework.Count/$ops.Count),4);blocking_job_ids=@($blockers.job_id);duplicate_release_actions=[int](($ops|Measure-Object duplicate_release_actions -Sum).Sum);rollback_all_tested=(-not ($ops|Where-Object rollback_tested -ne 'true'));human_review_capacity_sufficient=(-not ($ops|Where-Object {[int]$_.human_review_capacity_slots -lt [int]$_.human_reviews_required}))}; $summary|ConvertTo-Json -Depth 8|Set-Content C436-work/HB-001/05-learn/operational-summary.json
-$summary
-   ```
-
-10. Write one bounded next test
-
-   ```bash
-   Create next-test.md with Decision, Observation, Caveat, Hypothesis, Single change, Held constant, Primary metric, Guardrails, Minimum sample, Review date, and Stop rule. Change only hook family; hold topic and duration band constant.
-   ```
-
-11. Complete the scaling scorecard
-
-   ```bash
-   Use operational-summary.json and the phase/capacity columns to complete all eight rows. Set baseline, pilot_evidence, threshold, owner, status, and action with no placeholders. At least the rights/review rows must be HOLD while the supplied pilot blocker remains.
-   ```
-
-12. Make the scale decision
-
-   ```bash
-   Open scale-decision.json. Set scale_decision to HOLD for the supplied blocker, add reason and next_owner, and retain canary_limit=3, visibility=private, human_review_rate=1.0, and rollback path. Only a later clean pilot may use PILOT_3_PER_WEEK or SCALE_WITH_LIMITS.
-   ```
-
-13. Create the integrated handover
-
-   ```bash
-   Write integrated-handover.md with literal LAB-CHECKPOINT-01 through LAB-CHECKPOINT-08 paths plus headings: artifact versions, unresolved issues, enabled tools, disabled tools, approval scope, metric decision, scale decision, rollback path, and next owner.
-   ```
-
-14. Export the reviewed analytics workflow
-
-   ```bash
-   Use n8n Download and save C436-work/HB-001/05-learn/analytics-scale-reviewed.json. Run labs/assets/validate-lab-checkpoint.ps1 -Lab 8 and retain lab-08-test-output.txt.
-   ```
-
-
-**Test it**
-
-The validator must print LAB-08 PASS. It proves low-volume exclusion, baseline/pilot, duplicate-release, rollback, and capacity gates, exact scorecard controls, the complete next test/handover, and a structured HOLD/canary decision.
-
-**Checkpoint and rejoin point**
-
-Lab checkpoint 08 is the full stage folder C436-work/HB-001/05-learn plus the integrated handover. A rejoining learner may use the approved metric contract and supplied synthetic data, but must still make and explain their own bounded next-test and scaling decisions.
-
-**Troubleshooting**
-
-| If this happens | Fix |
-|---|---|
-| A calculated rate is greater than 1 or below 0. | Check numeric conversion and confirm the numerator cannot exceed the declared denominator; flag the row instead of repairing it silently. |
-| The workflow recommends a winner from a low-volume row. | Apply the minimum_views rule before ranking and retain the caveat in the result. |
-| The scale scorecard is green while rights or release evidence is missing. | Set the affected control to blocked and choose HOLD until the owner resolves and rechecks it. |
-
-**Challenge**
-
-Use the supplied cost and accepted-status fields to calculate cost per accepted video, then add a canary rule limiting the first pilot to three private drafts with 100% human review.
-
-**Reflection**
-
-Which scaling metric would reveal that the workflow is producing more output but less useful accepted work?
-
-> **Note:** The complete lab and its support-file references are in labs/lab-08-*.md. Use only the supplied synthetic campaign data and approved accounts. Store secrets in managed credentials, keep public publishing disabled, and obtain human approval before any external release action.
+> **Note:** The complete lab and its support-file references are in labs/lab-08-*.md. Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, or YouTube credential into a prompt, lab file, screenshot, or repository. YouTube examples default to private and scheduled publishing starts paused.
 
 ---
 
@@ -1714,10 +1051,10 @@ The completed C436 project is not merely a generated video. It is a controlled p
 
 **Minimum handover package**
 
-- Approved production contract, autonomy matrix, and workflow map.
-- Source register, script, storyboard, asset manifest, and provenance notes.
-- Edit decision list, caption file, technical probe, draft, and issue register.
-- Release package, approval record, metric contract, analysis, and scaling scorecard.
+- Setup evidence, profile check, and model check with no credential value recorded.
+- FRAME-CUT prompt pack, validated shot plan, and the preview probe.
+- Tool routing registry, installed skills, brand profile, and the custom video skill.
+- Agent contracts, Kanban export, review findings, approval ledger, and the cron preview.
 
 **Operational rule**
 
@@ -1728,32 +1065,32 @@ When a stage cannot prove that its required input is approved, it must stop or e
 
 ## Next Steps
 
-- Rerun the eight labs from the saved checkpoints and explain every state transition.
-- Replace one mock tool with an approved live integration while preserving the same contract, limits, and evidence.
+- Rerun the eight labs from a clean profile and explain every recorded state transition.
+- Replace one deterministic fallback with an approved live integration while preserving the same contract, limits, and evidence.
 - Add three representative test jobs, including one missing-input case and one tool-failure case.
-- Pilot with private outputs, review rework and cost evidence, and scale only after the guardrails remain stable.
-- Review official tool and platform documentation before adapting any live API or interface shown in this guide.
-- Recheck YouTube upload/privacy requirements at https://developers.google.com/youtube/v3/guides/uploading_a_video and TikTok Direct Post requirements at https://developers.tiktok.com/doc/content-posting-api-reference-direct-post before any authorised implementation.
+- Pilot with private outputs, review the repair and cost evidence, and enable a cadence only after the guardrails remain stable.
+- Review the official Hermes, MiniMax, Remotion, Manim, and YouTube documentation before adapting any live API or interface shown in this guide.
+- Recheck YouTube upload and privacy requirements at https://developers.google.com/youtube/v3/guides/uploading_a_video before any authorised public release.
 
 
 ## Glossary
 
-- **Agent** — A model-led system that pursues a bounded goal through instructions, tools, state, and a control loop.
 - **Agent loop** — The repeated observe, plan, act, inspect, decide, and record cycle.
-- **Approval token** — A recorded decision authorising one scoped action for one named artifact or package.
-- **Asset manifest** — The authoritative inventory of media files, prompts, versions, provenance, rights notes, and status.
-- **Autonomy matrix** — A table classifying tasks as deterministic, model-assisted, human-approved, or prohibited.
-- **Checkpoint** — A saved accepted state from which the workflow can safely resume.
-- **Continuity bible** — Stable visual and audio constraints reused across generated scenes.
-- **Edit decision list** — A structured description of timeline order, trims, overlays, transitions, and audio.
-- **Guardrail** — A rule or check that constrains inputs, tool calls, outputs, permissions, or actions.
-- **Human-in-the-loop** — A workflow point where a person reviews evidence and approves, edits, rejects, or stops an action.
+- **Approval hash** — A named decision bound to the immutable hash of the package it authorises.
+- **Asset manifest** — The authoritative inventory of assets with source, rights status, version, and checksum.
+- **Brand token** — A stored, editable value for logo, palette, typography, or motion referenced by a skill.
+- **Circuit breaker** — A cap on attempts that blocks a repeatedly failing task for human intervention.
+- **Continuity token** — A reusable identifier that holds subject identity and palette stable across shots.
+- **Cron job** — A scheduled Hermes task that runs in a fresh session from a self-contained prompt.
+- **Delegation context** — The goal, context, exact paths, and acceptance tests handed to a child agent.
+- **FRAME-CUT** — The prompt contract covering Format, Role, Action, Motion, Environment, Continuity, Unwanted, and Technical output.
+- **Hermes Desktop** — The desktop application surface of Hermes Agent, sharing profile and configuration with the CLI.
 - **Idempotency key** — A stable identifier used to prevent a retry from creating a duplicate external action.
-- **Metric contract** — A precise definition of a measure, including grain, period, numerator, denominator, and exclusions.
-- **Orchestrator** — The component that routes work between stages and enforces state transitions and gates.
-- **Production contract** — A structured brief containing purpose, evidence, constraints, deliverables, tools, limits, and finish conditions.
-- **Provenance** — Recorded information about where an artifact came from and how it was created or changed.
-- **Run ID** — A unique identifier linking the events and artifacts of one workflow execution.
-- **Schema** — A definition of required fields, data types, allowed values, and relationships.
-- **Tool boundary** — The documented inputs, outputs, permissions, limits, and failure behavior of a capability.
-- **WebVTT** — A UTF-8 time-aligned text format commonly used for web video captions and subtitles.
+- **Kanban** — A durable board of tasks with assignees, statuses, and parent dependencies that survives restarts.
+- **MiniMax M3** — The reasoning and tool-orchestration model configured through the minimax provider.
+- **Progressive loading** — Searching the skill catalogue first and loading only the resources a selected skill references.
+- **Provenance** — Recorded information about an asset's source, licence, version, and checksum.
+- **Quality gate** — A fail-closed technical check on container, streams, dimensions, frame rate, duration, and captions.
+- **Shot plan** — Strict JSON of timed shots whose durations total the approved target with no gaps or overlaps.
+- **Skill** — A directory containing SKILL.md, scripts, and templates that package a repeatable procedure.
+- **Synthetic media disclosure** — The platform status field declaring that content was generated or materially altered.

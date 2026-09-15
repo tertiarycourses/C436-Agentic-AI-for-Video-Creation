@@ -1,11 +1,11 @@
-﻿"""Single source of truth for Agentic AI for Video Creation (C436)."""
+"""Single source of truth for Agentic AI for Video Creation (C436)."""
 
 TITLE = "Agentic AI for Video Creation"
 SHORT_TITLE = "Agentic AI for Video Creation"
 COURSE_CODE = "C436"
 COURSE_URL = "https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html"
-VERSION = "v1.0"
-VERSION_DATE = "29 July 2026"
+VERSION = "v2.0"
+VERSION_DATE = "16 September 2026"
 ORG = "Tertiary Infotech Academy Pte Ltd"
 UEN = "UEN: 201200696W"
 TRAINER = "Assigned Course Trainer"
@@ -20,17 +20,15 @@ DAILY_TIMING = (
 DARK_THEME = False
 
 LEARNING_OUTCOMES = [
-    "LO1: Explain agentic AI, select suitable video-production tools, write bounded prompts, and design a controlled end-to-end workflow.",
-    "LO2: Build AI-assisted research, scripting, storyboard, visual, voiceover, and music hand-offs from an approved creative brief.",
-    "LO3: Assemble and refine a short-form video through automated editing, captioning, branding, and evidence-based quality checks.",
-    "LO4: Orchestrate multi-step video agents with human approval, prepare safe publishing actions, analyse performance, and plan responsible scale.",
+    "LO1: Develop an editing strategy and work plan in Hermes Agent using MiniMax M3, structured video prompts and governed tool selection.",
+    "LO2: Create and customise an evidence-backed video with Hermes skills, Remotion, Manim, Higgsfield-compatible requests and deterministic media checks.",
+    "LO3: Orchestrate research, production, review and YouTube release agents through a durable Kanban board and controlled scheduled publishing.",
 ]
 
 LO_TITLES = [
-    "Design the Agent",
-    "Generate the Assets",
-    "Edit and Review",
-    "Publish and Scale",
+    "Plan the Video",
+    "Build the Video",
+    "Orchestrate and Release",
 ]
 
 
@@ -62,152 +60,150 @@ TOPICS = [
     dict(
         num=1,
         code="01",
-        title="Getting Started with Agentic AI for Video",
-        subtitle="Agentic AI foundations | Video, voice, and agent tools | Effective prompts | End-to-end workflow design",
-        weighting="Day 1 morning | 2 labs",
+        title="Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering",
+        subtitle="Hermes Desktop runtime | MiniMax M3 provider contract | FRAME-CUT prompting | Structured shot plans",
+        weighting="Day 1 morning and early afternoon | 3 labs",
         concepts=[
-            ("Agent loop", "A bounded cycle of observe, plan, act with tools, inspect evidence, and stop or escalate."),
-            ("Production contract", "A structured brief that fixes the audience, goal, source facts, constraints, deliverables, and approval gates."),
-            ("Tool boundary", "A named capability with explicit inputs, outputs, permissions, cost limits, and failure behavior."),
-            ("Human control", "People approve high-impact creative, rights, privacy, brand, and publishing decisions."),
+            ("Runtime boundary", "The installed Hermes surface, its profile, configuration path and skill root that every run depends on."),
+            ("Provider contract", "The named provider, base URL, model identifier and credential reference used for reasoning."),
+            ("FRAME-CUT", "A prompt contract covering Format, Role, Action, Motion, Environment plus Continuity, Unwanted and Technical output."),
+            ("Shot plan", "Strict JSON of timed shots whose durations total the approved target with no gaps or overlaps."),
         ],
         sections=[
             _section(
-                "Introduction to Agentic AI for Video Creation",
-                "Agentic AI combines a model with instructions, tools, state, and a control loop so that the system can decide which bounded action to take next. In video production, an agent may inspect a brief, request missing facts, call research or generation tools, record outputs, check quality, and route an item for human approval. It is different from a one-shot chatbot because the workflow carries state and can take several tool-mediated steps toward a defined completion condition.",
-                "Video work contains creative uncertainty as well as operational dependencies. A reliable agent must know what it may decide, what evidence it must retain, and when it must stop. Treating every step as autonomous creates rights, privacy, cost, and brand risk; treating every step as fixed automation misses the value of reasoning. The practical design is bounded autonomy: deterministic rules for known operations, model judgment for well-framed choices, and human review for consequential actions.",
+                "Hermes Desktop Runtime and Shared CLI State",
+                "Hermes Agent runs as a desktop application with a matching command-line surface. Both read the same profile, configuration path and skill directory, so a change made in one surface is visible to the other. Installation is completed from the official desktop page, after which a diagnostic command reports the health of each required dependency. The runtime boundary is the set of facts that define where the agent executes: platform, installer source, version, active profile, configuration path and skill root.",
+                "An agent that cannot describe its own runtime cannot produce reproducible work. If the desktop and the terminal disagree about the active provider or skill directory, a lab that passes in one surface fails in the other for reasons that look like model behaviour. Recording the runtime boundary before any production work converts a class of confusing failures into a single observable check, and a failed dependency becomes a reason to stop rather than a problem to discover halfway through a render.",
                 [
-                    "Observe the approved brief and current production state.",
-                    "Plan the next smallest useful action against a completion checklist.",
-                    "Call only an allowed tool with structured inputs and a budget.",
-                    "Inspect the returned artifact, provenance, and quality evidence.",
-                    "Continue, retry within limits, or escalate to a named human owner.",
+                    "Download the installer from the official Hermes desktop page and confirm the platform build.",
+                    "Complete setup, then run the diagnostic command and read every reported dependency.",
+                    "Open the desktop profile and note the configuration path and skill root.",
+                    "Open the terminal and compare provider, model and skill directory against the desktop.",
+                    "Stop and repair when a required diagnostic fails; do not continue into production work.",
                 ],
                 [
-                    "Harbour Bean needs a 30-second vertical video about three ways to reduce bitter office coffee.",
-                    "A coordinator agent checks the brief, delegates research and scripting, then prepares scene requests.",
-                    "Every generator result is written to an asset register; publishing remains disabled until a person approves the final package.",
+                    "hermes doctor reports all required dependencies healthy on a supported platform.",
+                    "The desktop profile and the CLI session report the same provider, model and skill root.",
+                    "setup-evidence.json records the official source, version and diagnostic status with no credential value.",
                 ],
                 [
-                    "The task has several dependent steps and the next action depends on intermediate evidence.",
-                    "Inputs, tool permissions, completion rules, and escalation paths can be stated clearly.",
+                    "A new machine, a new learner account or a fresh profile is being prepared for production work.",
+                    "Results differ between the desktop and the terminal and the cause is not yet known.",
                 ],
                 [
-                    "The goal is vague, the source facts are unapproved, or there is no accountable owner.",
-                    "The proposed action would publish, spend, or use a person's likeness without explicit review.",
+                    "A required diagnostic fails and the failure has not been repaired or recorded.",
+                    "The installer came from an unofficial mirror or the platform build is unverified.",
                 ],
                 [
-                    ("Failure signal", "The system keeps generating options without reaching a defined finish state."),
-                    ("Repair move", "Add a completion checklist, iteration cap, and escalation rule."),
-                    ("Quality evidence", "The run log shows why each tool was called and who approved the release."),
+                    ("Failure signal", "The same prompt behaves differently in the desktop and the terminal."),
+                    ("Repair move", "Name the active profile and compare provider, model and skill directory across both surfaces."),
+                    ("Quality evidence", "profile-check.json shows matching settings and the diagnostic reports no blocking failure."),
                 ],
                 [
-                    "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
-                    "https://openai.github.io/openai-agents-python/agents/",
-                ],
-            ),
-            _section(
-                "Popular AI Video, Voice, and Agent Tools",
-                "A production stack usually separates orchestration from specialist tools. The orchestrator holds the workflow state and routes tasks. Language models research and write. Image or video generators create candidate shots. Speech services produce narration. Editors and command-line media tools assemble, caption, mix, and export. Publishing and analytics APIs act only after credentials and permissions are configured.",
-                "Product names and features change, but the jobs remain stable. A portable architecture defines each tool by capability, contract, and fallback instead of hiding the project inside one vendor. Structured outputs reduce broken hand-offs: a script agent should return timed beats, a visual tool should return a file plus provenance, and an editor should receive a validated manifest rather than free-form prose.",
-                [
-                    "List each production job and the data it consumes or creates.",
-                    "Assign one primary tool and one manual or alternate fallback to each job.",
-                    "Define structured fields, file names, size limits, and accepted formats.",
-                    "Restrict credentials to the smallest permissions the tool needs.",
-                    "Record cost, latency, rights terms, and failure behavior before use.",
-                ],
-                [
-                    "n8n coordinates eight stages without storing secret values in prompts.",
-                    "ChatGPT or Claude creates structured research and script outputs from approved source material.",
-                    "A chosen video generator supplies clips, ElevenLabs or an equivalent supplies narration, and FFmpeg or an editor assembles the vertical master.",
-                ],
-                [
-                    "A specialist capability materially improves a defined stage and produces a portable output.",
-                    "The team has an approved account, a fallback, and a clear rights and privacy position.",
-                ],
-                [
-                    "A tool requires confidential material that is not approved for that service.",
-                    "The workflow cannot export files, preserve provenance, or cap cost and retries.",
-                ],
-                [
-                    ("Failure signal", "A downstream stage cannot understand the previous tool's free-form response."),
-                    ("Repair move", "Define a JSON or file manifest contract with required fields."),
-                    ("Quality evidence", "Each stage can be swapped without redesigning the complete workflow."),
-                ],
-                [
-                    "https://github.com/n8n-io/n8n-docs/blob/main/docs/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md",
-                    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
-                    "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+                    "https://hermes-agent.nousresearch.com/desktop",
+                    "https://hermes-agent.nousresearch.com/docs/getting-started/installation",
                 ],
             ),
             _section(
-                "Writing Effective Prompts for Video",
-                "An effective agent prompt is an operating contract, not a slogan. This course uses B-R-I-E-F: Background, Role and responsibility, Inputs and evidence, Execution constraints, and Format plus finish condition. The prompt states which facts are authoritative, which tools may be used, what must never happen, and exactly what valid output looks like.",
-                "A creative request such as 'make a viral video' leaves the system to invent the audience, claims, style, and success rule. A structured prompt produces comparable alternatives, exposes missing evidence, and makes hand-offs machine-readable. Separate stable system instructions from per-run input, and validate important fields before a later tool acts on them.",
+                "MiniMax M3 Provider, Trial Terms and Credential Isolation",
+                "The provider contract names the service, base URL, model identifier and a reference to a stored credential. This course configures provider minimax with model MiniMax-M3 and verifies a tool-capable response before any production run. Trial availability, duration, quota and region terms are time-sensitive commercial terms rather than fixed course facts, so they are observed live at sign-up and recorded with a date. Credentials live in Hermes credential or configuration storage and are referenced by name; published evidence carries placeholders only.",
+                "A model handshake that is assumed rather than verified is the most common cause of a lab that fails much later, at the point of an expensive call. Verifying the returned model identifier proves that the configured model is the model actually answering. Separating the credential from the evidence keeps the lab package publishable: a secret that never enters a prompt, file, screenshot or repository cannot be leaked by one of them. Recording trial terms with a date and a fallback model means a changed offer becomes a planned decision rather than a blocked class.",
                 [
-                    "Set the audience, business purpose, channel, duration, and desired viewer action.",
-                    "Provide approved source facts and mark unknown information explicitly.",
-                    "Name the agent's role, allowed tools, cost and iteration limits, and prohibited actions.",
-                    "Require a schema for scripts, scenes, claims, assets, risks, and open questions.",
-                    "Define a finish condition and conditions that require human clarification.",
+                    "Create the account and an API key, then store the key in credential storage and reference it by name.",
+                    "Configure provider minimax with model MiniMax-M3 and confirm the returned model identifier.",
+                    "Open the live offer, read the current terms and record what was seen, the date and the expiry.",
+                    "Reserve a quota budget and nominate a fallback model before production work begins.",
+                    "Scan the lab package and confirm zero live tokens before publishing any evidence.",
                 ],
                 [
-                    "Background: a Singapore cafe campaign for busy office workers.",
-                    "Inputs: only the supplied brand brief and audience signals may support claims.",
-                    "Execution: return three 25-35 second concepts; do not publish or imitate a living creator.",
-                    "Format: valid JSON with hook, timed beats, scene list, evidence, risks, and status.",
+                    "model-check.json records MiniMax-M3 and a successful tool-capable response without recording the key.",
+                    "trial-checklist.md contains the observed terms, the date seen and the learner's fallback decision.",
+                    "A secret scan over the lab package reports no live token pattern.",
                 ],
                 [
-                    "Inputs and desired outputs can be bounded and checked.",
-                    "Several tools or agents need a common production contract.",
+                    "A provider or model is being configured for the first time, or a key has been rotated.",
+                    "Quota, billing or region terms materially affect how much generation the run can afford.",
                 ],
                 [
-                    "The instruction hides a policy decision that an accountable person must make.",
-                    "The output cannot be validated before a costly or external action follows.",
+                    "The returned model identifier does not match the configured model.",
+                    "A key would have to be pasted into a prompt, lab file, screenshot or repository to proceed.",
                 ],
                 [
-                    ("Failure signal", "The output looks plausible but omits required fields or invents a source."),
-                    ("Repair move", "Add a schema, evidence citations, explicit unknown handling, and a validator."),
-                    ("Quality evidence", "A second run can use the same prompt contract and produce structurally valid output."),
+                    ("Failure signal", "The session answers but reports a different model than the one configured."),
+                    ("Repair move", "Start a new session after selecting the model; an existing session can retain its original model."),
+                    ("Quality evidence", "budget-ledger.csv reconciles attempts, latency and cost against the approved ceiling."),
                 ],
                 [
-                    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
-                    "https://openai.github.io/openai-agents-js/guides/guardrails/",
+                    "https://www.minimax.io/models/text/m3",
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models",
                 ],
             ),
             _section(
-                "Designing an End-to-End Video Agent Workflow",
-                "A workflow turns the production contract into observable stages: intake, research, concept selection, script and storyboard, asset generation, assembly, quality review, approval, publishing preparation, and learning. Each stage receives a defined input, writes a durable output, and returns a status such as ready, needs-revision, blocked, or approved.",
-                "Large all-in-one agents are difficult to debug and may repeat expensive work. Stage boundaries create checkpoints, allow deterministic validation, and let a learner restart from the last accepted artifact. Idempotency keys prevent a retry from duplicating external actions; run identifiers connect every artifact and log entry to the same job.",
+                "The FRAME-CUT Video Prompt Contract",
+                "FRAME-CUT is the prompt contract used throughout this course. FRAME fixes Format and finish, Role and references, Action, Motion and Environment. CUT fixes Continuity tokens, Unwanted elements as explicit negative constraints, and the Technical output schema. A compliant prompt names one dominant subject action and one camera move per timed shot, states the palette and identity tokens that must persist, lists what must never appear, and requires strict JSON that can be validated before anything is generated.",
+                "A vague creative request such as 'make it cinematic' leaves the model to invent the channel, duration, subject, camera language and acceptance rule, and every regeneration invents them differently. A field-complete contract makes shots comparable across attempts, makes drift observable against named invariants, and makes the output checkable by a validator rather than by opinion. Because the contract is validated before generation, a defective plan costs a schema error instead of a paid render.",
                 [
-                    "Draw the stages and mark every external system or generated artifact.",
-                    "Define one input/output contract and owner for each stage.",
-                    "Place validation before expensive generation and approval before publishing.",
-                    "Add retry limits, timeouts, idempotency keys, and a dead-letter or rework route.",
-                    "Log run ID, prompt version, tool, cost, result, evidence, and approval decision.",
+                    "Choose the channel, then freeze duration, aspect ratio and delivery codec before any shot work.",
+                    "Assign the role, attach the brief and register the source and asset identifiers that reasoning may use.",
+                    "Write one dominant action and one camera move for each timed shot.",
+                    "Lock continuity tokens and palette values, then list the must-avoid elements explicitly.",
+                    "Require strict JSON and fail the plan on gaps, overlaps, unknown fields or a duration mismatch.",
                 ],
                 [
-                    "Run HB-001 advances only when brief_status=approved and script_status=approved.",
-                    "Scene generation retries once for a technical failure but routes a rights concern to human review.",
-                    "The publishing node receives a release package only; it cannot see raw research or use an unapproved file.",
+                    "A 15-second brief becomes a shot plan whose shot durations total exactly 15 seconds with no overlap.",
+                    "Each shot carries one action-motion pair, a continuity token and an explicit must-avoid list.",
+                    "prompt-contract.json passes the schema and duration checks before a renderer is called.",
                 ],
                 [
-                    "The work has repeatable stages and accepted artifacts can be reused.",
-                    "The system can save state and resume safely after a failure.",
+                    "A creative intent must survive several regenerations or be handed to another agent or tool.",
+                    "The output will feed a deterministic renderer that requires named, typed fields.",
                 ],
                 [
-                    "The process is a one-off creative conversation with no reusable structure.",
-                    "A retry might duplicate an external action and no idempotency or approval control exists.",
+                    "The request asks for imitation of a living artist or a named creator's identity.",
+                    "The delivery format is still unsettled, so shot work would be rebuilt after the format changes.",
                 ],
                 [
-                    ("Failure signal", "A failed final step forces the whole production to regenerate."),
-                    ("Repair move", "Persist accepted stage outputs and resume from a checkpoint."),
-                    ("Quality evidence", "A run can stop, rejoin, and explain its complete state without guesswork."),
+                    ("Failure signal", "Shots look plausible individually but identity, palette or screen direction drifts between them."),
+                    ("Repair move", "Reuse the continuity token and compare keyframes against the explicit invariant list."),
+                    ("Quality evidence", "continuity-review.json records each deviation and the acceptance decision."),
                 ],
                 [
-                    "https://docs.n8n.io/flow-logic/error-handling/",
-                    "https://docs.n8n.io/advanced-ai/examples/human-fallback/",
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models",
+                    "https://www.remotion.dev/docs",
+                ],
+            ),
+            _section(
+                "The Simple Video Agent Loop with Cost and Stop Rules",
+                "The agent loop receives a brief, plans shots, calls one tool, inspects the returned artifact and then stops or escalates. Its controls are numeric: an estimated cost, a maximum number of attempts, a timeout and a recorded stop reason. A run ledger links the run identifier, the plan hash, each tool call and each result so that the run can be reconstructed after the fact. The default posture is one render attempt, one review pass and an explicit repair decision rather than open-ended retrying.",
+                "Generation costs money and time, and an unbounded loop spends both without converging. Capping attempts converts a runaway loop into a decision that reaches a named person with the evidence already assembled. Recording the stop reason matters as much as recording success: a run that stopped because a dependency failed is a different operational fact from one that stopped because the budget ceiling was reached, and the two require different repairs.",
+                [
+                    "Estimate the number of calls and the cost before the first paid action.",
+                    "Set the maximum attempts, the timeout and the budget ceiling as explicit numbers.",
+                    "Run the loop: receive the brief, plan the shots, call one tool, inspect the result.",
+                    "Stop at the cap and record the stop reason rather than attempting another generation.",
+                    "Require a human decision before any additional paid generation is authorised.",
+                ],
+                [
+                    "run-ledger.json contains the plan, the tool call, the result reference and the stop reason.",
+                    "A 15-second preview is produced in one render attempt and probed before it is accepted.",
+                    "A second paid attempt is not started automatically; it is escalated with the evidence attached.",
+                ],
+                [
+                    "Work involves paid generation, external calls or any action with a real cost.",
+                    "A run must be explainable later to a reviewer who was not present when it executed.",
+                ],
+                [
+                    "Attempts, timeouts and budget have not been given numeric limits.",
+                    "The loop can start another paid generation without a recorded human decision.",
+                ],
+                [
+                    ("Failure signal", "The loop keeps regenerating without reaching a defined finish state."),
+                    ("Repair move", "Cap attempts, add an explicit finish condition and route the remainder to a named owner."),
+                    ("Quality evidence", "The ledger shows one committed result per run identifier and a recorded stop reason."),
+                ],
+                [
+                    "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns",
+                    "https://ffmpeg.org/ffprobe.html",
                 ],
             ),
         ],
@@ -215,151 +211,151 @@ TOPICS = [
     dict(
         num=2,
         code="02",
-        title="Scripting and Generating Content with AI",
-        subtitle="Trend and idea research | Scripts and storyboards | Visuals and B-roll | Voiceovers and music",
-        weighting="Day 1 afternoon | 2 labs",
+        title="Video Tools, Hermes Skills and Custom Brand Production",
+        subtitle="Tool versus skill | Remotion, Manim and FFmpeg | Brand tokens | Technical quality gate",
+        weighting="Day 1 late afternoon and Day 2 morning | 2 labs",
         concepts=[
-            ("Source register", "A dated record of evidence, relevance, permissions, and claims that may be used."),
-            ("Timed beat sheet", "A sequence linking narration, visual, on-screen text, sound, and duration."),
-            ("Asset manifest", "The authoritative list of scene files, prompts, versions, rights notes, and status."),
-            ("Continuity bible", "Stable character, product, lighting, palette, camera, and negative constraints across generations."),
+            ("Tool versus skill", "A tool performs precise integrated execution; a skill packages repeatable instructions plus scripts."),
+            ("Skill anatomy", "A directory holding SKILL.md with frontmatter, a procedure, bundled scripts and verification commands."),
+            ("Brand token", "A stored, editable value for logo, palette, typography or motion referenced by the video skill."),
+            ("Quality gate", "A fail-closed technical check on container, streams, dimensions, frame rate, duration and captions."),
         ],
         sections=[
             _section(
-                "Researching Trends and Ideas",
-                "Agentic research is a bounded evidence-gathering workflow. It starts with a question and approved source types, retrieves observations, records provenance, separates evidence from inference, and produces candidate ideas that are traceable to audience need. Trend signals are clues for timing and format, not permission to copy another creator.",
-                "A research agent can gather many examples quickly, but search results may be stale, duplicated, promotional, or detached from the target audience. A source register and evidence threshold prevent a script agent from treating popularity as truth. The output should include open questions and rejected ideas, not only a polished recommendation.",
+                "Choosing Between a Tool and a Hermes Skill",
+                "A tool is the right choice when a capability needs precise, integrated execution with its own authentication and error handling. A skill is the right choice when a procedure must be repeated reliably: it bundles instructions, scripts and templates in a directory containing SKILL.md, whose frontmatter declares the name, description and version. Hermes discovers skills by searching the catalogue, then loads the selected skill and only the resources it references, so context stays proportionate to the task.",
+                "Wrapping everything as a skill produces brittle prose where an integration was needed; wrapping everything as a tool produces unrepeatable one-off calls where a documented procedure was needed. Deciding explicitly, and recording why, keeps the production stack legible to the next person. Progressive loading matters for the same reason: a skill that pulls its entire reference tree into context on every invocation crowds out the working material the task actually needs.",
                 [
-                    "State the audience problem, research window, market, and allowed sources.",
-                    "Collect dated signals and record source, observation, and confidence separately.",
-                    "Cluster repeated needs, questions, formats, and language patterns.",
-                    "Generate original angles from the brand's own proof and feasible assets.",
-                    "Human-review the shortlist for relevance, truth, rights, and production effort.",
+                    "Identify the capability and its authentication mode, then decide tool or skill and name an owner.",
+                    "Create the skill directory and write frontmatter that describes the exact trigger.",
+                    "Add the procedure, bundle the scripts and include deterministic verification commands.",
+                    "Search the catalogue first, then view the selected skill and load only referenced resources.",
+                    "Test invocation and confirm the expected artifacts are produced.",
                 ],
                 [
-                    "Audience signals mention bitter office coffee, inconsistent scoops, and limited time.",
-                    "The agent groups these into three teachable variables instead of copying a trending cafe video.",
-                    "Each candidate idea cites the supplied observation and the brand fact that supports it.",
+                    "decision-record.md states why each capability was implemented as a tool or as a skill.",
+                    "SKILL.md and a test transcript together show correct activation from the intended trigger.",
+                    "skill-usage.json records the selected skill and the resources that were loaded.",
                 ],
                 [
-                    "The question, time window, source types, and evidence threshold are explicit.",
-                    "A person can inspect the source register before ideas move to scripting.",
+                    "A procedure will be repeated across runs, learners or courses and must behave the same way each time.",
+                    "The capability needs bundled scripts and templates alongside its instructions.",
                 ],
                 [
-                    "The workflow would scrape personal data or bypass platform access controls.",
-                    "Trend volume is being used as proof for a product or health claim.",
+                    "A single ad-hoc call would do and no repetition is expected.",
+                    "The capability requires integrated authentication and precise error handling better served by a tool.",
                 ],
                 [
-                    ("Failure signal", "The idea bank contains unsourced claims and near-copies of examples."),
-                    ("Repair move", "Require provenance, originality notes, and a reason for every retained idea."),
-                    ("Quality evidence", "The chosen idea can be traced to audience evidence and approved brand facts."),
+                    ("Failure signal", "A skill is not discovered when its trigger phrase is used."),
+                    ("Repair move", "Check the YAML frontmatter, the directory name and the SKILL.md filename, then restart discovery."),
+                    ("Quality evidence", "Repeated runs of the skill produce matching outputs from a clean start."),
                 ],
                 [
-                    "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
-                    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
-                ],
-            ),
-            _section(
-                "Generating Scripts and Storyboards",
-                "A script translates the selected promise into spoken words and on-screen text; a storyboard translates the same promise into timed visual evidence. The agent should work in beats rather than a single paragraph. Every beat states time, narration, picture, overlay, sound, claim source, and transition so production and review share one model.",
-                "Short-form videos fail when words, visuals, and captions compete or when the final edit exceeds the target duration. Time budgeting before generation constrains scope and avoids unnecessary media cost. A storyboard also exposes scenes that cannot be produced safely or consistently before the system requests them.",
-                [
-                    "Lock one hook, promise, evidence set, and viewer action.",
-                    "Allocate seconds to hook, proof beats, synthesis, and close.",
-                    "Write concise narration and a shorter complementary text overlay.",
-                    "Specify a feasible shot, motion, composition, and transition for each beat.",
-                    "Run claim, duration, continuity, accessibility, and rights checks before approval.",
-                ],
-                [
-                    "A 30-second script allocates 3 seconds to the hook, 21 seconds to three fixes, and 6 seconds to recap and close.",
-                    "The spoken line explains the fix while on-screen text labels only the variable.",
-                    "Every claim points back to an approved source row; the storyboard marks one synthetic scene for disclosure.",
-                ],
-                [
-                    "The message and source facts are approved and a duration can be fixed.",
-                    "The next stage needs structured scene requests and voice text.",
-                ],
-                [
-                    "The script requires unsupported before-and-after proof or an unapproved likeness.",
-                    "The storyboard depends on complex continuity the chosen generator cannot maintain.",
-                ],
-                [
-                    ("Failure signal", "Narration, captions, and visuals repeat the same sentence."),
-                    ("Repair move", "Assign a distinct job to each channel: explain, label, or demonstrate."),
-                    ("Quality evidence", "A cold reader can produce the intended cut from the timed beat sheet."),
-                ],
-                [
-                    "https://www.w3.org/TR/webvtt1/",
-                    "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+                    "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills",
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models",
                 ],
             ),
             _section(
-                "Creating Visuals and B-Roll with AI",
-                "Visual generation converts storyboard beats into candidate images or clips. A strong scene request defines subject, action, environment, composition, camera, lighting, palette, duration, and negative constraints. The asset manifest records the prompt, model or tool, date, version, rights note, and accepted use for every file.",
-                "One attractive clip does not create a coherent video. Continuity, editability, and factual fit matter more than isolated novelty. Generate short modular shots, preserve safe areas for vertical overlays, and review anatomy, text, logos, product details, and motion before a clip is accepted.",
+                "Routing Remotion, Manim, Higgsfield and FFmpeg",
+                "Each media tool has a distinct contract. Remotion renders code-driven compositions where duration in frames divided by frames per second gives the duration in seconds. Manim renders programmatic explanatory scenes whose labels and values are bound to an approved evidence model. A Higgsfield-compatible request selects a model, attaches references and writes a motion prompt, and is prepared as a preview before any account or quota is consumed. FFmpeg performs deterministic assembly: normalise every source, build the timeline, mix audio and encode the master.",
+                "Routing a task to a tool that cannot satisfy its contract is the most expensive category of error in a video pipeline, because the cost is usually discovered after generation. Deriving frames from duration rather than guessing prevents a composition that is silently the wrong length. Normalising sources before concatenation prevents the class of failures where clips join but the container reports inconsistent streams. Preparing a generation request as a preview keeps an unapproved asset or an exhausted quota from becoming a failed paid call.",
                 [
-                    "Create a continuity bible from the approved brand and storyboard.",
-                    "Generate low-cost candidates or still frames before expensive motion.",
-                    "Inspect each result against scene purpose, composition, continuity, and rights.",
-                    "Record accepted and rejected versions in the asset manifest.",
-                    "Use approved stock or a supplied fallback if generation fails.",
+                    "Classify the task, check the required modality and route it to a capable tool.",
+                    "For Remotion, derive duration frames from the approved duration and validate width, height, fps and codec after render.",
+                    "For Manim, bind labels and values to the approved evidence model and review the rendered frames.",
+                    "For a Higgsfield request, build a request preview first and call the service only with approved assets and quota.",
+                    "For FFmpeg, normalise every source before concatenation and probe the final container.",
                 ],
                 [
-                    "Scene 02 shows a measured scoop and timer on a clean office pantry counter.",
-                    "The prompt fixes the Harbour Bean palette and leaves the lower third clear for captions.",
-                    "A clip with a malformed product label is rejected even if its motion is appealing.",
+                    "tool-routing.csv links every task to a capable model or tool with a recorded fallback.",
+                    "remotion-render.json and ffprobe.json agree with the composition contract.",
+                    "ffprobe.json confirms H.264 video, AAC audio, the expected dimensions, frame rate and duration.",
                 ],
                 [
-                    "The scene is synthetic, clearly bounded, and does not require a real person's identity.",
-                    "The team can retain provenance and has a fallback for failed generation.",
+                    "A media task has a clear modality and an approved tool exists for it.",
+                    "The output must be verified deterministically rather than accepted on appearance.",
                 ],
                 [
-                    "The scene impersonates a person, fabricates a real event, or uses protected material without permission.",
-                    "The required text or exact product geometry should be produced deterministically in the editor.",
+                    "The required assets are unapproved or the account quota has not been confirmed.",
+                    "A deterministic renderer would produce the result more reliably than a generative call.",
                 ],
                 [
-                    ("Failure signal", "Accepted scenes vary in lighting, product form, and screen direction."),
-                    ("Repair move", "Reuse a continuity bible and generate by shot family with reference frames where allowed."),
-                    ("Quality evidence", "Every accepted file has provenance and supports a named storyboard beat."),
+                    ("Failure signal", "Clips concatenate but the final container reports inconsistent streams or the wrong duration."),
+                    ("Repair move", "Normalise every source to the same codec, dimensions and frame rate before rebuilding the timeline."),
+                    ("Quality evidence", "The probe of the final master matches the approved delivery specification field for field."),
                 ],
                 [
-                    "https://platform.openai.com/docs/api-reference/videos",
-                    "https://developers.openai.com/api/docs/models/sora-2",
+                    "https://www.remotion.dev/docs",
+                    "https://docs.manim.community/",
+                    "https://ffmpeg.org/ffmpeg.html",
                 ],
             ),
             _section(
-                "Generating Voiceovers and Music",
-                "Voice generation turns approved narration into timed audio. Music supports pace and emotion without masking speech. The workflow selects a permitted voice, normalises written text for speech, produces an audio file, checks pronunciation and duration, and records the service, settings, consent, and usage terms.",
-                "Audio can make a visually strong video inaccessible or untrustworthy. Unauthorised voice cloning, poor pronunciation, excessive loudness, and unclear licensing create avoidable risk. Voice and music are therefore separate reviewed assets with explicit owners and fallback options.",
+                "Brand Tokens, Tone and the Custom Video Skill",
+                "A brand token system stores the logo reference, palette values, font stack and motion rules as editable values that the video skill references rather than hard-codes. Tone and style controls describe the audience, the voice, the pacing in words per minute and an explicit list of stylistic exclusions. The custom brand-video skill combines these: it bundles scripts and templates, declares its inputs and outputs, and ships an acceptance test so that repeated runs can be compared rather than merely rerun.",
+                "Brand rules written into prose drift as soon as two people apply them. Stored as tokens and referenced from a skill, they become checkable: a frame either uses the approved palette value or it does not. Describing tone through attributes and exclusions, rather than by naming a living artist to imitate, keeps the output original and defensible. An acceptance test converts 'the skill works' into a repeatable comparison between a clean run and the expected artifacts.",
                 [
-                    "Use an approved synthetic or licensed voice; obtain consent for any personal voice clone.",
-                    "Rewrite symbols, dates, acronyms, and names for the intended spoken form.",
-                    "Generate a test line, review pronunciation and pace, then render the full narration.",
-                    "Choose licensed music or a platform-approved library and retain the rights note.",
-                    "Mix for intelligible speech, inspect peaks, and preview on speakers and headphones.",
+                    "Extract the identity, then set the palette, typography and motion rules as stored tokens.",
+                    "Define the audience, voice and pacing, and write the style exclusions explicitly.",
+                    "Write the skill, bundle its scripts and bind its templates using relative or Hermes template paths.",
+                    "Render the video through the skill and review the frame samples against the checklist.",
+                    "Run the acceptance test from a clean start and version the resulting evidence.",
                 ],
                 [
-                    "The agent converts '3 fixes in 30 sec' to natural spoken wording before synthesis.",
-                    "The narrator file is saved with the script version and chosen settings.",
-                    "Background music is ducked under speech and the no-music export remains available as a fallback.",
+                    "brand-profile.yaml holds editable tokens and the frame samples pass the brand checklist.",
+                    "The custom skill is discoverable, produces an MP4 and passes the technical probe.",
+                    "A repeat run from a clean state produces matching outputs and the same evidence artifacts.",
                 ],
                 [
-                    "The voice identity and music rights are explicit and suitable for the intended channel.",
-                    "A person can listen to and approve the complete audio before assembly.",
+                    "The same brand treatment must be applied across many videos or by several people.",
+                    "Brand compliance needs to be demonstrated rather than asserted.",
                 ],
                 [
-                    "The workflow clones a voice without documented permission.",
-                    "Licensing, commercial use, or territorial rights cannot be established.",
+                    "The style brief asks for imitation of a living artist or a specific creator's identity.",
+                    "Brand values are still changing, so tokens would be rewritten immediately after use.",
                 ],
                 [
-                    ("Failure signal", "The narration sounds natural but mispronounces the brand or exceeds the scene timing."),
-                    ("Repair move", "Add a pronunciation dictionary, rewrite for speech, and regenerate only the affected line."),
-                    ("Quality evidence", "The approved audio matches the timed script and has a recorded rights basis."),
+                    ("Failure signal", "Two runs of the same skill produce visibly different brand treatment."),
+                    ("Repair move", "Move the varying value into a stored token and reference it from the skill."),
+                    ("Quality evidence", "brand-review.json records the passed checks against the applicable brand tokens."),
                 ],
                 [
-                    "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
-                    "https://elevenlabs.io/docs/api-reference/authentication",
-                    "https://elevenlabs.io/docs/api-reference/text-to-speech/convert",
+                    "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills",
+                    "https://www.remotion.dev/docs",
+                ],
+            ),
+            _section(
+                "The Technical Quality Gate, Provenance and Repair",
+                "The quality gate probes the container, inspects representative frames, checks that captions are readable and then either passes or fails the master. It fails closed: a missing stream, an out-of-bounds dimension or an unreadable caption blocks the master rather than producing a warning. Provenance runs alongside it — every asset is registered with its source, licence and a SHA-256 hash, so approval binds to an immutable version. A finding opens a repair, the repair renders a new version, and every affected check is rerun against that new version.",
+                "A video that looks correct in a player can still be technically invalid for the destination platform, and the failure surfaces at upload rather than in review. Deterministic probing catches that class of defect while it is still cheap to fix. Binding approval to a hash prevents the most damaging version-control error in a release pipeline: approving one master and shipping another. Re-testing the affected scope after a repair is what stops a fix in one place from silently breaking another.",
+                [
+                    "Probe the container and record the observed width, height, average frame rate and duration.",
+                    "Inspect frames and confirm captions are present and readable.",
+                    "Register each asset with its source, rights status and SHA-256 hash.",
+                    "Open a finding with its severity, assign the repair and render a new immutable version.",
+                    "Rerun every affected check against the new version and record the outcome.",
+                ],
+                [
+                    "technical-qc.json and the contact sheet show the observed values against the required bounds.",
+                    "asset-manifest.csv verifies rights status and hashes for every manifest row.",
+                    "repair-log.json links the finding, the change, the new hash and the re-test result.",
+                ],
+                [
+                    "A master is a candidate for release and must meet a declared delivery specification.",
+                    "Approval will be given now and acted on later, so the approved artifact must be identifiable.",
+                ],
+                [
+                    "The delivery specification has not been agreed, so there is nothing to check against.",
+                    "A finding would be closed without re-testing the checks it affects.",
+                ],
+                [
+                    ("Failure signal", "A repair closes one finding and reopens another that was previously passing."),
+                    ("Repair move", "Write a new immutable version and rerun the full affected scope rather than the single check."),
+                    ("Quality evidence", "Closed findings outnumber reopened findings and each closure names its re-test."),
+                ],
+                [
+                    "https://ffmpeg.org/ffprobe.html",
+                    "https://developers.google.com/youtube/v3/docs/captions",
                 ],
             ),
         ],
@@ -367,304 +363,150 @@ TOPICS = [
     dict(
         num=3,
         code="03",
-        title="Editing and Assembling Videos with AI",
-        subtitle="Automated editing | Captions, effects, and branding | Short-form assembly | AI-supported review and refinement",
-        weighting="Day 2 morning | 2 labs",
+        title="Multi-Agent Kanban, YouTube Release and Scheduled Publishing",
+        subtitle="Agent role contracts | Delegation and parallel work | Durable Kanban | Approval hash and cron release",
+        weighting="Day 2 afternoon | 3 labs",
         concepts=[
-            ("Edit decision list", "A deterministic map from source assets to timeline order, in/out points, overlays, and transitions."),
-            ("Media probe", "Machine-readable evidence about codec, resolution, frame rate, duration, audio, and streams."),
-            ("Caption track", "Time-aligned text stored as a portable file and optionally burned into the picture."),
-            ("Quality gate", "A documented set of technical, editorial, accessibility, rights, and brand checks."),
+            ("Role contract", "One agent, one owned deliverable, a bounded tool list and one measurable completion rule."),
+            ("Delegation context", "The exact goal, paths, inputs, constraints and acceptance tests handed to a child agent."),
+            ("Durable Kanban", "Task state and dependencies that survive restarts and deliberate human pauses."),
+            ("Approval hash", "A named decision bound to the immutable hash of the release package it authorises."),
         ],
         sections=[
             _section(
-                "Automating Video Editing",
-                "Automated editing turns an approved manifest and edit decision list into a repeatable render. Deterministic operations such as trim, scale, crop, concatenate, overlay, caption, and audio mix are best handled by an editor or media pipeline. A model may propose the sequence or repair plan, but the render command should be explicit and logged.",
-                "Regenerating a full timeline for a small change wastes time and can introduce new errors. Manifest-driven assembly makes each input and transformation visible, supports selective reruns, and produces the same output from the same accepted files. A media probe before and after the render catches mismatched dimensions, missing audio, and duration drift.",
+                "Agent Role Contracts and the Four Specialist Roles",
+                "Each agent receives a contract: a goal, a bounded list of allowed tools, one named deliverable and an explicit completion rule. This course uses four roles. The research agent reads the brief, retrieves sources, scores evidence and hands off claims with retrievable URLs and stated limitations. The video production agent consumes approved claims, creates the shot plan, invokes the brand skill and returns a master with its hash. The independent review agent inspects evidence against a rubric and creates timecoded findings. The upload agent verifies approval, builds metadata and uploads privately.",
+                "Roles without contracts drift into each other until no agent owns the outcome and two agents rewrite the same artifact. One deliverable per agent makes ownership unambiguous and makes a stalled pipeline diagnosable — the incomplete deliverable identifies the responsible role. The reviewer is deliberately denied approval authority: a reviewer that can approve its own findings provides no independent check, because the same assumptions that produced the work would clear it.",
                 [
-                    "Validate that every required scene and audio file exists and is approved.",
-                    "Normalise aspect ratio, frame rate, codec, and naming before assembly.",
-                    "Build the timeline from a versioned edit decision list.",
-                    "Render to a draft path, then probe technical properties and duration.",
-                    "Promote only the accepted draft to the release folder.",
+                    "Define the goal, limit the tools, name the deliverable and set the completion rule for each role.",
+                    "Require the research agent to produce retrievable URLs, bounded excerpts and explicit limitations.",
+                    "Give the production agent immutable research input and require the custom brand-video skill.",
+                    "Run the reviewer in an independent context and withhold approval authority from that role.",
+                    "Block the upload agent until every parent deliverable and the current approval hash pass.",
                 ],
                 [
-                    "The manifest lists five vertical scenes, one narration track, music, and a caption file.",
-                    "The assembly script scales to 1080x1920, applies bounded trims, mixes audio, and exports a draft.",
-                    "A duration check routes a 33.8-second result back because the contract requires no more than 32 seconds.",
+                    "agent-contracts.yaml validates all four specialist roles against the required fields.",
+                    "research-handoff.json contains approved sources and claim identifiers.",
+                    "review-handoff.json contains timecoded findings and a QA status but no approval decision.",
                 ],
                 [
-                    "The repeated edit can be expressed through a stable manifest or template.",
-                    "The team needs reproducible renders and traceable revisions.",
+                    "Distinct roles have genuinely different tools, inputs or review criteria.",
+                    "An independent check is needed before a consequential external action.",
                 ],
                 [
-                    "The creative decision depends on subtle performance judgment that is not encoded in the plan.",
-                    "The source media cannot be legally or technically processed by the chosen tool.",
+                    "One bounded prompt and one tool would complete the task more reliably.",
+                    "Agents would share unrestricted credentials or be able to overwrite accepted artifacts.",
                 ],
                 [
-                    ("Failure signal", "A rerun changes unrelated parts of the video."),
-                    ("Repair move", "Pin inputs, settings, and the edit decision list to a run version."),
-                    ("Quality evidence", "The render log and media probe match the declared release specification."),
+                    ("Failure signal", "Two agents disagree about which artifact is current."),
+                    ("Repair move", "Give each deliverable one owning role and one immutable version identifier."),
+                    ("Quality evidence", "Every factual claim in the output traces to a sourced claim identifier."),
                 ],
                 [
-                    "https://ffmpeg.org/ffmpeg.html",
-                    "https://ffmpeg.org/ffmpeg-filters.html",
-                    "https://ffmpeg.org/ffprobe.html",
+                    "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns",
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban",
                 ],
             ),
             _section(
-                "Adding Captions, Effects, and Branding",
-                "Captions represent speech and essential audio in time-aligned text. Branding uses controlled typography, colour, logo placement, and tone. Effects should guide attention or clarify change; they are not a substitute for a coherent story. Separate caption text from styling so the same approved content can be exported as WebVTT, platform captions, or burned-in text.",
-                "Most short-form video is watched in varied sound and attention conditions. Accurate captions improve access and comprehension, while a consistent safe-area layout prevents text and controls from colliding. Automated transcription is a draft: names, numbers, timing, line breaks, and speaker meaning still require human review.",
+                "Delegation Context, Parallel Work and the Durable Kanban",
+                "A delegation context packages the goal, the required context, the exact paths and the acceptance tests before a child agent is dispatched. Independent tasks may run in parallel, but the join happens only on explicit verified artifacts rather than on elapsed time. The Hermes Kanban makes this durable: tasks carry an assignee, a status and parent identifiers, and the board survives restarts and deliberate human pauses, which is what allows a production run to span a break, a review or an overnight wait.",
+                "A child agent that receives a goal without paths, inputs and tests will produce something plausible that does not fit the pipeline, and the mismatch is usually discovered at the join. Parallelising dependent work is worse: it appears faster while silently skipping a dependency. A durable board is what separates a multi-agent workflow from a long single conversation — work that must survive a restart cannot live only in a session, and a paused human review is a normal state rather than a failure.",
                 [
-                    "Create captions from the approved script or a reviewed transcript.",
-                    "Check wording, timing, reading order, line length, and meaningful sound labels.",
-                    "Apply brand typography and colours within channel-safe areas.",
-                    "Use effects only when they support a story beat or viewer orientation.",
-                    "Export a portable caption file and preview the full vertical frame at phone size.",
+                    "Package the goal, context, exact paths and acceptance criteria into the delegation context.",
+                    "Dispatch the child agent, receive its summary and verify the artifact it claims to have produced.",
+                    "Identify genuinely independent tasks and dispatch those as a batch.",
+                    "Create the board tasks, assign profiles and link every dependency before running the dispatcher.",
+                    "Join only after all required parents are complete and verified.",
                 ],
                 [
-                    "The WebVTT file begins with the required header and contains ordered cue timings.",
-                    "On-screen keywords complement rather than duplicate the complete caption line.",
-                    "The logo and lower-third remain clear of common interface overlays.",
+                    "delegation-log.json records the prompt, the agent and the verified result.",
+                    "join-ledger.json shows every required parent complete before the join proceeded.",
+                    "kanban-export.json shows the full dependency chain with no missing dependency.",
                 ],
                 [
-                    "The transcript can be reviewed against the final audio.",
-                    "Brand assets and usage rules are approved and available.",
+                    "Work crosses several agents and must survive restarts or a human pause.",
+                    "Independent tasks exist and the join can be defined on verified artifacts.",
                 ],
                 [
-                    "The system guesses inaudible speech or decorative text hides the subject.",
-                    "A generated logo, typeface, or sound effect has uncertain rights.",
+                    "The tasks are dependent, so parallel dispatch would skip a dependency.",
+                    "The work fits one session and gains nothing from durable state.",
                 ],
                 [
-                    ("Failure signal", "Captions are accurate but unreadable on a phone or out of sync after an edit."),
-                    ("Repair move", "Regenerate timings from the final audio and recheck safe area, contrast, and line breaks."),
-                    ("Quality evidence", "The final file passes text, timing, contrast, and mobile-preview checks."),
+                    ("Failure signal", "A task repeats the same failure and the pipeline retries it indefinitely."),
+                    ("Repair move", "Cap attempts, classify the failure and block repeated failures for human intervention."),
+                    ("Quality evidence", "Task history shows checkpoints, the review and the final evidence for each task."),
                 ],
                 [
-                    "https://www.w3.org/TR/webvtt1/",
+                    "https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns",
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban",
+                ],
+            ),
+            _section(
+                "Human Approval, the YouTube Contract and Publishing Idempotency",
+                "Before release the package is frozen and hashed, and a named reviewer approves that specific hash. Immediately before upload the current master hash is compared against the approved hash; a mismatch blocks the upload. The YouTube videos.insert contract requires OAuth authorisation, a snippet, a status block carrying the privacy setting and, where applicable, the synthetic-media disclosure. Uploads default to private. An idempotency key is created before the attempt and reconciled after it, so one approved package yields at most one committed video identifier.",
+                "Publishing is irreversible in a way that almost nothing earlier in the pipeline is. Approving a hash rather than a filename closes the gap where an artifact changes between approval and upload. Defaulting to private means a mistake is recoverable by deleting a private video rather than by retracting a public one. Reconciling an idempotency key before a retry prevents the specific failure where a network timeout on a successful upload produces a second copy on the channel.",
+                [
+                    "Freeze the release package, compute its hash and request approval against that hash.",
+                    "Recheck the current master hash immediately before upload and block on any mismatch.",
+                    "Authorise OAuth, confirm the channel identity, then set the snippet and the status block.",
+                    "Default privacy to private and include the synthetic-media disclosure where applicable.",
+                    "Create the publish key, check any prior result, then upload and commit the returned identifier.",
+                ],
+                [
+                    "approval-ledger.json proves the reviewer, the time, the decision and the approved hash.",
+                    "request-preview.json and the private upload receipt match the approved package.",
+                    "publication-ledger.csv contains exactly one committed video identifier per idempotency key.",
+                ],
+                [
+                    "An external, irreversible action is about to be taken on an approved artifact.",
+                    "Retries are possible and duplicate posts would be damaging.",
+                ],
+                [
+                    "The approved hash does not match the current master hash.",
+                    "Channel identity, disclosure or rights are unresolved, or public visibility is proposed without supervision.",
+                ],
+                [
+                    ("Failure signal", "A retry after a timeout produces a second video on the channel."),
+                    ("Repair move", "Reconcile the prior idempotency key and its committed video identifier before retrying."),
+                    ("Quality evidence", "The duplicate publish rate is zero across all recorded attempts."),
+                ],
+                [
+                    "https://developers.google.com/youtube/v3/docs/videos/insert",
                     "https://developers.google.com/youtube/v3/docs/captions",
                 ],
             ),
             _section(
-                "Assembling Short-Form Videos",
-                "Assembly is the editorial act of making every visual, spoken line, caption, and sound serve one promise. The hook establishes relevance, the body delivers proof through a clear sequence, and the close completes the promise with a proportionate next action. Rhythm comes from information change, not from arbitrary rapid cuts.",
-                "An agent can detect missing files, long gaps, repeated shots, or timing mismatches, but it cannot own the final communication judgment. The creator must watch the complete video as a viewer, with sound on and off, and confirm that the story remains understandable, truthful, and appropriately paced.",
+                "Hermes Cron and Controlled Scheduled Release Operations",
+                "A cron job runs in a fresh session, so its prompt must be self-contained: every required path, gate and stop rule is written into the job, and the skills it needs are attached explicitly. The job is created paused. It is exercised with a dry run whose output is inspected, and the next scheduled run is confirmed before any cadence is enabled. Scheduled work in this course prepares the release and performs the private upload; public visibility remains a separate, explicitly approved decision.",
+                "A scheduled job inherits nothing from the session that created it, so a prompt that relies on conversational context will behave differently at three in the morning than it did during testing. Creating the job paused makes that difference observable before it matters. Restricting the schedule to preparation and private upload means the worst outcome of a scheduling defect is an unwanted private draft rather than an unapproved public post.",
                 [
-                    "Start with the target promise and remove any beat that does not support it.",
-                    "Align narration, picture, captions, and sound by function rather than repetition.",
-                    "Use visual continuity and clear transitions to preserve orientation.",
-                    "Preview from start to finish without stopping, then record only observable issues.",
-                    "Apply the smallest revision that fixes the stated issue and rerender.",
+                    "Write a self-contained job prompt containing every required path, gate and stop rule.",
+                    "Attach the custom video skill and any other required skills explicitly.",
+                    "Create the schedule with an explicit timezone and leave the job paused.",
+                    "Trigger a dry run, inspect the output and confirm the next run time.",
+                    "Enable the cadence only after the evidence has been reviewed and the enablement approved.",
                 ],
                 [
-                    "The opening shows the bitter-cup problem while narration names the viewer situation.",
-                    "Three proof beats demonstrate variables in the same order as the spoken explanation.",
-                    "The close summarises the checklist and invites the viewer to save it.",
+                    "cron-preview.json records the schedule, the next run and the paused state.",
+                    "operations-ledger.csv records each run, its outcome and the owner's decision.",
+                    "The dry run cannot publish an unapproved or duplicate video.",
                 ],
                 [
-                    "The script, storyboard, media, and audio are approved enough for a complete draft.",
-                    "The team can preview on the intended aspect ratio and device.",
+                    "A release cadence is required and the preparation steps are already reliable.",
+                    "The job can be made fully self-contained and exercised with a dry run first.",
                 ],
                 [
-                    "Essential evidence is missing and the edit would disguise that gap.",
-                    "The workflow optimises only for cut frequency or novelty.",
+                    "The job prompt still depends on context from the session that created it.",
+                    "Enabling the cadence would allow a public post without a separate approval.",
                 ],
                 [
-                    ("Failure signal", "The edit is energetic but the viewer cannot restate the three fixes."),
-                    ("Repair move", "Restore causal order and remove decorative elements that compete with proof."),
-                    ("Quality evidence", "A cold viewer identifies the promise, proof, and next action without explanation."),
+                    ("Failure signal", "A job that passed interactively behaves differently on its first scheduled run."),
+                    ("Repair move", "Move every implicit path, gate and stop rule into the job prompt and re-run the dry run."),
+                    ("Quality evidence", "The on-time success rate holds with zero unauthorised posts."),
                 ],
                 [
-                    "https://ffmpeg.org/ffmpeg.html",
-                    "https://www.w3.org/TR/webvtt1/",
-                ],
-            ),
-            _section(
-                "Reviewing and Refining with AI",
-                "A review agent inspects the draft against a declared rubric and returns evidence, severity, location, and a bounded repair suggestion. It may compare the script to captions, probe the file, detect missing manifest entries, or flag brand and rights questions. It does not give itself permission to approve or publish its own work.",
-                "Unstructured feedback such as 'make it more engaging' causes uncontrolled rewrites. An issue register turns observations into reproducible decisions: issue ID, category, evidence, severity, owner, fix, and recheck result. Independent checks reduce the risk that the same assumptions survive from generation into review.",
-                [
-                    "Run deterministic technical and manifest checks first.",
-                    "Review story, claims, captions, rights, privacy, branding, and disclosure separately.",
-                    "Record each issue with timecode or asset reference and supporting evidence.",
-                    "Assign an owner and apply the smallest controlled change.",
-                    "Rerun affected checks and obtain human approval on the complete final preview.",
-                ],
-                [
-                    "The agent flags a caption mismatch at 00:12, a missing rights note for asset S03, and a 1.8-second duration overrun.",
-                    "The editor fixes only those items and links the new render to the same run.",
-                    "A person confirms the whole video after the automated checks return clear.",
-                ],
-                [
-                    "The rubric, evidence sources, and severity thresholds are explicit.",
-                    "A human remains accountable for ambiguous creative and release decisions.",
-                ],
-                [
-                    "The reviewer shares the same hidden context and merely confirms its own output.",
-                    "A score is used without evidence, location, or a repair path.",
-                ],
-                [
-                    ("Failure signal", "The system gives a high quality score while required release evidence is missing."),
-                    ("Repair move", "Use blocking gates for mandatory fields and evidence-linked findings for judgment."),
-                    ("Quality evidence", "Every cleared issue has a recorded recheck and the final approval names a person."),
-                ],
-                [
-                    "https://openai.github.io/openai-agents-js/guides/guardrails/",
-                    "https://docs.n8n.io/advanced-ai/examples/human-fallback/",
-                ],
-            ),
-        ],
-    ),
-    dict(
-        num=4,
-        code="04",
-        title="Automating and Scaling Video Production",
-        subtitle="Multi-step video agents | Publishing and scheduling | Performance analysis | Scalable content pipelines",
-        weighting="Day 2 afternoon | 2 labs",
-        concepts=[
-            ("Orchestrator", "The workflow component that routes state between specialist stages and enforces gates."),
-            ("Approval token", "A recorded, scoped decision that authorises one release action for one approved package."),
-            ("Metric contract", "A definition of the decision, grain, window, numerator, denominator, and exclusions for each KPI."),
-            ("Scaling guardrail", "A limit on volume, spend, retries, permissions, or variance that grows with automation."),
-        ],
-        sections=[
-            _section(
-                "Building Multi-Step Video Agents",
-                "A multi-step video system may use a coordinator plus specialist research, script, asset, edit, review, and release stages. Specialisation is valuable when each role has a distinct tool set and output contract. The coordinator should route state and enforce policies, not rewrite every artifact.",
-                "Adding agents increases hand-offs, cost, latency, and opportunities for inconsistent assumptions. Start with one workflow and split a stage only when the separation improves control, parallel work, specialist tooling, or evaluation. Shared run state must distinguish approved artifacts from drafts.",
-                [
-                    "Define a state machine with permitted transitions and blocking conditions.",
-                    "Give each specialist the minimum context and tools required for its stage.",
-                    "Validate every hand-off against the shared schema and artifact version.",
-                    "Cap iterations and route unresolved work to a rework queue or human owner.",
-                    "Trace tool calls, costs, decisions, errors, and approvals under one run ID.",
-                ],
-                [
-                    "HB-001 moves brief_approved -> script_ready -> assets_ready -> draft_ready -> release_ready.",
-                    "A rights flag prevents the release stage from running even when all media files exist.",
-                    "The coordinator sends the issue back to the asset owner rather than regenerating the script.",
-                ],
-                [
-                    "Specialist roles have distinct contracts, tools, or review criteria.",
-                    "The orchestrator can persist state and enforce permitted transitions.",
-                ],
-                [
-                    "One prompt and one tool would solve the bounded task more reliably.",
-                    "Agents share unrestricted credentials or can silently overwrite accepted artifacts.",
-                ],
-                [
-                    ("Failure signal", "Agents loop or disagree about which artifact is current."),
-                    ("Repair move", "Use a state machine, immutable versions, and one authoritative manifest."),
-                    ("Quality evidence", "The complete run can be reconstructed from state transitions and logs."),
-                ],
-                [
-                    "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/",
-                    "https://openai.github.io/openai-agents-js/guides/handoffs/",
-                    "https://github.com/n8n-io/n8n-docs/blob/main/docs/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/tools-agent.md",
-                ],
-            ),
-            _section(
-                "Publishing and Scheduling Across Platforms",
-                "Publishing is an external, high-impact action. The release stage should receive only an approved video, captions, metadata, disclosure decision, rights record, target account, privacy setting, and schedule. The default learning path produces a dry-run request and keeps visibility private until an authorised person reviews platform-specific fields and consents.",
-                "Platforms have different permissions, quotas, disclosure fields, and audit requirements. Automating the final click without checking creator information, audience settings, privacy, and synthetic-media disclosure can cause irreversible mistakes. A scoped approval token and idempotency key ensure one approved package produces at most one intended post.",
-                [
-                    "Validate the release package and platform-specific required fields.",
-                    "Query the authorised account or creator settings where the API requires it.",
-                    "Show the exact title, description, captions, disclosure, privacy, and schedule to a person.",
-                    "Record approval, then initialise one private or scheduled upload with an idempotency key.",
-                    "Poll processing status, record the returned post ID, and route errors without duplicate posts.",
-                ],
-                [
-                    "The C436 lab creates a private dry-run package for YouTube and a TikTok request preview.",
-                    "The release remains blocked until disclosure, rights, and owner_approval fields are complete.",
-                    "The workflow records the intended target and package checksum before any live integration is enabled.",
-                ],
-                [
-                    "The account owner has authorised the app and can preview every required field.",
-                    "Private or draft mode, error handling, and duplicate prevention are available.",
-                ],
-                [
-                    "The workflow would post publicly without explicit consent and a complete preview.",
-                    "Credentials, disclosure, rights, or platform audit requirements are unresolved.",
-                ],
-                [
-                    ("Failure signal", "A retry produces two uploads or exposes an unreviewed caption."),
-                    ("Repair move", "Gate the action with approval plus an idempotency key and reconcile the returned post ID."),
-                    ("Quality evidence", "The release log links one approved package to one intended platform action."),
-                ],
-                [
+                    "https://hermes-agent.nousresearch.com/docs/user-guide/features/cron",
                     "https://developers.google.com/youtube/v3/docs/videos/insert",
-                    "https://developers.google.com/youtube/v3/docs/captions/insert",
-                    "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post",
-                ],
-            ),
-            _section(
-                "Analysing Performance",
-                "Performance analysis starts with a decision and a metric contract. Reach, starts, watch time, average view duration, completion, saves, shares, comments, and downstream actions describe different parts of audience response. The agent should calculate defined metrics at a consistent grain, compare appropriate windows, and separate observation from explanation.",
-                "A large view count does not prove that a creative choice caused success. Platform metric definitions and counting rules can change, and small samples are unstable. A useful analysis agent preserves denominators, dates, segment, content version, and data source, then proposes a limited next test instead of declaring a universal rule.",
-                [
-                    "State the decision and choose one primary metric plus guardrails.",
-                    "Validate dates, video IDs, denominators, missing values, and metric definitions.",
-                    "Compare like with like and calculate rates at the intended grain.",
-                    "Describe observed differences before proposing possible drivers.",
-                    "Recommend one controlled creative or workflow change with a measurement window.",
-                ],
-                [
-                    "The Harbour Bean synthetic dataset compares eight posts by hook family and duration.",
-                    "The agent calculates completion and save rates from the supplied counts, then flags low-impression rows.",
-                    "It recommends testing the strongest clear-promise hook while holding topic and duration band stable.",
-                ],
-                [
-                    "The data source, metric definitions, window, and comparison grain are known.",
-                    "A proposed action can be tested and reviewed against guardrails.",
-                ],
-                [
-                    "Denominators are missing or metrics from different platforms are treated as identical.",
-                    "A single high-performing post is being treated as causal proof.",
-                ],
-                [
-                    ("Failure signal", "The dashboard ranks videos by a rate calculated from incompatible denominators."),
-                    ("Repair move", "Write the metric contract and validate each row before analysis."),
-                    ("Quality evidence", "Every recommendation cites a defined metric, segment, window, caveat, and next test."),
-                ],
-                [
-                    "https://developers.google.com/youtube/analytics/reference/reports/query",
-                    "https://developers.google.com/youtube/v3/docs/videos",
-                ],
-            ),
-            _section(
-                "Scaling Your Video Content Pipeline",
-                "Scaling means increasing useful throughput without losing evidence, control, or quality. The team standardises production contracts, templates, reusable agent tools, asset naming, review rubrics, and telemetry. Work is queued and prioritised; capacity and cost budgets are visible; exceptions are handled explicitly.",
-                "Volume magnifies small defects. A weak prompt creates many weak scripts, a permissive credential multiplies risk, and a missing rights record blocks an entire catalogue. Scale should follow demonstrated reliability at lower volume. Versioned templates, sampling, canary releases, and stop conditions keep growth reversible.",
-                [
-                    "Measure baseline lead time, rework, cost, quality findings, and release errors.",
-                    "Standardise only stages with stable inputs, outputs, and owner acceptance.",
-                    "Introduce queues, concurrency limits, budgets, and priority rules.",
-                    "Use canary batches and sample-based human review before increasing volume.",
-                    "Monitor drift, rights expiry, tool changes, and incidents; pause when thresholds fail.",
-                ],
-                [
-                    "The team moves from one video to a three-video weekly batch using the same approved production contract.",
-                    "Generation is capped per run, every fifth draft receives an additional cold review, and public release stays human-approved.",
-                    "A scorecard tracks cycle time, cost per accepted video, rework rate, blocked rights items, and post-release learning.",
-                ],
-                [
-                    "The pilot is reliable, measurable, and recoverable.",
-                    "Owners, limits, incident response, and manual fallback are in place.",
-                ],
-                [
-                    "Quality evidence is incomplete or rework already consumes more time than the workflow saves.",
-                    "The plan increases permissions or public actions faster than monitoring and review capacity.",
-                ],
-                [
-                    ("Failure signal", "Output volume rises while accepted-video cost and rework also rise."),
-                    ("Repair move", "Throttle the queue and fix the earliest stage producing repeated defects."),
-                    ("Quality evidence", "Throughput improves while guardrail metrics remain within agreed limits."),
-                ],
-                [
-                    "https://openai.github.io/openai-agents-js/guides/guardrails/",
-                    "https://docs.n8n.io/flow-logic/error-handling/",
                 ],
             ),
         ],
@@ -672,8 +514,8 @@ TOPICS = [
 ]
 
 DAY_THEMES = {
-    1: "Design the agent and generate an approved production pack",
-    2: "Assemble, review, orchestrate, and plan responsible scale",
+    1: "Configure Hermes, engineer video prompts and route the media tools",
+    2: "Build the branded video, then orchestrate review and controlled release",
 }
 
 
@@ -683,32 +525,34 @@ def SCHEDULE(lab_titles):
             DAY_THEMES[1],
             [
                 ("9:30", "9:50", 20, "admin", "Welcome, course introduction, setup, and learning approach"),
-                ("9:50", "10:40", 50, "topic", "Topic 1 - Getting Started with Agentic AI for Video (concepts and demonstration)"),
+                ("9:50", "10:40", 50, "topic", "Topic 1 - Hermes Desktop runtime, MiniMax M3 provider contract, and credential isolation"),
                 ("10:40", "10:55", 15, "break", "Tea break"),
-                ("10:55", "11:40", 45, "lab", "Hands-on: " + lab_titles([1])),
-                ("11:40", "12:30", 50, "lab", "Hands-on: " + lab_titles([2])),
-                ("12:30", "13:00", 30, "topic", "Topic 2 - Research and structured production hand-offs"),
+                ("10:55", "11:45", 50, "lab", "Hands-on: " + lab_titles([1])),
+                ("11:45", "12:35", 50, "lab", "Hands-on: " + lab_titles([2])),
+                ("12:35", "13:00", 25, "topic", "Topic 1 - FRAME-CUT prompt contract and structured shot plans"),
                 ("13:00", "14:00", 60, "lunch", "Lunch break"),
-                ("14:00", "15:00", 60, "topic", "Topic 2 - Scripts, storyboards, visuals, voice, and audio"),
-                ("15:00", "15:15", 15, "break", "Tea break"),
-                ("15:15", "16:20", 65, "lab", "Hands-on: " + lab_titles([3])),
-                ("16:20", "17:40", 80, "lab", "Hands-on: " + lab_titles([4])),
-                ("17:40", "18:30", 50, "recap", "Day 1 production-pack review, troubleshooting, and recap"),
+                ("14:00", "14:40", 40, "topic", "Topic 1 - Agent loop, cost ceilings, and stop rules"),
+                ("14:40", "15:40", 60, "lab", "Hands-on: " + lab_titles([3])),
+                ("15:40", "15:55", 15, "break", "Tea break"),
+                ("15:55", "16:45", 50, "topic", "Topic 2 - Tool versus skill, Remotion, Manim, Higgsfield, and FFmpeg routing"),
+                ("16:45", "17:45", 60, "lab", "Hands-on: " + lab_titles([4])),
+                ("17:45", "18:30", 45, "recap", "Day 1 runtime and prompt-contract review, troubleshooting, and recap"),
             ],
         ),
         2: (
             DAY_THEMES[2],
             [
                 ("9:30", "9:45", 15, "admin", "Day 1 checkpoint restore and Day 2 briefing"),
-                ("9:45", "10:35", 50, "topic", "Topic 3 - Automated editing, captions, assembly, and quality gates"),
+                ("9:45", "10:35", 50, "topic", "Topic 2 - Brand tokens, tone controls, quality gate, and versioned repair evidence"),
                 ("10:35", "10:50", 15, "break", "Tea break"),
-                ("10:50", "11:50", 60, "lab", "Hands-on: " + lab_titles([5])),
-                ("11:50", "13:00", 70, "lab", "Hands-on: " + lab_titles([6])),
+                ("10:50", "12:00", 70, "lab", "Hands-on: " + lab_titles([5])),
+                ("12:00", "13:00", 60, "topic", "Topic 3 - Agent role contracts, delegation context, and parallel work"),
                 ("13:00", "14:00", 60, "lunch", "Lunch break"),
-                ("14:00", "15:10", 70, "topic", "Topic 4 - Orchestration, publishing controls, analytics, and scale"),
+                ("14:00", "15:10", 70, "lab", "Hands-on: " + lab_titles([6])),
                 ("15:10", "15:25", 15, "break", "Tea break"),
-                ("15:25", "16:15", 50, "lab", "Hands-on: " + lab_titles([7])),
-                ("16:15", "17:45", 90, "lab", "Hands-on: " + lab_titles([8])),
+                ("15:25", "15:55", 30, "topic", "Topic 3 - Durable Kanban, approval hash, YouTube contract, and idempotency"),
+                ("15:55", "16:55", 60, "lab", "Hands-on: " + lab_titles([7])),
+                ("16:55", "17:45", 50, "lab", "Hands-on: " + lab_titles([8])),
                 ("17:45", "18:30", 45, "recap", "Integrated workflow demonstration, next steps, and course recap"),
             ],
         ),
@@ -717,41 +561,41 @@ def SCHEDULE(lab_titles):
 
 COURSE_OVERVIEW = dict(
     section_title="Agentic Video Production Foundations",
-    concepts_title="What Makes a Workflow Agentic",
+    concepts_title="What Makes a Video Workflow Agentic",
     concepts=[
-        ("Goal and state", "The system knows the desired outcome, accepted artifacts, current stage, and unresolved work."),
-        ("Reasoning and routing", "A model chooses among bounded next actions while deterministic rules enforce known constraints."),
-        ("Tools and contracts", "Every capability has typed inputs, portable outputs, permissions, budgets, and failure behavior."),
-        ("Evidence and control", "Logs, provenance, validators, approvals, and stop conditions keep the work reviewable."),
+        ("Goal and state", "The system knows the approved brief, the accepted artifacts, the current stage, and the unresolved work."),
+        ("Reasoning and routing", "MiniMax M3 chooses among bounded next actions while deterministic rules enforce known constraints."),
+        ("Tools and skills", "Every capability has typed inputs, portable outputs, permissions, budgets, and failure behaviour."),
+        ("Evidence and control", "Ledgers, hashes, probes, approvals, and stop rules keep the work reviewable."),
     ],
     framework_title="The C436 Agent Loop",
     framework=[
-        ("1 | Observe", "Read the approved brief, state, manifest, and current evidence."),
-        ("2 | Plan", "Choose the next smallest action that advances a completion condition."),
-        ("3 | Act", "Call one allowed tool with structured inputs and bounded retries."),
-        ("4 | Inspect", "Validate the artifact, provenance, cost, and quality evidence."),
-        ("5 | Decide", "Accept, revise, retry within limits, or escalate to a named owner."),
-        ("6 | Record", "Persist the new state and an auditable event before continuing."),
+        ("1 | Observe", "Read the approved brief, the current state, and the asset manifest."),
+        ("2 | Plan", "Produce a validated shot plan that totals the approved duration."),
+        ("3 | Act", "Call one allowed tool or skill with structured inputs and a capped attempt count."),
+        ("4 | Inspect", "Probe the artifact and check it against the declared delivery specification."),
+        ("5 | Decide", "Accept, repair within limits, or stop and record the stop reason."),
+        ("6 | Record", "Persist the ledger entry, the hash, and the approval decision before continuing."),
     ],
     statement=dict(
         headline="Autonomy is a design variable, not the goal.",
-        body="Use deterministic automation for known operations, model judgment for bounded choices, and human approval for consequential actions.",
+        body="Use deterministic tools for known operations, model judgment for bounded choices, and human approval for consequential actions.",
         kicker="CORE PRINCIPLE",
     ),
-    pillars_title="The Connected Harbour Bean Build",
+    pillars_title="The Connected Hermes Build",
     pillars=[
-        ("Design", ["Production contract", "Autonomy matrix", "Workflow map"]),
-        ("Create", ["Research register", "Timed script", "Asset manifest"]),
-        ("Assemble", ["Edit decision list", "Captions", "Vertical draft"]),
-        ("Control", ["Issue register", "Release package", "Approval record"]),
-        ("Learn", ["Metric contract", "Synthetic analysis", "Scaling scorecard"]),
+        ("Configure", ["Hermes runtime", "MiniMax M3", "Credential isolation"]),
+        ("Prompt", ["FRAME-CUT contract", "Shot plan JSON", "Preview render"]),
+        ("Produce", ["Tool routing", "Brand tokens", "Custom video skill"]),
+        ("Review", ["Role contracts", "Durable Kanban", "Independent findings"]),
+        ("Release", ["Approval hash", "Private upload", "Paused cron"]),
     ],
     arc_title="How Every Lab Progresses",
     arc=[
-        "Start from an approved checkpoint and a named output contract.",
-        "Execute bounded steps using supplied synthetic data and placeholder secrets.",
-        "Run an observable 'Test It' check and record evidence.",
-        "Save the checkpoint so the next lab can continue without regeneration.",
+        "Open the lab folder as the current Hermes project and read its copy-ready prompts.",
+        "Ask Hermes to inspect the supplied local files before it proposes a plan.",
+        "Require a preview before any network, paid-generation, upload, or scheduling side effect.",
+        "Run the lab's verify.py and retain the PASS output with the requested evidence.",
         "Reflect on which choices should remain deterministic, model-led, or human-approved.",
     ],
     deep_dives=[
@@ -759,30 +603,30 @@ COURSE_OVERVIEW = dict(
             title="Autonomy Matrix",
             kicker="CONTROL DESIGN",
             items=[
-                ("Deterministic", "Validation, naming, file movement, media probing, arithmetic, and schema checks."),
-                ("Model-assisted", "Idea clustering, script alternatives, shot suggestions, and evidence-linked issue drafts."),
-                ("Human-approved", "Claims, rights, likeness, brand exceptions, final edit, and release actions."),
-                ("Prohibited by default", "Unreviewed public posts, secret exposure, identity imitation, and unsupported claims."),
+                ("Deterministic", "Schema validation, duration arithmetic, media probing, hashing, and file naming."),
+                ("Model-assisted", "Shot planning, prompt repair, review findings, and research clustering."),
+                ("Human-approved", "Claims, rights, brand exceptions, the final master, and every release action."),
+                ("Prohibited by default", "Unreviewed public posts, credential exposure, and living-artist imitation."),
             ],
         ),
         dict(
-            title="The Production Contract",
-            kicker="STRUCTURED INPUT",
+            title="The FRAME-CUT Contract",
+            kicker="STRUCTURED PROMPT",
             items=[
-                ("Purpose", "Audience, channel, message, desired viewer action, and success decision."),
-                ("Evidence", "Approved facts, source register, unknowns, and permitted inference."),
-                ("Creative constraints", "Duration, aspect ratio, tone, brand, continuity, and prohibited content."),
-                ("Operational limits", "Tools, permissions, budgets, retries, owner, and finish condition."),
+                ("Format and finish", "Channel, duration, aspect ratio, and delivery codec frozen before shot work."),
+                ("Role and references", "Assigned role, attached brief, registered sources, and authorised assets."),
+                ("Action and motion", "One dominant subject action and one camera move per timed shot."),
+                ("Continuity and unwanted", "Identity and palette tokens to keep, plus explicit must-avoid elements."),
             ],
         ),
         dict(
-            title="Run Evidence",
+            title="Release Evidence",
             kicker="OBSERVABILITY",
             items=[
-                ("Identity", "Run ID, job ID, artifact version, prompt version, and manifest checksum."),
-                ("Actions", "Tool name, input reference, output reference, time, status, and error."),
-                ("Controls", "Validation result, issue ID, approval scope, and decision owner."),
-                ("Resources", "Latency, generation count, cost estimate, and retry count."),
+                ("Identity", "Run ID, plan hash, master hash, asset version, and idempotency key."),
+                ("Actions", "Tool or skill name, input reference, output reference, status, and error."),
+                ("Controls", "Probe result, finding ID, approval hash, reviewer, and decision."),
+                ("Resources", "Attempts, latency, estimated cost, and budget variance."),
             ],
         ),
     ],
@@ -790,48 +634,52 @@ COURSE_OVERVIEW = dict(
 
 LG_INTRO = (
     "This Learner Guide accompanies Agentic AI for Video Creation (C436). It is a "
-    "self-contained study text and practical reference for designing, generating, "
-    "assembling, reviewing, and scaling a controlled short-form video workflow."
+    "self-contained study text and practical reference for building an evidence-led "
+    "video production system in Hermes Agent, from runtime setup and prompt "
+    "engineering to custom video skills, multi-agent review, and controlled release."
 )
 LG_INTRO2 = (
-    "The four topics and eight connected labs follow one synthetic Harbour Bean "
-    "campaign. Work in order and retain each checkpoint: later labs consume the "
-    "production contracts, manifests, decisions, and evidence created earlier."
+    "The three topics and eight connected labs follow one Hermes-native journey. "
+    "Work in order and retain each lab's evidence: later labs consume the runtime "
+    "configuration, prompt contracts, skills, and approved masters created earlier."
 )
 
 LG_SETUP = dict(
     needs=[
-        "A Windows or macOS laptop with a modern browser and permission to create local folders.",
-        "Access to an approved AI assistant such as ChatGPT or Claude; do not paste confidential data into an unapproved service.",
-        "An n8n Cloud workspace or trainer-provided n8n instance for importing the supplied workflow templates.",
+        "A Windows or macOS laptop with a modern browser, administrator rights to install desktop software, and permission to create local folders.",
+        "Hermes Desktop installed from the official page at https://hermes-agent.nousresearch.com/desktop.",
+        "A MiniMax account and API key for the MiniMax-M3 model; trial, quota, and region terms are time-sensitive and must be confirmed live at sign-up.",
+        "Python 3 on PATH for the supplied verify.py scripts and preview renderers.",
         "FFmpeg and FFprobe on PATH. On Windows, install with 'winget install --id Gyan.FFmpeg -e'; on macOS, use 'brew install ffmpeg'. Reopen the terminal and verify both commands.",
-        "Optional approved accounts for a video generator and voice service; supplied placeholder assets keep every lab completable without paid generation.",
-        "The repository's labs/assets folder, which contains the synthetic brief, templates, sample analytics, manifests, and workflow JSON.",
+        "A Google account with a YouTube channel for the release labs; uploads stay private and public visibility is never required to complete a lab.",
+        "The repository's labs folder, which contains eight lab packages with copy-ready prompts, synthetic data, starter files, evidence checklists, and verifiers.",
     ],
     verify_text=(
-        "Confirm that the course files are readable, n8n opens, and the media tools "
-        "return a version. Never place real secret values in a prompt, lab file, "
-        "screenshot, or public repository."
+        "Confirm that Hermes launches, the configured provider is minimax, the model "
+        "is MiniMax-M3, and the media tools return a version. Never place a real "
+        "secret value in a prompt, lab file, screenshot, or public repository."
     ),
     verify_code=(
+        "hermes doctor\n"
         "ffmpeg -version\n"
         "ffprobe -version\n"
-        "# In n8n, open Workflows > Create Workflow and confirm Import from File is available."
+        "python3 --version"
     ),
     conventions=[
-        "Replace placeholders such as <RUN_ID> or <API_KEY> only in an approved credential store or local environment.",
-        "Use the supplied synthetic Harbour Bean data. Do not add real customer, employee, creator, or account data.",
-        "Keep public publishing disabled. The labs produce private or dry-run release packages for review.",
-        "Save accepted artifacts under the named checkpoint path before starting the next lab.",
-        "If an optional generation service is unavailable, use the supplied placeholder media and continue the full control workflow.",
-        "For platform request design, use the current official YouTube Data API documentation at https://developers.google.com/youtube/v3/docs/videos and TikTok Content Posting API documentation at https://developers.tiktok.com/doc/content-posting-api-get-started; the labs keep every request non-executing.",
+        "Replace placeholders such as <RUN_ID> or <API_KEY> only in Hermes credential or configuration storage, never in a prompt or lab file.",
+        "Use the supplied synthetic lab data. Do not add real customer, employee, creator, or account data.",
+        "Keep YouTube visibility private. Public release requires an explicit trainer-supervised decision.",
+        "Require a preview before any network call, paid generation, upload, or scheduling side effect.",
+        "Run the lab's verify.py and retain the PASS output before starting the next lab.",
+        "If a tool is unavailable, use the documented deterministic fallback and record the limitation rather than inventing a successful call.",
+        "Confirm live trial, quota, and pricing terms in your own account at sign-up; treat any figure in this guide as an example, not a current offer.",
     ],
 )
 
 LAB_NOTE = (
-    "Use only the supplied synthetic campaign data and approved accounts. Store "
-    "secrets in managed credentials, keep public publishing disabled, and obtain "
-    "human approval before any external release action."
+    "Use only supplied or authorised assets. Never paste a MiniMax key, OAuth token, "
+    "or YouTube credential into a prompt, lab file, screenshot, or repository. "
+    "YouTube examples default to private and scheduled publishing starts paused."
 )
 
 LG_WRAPUP = dict(
@@ -845,10 +693,10 @@ LG_WRAPUP = dict(
         dict(
             title="Minimum handover package",
             bullets=[
-                "Approved production contract, autonomy matrix, and workflow map.",
-                "Source register, script, storyboard, asset manifest, and provenance notes.",
-                "Edit decision list, caption file, technical probe, draft, and issue register.",
-                "Release package, approval record, metric contract, analysis, and scaling scorecard.",
+                "Setup evidence, profile check, and model check with no credential value recorded.",
+                "FRAME-CUT prompt pack, validated shot plan, and the preview probe.",
+                "Tool routing registry, installed skills, brand profile, and the custom video skill.",
+                "Agent contracts, Kanban export, review findings, approval ledger, and the cron preview.",
             ],
         ),
         dict(
@@ -863,50 +711,50 @@ LG_WRAPUP = dict(
 )
 
 LG_NEXT_STEPS = [
-    "Rerun the eight labs from the saved checkpoints and explain every state transition.",
-    "Replace one mock tool with an approved live integration while preserving the same contract, limits, and evidence.",
+    "Rerun the eight labs from a clean profile and explain every recorded state transition.",
+    "Replace one deterministic fallback with an approved live integration while preserving the same contract, limits, and evidence.",
     "Add three representative test jobs, including one missing-input case and one tool-failure case.",
-    "Pilot with private outputs, review rework and cost evidence, and scale only after the guardrails remain stable.",
-    "Review official tool and platform documentation before adapting any live API or interface shown in this guide.",
-    "Recheck YouTube upload/privacy requirements at https://developers.google.com/youtube/v3/guides/uploading_a_video and TikTok Direct Post requirements at https://developers.tiktok.com/doc/content-posting-api-reference-direct-post before any authorised implementation.",
+    "Pilot with private outputs, review the repair and cost evidence, and enable a cadence only after the guardrails remain stable.",
+    "Review the official Hermes, MiniMax, Remotion, Manim, and YouTube documentation before adapting any live API or interface shown in this guide.",
+    "Recheck YouTube upload and privacy requirements at https://developers.google.com/youtube/v3/guides/uploading_a_video before any authorised public release.",
 ]
 
 LG_GLOSSARY = [
-    ("Agent", "A model-led system that pursues a bounded goal through instructions, tools, state, and a control loop."),
     ("Agent loop", "The repeated observe, plan, act, inspect, decide, and record cycle."),
-    ("Approval token", "A recorded decision authorising one scoped action for one named artifact or package."),
-    ("Asset manifest", "The authoritative inventory of media files, prompts, versions, provenance, rights notes, and status."),
-    ("Autonomy matrix", "A table classifying tasks as deterministic, model-assisted, human-approved, or prohibited."),
-    ("Checkpoint", "A saved accepted state from which the workflow can safely resume."),
-    ("Continuity bible", "Stable visual and audio constraints reused across generated scenes."),
-    ("Edit decision list", "A structured description of timeline order, trims, overlays, transitions, and audio."),
-    ("Guardrail", "A rule or check that constrains inputs, tool calls, outputs, permissions, or actions."),
-    ("Human-in-the-loop", "A workflow point where a person reviews evidence and approves, edits, rejects, or stops an action."),
+    ("Approval hash", "A named decision bound to the immutable hash of the package it authorises."),
+    ("Asset manifest", "The authoritative inventory of assets with source, rights status, version, and checksum."),
+    ("Brand token", "A stored, editable value for logo, palette, typography, or motion referenced by a skill."),
+    ("Circuit breaker", "A cap on attempts that blocks a repeatedly failing task for human intervention."),
+    ("Continuity token", "A reusable identifier that holds subject identity and palette stable across shots."),
+    ("Cron job", "A scheduled Hermes task that runs in a fresh session from a self-contained prompt."),
+    ("Delegation context", "The goal, context, exact paths, and acceptance tests handed to a child agent."),
+    ("FRAME-CUT", "The prompt contract covering Format, Role, Action, Motion, Environment, Continuity, Unwanted, and Technical output."),
+    ("Hermes Desktop", "The desktop application surface of Hermes Agent, sharing profile and configuration with the CLI."),
     ("Idempotency key", "A stable identifier used to prevent a retry from creating a duplicate external action."),
-    ("Metric contract", "A precise definition of a measure, including grain, period, numerator, denominator, and exclusions."),
-    ("Orchestrator", "The component that routes work between stages and enforces state transitions and gates."),
-    ("Production contract", "A structured brief containing purpose, evidence, constraints, deliverables, tools, limits, and finish conditions."),
-    ("Provenance", "Recorded information about where an artifact came from and how it was created or changed."),
-    ("Run ID", "A unique identifier linking the events and artifacts of one workflow execution."),
-    ("Schema", "A definition of required fields, data types, allowed values, and relationships."),
-    ("Tool boundary", "The documented inputs, outputs, permissions, limits, and failure behavior of a capability."),
-    ("WebVTT", "A UTF-8 time-aligned text format commonly used for web video captions and subtitles."),
+    ("Kanban", "A durable board of tasks with assignees, statuses, and parent dependencies that survives restarts."),
+    ("MiniMax M3", "The reasoning and tool-orchestration model configured through the minimax provider."),
+    ("Progressive loading", "Searching the skill catalogue first and loading only the resources a selected skill references."),
+    ("Provenance", "Recorded information about an asset's source, licence, version, and checksum."),
+    ("Quality gate", "A fail-closed technical check on container, streams, dimensions, frame rate, duration, and captions."),
+    ("Shot plan", "Strict JSON of timed shots whose durations total the approved target with no gaps or overlaps."),
+    ("Skill", "A directory containing SKILL.md, scripts, and templates that package a repeatable procedure."),
+    ("Synthetic media disclosure", "The platform status field declaring that content was generated or materially altered."),
 ]
 
 NEXT_STEPS = dict(
     title="Continue Building Safely",
     items=[
-        "Replace one mock stage at a time and retain its contract and fallback.",
-        "Create test jobs for missing inputs, malformed output, tool failure, and denied approval.",
-        "Keep publishing private until platform permissions and an accountable release owner are confirmed.",
-        "Measure accepted output, rework, cost, latency, and incidents before increasing volume.",
+        "Replace one deterministic fallback at a time and retain its contract and evidence.",
+        "Create test jobs for a missing input, a malformed shot plan, a tool failure, and a denied approval.",
+        "Keep uploads private until channel permissions and an accountable release owner are confirmed.",
+        "Measure accepted masters, repair rate, cost, and latency before enabling any cadence.",
     ],
 )
 
 THANK_YOU = dict(
     body=(
-        "You can now design and operate a bounded video-production agent from "
-        "approved brief to evidence-led scaling plan."
+        "You can now configure Hermes Agent, engineer video prompts, build a custom "
+        "branded video skill, and operate a reviewed, evidence-led release pipeline."
     ),
     kicker="C436 | AGENTIC AI FOR VIDEO CREATION",
 )
@@ -926,5 +774,6 @@ ICE_BREAKER = [
 LAB_SHOTS = {}
 
 VERSION_HISTORY = [
-    ("1.0", VERSION_DATE, "Initial aligned release of the C436 deck, Learner Guide, Lesson Plan, and eight connected labs.", TRAINER),
+    ("1.0", "29 July 2026", "Initial aligned release of the C436 deck, Learner Guide, Lesson Plan, and eight connected labs.", TRAINER),
+    ("2.0", VERSION_DATE, "Rebuilt on Hermes Agent and MiniMax M3: three topics, FRAME-CUT prompt engineering, Remotion/Manim/Higgsfield/FFmpeg tool routing, custom brand-video skill, multi-agent Kanban review, private YouTube release, and paused cron publishing. Replaces the previous n8n-based labs.", TRAINER),
 ]

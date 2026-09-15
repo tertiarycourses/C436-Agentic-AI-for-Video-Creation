@@ -1,0 +1,23 @@
+{
+  "duration_s": 15,
+  "shots": [
+    {
+      "shot_id": "S1",
+      "start_s": 0,
+      "end_s": 5,
+      "purpose": "hook"
+    },
+    {
+      "shot_id": "S2",
+      "start_s": 5,
+      "end_s": 10,
+      "purpose": "value"
+    },
+    {
+      "shot_id": "S3",
+      "start_s": 10,
+      "end_s": 15,
+      "purpose": "cta"
+    }
+  ]
+}

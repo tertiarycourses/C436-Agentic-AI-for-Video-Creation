@@ -1,0 +1,12 @@
+brand: Harbour Bean
+palette:
+  navy: '#143C5C'
+  teal: '#18A999'
+  cream: '#FFF6E5'
+typography:
+  heading: Arial Bold
+  body: Arial
+tone: calm, practical, evidence-led
+motion: restrained ease-in-out, no spins or flashes
+safe_margin_px: 80
+style_avoid: living-artist imitation, fake claims, unreadable captions

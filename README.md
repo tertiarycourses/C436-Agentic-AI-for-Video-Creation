@@ -7,9 +7,9 @@
 [![Labs](https://img.shields.io/badge/Labs-8-34d399?style=for-the-badge)](labs/README.md)
 [![License](https://img.shields.io/badge/License-Educational-fbbf24?style=for-the-badge)](#license)
 
-**A connected, hands-on course in Agentic AI for Video Creation — progress through 8 practical labs from Design the Video Agent Production Contract and Autonomy Matrix to Analyse Synthetic Performance and Build the Scaling Control Plan.**
+**A connected, hands-on course in Agentic AI for Video Creation — build an evidence-led video production system in Hermes Agent, from MiniMax M3 setup and FRAME-CUT prompt engineering to custom video skills, multi-agent Kanban review, private YouTube upload and controlled scheduling.**
 
-[📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Hands-On Labs](labs/README.md) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>) · [🐛 Report Bug](https://github.com/tertiarycourses/C436---Agentic-AI-for-Video-Creation/issues) · [💡 Request Feature](https://github.com/tertiarycourses/C436---Agentic-AI-for-Video-Creation/issues)
+[📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Hands-On Labs](labs/README.md) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>) · [🐛 Report Bug](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues) · [💡 Request Feature](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues)
 
 </div>
 
@@ -26,46 +26,43 @@
 
 The 8 labs form one connected practical journey. Complete them in order so each verified output can support the activities that follow.
 
-### Topic 1 — Getting Started with Agentic AI for Video
+### Topic 1 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
 
 | # | Activity | Outcome |
 |---:|----------|---------|
-| **1** | [Design the Video Agent Production Contract and Autonomy Matrix](labs/lab-01-design-the-video-agent-production-contract-and-autonomy-matrix.md) | A completed production-contract.json and autonomy-matrix.csv for run HB-001, saved in the connected project checkpoint. |
-| **2** | [Build and Run the Bounded Video Planning Agent in n8n](labs/lab-02-build-and-run-the-bounded-video-planning-agent-in-n8n.md) | An n8n workflow named C436-HB-001-Planning-Agent plus exported ready and blocked execution evidence. |
+| **1** | [Set Up Hermes Desktop and Connect MiniMax M3](labs/lab-01-setup-hermes-and-connect-minimax-m3/README.md) | A `setup-evidence.json` and redacted diagnostic screenshot proving a tool-capable model handshake with no exposed credential. |
+| **2** | [Prompt Hermes to Create a Simple Video](labs/lab-02-prompt-hermes-to-create-a-simple-video/README.md) | A `simple-video.mp4` with its `shot-plan.json` and `ffprobe.json` evidence. |
+| **3** | [Engineer Video Prompts with FRAME-CUT](labs/lab-03-engineer-video-prompts-with-frame-cut/README.md) | A `prompt-pack.json` with its `prompt-score.csv` rubric evidence. |
 
-### Topic 2 — Scripting and Generating Content with AI
-
-| # | Activity | Outcome |
-|---:|----------|---------|
-| **3** | [Run the Research-to-Script Agent and Approve a Timed Storyboard](labs/lab-03-run-the-research-to-script-agent-and-approve-a-timed-storyboard.md) | A source-register.csv, research-script-prompt.txt, script-storyboard.json, captions-script-v1.vtt, and storyboard-approval.md in stage folder 02-create. |
-| **4** | [Build the Visual, Voiceover, and Music Asset Request Pack](labs/lab-04-build-the-visual-voiceover-and-music-asset-request-pack.md) | A continuity-bible.json, asset-requests.json, narration.txt, music-brief.md, and asset-manifest.csv with approved placeholders or authorised generated files. |
-
-### Topic 3 — Editing and Assembling Videos with AI
+### Topic 2 — Video Tools, Hermes Skills and Custom Brand Production
 
 | # | Activity | Outcome |
 |---:|----------|---------|
-| **5** | [Assemble and Probe the Captioned Vertical Video](labs/lab-05-assemble-and-probe-the-captioned-vertical-video.md) | A vertical-draft-v1.mp4, captions-v1.vtt, edit-decision-list.json, ffprobe-v1.json, render-log-v1.txt, and render-evidence-v1.json in stage folder 03-edit. |
-| **6** | [Run the Independent Video Review Gate and Repair One Finding](labs/lab-06-run-the-independent-video-review-gate-and-repair-one-finding.md) | A review-agent workflow export, issue-register-v1.json, issue-register-v2.json, repair-log.md, and final-review-approval.json. |
+| **4** | [Install Video Tools and Hermes Skills](labs/lab-04-install-video-tools-and-skills/README.md) | A `tool-routing.json` registry with `skill-smoke-test.json` evidence. |
+| **5** | [Create a Custom Branded Video Skill](labs/lab-05-create-custom-branded-video-skill/README.md) | A `custom-video.mp4` with `brand-review.json` and `render-evidence.json`. |
 
-### Topic 4 — Automating and Scaling Video Production
+### Topic 3 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing
 
 | # | Activity | Outcome |
 |---:|----------|---------|
-| **7** | [Orchestrate the Private Release Package with Human Approval](labs/lab-07-orchestrate-the-private-release-package-with-human-approval.md) | A release-package.json, denied-approval.json, private-release-approval.json, and release-orchestrator-reviewed.json in stage folder 04-release. |
-| **8** | [Analyse Synthetic Performance and Build the Scaling Control Plan](labs/lab-08-analyse-synthetic-performance-and-build-the-scaling-control-plan.md) | A metric-contract.json, analytics-result.json, next-test.md, scaling-scorecard.csv, and integrated-handover.md in stage folder 05-learn. |
+| **6** | [Build the Multi-Agent Video Workflow](labs/lab-06-build-multi-agent-video-workflow/README.md) | A `multi-agent-plan.json` with four verified handoff records. |
+| **7** | [Orchestrate Kanban Review and YouTube Upload](labs/lab-07-orchestrate-kanban-review-and-youtube-upload/README.md) | A `kanban-export.json`, `approval-ledger.json` and private-upload receipt or dry-run preview. |
+| **8** | [Schedule Controlled Video Publishing with Hermes Cron](labs/lab-08-schedule-controlled-video-publishing/README.md) | A `cron-preview.json` with an `operations-ledger.csv`. |
+
+Each lab package ships copy-ready prompts in Markdown and PDF, synthetic inputs, starter scripts or configuration, an evidence checklist and a deterministic `verify.py`. The sample YouTube request defaults to `private` and scheduled publishing starts paused.
 
 ---
 
 ## About
 
-This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. The practical activities build progressively from **Design the Video Agent Production Contract and Autonomy Matrix** to **Analyse Synthetic Performance and Build the Scaling Control Plan**, with explicit checks that help learners verify each result before moving on.
+This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. Learners configure the Hermes runtime, turn a creative brief into structured prompts, route specialist video tools, build a reusable branded video skill, coordinate research/production/review/upload roles, and prepare a governed publishing schedule — verifying each result before moving on.
 
 ### What you'll learn
 
 - Complete **8 connected hands-on activities** and carry their outputs through one coherent learning journey.
-- Practise with **n8n · Approved AI assistant · Spreadsheet · Text editor** and the supporting resources supplied in the repository.
-- Begin with **Design the Video Agent Production Contract and Autonomy Matrix** and finish with **Analyse Synthetic Performance and Build the Scaling Control Plan**.
-- Apply safe data handling, evidence checks and named human review before using AI-generated or automated outputs.
+- Practise with **Hermes Agent · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API** and the supporting resources supplied in the repository.
+- Begin with **Set Up Hermes Desktop and Connect MiniMax M3** and finish with **Schedule Controlled Video Publishing with Hermes Cron**.
+- Apply safe data handling, deterministic evidence checks and named human review before any release action.
 
 > 📖 **Full walkthrough:** see the [Learner Guide](<LG-Agentic AI for Video Creation.md>) for the complete course narrative, and [labs/README.md](labs/README.md) for the lab index. Slides, the Learner Guide and the Lesson Plan are in [courseware/](courseware/).
 
@@ -77,8 +74,8 @@ This repository contains the complete lab and courseware package for **Agentic A
 |----------|---------|
 | **Duration** | 2 days · 15 instructional hours |
 | **Delivery** | Instructor-led, hands-on practical labs |
-| **Core tools** | n8n · Approved AI assistant · Spreadsheet · Text editor |
-| **Practical work** | 8 connected labs with verification steps |
+| **Core tools** | Hermes Agent (Desktop + CLI) · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API |
+| **Practical work** | 8 connected labs, each with a deterministic `verify.py` |
 | **Courseware** | PowerPoint and PDF slides, Word and PDF guides, Markdown lab instructions |
 
 ---
@@ -87,46 +84,51 @@ This repository contains the complete lab and courseware package for **Agentic A
 
 ```text
 START
-  Lab 1    Design the Video Agent Production Contract and Autonomy Matrix
+  Lab 1    Set Up Hermes Desktop and Connect MiniMax M3
      │
      ▼
-  Topic 1 — Getting Started with Agentic AI for Video
-  Labs 1–2
+  Topic 1 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
+  Labs 1–3
      │
      ▼
-  Topic 2 — Scripting and Generating Content with AI
-  Labs 3–4
+  Topic 2 — Video Tools, Hermes Skills and Custom Brand Production
+  Labs 4–5
      │
      ▼
-  Topic 3 — Editing and Assembling Videos with AI
-  Labs 5–6
-     │
-     ▼
-  Topic 4 — Automating and Scaling Video Production
-  Labs 7–8
+  Topic 3 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing
+  Labs 6–8
      │
      ▼
 FINISH
-  Lab 8   Analyse Synthetic Performance and Build the Scaling Control Plan
+  Lab 8   Schedule Controlled Video Publishing with Hermes Cron
 ```
+
+Connected workflow: `Hermes setup → MiniMax M3 → FRAME-CUT prompt → tool and skill routing → custom branded video → specialist agents → Kanban review and private upload → paused cron release`
 
 ---
 
 ## Project Structure
 
 ```text
-C436---Agentic-AI-for-Video-Creation/
+C436-Agentic-AI-for-Video-Creation/
 ├── README.md
 ├── LG-Agentic AI for Video Creation.md
 │
 ├── labs/
 │   ├── README.md                 # Start here: complete lab index
-│   └── lab-*.md                    # 8 connected practical activities
+│   └── lab-NN-<slug>/            # 8 connected lab packages
+│       ├── README.md             #   activity instructions
+│       ├── AI-PROMPTS.md/.pdf    #   copy-ready learner prompts
+│       ├── data/                 #   synthetic inputs
+│       ├── starter/              #   starter scripts and templates
+│       ├── evidence/checklist.md #   evidence gate
+│       └── verify.py             #   deterministic acceptance verifier
 │
 └── courseware/
-    ├── *.pptx / *.pdf             # Trainer and learner slides
-    ├── LG-*.docx / LG-*.pdf       # Learner Guide
-    └── LP-*.docx / LP-*.pdf       # Lesson Plan
+    ├── *.pptx / *.pdf            # Trainer and learner slides
+    ├── LG-*.docx / LG-*.pdf      # Learner Guide
+    ├── LP-*.docx / LP-*.pdf      # Lesson Plan
+    └── archive/                  # Superseded versions
 ```
 
 ---
@@ -135,25 +137,26 @@ C436---Agentic-AI-for-Video-Creation/
 
 ### Prerequisites
 
-- The accounts and software required for **n8n · Approved AI assistant · Spreadsheet · Text editor**. Follow the setup and access notes in each lab.
-- A modern web browser and Git for cloning the materials.
-- Synthetic or authorised data only. Do not place secrets, personal data or confidential material into an unapproved service.
-- A named human reviewer for facts, calculations, decisions and any externally released output.
+- **Hermes Desktop** installed from the official page at https://hermes-agent.nousresearch.com/desktop, with administrator rights to install desktop software.
+- A **MiniMax account and API key** for the `MiniMax-M3` model. Trial, quota and region terms are time-sensitive — confirm the live offer in your own account at sign-up.
+- **Python 3**, **FFmpeg** and **FFprobe** on `PATH` for the supplied verifiers and preview renderers.
+- A Google account with a YouTube channel for the release labs. Uploads stay `private`; public visibility is never required to complete a lab.
+- Synthetic or authorised data only. Never paste a MiniMax key, OAuth token or YouTube credential into a prompt, lab file, screenshot or repository.
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/tertiarycourses/C436---Agentic-AI-for-Video-Creation.git
-cd C436---Agentic-AI-for-Video-Creation
+git clone https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation.git
+cd C436-Agentic-AI-for-Video-Creation
 ```
 
 ### 2. Open the lab index
 
-Start with [labs/README.md](labs/README.md), then complete Labs 1–8 in order. Each lab provides the activity context, practical steps and a way to verify the result.
+Start with [labs/README.md](labs/README.md), then complete Labs 1–8 in order. Open each lab folder as the current project in Hermes Desktop and read its `AI-PROMPTS.md` before prompting.
 
-### 3. Keep your connected outputs
+### 3. Verify and keep your connected outputs
 
-Store each lab output in the suggested working folder and retain the evidence or review notes requested by the lab. Later activities depend on these approved outputs.
+Run `python3 verify.py` inside each lab folder and retain the `PASS` output with the requested evidence. Later activities depend on these approved outputs.
 
 ---
 
@@ -167,7 +170,7 @@ Contributions, corrections and improvements are welcome:
 4. Push the branch: `git push origin feature/my-improvement`.
 5. Open a **Pull Request**.
 
-Found a bug or have an idea? Open an [issue](https://github.com/tertiarycourses/C436---Agentic-AI-for-Video-Creation/issues).
+Found a bug or have an idea? Open an [issue](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues).
 
 ---
 
@@ -184,7 +187,7 @@ Course: [Agentic AI for Video Creation (C436)](https://www.tertiarycourses.com.s
 
 ## Acknowledgements
 
-- The teams behind n8n · Approved AI assistant · Spreadsheet · Text editor.
+- The teams behind Hermes Agent, MiniMax, Remotion, Manim and FFmpeg.
 - Course trainers and learners of C436.
 
 ---

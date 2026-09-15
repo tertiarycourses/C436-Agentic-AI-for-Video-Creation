@@ -1,0 +1,11 @@
+{
+  "brand": "Harbour Bean",
+  "duration_s": 15,
+  "aspect_ratio": "9:16",
+  "message": "Three grind checks for smoother office coffee",
+  "cta": "Save the guide",
+  "assets": [
+    "synthetic title cards"
+  ],
+  "network_allowed": false
+}

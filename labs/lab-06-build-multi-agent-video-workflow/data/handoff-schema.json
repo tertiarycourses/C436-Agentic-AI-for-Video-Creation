@@ -1,0 +1,11 @@
+{
+  "required": [
+    "task_id",
+    "agent",
+    "input_hashes",
+    "output_paths",
+    "status",
+    "evidence",
+    "next_owner"
+  ]
+}

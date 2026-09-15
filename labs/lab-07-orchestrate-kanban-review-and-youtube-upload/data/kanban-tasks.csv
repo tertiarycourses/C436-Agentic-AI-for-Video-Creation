@@ -1,0 +1,6 @@
+task_id,title,assignee,status,parent_ids
+T1,Research approved claims,researcher,ready,
+T2,Create video master,video-producer,todo,T1
+T3,Review exact master,independent-reviewer,todo,T2
+T4,Approve exact payload,human-owner,todo,T3
+T5,Upload private to YouTube,youtube-uploader,todo,T3|T4

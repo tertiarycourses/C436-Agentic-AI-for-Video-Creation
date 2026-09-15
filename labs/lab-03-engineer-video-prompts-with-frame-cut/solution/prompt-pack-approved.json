@@ -1,0 +1,14 @@
+{
+  "framework": "FRAME-CUT",
+  "required": [
+    "format",
+    "role",
+    "assets",
+    "action",
+    "motion",
+    "environment",
+    "continuity",
+    "unwanted_changes",
+    "technical_output"
+  ]
+}

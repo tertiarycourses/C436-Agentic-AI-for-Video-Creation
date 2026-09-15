@@ -1,0 +1,5 @@
+check,expected,evidence
+installer_source,official Hermes Desktop URL,URL screenshot
+provider,minimax,redacted config
+model,MiniMax-M3,model response
+diagnostics,PASS,hermes doctor output

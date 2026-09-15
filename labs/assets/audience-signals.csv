@@ -1,9 +1,0 @@
-source_id,date,source_type,observation,evidence_type,allowed_use,confidence
-AS-01,2026-07-01,synthetic interview,"I scoop by eye, so every cup is different.",audience statement,idea and script input,medium
-AS-02,2026-07-02,synthetic search query,"why is office coffee bitter",audience language,hook and keyword input,medium
-AS-03,2026-07-03,synthetic comment,"I use boiling water straight from the kettle.",audience statement,problem framing,medium
-AS-04,2026-07-04,synthetic observation,"Brewing is often interrupted by meetings and contact time varies.",context observation,storyboard input,high
-BF-01,2026-07-05,approved brand fact,"Use a consistent coffee-to-water ratio.",approved fact,factual claim,high
-BF-02,2026-07-05,approved brand fact,"Water that is too hot can contribute to unwanted bitterness.",approved fact,factual claim,high
-BF-03,2026-07-05,approved brand fact,"Extending contact time can increase extraction and may intensify bitterness.",approved fact,factual claim,high
-BF-04,2026-07-05,approved brand fact,"Changing one variable at a time makes it easier to identify the cause.",approved fact,factual claim,high

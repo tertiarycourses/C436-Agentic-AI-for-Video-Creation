@@ -1,0 +1,5 @@
+agents:
+  researcher: {tools: [web_search, web_extract], output: research-handoff.json, done_when: all claims have sources}
+  video-producer: {tools: [terminal, skill_view], output: video-handoff.json, done_when: media passes probe}
+  independent-reviewer: {tools: [read_file, terminal], output: review-handoff.json, done_when: rubric complete}
+  youtube-uploader: {tools: [youtube], output: upload-receipt.json, done_when: private ID reconciled}

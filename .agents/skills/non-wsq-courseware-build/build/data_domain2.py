@@ -1,265 +1,191 @@
-"""Topic 2 labs: research, scripting, storyboards, and media requests."""
+"""Topic 2 labs: video tools, Hermes skills and custom brand production.
+
+Lab bodies live in labs/lab-NN-<slug>/. These entries are the single source for
+the deck, Lesson Plan and Learner Guide and must stay aligned with them.
+"""
 
 DOMAIN2 = [
     dict(
-        num=3,
+        num=4,
         topic=2,
-        title="Run the Research-to-Script Agent and Approve a Timed Storyboard",
-        objective="LO2: create evidence-linked research, script, caption, and storyboard hand-offs from an approved brief",
-        duration=65,
-        goal="Produce one approved 30-second concept whose claims and scenes are traceable to the supplied evidence.",
+        title="Install Video Tools and Hermes Skills",
+        objective="LO2: build a governed tool registry and install learner-safe skills with recorded permissions and fallbacks",
+        duration=60,
+        goal="Establish which capability is a tool, which is a skill, and what each is permitted to do.",
         desc=(
-            "You will use an approved AI assistant with a structured B-R-I-E-F "
-            "prompt, or the supplied offline result, to cluster synthetic audience "
-            "signals, propose distinct concepts, and return a timed script and "
-            "storyboard. You will validate the schema and manually approve only "
-            "evidence-linked content."
+            "You will inventory the local media tools, search the Hermes skill "
+            "catalogue, install or create skills for Remotion, Manim, Higgsfield "
+            "request preparation and FFmpeg verification, run a smoke test on each, "
+            "and record the authentication mode, side effects and fallback for every "
+            "entry in the registry."
         ),
-        build=(
-            "A source-register.csv, research-script-prompt.txt, "
-            "script-storyboard.json, captions-script-v1.vtt, and storyboard-approval.md in stage folder 02-create."
-        ),
-        services="Approved AI assistant or offline fallback, text editor, supplied synthetic data",
+        build="A tool-routing.json registry with skill-smoke-test.json evidence.",
+        services="Hermes skills, Remotion, Manim, Higgsfield request preview, FFmpeg",
         prerequisites=[
-            "Complete Labs 1 and 2 or restore Lab checkpoint 02, including ready-restored-run.json, from stage folder 01-design.",
-            "Confirm labs/assets/audience-signals.csv, harbour-bean-brand-brief.md, and research-script-prompt-template.txt are present.",
-            "Use only the supplied synthetic inputs; do not search for or add personal audience data.",
+            "Complete Lab 3 so a validated prompt pack exists to route.",
+            "Open labs/lab-04-install-video-tools-and-skills/ as the current Hermes project.",
+            "Confirm FFmpeg and FFprobe return a version on PATH.",
         ],
         workflow=[
-            "Register evidence",
-            "Run a structured prompt",
-            "Validate timed output",
-            "Review claims and scenes",
-            "Save Lab checkpoint 03 in stage folder 02-create",
+            "Inventory the local tools",
+            "Search the Hermes skills",
+            "Install or create the skills",
+            "Run the smoke tests",
+            "Record the permissions",
+            "Choose the fallbacks",
         ],
         steps=[
             (
-                "Validate and consume the Lab 2 planning hand-off",
-                "$plan=Get-Content -Raw C436-work/HB-001/01-design/ready-restored-run.json | ConvertFrom-Json\nif($plan.status -ne 'plan_ready' -or $plan.next_stage -ne 'research_and_script' -or [string]::IsNullOrWhiteSpace($plan.source_fingerprint)){throw 'Lab 2 planning hand-off is invalid.'}\n$plan | Select-Object run_id,contract_version,source_fingerprint,status,next_stage",
+                "Inventory the locally available media tools and record which are installed",
+                "ffmpeg -version",
             ),
             (
-                "Create the topic 2 checkpoint folder",
-                "New-Item -ItemType Directory -Force -Path C436-work/HB-001/02-create | Out-Null",
+                "Search the Hermes skill catalogue before loading anything, then view only the selected skill",
+                "",
             ),
             (
-                "Copy the synthetic evidence and prompt template",
-                "Copy-Item -LiteralPath labs/assets/audience-signals.csv -Destination C436-work/HB-001/02-create/source-register.csv\nCopy-Item -LiteralPath labs/assets/research-script-prompt-template.txt -Destination C436-work/HB-001/02-create/research-script-prompt.txt",
+                "Install or create the supplied skills and check each SKILL.md frontmatter and paths",
+                "",
             ),
             (
-                "Inspect the source register before prompting",
-                "Import-Csv C436-work/HB-001/02-create/source-register.csv | Format-Table source_id,observation,evidence_type,allowed_use",
+                "Run a smoke test per skill and confirm the expected artifacts are produced",
+                "",
             ),
             (
-                "Complete the prompt placeholders from the approved production contract",
-                "Open research-script-prompt.txt. Set run ID HB-001 and paste the exact source_fingerprint from ready-restored-run.json. Set the audience, 30-second duration, 9:16 aspect ratio, three concepts, and required JSON schema. Paste the approved facts and source rows.",
+                "Record capability, installation state, authentication mode and side effects in the registry",
+                "",
             ),
             (
-                "Run the prompt in an approved AI assistant",
-                "Start a new chat, paste the completed prompt, and do not enable external actions. If unavailable, run: Copy-Item labs/assets/script-storyboard-approved.json C436-work/HB-001/02-create/script-storyboard.json, then continue at validation.",
+                "Prepare the Higgsfield request as a preview only, with no account or quota consumed",
+                "",
             ),
             (
-                "Save only the JSON response",
-                "Copy the assistant's JSON object into C436-work/HB-001/02-create/script-storyboard.json. Remove text outside the outer braces and ensure the root contains script_version='script-v1' and plan_source_fingerprint copied exactly from ready-restored-run.json.",
-            ),
-            (
-                "Validate the JSON and inspect the selected concept",
-                "Get-Content -Raw C436-work/HB-001/02-create/script-storyboard.json | ConvertFrom-Json | Select-Object run_id,plan_source_fingerprint,status,selected_concept_id,total_duration_seconds | Format-List",
-            ),
-            (
-                "Generate a versioned caption hand-off from the exact storyboard",
-                "PowerShell -ExecutionPolicy Bypass -File labs/assets/captions-from-storyboard.ps1 -StoryboardPath C436-work/HB-001/02-create/script-storyboard.json -OutputPath C436-work/HB-001/02-create/captions-script-v1.vtt",
-            ),
-            (
-                "Review every claim and mark the human decision",
-                "Create storyboard-approval.md with four headings: Approved concept, Evidence checked, Required revisions, Decision. Set Decision to APPROVED_FOR_ASSET_REQUESTS only after each factual statement maps to an allowed source ID and no scene uses a real person's likeness.",
-            ),
-            (
-                "Record the approved script version",
-                "Add script_version=script-v1 and approved_by=<YOUR_NAME> to storyboard-approval.md. Do not write credentials or personal account identifiers.",
-            ),
-            (
-                "Run the fail-closed Lab 3 validator and retain the evidence",
-                "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 3 2>&1 | Tee-Object C436-work/HB-001/02-create/lab-03-test-output.txt\nSet-Content C436-work/HB-001/02-create/LAB-CHECKPOINT-03.txt 'Lab 3 passed; script and caption hand-offs accepted.'",
+                "Choose a documented fallback per capability, then run the verifier and retain the PASS output",
+                "python3 verify.py",
             ),
         ],
         test=(
-            "The validator must print LAB-03 PASS. It enforces run ID, script_ready "
-            "status, exact Lab 2 fingerprint hand-off, human approval token, three "
-            "concepts, required beat fields/source IDs, contiguous timing, and captions."
+            "verify.py must print PASS Lab 04. The registry records capability, "
+            "installation state, auth mode, side effects and fallback, and every "
+            "supplied SKILL.md passes its frontmatter and path checks."
         ),
         checkpoint=(
-            "Lab checkpoint 03 is stored in stage folder C436-work/HB-001/02-create. "
-            "The complete rejoin block below restores the approved storyboard, binds it "
-            "to the exact Lab 2 plan fingerprint, regenerates captions, restores the "
-            "human approval, and runs the same fail-closed validator."
-        ),
-        rejoin_commands=(
-            "Set-Location '<PATH_TO_C436_REPOSITORY>'\n"
-            "$planPath='C436-work/HB-001/01-design/ready-restored-run.json'\n"
-            "$createPath='C436-work/HB-001/02-create'\n"
-            "$plan=Get-Content -Raw -LiteralPath $planPath | ConvertFrom-Json\n"
-            "if($plan.status -ne 'plan_ready' -or $plan.next_stage -ne 'research_and_script'){throw 'Restore Lab checkpoint 02 first.'}\n"
-            "New-Item -ItemType Directory -Force -Path $createPath | Out-Null\n"
-            "Copy-Item -LiteralPath labs/assets/script-storyboard-approved.json -Destination \"$createPath/script-storyboard.json\" -Force\n"
-            "$story=Get-Content -Raw -LiteralPath \"$createPath/script-storyboard.json\" | ConvertFrom-Json\n"
-            "if($story.plan_source_fingerprint -ne $plan.source_fingerprint){throw 'Approved storyboard does not match the restored Lab 2 plan.'}\n"
-            "$prompt=Get-Content -Raw -LiteralPath labs/assets/research-script-prompt-template.txt\n"
-            "$prompt=$prompt.Replace('<RUN_ID>','HB-001').Replace('<PLAN_SOURCE_FINGERPRINT>',[string]$plan.source_fingerprint)\n"
-            "$prompt | Set-Content -LiteralPath \"$createPath/research-script-prompt.txt\" -Encoding utf8\n"
-            "PowerShell -ExecutionPolicy Bypass -File labs/assets/captions-from-storyboard.ps1 -StoryboardPath \"$createPath/script-storyboard.json\" -OutputPath \"$createPath/captions-script-v1.vtt\"\n"
-            "Copy-Item -LiteralPath labs/assets/storyboard-approval-approved.md -Destination \"$createPath/storyboard-approval.md\" -Force\n"
-            "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 3 -WorkRoot C436-work/HB-001"
+            "tool-routing.json governs which tool or skill each later production task "
+            "is permitted to call."
         ),
         troubleshooting=[
             (
-                "The assistant returns Markdown around the JSON.",
-                "Copy only the content from the first opening brace to the final closing brace, then rerun ConvertFrom-Json.",
+                "A skill is not discovered when its trigger is used.",
+                "Check the YAML frontmatter, the directory name and the SKILL.md filename, then restart skill discovery.",
             ),
             (
-                "The beats total more than 30 seconds.",
-                "Ask for a repair that preserves the approved claim order and reduces narration; do not silently speed up the voice.",
+                "A smoke test loads far more context than the task needs.",
+                "Search first and load only the resources the selected skill actually references.",
             ),
             (
-                "A claim has no source ID.",
-                "Remove the claim or route it to open_questions. Do not approve it for asset generation.",
+                "A tool is unavailable on this machine.",
+                "Record the limitation and route the task to the documented deterministic fallback.",
             ),
         ],
         challenge=(
-            "Generate a second concept that uses the same evidence but a different "
-            "angle family, then compare relevance, proof, feasibility, and estimated "
-            "generation cost before choosing."
+            "Add one capability to the registry that you deliberately implement as a "
+            "tool rather than a skill, and record the reasoning in the decision record."
         ),
         reflection=(
-            "Which part of the script required human judgment even after the schema "
-            "and source checks passed?"
+            "Which capability was genuinely ambiguous between tool and skill, and "
+            "which requirement finally decided it?"
         ),
     ),
     dict(
-        num=4,
+        num=5,
         topic=2,
-        title="Build the Visual, Voiceover, and Music Asset Request Pack",
-        objective="LO2: create structured media-generation requests with continuity, provenance, rights, and fallback controls",
-        duration=80,
-        goal="Transform the approved storyboard into generator-ready requests without making paid or external actions mandatory.",
+        title="Create a Custom Branded Video Skill",
+        objective="LO2: package brand, tone and style rules into a reusable skill and verify the rendered output",
+        duration=70,
+        goal="Make brand compliance repeatable and demonstrable rather than asserted.",
         desc=(
-            "You will import a deterministic asset-request workflow, generate a "
-            "continuity bible and one request per storyboard beat, prepare narration "
-            "and music briefs, and review the resulting asset manifest. Optional "
-            "live generation is kept outside the required path; supplied placeholder "
-            "media lets everyone continue."
+            "You will approve a brand profile, write SKILL.md for a custom "
+            "brand-video skill, bind its templates using relative or Hermes template "
+            "paths, render a custom video through the skill, review the frame samples "
+            "against the brand checklist and version the resulting evidence."
         ),
         build=(
-            "A continuity-bible.json, asset-requests.json, narration.txt, "
-            "music-brief.md, and asset-manifest.csv with approved placeholders or "
-            "authorised generated files."
+            "A custom-video.mp4 with brand-review.json and render-evidence.json."
         ),
-        services="n8n, optional approved video/voice tools, supplied placeholder media",
+        services="Hermes skills, brand token profile, Remotion or FFmpeg renderer, FFprobe",
         prerequisites=[
-            "Complete Lab 3 or restore its exact script-storyboard.json, captions-script-v1.vtt, and approval note.",
-            "Confirm labs/assets/asset-request-agent-workflow.json and asset-manifest-template.csv are present.",
-            "If using a live service, store its secret in managed credentials and confirm usage rights and budget with the trainer.",
+            "Complete Lab 4 so the tool registry and skills are installed.",
+            "Open labs/lab-05-create-custom-branded-video-skill/ as the current Hermes project.",
+            "Review data/brand-profile.yaml before editing any token.",
         ],
         workflow=[
-            "Import the request agent",
-            "Generate continuity and requests",
-            "Prepare voice and music briefs",
-            "Register files and provenance",
-            "Save Lab checkpoint 04 in stage folder 02-create",
+            "Approve the brand profile",
+            "Create SKILL.md",
+            "Bind the templates",
+            "Render the video",
+            "Review the frames",
+            "Version the evidence",
         ],
         steps=[
             (
-                "Import the asset-request workflow into n8n",
-                "In n8n, select Workflows > Create Workflow, open the top-right three-dot menu, choose Import from File, and select labs/assets/asset-request-agent-workflow.json. Rename it C436-HB-001-Asset-Request-Agent and keep it inactive.",
+                "Approve the brand profile and store the logo, palette, typography and motion rules as editable tokens",
+                "",
             ),
             (
-                "Inspect the workflow controls",
-                "Confirm the path loads the exact storyboard, validates run_id HB-001 and script_version script-v1, creates one bounded request per beat, caps attempts at 2, and makes zero external actions.",
+                "Define the audience, voice and pacing, and write the style exclusions explicitly",
+                "",
             ),
             (
-                "Paste the exact Lab 3 storyboard into the workflow",
-                "Open Load Exact Approved Storyboard. Copy the entire contents of C436-work/HB-001/02-create/script-storyboard.json between the storyboardText backticks. Run from Manual Trigger and verify source_fingerprint is non-empty.",
+                "Create SKILL.md with frontmatter describing the exact trigger, inputs, outputs and verification",
+                "",
             ),
             (
-                "Run the workflow and copy the output",
-                "Select Test Workflow. Open Emit Asset Pack and copy the complete JSON output to C436-work/HB-001/02-create/asset-requests.json.",
+                "Bind the bundled scripts and templates using relative or Hermes template paths",
+                "",
             ),
             (
-                "Extract the continuity bible",
-                "$pack = Get-Content -Raw C436-work/HB-001/02-create/asset-requests.json | ConvertFrom-Json\n$pack.continuity_bible | ConvertTo-Json -Depth 8 | Set-Content C436-work/HB-001/02-create/continuity-bible.json",
+                "Render the custom video through the skill rather than by calling the renderer directly",
+                "",
             ),
             (
-                "Create the narration file from approved beat text",
-                "$story = Get-Content -Raw C436-work/HB-001/02-create/script-storyboard.json | ConvertFrom-Json\n($story.beats.narration -join ' ') | Set-Content C436-work/HB-001/02-create/narration.txt",
+                "Probe the output and review the frame samples against the brand checklist",
+                "ffprobe -v error -show_streams -show_format custom-video.mp4",
             ),
             (
-                "Prepare the music brief",
-                "Copy labs/assets/music-brief-template.md C436-work/HB-001/02-create/music-brief.md. Set mood to warm and practical, duration 30 seconds, dialogue priority high, and permitted source to the supplied course-use placeholder or an approved library. Resolve rights_status to approved_for_course_use before acceptance.",
-            ),
-            (
-                "Create the asset manifest and register every requested scene",
-                "Copy labs/assets/asset-manifest-template.csv C436-work/HB-001/02-create/asset-manifest.csv. Add exactly S01-S05, A01 narration, and A02 music. Every row must be accepted with approved_for_course_use rights. For rejoin, copy asset-manifest-approved.csv.",
-            ),
-            (
-                "Use supplied placeholder media for the required path",
-                "New-Item -ItemType Directory -Force C436-work/HB-001/02-create/media | Out-Null\nCopy-Item -Recurse -Force labs/assets/placeholder-media/* C436-work/HB-001/02-create/media/",
-            ),
-            (
-                "Optionally replace one placeholder through an approved service",
-                "Before a live call, confirm the provider, prompt, estimated cost, rights basis, and credential are approved. Generate only one bounded candidate, save it in media, and update its manifest row. Never paste a secret into the prompt or file.",
-            ),
-            (
-                "Review the complete pack and record the decision",
-                "Create asset-pack-approval.md with checks for storyboard coverage, continuity, narration, music rights, provenance, cost, and fallback. Set Decision to APPROVED_FOR_ASSEMBLY, manifest_version=asset-manifest-v1, and approved_by=<YOUR_NAME> only when every required asset is accepted.",
-            ),
-            (
-                "Run the fail-closed Lab 4 validator and retain the evidence",
-                "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 4 2>&1 | Tee-Object C436-work/HB-001/02-create/lab-04-test-output.txt\nSet-Content C436-work/HB-001/02-create/LAB-CHECKPOINT-04.txt 'Lab 4 passed; asset pack accepted for assembly.'",
+                "Run the acceptance test from a clean start, then run the verifier and retain the PASS output",
+                "python3 verify.py",
             ),
         ],
         test=(
-            "The validator must print LAB-04 PASS. It requires the exact S01-S05, "
-            "A01, and A02 set, correct types, accepted approved-rights status, files, "
-            "unique IDs, and the human APPROVED_FOR_ASSEMBLY token."
+            "verify.py must print PASS Lab 05. The custom skill is discoverable, uses "
+            "relative or Hermes template paths, creates an MP4, passes the technical "
+            "probe and meets every required brand token."
         ),
         checkpoint=(
-            "Lab checkpoint 04 is the complete 02-create stage folder. The rejoin block "
-            "below restores every required accepted asset, narration, approved music "
-            "brief, and human assembly decision before validating the checkpoint."
-        ),
-        rejoin_commands=(
-            "Set-Location '<PATH_TO_C436_REPOSITORY>'\n"
-            "$createPath='C436-work/HB-001/02-create'\n"
-            "if(-not (Test-Path -LiteralPath \"$createPath/script-storyboard.json\")){throw 'Restore Lab checkpoint 03 first.'}\n"
-            "New-Item -ItemType Directory -Force -Path \"$createPath/media\" | Out-Null\n"
-            "Copy-Item -LiteralPath labs/assets/asset-manifest-approved.csv -Destination \"$createPath/asset-manifest.csv\" -Force\n"
-            "Copy-Item -Path labs/assets/placeholder-media/* -Destination \"$createPath/media/\" -Force\n"
-            "Copy-Item -LiteralPath labs/assets/asset-pack-approval-approved.md -Destination \"$createPath/asset-pack-approval.md\" -Force\n"
-            "Copy-Item -LiteralPath labs/assets/music-brief-approved.md -Destination \"$createPath/music-brief.md\" -Force\n"
-            "$story=Get-Content -Raw -LiteralPath \"$createPath/script-storyboard.json\" | ConvertFrom-Json\n"
-            "($story.beats.narration -join ' ') | Set-Content -LiteralPath \"$createPath/narration.txt\" -Encoding utf8\n"
-            "PowerShell -ExecutionPolicy Bypass -File labs/assets/validate-lab-checkpoint.ps1 -Lab 4 -WorkRoot C436-work/HB-001"
+            "The custom brand-video skill and its approved master are the production "
+            "inputs for the multi-agent and release labs."
         ),
         troubleshooting=[
             (
-                "The number of asset requests differs from the number of beats.",
-                "Check that every beat has a visual_request object and rerun from the workflow trigger without pinned output.",
+                "Two runs produce visibly different brand treatment.",
+                "Move the varying value into a stored token and reference it from the skill.",
             ),
             (
-                "A generated file has no usable provenance or rights information.",
-                "Mark it rejected, restore the placeholder, and route the rights question to the owner.",
+                "The skill works interactively but fails from a clean start.",
+                "Replace any absolute or session-dependent path with a relative or Hermes template path.",
             ),
             (
-                "Narration duration is likely too long.",
-                "Read it aloud at a natural pace, shorten the approved script, update script_version, and regenerate only the narration request.",
+                "The render looks correct but the probe fails.",
+                "Fix the delivery properties; a master that fails the gate is not a candidate for release.",
             ),
         ],
         challenge=(
-            "Add estimated_cost_sgd per request and a deterministic guard that "
-            "compares the sum with the required cost_budget_sgd from the exact Lab 1 contract."
+            "Change one palette token and prove that the rendered frames and the brand "
+            "review both reflect the change without any edit to the skill's procedure."
         ),
         reflection=(
-            "Why is an accepted placeholder with complete provenance preferable to "
-            "an impressive generated clip with unresolved rights?"
+            "Which brand rule was hardest to express as a checkable token rather than "
+            "as prose, and how did you make it measurable?"
         ),
     ),
 ]
