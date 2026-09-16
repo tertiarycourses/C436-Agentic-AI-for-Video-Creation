@@ -1,0 +1,19 @@
+{
+  "shots": [
+    {
+      "shot": 1,
+      "purpose": "hook",
+      "seconds": 5
+    },
+    {
+      "shot": 2,
+      "purpose": "comparison",
+      "seconds": 5
+    },
+    {
+      "shot": 3,
+      "purpose": "action",
+      "seconds": 5
+    }
+  ]
+}

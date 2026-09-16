@@ -1,455 +1,241 @@
 # Agentic AI for Video Creation
-**Course Code:** C436  
-**Version:** v2.0  
+**Course Code:** C436
+**Version:** v3.0
 ## Learning outcomes
-- LO1: Develop an editing strategy and work plan in Hermes Agent using MiniMax M3, structured video prompts and governed tool selection.
-- LO2: Create and customise an evidence-backed video with Hermes skills, Remotion, Manim, Higgsfield-compatible requests and deterministic media checks.
-- LO3: Orchestrate research, production, review and YouTube release agents through a durable Kanban board and controlled scheduled publishing.
-
-## End-to-end architecture
-1. Hermes Desktop setup and MiniMax-M3 model verification
-2. FRAME-CUT prompt and timed shot-plan validation
-3. Remotion, Manim, Higgsfield and FFmpeg tool routing
-4. Reusable brand, tone and style video skill
-5. Research, video, review and upload agent contracts
-6. Durable Kanban dependencies and approval hash
-7. Private YouTube upload and paused scheduled release
-
-## Topic 1: Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
-
-LO1 - configure Hermes safely and convert creative intent into a machine-checkable video plan
+- LO1: Explain the agentic loop, set up Hermes Agent with MiniMax M3, and create a first short video from a clear prompt.
+- LO2: Improve the first video by choosing suitable video tools, adding reusable skills, and applying brand, tone and style guidance.
+- LO3: Coordinate research, script, video, review and YouTube agents on a Kanban board and schedule the workflow.
+- LO4: Plan a consistent one-minute micro-drama series with reusable story, character, location and visual references.
 
-### Hermes Desktop runtime boundary
-
-**Mechanism:** Download installer → Verify platform → Complete setup → Run diagnostics  
-**Fields:** platform, installer_source, hermes_version, doctor_status  
-**Measure:** setup pass = required diagnostics passed / required diagnostics  
-**Control:** Use the official desktop page and stop when hermes doctor reports a failed dependency.  
-**Evidence:** setup-evidence.json records official source, version and diagnostic status.
+## Learning journey
+1. Set up Hermes Desktop and connect MiniMax M3
+2. Create a first video from a simple prompt
+3. Improve it with suitable tools and a reusable video skill
+4. Create five agent profiles and coordinate them on Kanban
+5. Prepare a Private YouTube upload and paused schedule
+6. Create a six-shot one-minute micro-drama
+7. Review and improve continuity across the series
 
-### Shared desktop and CLI state
-
-**Mechanism:** Open Desktop → Inspect profile → Open terminal → Compare configuration  
-**Fields:** profile, config_path, session_id, skill_root  
-**Measure:** state consistency = matching settings / checked settings  
-**Control:** Name the active profile and compare provider, model and skill directory before production.  
-**Evidence:** profile-check.json shows the same provider and model on both surfaces.
+## Topic 1: Meet AI Agents and Create Your First Video
 
-### MiniMax M3 provider contract
+Understand the agentic loop, set up Hermes with MiniMax M3, and turn one simple idea into a first video.
 
-**Mechanism:** Create account → Create API key → Configure provider → Select model  
-**Fields:** provider, base_url, model, credential_ref  
-**Measure:** model handshake pass = successful tool-capable response  
-**Control:** Use provider minimax with model MiniMax-M3 and verify the returned model identifier.  
-**Evidence:** model-check.json records MiniMax-M3 without recording the key.
+### What is an AI agent?
 
-### Trial and quota verification
+**How it works:** Receive a goal -> Make a plan -> Use a tool -> Check the result
+**Keep in view:** Goal, Plan, Action, Review
+**Insight:** An agent does more than answer: it works through a goal and checks what it produced.
+**Best practice:** Ask the agent to show its plan and review the output before stopping.
+**Example:** Idea: Create a 15-second welcome video for a neighbourhood cafe.
 
-**Mechanism:** Open live offer → Read terms → Record expiry → Set budget  
-**Fields:** offer_seen_at, trial_end, quota, fallback_model  
-**Measure:** budget headroom = available quota - reserved quota  
-**Control:** Treat the offer as time-sensitive; record live terms at sign-up and prepare a fallback.  
-**Evidence:** trial-checklist.md contains observed terms, date and learner decision.
+### The agentic loop
 
-### Credential isolation
+**How it works:** Observe -> Think -> Act -> Improve
+**Keep in view:** What do we have?, What should happen?, What can be done?, What needs changing?
+**Insight:** The loop turns a vague idea into a series of visible creative decisions.
+**Best practice:** Give one focused revision at a time: pacing, framing, colour, caption or sound.
+**Example:** Observe the first draft, request a stronger opening, then compare both versions.
 
-**Mechanism:** Create secret → Store securely → Reference variable → Redact evidence  
-**Fields:** secret_name, scope, provider, rotation_due  
-**Measure:** secret exposure count = 0  
-**Control:** Keep secrets in Hermes credential/config storage and publish placeholders only.  
-**Evidence:** secret scan reports zero live tokens in the lab package.
+### Install Hermes Agent
 
-### Model capability routing
+**How it works:** Open official page -> Choose your computer -> Install the app -> Start a project
+**Keep in view:** Mac or Windows, Download, Open Hermes, Choose a folder
+**Insight:** Hermes Desktop provides one place for chat, files, skills and agent profiles.
+**Best practice:** Use the official Hermes Desktop page and keep each video project in its own folder.
+**Example:** Project folder: My First AI Video.
 
-**Mechanism:** Classify task → Check modality → Choose M3 → Choose media tool  
-**Fields:** task_type, input_modality, model_id, tool_id  
-**Measure:** routing yield = accepted outputs / routed calls  
-**Control:** Use M3 for reasoning and tool orchestration; use a video renderer or generator for media.  
-**Evidence:** tool-routing.csv links every task to a capable model or tool.
+### Connect MiniMax M3
 
-### FRAME-CUT prompt contract
+**How it works:** Create MiniMax account -> Review the live plan -> Add the provider -> Test a message
+**Keep in view:** Account, Plan, Model, Test
+**Insight:** MiniMax M3 can guide planning and operate tools; a video tool still creates the media.
+**Best practice:** Confirm the current trial and pricing shown in your account before subscribing.
+**Example:** Test prompt: Help me plan a three-shot vertical video about better coffee.
 
-**Mechanism:** Define FRAME → Add CUT controls → Require schema → Validate output  
-**Fields:** format_role_assets, motion_environment, continuity_unwanted, technical_output  
-**Measure:** prompt validity = required fields present / required fields  
-**Control:** Use FRAME-CUT and validate the returned shot plan before generation.  
-**Evidence:** prompt-contract.json passes schema and duration checks.
+### Prompt your first video
 
-### Format and finish
+**How it works:** Name the goal -> Describe the scene -> Add video choices -> Ask for a review
+**Keep in view:** Audience, Subject and action, Look and movement, Length and format
+**Insight:** The best starter prompt describes one audience, one message and one simple visual journey.
+**Best practice:** Use SUBJECT + ACTION + SETTING + CAMERA + STYLE + FORMAT, then ask for a shot list first.
+**Example:** Create a 15-second vertical cafe tip video: warm morning light, close-up coffee grind, slow push-in, calm practical tone, three five-second shots, captions included.
 
-**Mechanism:** Choose channel → Set duration → Set aspect → Set delivery codec  
-**Fields:** channel, duration_s, aspect_ratio, codec  
-**Measure:** delivery compliance = passed technical fields / required fields  
-**Control:** Freeze delivery properties before shot generation and assembly.  
-**Evidence:** video-spec.json contains approved format and finish values.
+## Topic 2: Improve the Video with Tools and Skills
 
-### Role, references and assets
+Understand tools and skills, add suitable video capabilities, and turn the first draft into a polished branded video.
 
-**Mechanism:** Assign role → Attach brief → Register sources → List assets  
-**Fields:** role, brief_uri, source_ids, asset_ids  
-**Measure:** asset coverage = registered assets / required assets  
-**Control:** Limit reasoning to named references and a manifest of authorized assets.  
-**Evidence:** asset-manifest.csv resolves every asset and source identifier.
+### What is a tool?
 
-### Action, motion and environment
+**How it works:** Choose a job -> Select a tool -> Create media -> Bring back the result
+**Keep in view:** Images, Motion, Voice, Editing
+**Insight:** A tool performs a practical job such as creating a shot, animating text or assembling clips.
+**Best practice:** Match the tool to the job: generate, animate, assemble, caption or check.
+**Example:** Use Higgsfield for a cinematic shot, Remotion for branded motion graphics, Manim for an explanatory animation, and FFmpeg for assembly.
 
-**Mechanism:** Name subject → Choose action → Choose camera → Lock environment  
-**Fields:** subject, action, camera_motion, environment  
-**Measure:** usable shot rate = accepted shots / attempts  
-**Control:** Use one dominant subject action and one camera move per timed shot.  
-**Evidence:** shot-list.json shows one action-motion pair per shot.
+### What is a skill?
 
-### Continuity and negative constraints
+**How it works:** Name the repeatable task -> Save the instructions -> Add examples -> Reuse the skill
+**Keep in view:** Trigger, Creative rules, Steps, Expected result
+**Insight:** A skill teaches Hermes how you want a recurring task done.
+**Best practice:** Make one skill for one repeatable outcome, such as a branded 15-second product tip.
+**Example:** Skill: Create a calm Harbour Bean short using the approved colours, caption style and closing frame.
 
-**Mechanism:** Lock identity → Lock palette → List invariants → Reject drift  
-**Fields:** continuity_token, palette_hex, must_keep, must_avoid  
-**Measure:** continuity defects per reviewed shot  
-**Control:** Reuse continuity tokens and compare keyframes against explicit invariants.  
-**Evidence:** continuity-review.json records deviations and acceptance.
+### Choose the right video toolkit
 
-### Structured shot-plan output
+**How it works:** Start with the story -> Identify missing capability -> Choose one tool -> Combine only when useful
+**Keep in view:** Generative shots, Motion graphics, Diagrams, Final edit
+**Insight:** Most videos need a small toolkit, not every available tool.
+**Best practice:** Choose the simplest tool that can deliver the intended shot and keep the style consistent.
+**Example:** First draft + one generated establishing shot + branded title cards + captions + music.
 
-**Mechanism:** Request JSON → Parse response → Check timeline → Approve plan  
-**Fields:** shot_id, start_s, end_s, prompt  
-**Measure:** timeline variance = planned duration - target duration  
-**Control:** Require strict JSON and fail on gaps, overlaps or unknown fields.  
-**Evidence:** shot-plan.json totals the target duration with no overlap.
+### Improve with a creative brief
 
-### Simple video agent loop
+**How it works:** Keep the message -> Strengthen the opening -> Clarify the middle -> Finish with one action
+**Keep in view:** Hook, Value, Proof, Call to action
+**Insight:** A clear narrative improves the video more than extra effects.
+**Best practice:** Rewrite the video as Hook - Value - Proof - Action before asking for new visuals.
+**Example:** Hook: Your coffee tastes bitter. Value: check the grind. Proof: compare two textures. Action: save this guide.
 
-**Mechanism:** Receive brief → Plan shots → Call tool → Inspect result  
-**Fields:** run_id, plan_hash, tool_call, result_uri  
-**Measure:** first-pass completion rate  
-**Control:** Set one render attempt, one review pass and an explicit repair decision.  
-**Evidence:** run-ledger.json contains the plan, call, result and stop reason.
+### Create your own video skill
 
-### Cost, latency and stop rules
+**How it works:** Set the brand -> Set the tone -> Set the visual style -> Save examples
+**Keep in view:** Colours and logo, Voice, Pacing, Do and avoid
+**Insight:** A custom skill makes good creative choices repeatable across future videos.
+**Best practice:** Include concrete examples: colours, shot rhythm, caption placement, words to use and styles to avoid.
+**Example:** Calm, useful and warm; steady camera; short sentences; cream background; teal accent; no flashing text.
 
-**Mechanism:** Estimate calls → Reserve retries → Set ceiling → Stop or escalate  
-**Fields:** estimated_cost, max_attempts, timeout_s, stop_reason  
-**Measure:** budget variance = actual cost - approved cost  
-**Control:** Cap attempts and require a human decision before additional paid generation.  
-**Evidence:** budget-ledger.csv reconciles attempts, latency and cost.
+## Topic 3: Build a Multi-Agent Video Team
 
-## Topic 2: Video Tools, Hermes Skills and Custom Brand Production
+Create five Hermes profiles, coordinate them on Kanban, improve the video, prepare YouTube publishing and schedule the pipeline.
 
-LO2 - create a technically valid branded video by combining agent reasoning with specialist media tools
+### Why use multiple agents?
 
-### Tool versus skill decision
+**How it works:** Split the work -> Give each role a focus -> Pass the work on -> Review the whole
+**Keep in view:** Research, Script, Video, Review
+**Insight:** Separate roles make the creative process easier to follow and improve.
+**Best practice:** Create another agent only when the role has a distinct outcome and point of view.
+**Example:** A research agent finds facts; a script agent turns facts into a story; a review agent challenges the result.
 
-**Mechanism:** Identify capability → Assess auth → Choose tool → Wrap procedure  
-**Fields:** capability, auth_mode, tool_or_skill, owner  
-**Measure:** integration fit = satisfied requirements / requirements  
-**Control:** Use a tool for precise integrated execution and a skill for repeatable instructions plus scripts.  
-**Evidence:** decision-record.md states why each capability is a tool or skill.
+### Create five Hermes profiles
 
-### Hermes skill anatomy
+**How it works:** Researcher -> Scriptwriter -> Video creator -> Auditor
+**Keep in view:** Research agent, Script agent, Video agent, Audit and upload agents
+**Insight:** A profile gives each agent a stable job, voice and set of responsibilities.
+**Best practice:** State what each profile receives, what it returns and when its work is complete.
+**Example:** Research returns a fact sheet; Script returns a one-minute script; Video returns a draft; Auditor returns clear feedback; Upload returns a private YouTube link.
 
-**Mechanism:** Create directory → Write frontmatter → Add procedure → Test invocation  
-**Fields:** name, description, version, skill_dir  
-**Measure:** skill test pass = expected artifacts produced  
-**Control:** Describe the exact trigger and include deterministic verification commands.  
-**Evidence:** SKILL.md and test transcript show correct activation.
+### Use Kanban to coordinate the team
 
-### Skill discovery and progressive loading
+**How it works:** Ideas -> Ready -> In progress -> Review and done
+**Keep in view:** Task, Owner, Input, Next step
+**Insight:** Kanban shows who is doing what and what must happen next.
+**Best practice:** Make the order visible and keep publishing blocked until review and approval are done.
+**Example:** First research, then write the script, create the video, review it, ask for human approval, and finally upload to YouTube.
 
-**Mechanism:** List skills → Search catalog → View selected skill → Invoke task  
-**Fields:** skill_name, category, file_path, task  
-**Measure:** context efficiency = loaded relevant files / loaded files  
-**Control:** Search first, view the selected skill, then load only referenced resources.  
-**Evidence:** skill-usage.json records the selected skill and resources.
+### Publish to YouTube
 
-### Remotion composition contract
+**How it works:** Connect YouTube -> Prepare title and thumbnail -> Upload as private -> Review then publish
+**Keep in view:** Channel, Metadata, Privacy, Final approval
+**Insight:** Private upload creates a safe review step before the audience can see the video.
+**Best practice:** Ask Hermes to set up the YouTube connection, upload privately, and stop for human review.
+**Example:** Prompt: Upload the approved video as Private, add the supplied title and description, then return the private review link. Do not publish publicly.
 
-**Mechanism:** Define composition → Bind props → Preview frames → Render MP4  
-**Fields:** composition_id, fps, duration_frames, input_props  
-**Measure:** duration seconds = duration frames / fps  
-**Control:** Derive frames from duration and validate width, height, fps and codec after render.  
-**Evidence:** remotion-render.json and ffprobe.json agree with the contract.
+### Schedule the pipeline
 
-### Manim explanatory scene
+**How it works:** Choose a cadence -> Set the starting task -> Run a rehearsal -> Turn on the schedule
+**Keep in view:** Day and time, Topic source, Approval point, Notification
+**Insight:** Scheduling works best when the workflow is already reliable as a manual run.
+**Best practice:** Run the whole pipeline once, inspect every handoff, then enable the schedule.
+**Example:** Every Tuesday at 9:00 AM: research one topic, draft, create, review, wait for approval, then upload privately.
 
-**Mechanism:** Define objects → Stage transforms → Render scene → Composite clip  
-**Fields:** scene_class, resolution, frame_rate, output_file  
-**Measure:** animation timing variance  
-**Control:** Bind labels and values to the approved evidence model and review rendered frames.  
-**Evidence:** manim-scene.py and contact sheet prove the intended transformation.
+## Topic 4: Create a Consistent One-Minute Micro-Drama Series
 
-### Higgsfield shot request
+Use a story bible, character sheet and six-shot storyboard to create repeatable one-minute episodes with consistent people, places and style.
 
-**Mechanism:** Select model → Attach reference → Write motion prompt → Review output  
-**Fields:** model, reference_uri, motion_prompt, generation_id  
-**Measure:** accepted clip yield = approved clips / generated clips  
-**Control:** Create a request preview first; call the service only with approved assets and quota.  
-**Evidence:** higgsfield-request.json records prompt, references and review status.
+### Start with the series promise
 
-### FFmpeg deterministic assembly
+**How it works:** Choose the audience -> Choose the world -> Choose the recurring tension -> Choose the episode payoff
+**Keep in view:** Who watches?, Where does it happen?, What repeats?, Why return?
+**Insight:** A series feels consistent when every episode fulfils the same clear promise.
+**Best practice:** Write one sentence that describes the world, character and recurring emotional question.
+**Example:** In a neighbourhood cafe, a shy barista solves one small customer misunderstanding in every one-minute episode.
 
-**Mechanism:** Normalize media → Build timeline → Mix audio → Encode master  
-**Fields:** filter_complex, video_codec, audio_codec, pix_fmt  
-**Measure:** render success = valid masters / render attempts  
-**Control:** Normalize every source before concat and probe the final container.  
-**Evidence:** ffprobe.json confirms H.264, AAC, dimensions, fps and duration.
+### Build a character bible
 
-### Tool permission boundary
+**How it works:** Define identity -> Fix visible traits -> Define behaviour -> Save references
+**Keep in view:** Face and age, Hair and wardrobe, Voice and manner, Reference views
+**Insight:** Consistency comes from repeating concrete character details, not just the character name.
+**Best practice:** Use the same reference image and repeat five essential traits in every character prompt.
+**Example:** Mei, 28, shoulder-length black hair, teal overshirt, cream apron, observant expression, gentle measured speech.
 
-**Mechanism:** Declare capability → Set working root → Request approval → Record result  
-**Fields:** allowed_paths, network_scope, side_effect, approval_id  
-**Measure:** unauthorized side effects = 0  
-**Control:** Scope paths and accounts; separate preview from consequential execution.  
-**Evidence:** tool-policy.yaml and audit log show bounded operations.
+### Storyboard a one-minute episode
 
-### Asset provenance and checksum
+**How it works:** Hook -> Set-up -> Complication -> Choice
+**Keep in view:** 0-5 seconds, 5-20 seconds, 20-40 seconds, 40-60 seconds
+**Insight:** Six short shots give a one-minute story enough movement without becoming confusing.
+**Best practice:** Create the storyboard first, then generate each shot separately using the same references.
+**Example:** Six shots: arrival, clue, reaction, misunderstanding, reveal, emotional closing image.
 
-**Mechanism:** Register source → Record license → Compute hash → Freeze version  
-**Fields:** asset_id, source_uri, rights_status, sha256  
-**Measure:** manifest integrity = verified hashes / manifest rows  
-**Control:** Bind approval to cryptographic hashes and immutable versions.  
-**Evidence:** asset-manifest.csv verifies rights and hashes.
+### Keep continuity across shots
 
-### Brand token system
+**How it works:** Lock the character -> Lock the location -> Track props -> Match screen direction
+**Keep in view:** Character reference, Location reference, Prop list, Previous-frame check
+**Insight:** Each new shot should inherit what must remain unchanged from the previous shot.
+**Best practice:** Add a continuity line to every shot prompt and compare adjacent frames before moving on.
+**Example:** Keep Mei's teal overshirt, cream apron, hairstyle and left-to-right movement unchanged; same morning cafe lighting.
 
-**Mechanism:** Extract identity → Set palette → Set typography → Set motion rules  
-**Fields:** logo_uri, palette_hex, font_stack, motion_style  
-**Measure:** brand compliance = passed checks / applicable checks  
-**Control:** Store editable brand tokens and reference them from the video skill.  
-**Evidence:** brand-profile.yaml and frame samples pass the checklist.
+### Use the agentic pipeline for a series
 
-### Tone and style controls
-
-**Mechanism:** Define audience → Set voice → Set pacing → Define exclusions  
-**Fields:** audience, tone, words_per_min, style_avoid  
-**Measure:** tone adherence score  
-**Control:** Use descriptive attributes and exclusions, not living-artist imitation.  
-**Evidence:** review rubric records tone, pacing and originality evidence.
-
-### Custom brand-video skill
-
-**Mechanism:** Write skill → Bundle scripts → Add templates → Run acceptance test  
-**Fields:** skill_name, script_path, template_path, output_contract  
-**Measure:** repeatability = matching outputs / repeated runs  
-**Control:** Use Hermes template variables and explicit inputs, outputs and verification.  
-**Evidence:** custom skill produces the expected video and evidence on a clean run.
-
-### Technical video quality gate
-
-**Mechanism:** Probe container → Inspect frames → Check captions → Gate master  
-**Fields:** width, height, avg_frame_rate, duration_s  
-**Measure:** technical checks passed / technical checks  
-**Control:** Fail closed on missing streams, wrong bounds or unreadable captions.  
-**Evidence:** technical-qc.json and contact sheet show observed values.
-
-### Repair and versioned evidence
-
-**Mechanism:** Open finding → Assign repair → Render version → Re-test scope  
-**Fields:** finding_id, severity, asset_version, resolution  
-**Measure:** repair effectiveness = closed findings / reopened findings  
-**Control:** Write a new immutable version and rerun every affected check.  
-**Evidence:** repair-log.json links finding, change, hash and re-test.
-
-## Topic 3: Multi-Agent Kanban, YouTube Release and Scheduled Publishing
-
-LO3 - operate a durable role-based production system with review, release and scheduling safeguards
-
-### Agent role contract
-
-**Mechanism:** Define goal → Limit tools → Name output → Set finish rule  
-**Fields:** agent_name, allowed_tools, deliverable, done_when  
-**Measure:** role completeness = required fields / required fields  
-**Control:** Give every agent one owned deliverable and one measurable completion rule.  
-**Evidence:** agent-contracts.yaml validates all four specialist roles.
-
-### Research agent
-
-**Mechanism:** Read brief → Retrieve sources → Score evidence → Handoff claims  
-**Fields:** research_task, source_ids, claim_ids, handoff_status  
-**Measure:** claim coverage = sourced claims / factual claims  
-**Control:** Require retrievable URLs, bounded excerpts and explicit limitations.  
-**Evidence:** research-handoff.json contains approved sources and claim IDs.
-
-### Video production agent
-
-**Mechanism:** Read approved claims → Create shot plan → Invoke skills → Return master  
-**Fields:** claim_ids, shot_plan, skill_names, master_hash  
-**Measure:** production acceptance = passed render checks / checks  
-**Control:** Provide immutable research input and require the custom brand-video skill.  
-**Evidence:** video-handoff.json references approved claims and master hash.
-
-### Independent review agent
-
-**Mechanism:** Inspect evidence → Score rubric → Create findings → Request decision  
-**Fields:** master_hash, rubric_version, findings, qa_status  
-**Measure:** weighted review score and unresolved high count  
-**Control:** Use an independent context and forbid approval authority in the reviewer role.  
-**Evidence:** review-handoff.json contains timecoded findings and QA status.
-
-### Upload agent
-
-**Mechanism:** Verify approval → Build metadata → Upload private → Record video ID  
-**Fields:** approval_hash, privacy_status, synthetic_media, video_id  
-**Measure:** upload reconciliation = one video ID per idempotency key  
-**Control:** Default to private and verify the current master hash immediately before upload.  
-**Evidence:** upload-receipt.json records privacy, disclosure and returned video ID.
-
-### Delegation context contract
-
-**Mechanism:** Package context → Dispatch child → Receive summary → Verify artifact  
-**Fields:** goal, context, paths, acceptance  
-**Measure:** handoff pass rate = accepted handoffs / handoffs  
-**Control:** Include exact paths, inputs, constraints and tests in every delegation context.  
-**Evidence:** delegation-log.json records prompt, agent and verified result.
-
-### Parallel work and join
-
-**Mechanism:** Find independent tasks → Dispatch batch → Track results → Join after checks  
-**Fields:** task_ids, dependencies, result_refs, join_status  
-**Measure:** elapsed reduction with zero skipped dependencies  
-**Control:** Parallelize only independent work and join on explicit verified artifacts.  
-**Evidence:** join-ledger.json shows all required parents complete.
-
-### Durable Hermes Kanban
-
-**Mechanism:** Create tasks → Assign profiles → Link dependencies → Run dispatcher  
-**Fields:** task_id, assignee, status, parent_ids  
-**Measure:** flow time = done_at - created_at  
-**Control:** Use Kanban for cross-agent work that must survive restarts and human pauses.  
-**Evidence:** kanban-export.json shows the full dependency chain and statuses.
-
-### Kanban status and circuit breaker
-
-**Mechanism:** Move to ready → Run worker → Request review → Block or complete  
-**Fields:** status, attempt, failure_class, reviewer  
-**Measure:** retry recovery and repeated-failure count  
-**Control:** Cap attempts, require contract verification and block repeated failures for intervention.  
-**Evidence:** task history shows checkpoints, review and final evidence.
-
-### Human approval with payload hash
-
-**Mechanism:** Freeze package → Compute hash → Request approval → Recheck before upload  
-**Fields:** approval_id, payload_hash, reviewer, decision  
-**Measure:** approval integrity = approved hash equals current hash  
-**Control:** Bind the named decision to the immutable release package hash.  
-**Evidence:** approval-ledger.json proves reviewer, time, decision and hash.
-
-### YouTube videos.insert contract
-
-**Mechanism:** Authorize OAuth → Set snippet → Set status → Upload media  
-**Fields:** snippet.title, status.privacyStatus, status.containsSyntheticMedia, media_path  
-**Measure:** metadata completeness and processing success  
-**Control:** Confirm channel identity, default private and include applicable synthetic-media disclosure.  
-**Evidence:** request-preview.json and private upload receipt match the approved package.
-
-### Publishing idempotency
-
-**Mechanism:** Create publish key → Check prior result → Attempt upload → Commit external ID  
-**Fields:** idempotency_key, channel_id, video_id, published_at  
-**Measure:** duplicate publish rate = 0  
-**Control:** Reconcile the prior key and video ID before any retry.  
-**Evidence:** publication-ledger.csv contains one committed ID per key.
-
-### Hermes cron job contract
-
-**Mechanism:** Write self-contained prompt → Attach skills → Create schedule → Inspect next run  
-**Fields:** job_name, schedule, skills, delivery  
-**Measure:** schedule validity and successful dry run  
-**Control:** Put all required paths, gates and stop rules in the job prompt; attach skills explicitly.  
-**Evidence:** cron-preview.json records schedule, next run and paused state.
-
-### Scheduled release operations
-
-**Mechanism:** Keep job paused → Trigger dry run → Review output → Enable cadence  
-**Fields:** paused, last_run, next_run, owner  
-**Measure:** on-time success rate with zero unauthorized posts  
-**Control:** Schedule preparation and private upload only; require approval before public visibility.  
-**Evidence:** operations-ledger.csv records each run, outcome and owner decision.
+**How it works:** Research the episode -> Write and storyboard -> Create and assemble -> Audit and learn
+**Keep in view:** Series bible, Episode brief, Approved references, Continuity notes
+**Insight:** The team improves over time when each episode updates reusable story and visual references.
+**Best practice:** After release, save what worked as examples and revise the series skill before the next episode.
+**Example:** Episode 02 reuses the same character pack, cafe reference, title style, sound palette and review checklist.
 
 ## Labs
 
-### Lab 01: Set Up Hermes Desktop and Connect MiniMax M3
+### Lab 01: Create Your First Video with Hermes
 
-Install Hermes Desktop from the official source, configure the MiniMax provider for MiniMax-M3 and prove a tool-capable model handshake without exposing a credential.
+Install Hermes Desktop, connect MiniMax M3, improve a simple prompt and create a 15-second first video.
 
-- Folder: `labs/lab-01-setup-hermes-and-connect-minimax-m3/`
-- Stages: Download official installer, Complete Hermes setup, Configure MiniMax-M3, Run hermes doctor, Verify model response, Redact evidence
+- Folder: `labs/lab-01-create-first-video-with-hermes/`
+- Stages: Install Hermes, Review MiniMax plan, Connect M3, Write prompt, Create video, Review result
 - Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: Hermes launches; the configured provider is minimax; the model is MiniMax-M3; hermes doctor has no blocking failure; published evidence contains placeholders only.
+- Acceptance: Hermes opens the correct project, MiniMax M3 is selected or the available approved fallback is recorded, the shot list has three clear shots, and the first video is saved.
 
-### Lab 02: Prompt Hermes to Create a Simple Video
+### Lab 02: Improve the Video with Tools and Skills
 
-Use a copy-ready Hermes prompt to convert a supplied 15-second brief into a validated shot plan and deterministic preview video.
+Choose appropriate video tools, add reusable Hermes skills and create a more polished branded version of the first video.
 
-- Folder: `labs/lab-02-prompt-hermes-to-create-a-simple-video/`
-- Stages: Open project folder, Submit bounded prompt, Validate shot plan, Run preview renderer, Probe MP4, Record evidence
+- Folder: `labs/lab-02-improve-video-with-tools-and-skills/`
+- Stages: Review first draft, Choose tools, Add skills, Apply brand style, Create improved video, Compare versions
 - Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: The shot plan is valid JSON, totals 15 seconds, uses only supplied assets, and the generated MP4 passes dimensions, codec and duration checks.
+- Acceptance: The learner explains the difference between a tool and a skill, chooses suitable capabilities, applies the brand guide, and produces an improved second video with a written comparison.
 
-### Lab 03: Engineer Video Prompts with FRAME-CUT
+### Lab 03: Improve the Video with a Multi-Agent Team
 
-Transform a vague creative request into portable shot prompts using the FRAME-CUT framework and evaluate them with a deterministic rubric.
+Create five Hermes profiles, coordinate them on Kanban, improve the video, prepare a private YouTube upload and set a paused schedule.
 
-- Folder: `labs/lab-03-engineer-video-prompts-with-frame-cut/`
-- Stages: Diagnose vague prompt, Complete FRAME fields, Complete CUT fields, Generate shot JSON, Score rubric, Repair one defect
+- Folder: `labs/lab-03-multi-agent-video-kanban-youtube-schedule/`
+- Stages: Create five profiles, Build Kanban, Run research and script, Create and audit video, Upload privately, Schedule pipeline
 - Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: Every shot has all FRAME-CUT fields, one dominant action, one camera move, explicit continuity and negative constraints, and a measurable output check.
+- Acceptance: Five distinct profiles and a dependency-based Kanban board exist, the first video is improved through the team, YouTube is prepared as private, and the schedule remains paused until approval.
 
-### Lab 04: Install Video Tools and Hermes Skills
+### Lab 04: Create a One-Minute Micro-Drama Episode
 
-Create a governed tool registry and install learner-safe Hermes skills for Remotion, Manim, Higgsfield request preparation and FFmpeg verification.
+Create a series promise, character bible, six-shot storyboard and consistent one-minute pilot episode using the Hermes agentic pipeline.
 
-- Folder: `labs/lab-04-install-video-tools-and-skills/`
-- Stages: Inventory local tools, Search Hermes skills, Install or create skills, Run smoke tests, Record permissions, Choose fallback
+- Folder: `labs/lab-04-create-one-minute-micro-drama-series/`
+- Stages: Define series, Create character bible, Write episode, Storyboard six shots, Create and assemble, Audit continuity
 - Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: The registry records capability, installation state, auth mode, side effects and fallback; every supplied SKILL.md passes frontmatter and path checks.
-
-### Lab 05: Create a Custom Branded Video Skill
-
-Turn brand, tone and style rules into a reusable Hermes skill, render a custom video and verify the output against brand and technical evidence.
-
-- Folder: `labs/lab-05-create-custom-branded-video-skill/`
-- Stages: Approve brand profile, Create SKILL.md, Bind templates, Render video, Review frames, Version evidence
-- Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: The custom skill is discoverable, uses relative or Hermes template paths, creates an MP4, passes the technical probe and meets every required brand token.
-
-### Lab 06: Build the Multi-Agent Video Workflow
-
-Define and simulate four isolated Hermes roles for research, video creation, independent review and approved YouTube upload.
-
-- Folder: `labs/lab-06-build-multi-agent-video-workflow/`
-- Stages: Define role contracts, Package context, Delegate research, Delegate production, Request review, Gate uploader
-- Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: All roles have bounded tools and outputs; the reviewer is independent; upload is blocked until all parent evidence and the current approval hash pass.
-
-### Lab 07: Orchestrate Kanban Review and YouTube Upload
-
-Create a durable Hermes Kanban dependency chain, review the approved video, and prepare or execute a private YouTube upload with explicit human authorization.
-
-- Folder: `labs/lab-07-orchestrate-kanban-review-and-youtube-upload/`
-- Stages: Create board tasks, Assign profiles, Link dependencies, Request review, Approve exact hash, Upload private
-- Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: The Kanban graph has no missing dependency; review is required; the request points to the approved master; privacy is private; no credential is present in artifacts.
-
-### Lab 08: Schedule Controlled Video Publishing with Hermes Cron
-
-Create a paused Hermes cron job that prepares a release from a self-contained prompt, dry-run it, and enable a cadence only after evidence review.
-
-- Folder: `labs/lab-08-schedule-controlled-video-publishing/`
-- Stages: Write self-contained job, Attach video skill, Create paused cron, Trigger dry run, Inspect next run, Approve enablement
-- Prompt resources: `AI-PROMPTS.md` and `AI-PROMPTS.pdf`
-- Acceptance: The schedule and timezone are explicit, the prompt is self-contained, the custom skill is attached, the job begins paused, and the dry run cannot publish an unapproved or duplicate video.
+- Acceptance: The series and character bibles are complete, the storyboard covers six timed shots, the same character and setting details appear throughout, and the continuity review identifies or clears visible changes.
 
 ## References
-- [Official course page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) — Course identity, duration and outcomes
-- [Hermes Desktop](https://hermes-agent.nousresearch.com/desktop) — Official desktop installer and supported operating systems
-- [Hermes Agent installation](https://hermes-agent.nousresearch.com/docs/getting-started/installation) — Desktop and CLI installation plus diagnostic commands
-- [Hermes model configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuring-models) — Provider, model and auxiliary-task configuration
-- [MiniMax M3](https://www.minimax.io/models/text/m3) — Current MiniMax-M3 model identifier and agentic capabilities
-- [Hermes skills](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills) — Skill discovery, invocation and custom SKILL.md structure
-- [Hermes delegation](https://hermes-agent.nousresearch.com/docs/guides/delegation-patterns) — Isolated subagents, explicit context and parallel work
-- [Hermes Kanban](https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban) — Durable multi-agent task dependencies and review states
-- [Hermes scheduled tasks](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron) — Cron jobs, attached skills and fresh-session behavior
-- [Remotion documentation](https://www.remotion.dev/docs) — Code-driven video compositions and rendering
-- [Manim documentation](https://docs.manim.community/) — Programmatic explanatory animation
-- [Higgsfield](https://higgsfield.ai/) — Generative video shot production; verify current account and quota terms
-- [YouTube videos.insert](https://developers.google.com/youtube/v3/docs/videos/insert) — OAuth upload, snippet and status fields
-- AI Video Prompting: reference/AI Video Prompting.pdf — Shot grammar, camera movement and continuity patterns
-- Hermes Agent The Complete Developers: reference/Hermes Agent The Complete Developers.pdf — Supplied reference for agent architecture, tools, memory and orchestration
+- [Official course page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) — Course identity, duration and learning outcomes
+- [Hermes Desktop](https://hermes-agent.nousresearch.com/desktop) — Official desktop download and product overview
+- [Hermes Agent documentation](https://hermes-agent.nousresearch.com/docs) — Current setup, skills, profiles, Kanban and scheduling guidance
+- [MiniMax M3](https://www.minimax.io/models/text/m3) — Current M3 model and subscription information
+- [Remotion](https://www.remotion.dev/) — Code-driven branded motion graphics
+- [Manim](https://www.manim.community/) — Explanatory animation
+- [Higgsfield](https://higgsfield.ai/) — Generative video shots and creative effects
+- [YouTube Help](https://support.google.com/youtube/) — Upload, privacy and channel guidance

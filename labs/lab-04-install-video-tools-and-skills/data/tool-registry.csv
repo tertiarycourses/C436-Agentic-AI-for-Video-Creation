@@ -1,6 +1,0 @@
-tool,role,auth,side_effect,fallback
-Remotion,code-driven branded video,local none,local render,FFmpeg
-Manim,technical explanatory animation,local none,local render,Remotion shapes
-Higgsfield,generative video shots,account or plan,paid cloud generation,approved placeholders
-FFmpeg,assembly and probe,local none,local file write,none
-YouTube API,private upload,OAuth,external upload,dry-run request

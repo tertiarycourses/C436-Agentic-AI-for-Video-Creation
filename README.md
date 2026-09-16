@@ -4,10 +4,10 @@
 
 [![Course](https://img.shields.io/badge/Course-C436-1f6feb?style=for-the-badge)](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html)
 [![Duration](https://img.shields.io/badge/Duration-2_days_15_instructional_hours-5E5E5E?style=for-the-badge)](#course-toolkit)
-[![Labs](https://img.shields.io/badge/Labs-8-34d399?style=for-the-badge)](labs/README.md)
+[![Labs](https://img.shields.io/badge/Labs-4-34d399?style=for-the-badge)](labs/README.md)
 [![License](https://img.shields.io/badge/License-Educational-fbbf24?style=for-the-badge)](#license)
 
-**A connected, hands-on course in Agentic AI for Video Creation — build an evidence-led video production system in Hermes Agent, from MiniMax M3 setup and FRAME-CUT prompt engineering to custom video skills, multi-agent Kanban review, private YouTube upload and controlled scheduling.**
+**A connected, hands-on course in Agentic AI for Video Creation — create your first video in Hermes Agent, improve it with tools and skills, produce it with a five-agent Kanban team, then build a consistent one-minute micro-drama series.**
 
 [📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Hands-On Labs](labs/README.md) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>) · [🐛 Report Bug](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues) · [💡 Request Feature](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues)
 
@@ -33,65 +33,43 @@
 
 ## Lab Activities
 
-The 8 labs form one connected practical journey. Complete them in order so each verified output can support the activities that follow.
+The 4 labs form one connected practical journey — one video taken from a simple first draft to a polished tool-assisted version, a multi-agent team workflow, and a consistent one-minute micro-drama episode. Complete them in order so each result can support the activities that follow.
 
-### Topic 1 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
+| # | Topic | Activity | Main result |
+|---:|---|----------|---------|
+| **1** | Topic 1 | [Create Your First Video with Hermes](labs/lab-01-create-first-video-with-hermes/README.md) | `simple-video.mp4`, `first-video-prompt.md` and `review-notes.md`. |
+| **2** | Topic 2 | [Improve the Video with Tools and Skills](labs/lab-02-improve-video-with-tools-and-skills/README.md) | `improved-video.mp4`, `tool-and-skill-plan.md` and `before-after-review.md`. |
+| **3** | Topic 3 | [Improve the Video with a Multi-Agent Team](labs/lab-03-multi-agent-video-kanban-youtube-schedule/README.md) | `team-video.mp4`, `kanban-export.json`, `audit-review.md`, `private-upload-preview.json` and `schedule-preview.json`. |
+| **4** | Topic 4 | [Create a One-Minute Micro-Drama Episode](labs/lab-04-create-one-minute-micro-drama-series/README.md) | `micro-drama-pilot.mp4`, `series-bible.yaml`, `character-bible.yaml`, `storyboard.md` and `continuity-review.md`. |
 
-| # | Activity | Outcome |
-|---:|----------|---------|
-| **1** | [Set Up Hermes Desktop and Connect MiniMax M3](labs/lab-01-setup-hermes-and-connect-minimax-m3/README.md) | A `setup-evidence.json` and redacted diagnostic screenshot proving a tool-capable model handshake with no exposed credential. |
-| **2** | [Prompt Hermes to Create a Simple Video](labs/lab-02-prompt-hermes-to-create-a-simple-video/README.md) | A `simple-video.mp4` with its `shot-plan.json` and `ffprobe.json` evidence. |
-| **3** | [Engineer Video Prompts with FRAME-CUT](labs/lab-03-engineer-video-prompts-with-frame-cut/README.md) | A `prompt-pack.json` with its `prompt-score.csv` rubric evidence. |
-
-### Topic 2 — Video Tools, Hermes Skills and Custom Brand Production
-
-| # | Activity | Outcome |
-|---:|----------|---------|
-| **4** | [Install Video Tools and Hermes Skills](labs/lab-04-install-video-tools-and-skills/README.md) | A `tool-routing.json` registry with `skill-smoke-test.json` evidence. |
-| **5** | [Create a Custom Branded Video Skill](labs/lab-05-create-custom-branded-video-skill/README.md) | A `custom-video.mp4` with `brand-review.json` and `render-evidence.json`. |
-
-### Topic 3 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing
-
-| # | Activity | Outcome |
-|---:|----------|---------|
-| **6** | [Build the Multi-Agent Video Workflow](labs/lab-06-build-multi-agent-video-workflow/README.md) | A `multi-agent-plan.json` with four verified handoff records. |
-| **7** | [Orchestrate Kanban Review and YouTube Upload](labs/lab-07-orchestrate-kanban-review-and-youtube-upload/README.md) | A `kanban-export.json`, `approval-ledger.json` and private-upload receipt or dry-run preview. |
-| **8** | [Schedule Controlled Video Publishing with Hermes Cron](labs/lab-08-schedule-controlled-video-publishing/README.md) | A `cron-preview.json` with an `operations-ledger.csv`. |
-
-Each lab package ships copy-ready prompts in Markdown and PDF, synthetic inputs, starter scripts or configuration, an evidence checklist and a deterministic `verify.py`. The sample YouTube request defaults to `private` and scheduled publishing starts paused.
+Each lab package ships copy-ready prompts in Markdown and PDF, example inputs, starter scripts or configuration, and an evidence checklist. The sample YouTube upload defaults to `private` and scheduled publishing starts paused.
 
 ---
 
 ## About
 
-This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. Learners configure the Hermes runtime, turn a creative brief into structured prompts, route specialist video tools, build a reusable branded video skill, coordinate research/production/review/upload roles, and prepare a governed publishing schedule — verifying each result before moving on.
+This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. Learners set up Hermes Agent with MiniMax M3, create a first short video from a clear prompt, improve it with tools and reusable skills, coordinate a five-agent Kanban team through private YouTube publishing, and finish with a consistent one-minute micro-drama built from a series bible, character bible and six-shot storyboard.
 
 ### Learning outcomes
 
-- **LO1** — Develop an editing strategy and work plan in Hermes Agent using MiniMax M3, structured video prompts and governed tool selection.
-- **LO2** — Create and customise an evidence-backed video with Hermes skills, Remotion, Manim, Higgsfield-compatible requests and deterministic media checks.
-- **LO3** — Orchestrate research, production, review and YouTube release agents through a durable Kanban board and controlled scheduled publishing.
+- Explain the agentic loop, set up Hermes Agent with MiniMax M3, and create a first short video from a clear prompt.
+- Improve the first video with suitable tools, reusable skills, branding, tone and style guidance.
+- Coordinate Researcher, Scriptwriter, Video Creator, Auditor and YouTube Publisher agents on Kanban and schedule the workflow.
+- Create a consistent one-minute micro-drama using a series bible, character bible and six-shot storyboard.
 
 ### Topics covered
 
-- Hermes Desktop runtime boundary, shared desktop/CLI state and diagnostics
-- MiniMax M3 provider contract, live trial/quota verification and credential isolation
-- FRAME-CUT video prompt engineering and strict shot-plan JSON
-- The agent loop with cost ceilings, attempt caps and stop rules
-- Tool-versus-skill decisions, Hermes skill anatomy and progressive loading
-- Remotion, Manim, Higgsfield and FFmpeg routing
-- Brand tokens, tone and style controls, and a reusable custom video skill
-- Technical quality gates, asset provenance and versioned repair evidence
-- Agent role contracts, delegation context and parallel work
-- Durable Kanban dependencies, approval hashes, private YouTube upload and idempotency
-- Hermes cron jobs and controlled scheduled release operations
+- **Topic 1** — AI agents, the agentic loop, Hermes installation, MiniMax M3 and practical video prompt engineering
+- **Topic 2** — tools and skills, Remotion, Manim, Higgsfield, reusable video styles and improving the first video
+- **Topic 3** — five Hermes profiles, Kanban coordination, private YouTube publishing and scheduling
+- **Topic 4** — story and character consistency, six-shot storyboarding and a one-minute micro-drama series
 
 ### What you'll learn
 
-- Complete **8 connected hands-on activities** and carry their outputs through one coherent learning journey.
-- Practise with **Hermes Agent · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API** and the supporting resources supplied in the repository.
-- Begin with **Set Up Hermes Desktop and Connect MiniMax M3** and finish with **Schedule Controlled Video Publishing with Hermes Cron**.
-- Apply safe data handling, deterministic evidence checks and named human review before any release action.
+- Complete **4 connected hands-on labs** and carry one video through the whole journey.
+- Practise with **Hermes Agent · MiniMax M3 · Remotion · Manim · Higgsfield · YouTube** and the resources supplied in the repository.
+- Begin with **Create Your First Video with Hermes** and finish with **Create a One-Minute Micro-Drama Episode**.
+- Apply practical prompt engineering covering audience, subject, action, setting, camera, style, format and continuity.
 
 ### Public package boundary
 
@@ -108,7 +86,7 @@ This repository is learner-facing. It contains the presentation deck, Learner Gu
 | **Duration** | 2 days · 15 instructional hours |
 | **Delivery** | Instructor-led, hands-on practical labs |
 | **Core tools** | Hermes Agent (Desktop + CLI) · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API |
-| **Practical work** | 8 connected labs, each with a deterministic `verify.py` |
+| **Practical work** | 4 connected labs, each with an evidence checklist |
 | **Courseware** | PowerPoint and PDF slides, Word and PDF guides, Markdown lab instructions |
 
 ---
@@ -117,26 +95,26 @@ This repository is learner-facing. It contains the presentation deck, Learner Gu
 
 ```text
 START
-  Lab 1    Set Up Hermes Desktop and Connect MiniMax M3
+  Topic 1 — Agentic loop, Hermes setup, MiniMax M3, prompt engineering
+  Lab 1    Create Your First Video with Hermes
      │
      ▼
-  Topic 1 — Hermes Agent Setup, MiniMax M3 and Video Prompt Engineering
-  Labs 1–3
+  Topic 2 — Tools, skills, Remotion, Manim, Higgsfield, reusable styles
+  Lab 2    Improve the Video with Tools and Skills
      │
      ▼
-  Topic 2 — Video Tools, Hermes Skills and Custom Brand Production
-  Labs 4–5
+  Topic 3 — Five Hermes profiles, Kanban, private YouTube, scheduling
+  Lab 3    Improve the Video with a Multi-Agent Team
      │
      ▼
-  Topic 3 — Multi-Agent Kanban, YouTube Release and Scheduled Publishing
-  Labs 6–8
+  Topic 4 — Story and character consistency, six-shot storyboarding
+  Lab 4    Create a One-Minute Micro-Drama Episode
      │
      ▼
 FINISH
-  Lab 8   Schedule Controlled Video Publishing with Hermes Cron
 ```
 
-Connected workflow: `Hermes setup → MiniMax M3 → FRAME-CUT prompt → tool and skill routing → custom branded video → specialist agents → Kanban review and private upload → paused cron release`
+Connected workflow: `First video → Tools and skills → Multi-agent Kanban and YouTube → One-minute micro-drama series`
 
 ---
 
@@ -149,13 +127,13 @@ C436-Agentic-AI-for-Video-Creation/
 │
 ├── labs/
 │   ├── README.md                 # Start here: complete lab index
-│   └── lab-NN-<slug>/            # 8 connected lab packages
+│   └── lab-NN-<slug>/            # 4 connected lab packages
 │       ├── README.md             #   activity instructions
 │       ├── AI-PROMPTS.md/.pdf    #   copy-ready learner prompts
-│       ├── data/                 #   synthetic inputs
-│       ├── starter/              #   starter scripts and templates
-│       ├── evidence/checklist.md #   evidence gate
-│       └── verify.py             #   deterministic acceptance verifier
+│       ├── data/                 #   example inputs
+│       ├── starter/              #   starter scripts and prompt templates
+│       ├── solution/             #   worked example outputs
+│       └── evidence/checklist.md #   evidence gate
 │
 └── courseware/
     ├── *.pptx / *.pdf            # Trainer and learner slides
@@ -185,11 +163,11 @@ cd C436-Agentic-AI-for-Video-Creation
 
 ### 2. Open the lab index
 
-Start with [labs/README.md](labs/README.md), then complete Labs 1–8 in order. Open each lab folder as the current project in Hermes Desktop and read its `AI-PROMPTS.md` before prompting.
+Start with [labs/README.md](labs/README.md), then complete Labs 1–4 in order. Open each lab folder as the current project in Hermes Desktop and read its `AI-PROMPTS.md` before prompting.
 
-### 3. Verify and keep your connected outputs
+### 3. Check off the evidence and keep your outputs
 
-Run `python3 verify.py` inside each lab folder and retain the `PASS` output with the requested evidence. Later activities depend on these approved outputs.
+Work through `evidence/checklist.md` in each lab folder and retain the files it asks for. Later labs build on these outputs, so keep them in place as you go.
 
 ---
 

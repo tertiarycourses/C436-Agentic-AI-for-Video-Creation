@@ -1,0 +1,6 @@
+card,owner,column,depends_on
+Research topic,Researcher,Ready,
+Write script,Scriptwriter,Ideas,Research topic
+Create video,Video Creator,Ideas,Write script
+Audit video,Auditor,Ideas,Create video
+Approve and upload,YouTube Publisher,Ideas,Audit video

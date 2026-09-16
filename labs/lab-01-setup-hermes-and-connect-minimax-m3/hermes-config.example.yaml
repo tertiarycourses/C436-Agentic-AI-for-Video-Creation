@@ -1,7 +1,0 @@
-model:
-  provider: minimax
-  default: MiniMax-M3
-  base_url: https://api.minimax.io/v1
-  api_mode: openai
-agent:
-  reasoning_effort: high
