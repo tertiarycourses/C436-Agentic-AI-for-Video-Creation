@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Lab 03 prompts — Storyboard Artifact, Editing Standards and Work Plan</title><style>
+:root{--ink:#21201C;--muted:#6B6862;--accent:#D97757;--teal:#2F7F7A;
+--cream:#FAF9F5;--card:#fff;--rule:#E5E1D8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,
+"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink);
+line-height:1.5}main{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}.card{background:var(--card);
+border:1px solid var(--rule);border-radius:12px;padding:16px 18px;
+margin:14px 0}.row{display:flex;gap:10px;align-items:center;
+justify-content:space-between;flex-wrap:wrap}.label{font-weight:700}
+pre{white-space:pre-wrap;background:#F4F1EA;border-radius:8px;padding:12px;
+font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:10px 0 0}
+mark{background:#FDE7C8;border-radius:3px;padding:0 2px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:8px;
+padding:9px 14px;cursor:pointer;background:var(--accent);color:#fff;
+text-decoration:none;display:inline-block}.btn.alt{background:var(--teal)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--rule)}
+button:focus-visible,.btn:focus-visible{outline:3px solid #1f6feb;
+outline-offset:2px}.toast{position:fixed;bottom:18px;left:50%;
+transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px
+16px;border-radius:8px;opacity:0;transition:opacity .2s}.toast.show{
+opacity:1}ol li,ul li{margin:4px 0}table{border-collapse:collapse;
+width:100%}td,th{border-bottom:1px solid var(--rule);padding:8px;
+text-align:left;vertical-align:top}.tag{font-size:13px;color:var(--teal);
+font-weight:600}
+</style></head><body><main><p><a class="btn ghost" href="../index.html">← Labs home</a> <a class="btn alt" href="../prompt-builder.html">Prompt Builder</a> <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Open Claude</a></p><h1>Lab 03 — Storyboard Artifact, Editing Standards and Work Plan</h1><p class="sub">Claude Desktop — the storyboard skill and artifacts · about 60 minutes</p><p>Turn the approved script into the documents a production team — human or AI — works from, and approve the storyboard before any credit is spent.</p><h2>Steps</h2><ol><li><b>Lock the characters</b> — Prompt A: the asset bible — five fixed traits each for Rachel, Ah Ma and the blue tin, plus a reference prompt for each.</li><li><b>Storyboard as an artifact</b> — Prompt B calls the storyboard skill. Claude opens a shot-card storyboard marked DRAFT beside the chat.</li><li><b>Pick the camera language</b> — In the Prompt Builder (Stage Storyboard), tick shot sizes, angles and camera moves for each shot and paste them in as changes.</li><li><b>Review, then approve</b> — Prompt C requests changes. Only when every shot is right, reply APPROVED; the banner turns green.</li><li><b>Write the standards</b> — Prompt D: the studio&#x27;s editing standards and guidelines, legal and platform rules included.</li><li><b>Plan the post-production</b> — Prompt E gives a work plan; save it as work-plan.csv and set real dates.</li><li><b>Peer review</b> — Swap storyboards with a partner. Each names one continuity risk in the other&#x27;s board.</li></ol><h2>Prompts</h2><p class="sub">Change only the <mark>[HIGHLIGHTED]</mark> words, then Copy and paste into the Claude project chat.</p><section class="card"><div class="row"><span class="label">PROMPT A — character and asset bible</span><button onclick="copyText('p0')" aria-label="Copy PROMPT A — character and asset bible">Copy</button></div><pre id="p0">Create the asset bible for Kopi &amp; Coins.
+
+For Rachel Tan (29), Ah Ma (74) and the blue butter-cookie
+tin, give: role in the story, five visible traits that must
+never change (face, hair, clothing, accessories, colours), how
+they move and speak, and one reference-image prompt each
+(front view, neutral light, plain background, 9:16).
+
+Rachel: shoulder-length black hair, round tortoiseshell
+glasses, mustard-yellow cardigan over a white T-shirt.
+Ah Ma: short silver permed hair, jade bangle, floral blouse.
+Save it to project knowledge as 02-storyboard__asset-bible.</pre></section><section class="card"><div class="row"><span class="label">PROMPT B — storyboard artifact (storyboard skill)</span><button onclick="copyText('p1')" aria-label="Copy PROMPT B — storyboard artifact (storyboard skill)">Copy</button></div><pre id="p1">Use the storyboard skill on the approved Episode 1 script.
+
+Make the storyboard as an HTML artifact: six to eight shot cards
+for TikTok, 9:16, 60 seconds. Each card: shot ID (S01-SH01),
+time, shot size, camera angle, camera move (a Higgsfield preset
+name where one fits), the one action, characters, dialogue or
+VO, on-screen text, sound, continuity line and asset references.
+
+Faces in the upper third; text clear of the bottom 20% of the
+frame (35% if you also post to Reels). Respect the 180-degree rule in the video-call scene.
+Mark it DRAFT and stop for my review.</pre></section><section class="card"><div class="row"><span class="label">PROMPT C — request changes, then approve</span><button onclick="copyText('p2')" aria-label="Copy PROMPT C — request changes, then approve">Copy</button></div><pre id="p2">Changes to the storyboard:
+- S01-SH01: start on the $1,400 repair quote, ECU, camera
+  [CAMERA_MOVE, e.g. Dolly In].
+- S03-SH01: high angle on the tin, camera Static.
+- Payoff shot: mirror the framing of the hook.
+Keep every other shot unchanged. Show me the new version.
+
+(When every shot is right, reply only: APPROVED)</pre></section><section class="card"><div class="row"><span class="label">PROMPT D — editing standards and guidelines</span><button onclick="copyText('p3')" aria-label="Copy PROMPT D — editing standards and guidelines">Copy</button></div><pre id="p3">Write the editing standards: the rules every Kopi &amp; Coins
+episode must meet before it is published.
+
+Sections:
+1. Brand: colours, fonts, logo position, end card.
+2. Story: hook in the first 3 seconds, one message, pacing.
+3. Captions: always on, accuracy, line length, safe area.
+4. Audio: dialogue clarity, music under voice, loudness target.
+5. Legal: music and image rights, no personal data, money
+   messaging (general education only, no promised returns,
+   disclaimer), labelling AI-generated content.
+6. Platform: 9:16, 1080x1920, frame rate, duration limits,
+   TikTok and YouTube AI-content labels.
+
+Make every rule checkable, with a number or a yes/no test.</pre></section><section class="card"><div class="row"><span class="label">PROMPT E — post-production work plan</span><button onclick="copyText('p4')" aria-label="Copy PROMPT E — post-production work plan">Copy</button></div><pre id="p4">Create a post-production work plan for Episode 1 as CSV with
+columns: stage, task, owner, start day, duration (hours),
+depends on, review gate, done when.
+
+Stages in order: reference stills in Higgsfield, low-res draft
+shots, upgrade approved shots to 1080p, assembly in LahLah
+Video, story review, fine cut, sound mix, captions, technical
+QC, compliance review, approval, export, publish.
+
+We have 10 working days. Put a human approval gate before
+publish, and allow one day for regenerating failed shots.</pre></section><h2>Check your work</h2><ul><li>The asset bible fixes five visible traits each for Rachel, Ah Ma and the tin, with a reference prompt each.</li><li>The storyboard artifact has six to eight shot cards, each with one size, one angle, one camera move and one action.</li><li>Every card has a continuity line and asset references.</li><li>The storyboard banner reads APPROVED, and the approved file is saved as 02-storyboard__ep01-approved.</li><li>The standards cover brand, story, captions, audio, legal and platform — each rule checkable.</li><li>work-plan.csv lists every stage with an owner, a duration and a review gate, and fits 10 working days.</li></ul></main><div id="toast" class="toast" role="status" aria-live="polite">Copied — paste it into Claude</div><script>
+function copyText(id){const t=document.getElementById(id).innerText;
+const done=()=>{const s=document.getElementById('toast');s.classList.add('show');
+setTimeout(()=>s.classList.remove('show'),1400)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done)}
+else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);
+a.select();document.execCommand('copy');a.remove();done()}}
+</script></body></html>

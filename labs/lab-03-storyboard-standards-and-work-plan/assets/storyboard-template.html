@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storyboard</title>
+<style>
+  :root { --ink:#1f1a17; --muted:#5d5550; --paper:#fffdf9; --card:#ffffff; --line:#e6ddd2;
+          --accent:#2F7F7A; --draft:#b45309; --draft-bg:#fff4e5; --ok:#166534; --ok-bg:#e9f7ee; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink); background:var(--paper); }
+  header { padding:20px 20px 8px; }
+  h1 { margin:0 0 4px; font-size:1.5rem; }
+  .meta { color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 16px; font-size:.9rem; }
+  .banner { margin:12px 20px; padding:12px 16px; border-radius:10px; font-weight:700; border:2px solid; }
+  .banner.draft { color:var(--draft); background:var(--draft-bg); border-color:var(--draft); }
+  .banner.approved { color:var(--ok); background:var(--ok-bg); border-color:var(--ok); }
+  .banner small { display:block; font-weight:400; color:var(--ink); margin-top:4px; }
+  .timing { margin:0 20px 8px; font-size:.9rem; }
+  .timing.bad { color:#b91c1c; font-weight:700; }
+  .bar { display:flex; height:10px; margin:0 20px 16px; border-radius:6px; overflow:hidden; border:1px solid var(--line); }
+  .bar span { display:block; height:100%; border-right:1px solid #fff; }
+  main { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; padding:0 20px 20px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
+  .card h2 { margin:0; font-size:1rem; display:flex; justify-content:space-between; gap:8px; }
+  .chip { display:inline-block; font-size:.75rem; padding:2px 8px; border-radius:999px; background:#eef5f4; color:var(--accent); font-weight:600; margin:0 4px 4px 0; }
+  .frame { aspect-ratio:9/16; max-height:150px; border:2px dashed var(--line); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.8rem; text-align:center; padding:6px; align-self:center; width:auto; }
+  .frame.h { aspect-ratio:16/9; max-height:none; width:100%; }
+  dl { margin:0; display:grid; grid-template-columns:92px 1fr; gap:3px 8px; font-size:.88rem; }
+  dt { color:var(--muted); font-weight:600; }
+  dd { margin:0; }
+  .prompt { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.8rem; background:#f7f3ee; border-radius:6px; padding:6px 8px; white-space:pre-wrap; }
+  label.note { font-size:.8rem; color:var(--muted); }
+  textarea { width:100%; min-height:44px; font:inherit; font-size:.85rem; border:1px solid var(--line); border-radius:6px; padding:6px; }
+  footer { padding:0 20px 28px; }
+  button { font:inherit; font-weight:700; padding:10px 16px; border-radius:8px; border:0; background:var(--accent); color:#fff; cursor:pointer; }
+  button:focus-visible, textarea:focus-visible { outline:3px solid #f59e0b; outline-offset:2px; }
+  #out { margin-top:10px; display:none; }
+  ul.log { color:var(--muted); font-size:.85rem; }
+  @media print { textarea, footer button { display:none; } .card { break-inside:avoid; } }
+</style>
+</head>
+<body>
+<!-- Claude: replace ONLY the JSON below. Keep the rest of this file unchanged. -->
+<script id="storyboard-data" type="application/json">
+{
+  "title": "Kopi & Coins Ep 1: The Rainy-Day Tin",
+  "project": "Kopi & Coins – Ep1 micro-drama (TikTok)",
+  "platform": "tiktok",
+  "aspect": "9:16",
+  "target_seconds": 60,
+  "version": 1,
+  "status": "DRAFT",
+  "approved_at": "",
+  "approved_by": "",
+  "changelog": ["v1: first draft from the approved story brief"],
+  "shots": [
+    {"id":"S01-SH01","scene":1,"shot":1,"start":0,"end":3,"duration":3,"size":"ECU","angle":"Eye level","move":"Dolly In","effect":"","action":"Laptop screen dies with a click; the black screen reflects in Rachel's round glasses.","dialogue":"RACHEL (VO): \"The night before my biggest pitch.\"","onscreen":"","audio":"Laptop click, then silence","assets":"@Rachel","transition_in":"cut","prompt":"ECU eye-level of @Rachel's round tortoiseshell glasses reflecting a laptop screen that turns black, night, HDB bedroom desk, single warm desk lamp, tense, teal-and-kopi-brown grade, camera: Dolly In, 50mm, 9:16, no on-screen text"},
+    {"id":"S01-SH02","scene":1,"shot":2,"start":3,"end":6,"duration":3,"size":"CU","angle":"High","move":"Crash Zoom In","effect":"","action":"Rachel's phone in her hand: a repair quote, then her bank app balance.","dialogue":"","onscreen":"$1,400 vs $312","audio":"Phone buzz","assets":"@Rachel (hands, silver watch)","transition_in":"cut","prompt":"CU high angle of a woman's hand with a small silver watch holding a phone, screen glow on her face, night desk, warm lamp, anxious, teal-and-kopi-brown grade, camera: Crash Zoom In, 35mm, 9:16, phone screen blurred, no on-screen text"},
+    {"id":"S02-SH01","scene":2,"shot":1,"start":6,"end":11,"duration":5,"size":"MCU","angle":"Eye level","move":"Static","effect":"","action":"Rachel, frame-left, video-calls Ah Ma; the dead laptop sits beside her.","dialogue":"RACHEL: \"Ah Ma… can I borrow some money?\"","onscreen":"","audio":"Soft room tone","assets":"@Rachel","transition_in":"cut","prompt":"MCU eye-level of @Rachel frame-left holding a phone for a video call, embarrassed half-smile, closed laptop beside her, night HDB bedroom, warm desk lamp, quiet, teal-and-kopi-brown grade, camera: Static, 50mm, 9:16, no on-screen text"},
+    {"id":"S02-SH02","scene":2,"shot":2,"start":11,"end":15,"duration":4,"size":"CU","angle":"Eye level","move":"Static","effect":"Focus Change","action":"On the phone screen, Ah Ma pauses, then smiles.","dialogue":"AH MA: \"Wait ah.\"","onscreen":"","audio":"Room tone","assets":"@AhMa","transition_in":"cut","prompt":"CU eye-level of @AhMa on a video call, short silver permed hair, muted-blue floral blouse, calm knowing smile, HDB kitchen behind her, soft evening light, warm, kopi-brown and cream grade, camera: Static with Focus Change, 50mm, 9:16, no on-screen text"},
+    {"id":"S03-SH01","scene":3,"shot":1,"start":15,"end":20,"duration":5,"size":"CU insert","angle":"High","move":"Tilt Down","effect":"","action":"Ah Ma's hands, jade bangle on the left wrist, lift the lid of the blue tin.","dialogue":"","onscreen":"","audio":"Tin lid pop; piano enters","assets":"@AhMa (hands), @BlueTin","transition_in":"cut","prompt":"CU high angle of an elderly woman's hands with a jade bangle on the left wrist opening @BlueTin on a wooden kitchen table, soft window light, tender, cream and kopi-brown grade, camera: Tilt Down, 85mm, 9:16, no on-screen text"},
+    {"id":"S03-SH02","scene":3,"shot":2,"start":20,"end":25,"duration":5,"size":"ECU","angle":"Overhead","move":"Dolly Right","effect":"","action":"Three envelopes inside the tin: RAINY DAY, ANG PAO, HOLIDAY.","dialogue":"","onscreen":"Rainy day first","audio":"Piano","assets":"@BlueTin","transition_in":"cut","prompt":"ECU overhead of @BlueTin open with three paper envelopes in neat handwriting, wooden table, soft window light, nostalgic, cream and kopi-brown grade, camera: Dolly Right, 100mm macro, 9:16 (labels added as editor overlay if garbled)"},
+    {"id":"S03-SH03","scene":3,"shot":3,"start":25,"end":30,"duration":5,"size":"MCU","angle":"Eye level","move":"Static","effect":"","action":"Ah Ma holds up the RAINY DAY envelope and delivers the rule.","dialogue":"AH MA: \"Every payday, rainy day first. Then the rest.\"","onscreen":"","audio":"Piano","assets":"@AhMa, @BlueTin","transition_in":"cut","prompt":"MCU eye-level of @AhMa holding up a paper envelope, speaking warmly to camera as if on a video call, HDB kitchen, soft evening light, wise, kopi-brown and cream grade, camera: Static, 50mm, 9:16, no on-screen text"},
+    {"id":"S04-SH01","scene":4,"shot":1,"start":30,"end":35,"duration":5,"size":"MS","angle":"Eye level","move":"Arc Right","effect":"","action":"Daylight. Rachel at the same desk sets up three savings buckets on her laptop; the screen faces away from camera.","dialogue":"RACHEL (VO): \"So I made my own tin.\"","onscreen":"","audio":"Piano builds","assets":"@Rachel","transition_in":"crossfade","prompt":"MS eye-level of @Rachel typing on a laptop at the same HDB desk, screen facing away from camera, morning daylight, determined, teal-and-cream grade, camera: Arc Right, 35mm, 9:16, no on-screen text"},
+    {"id":"S04-SH02","scene":4,"shot":2,"start":35,"end":40,"duration":5,"size":"CU","angle":"Eye level","move":"Static","effect":"Hyperlapse","action":"Wall calendar pages flip through paydays; the light shifts across the wall.","dialogue":"RACHEL (VO): \"Automatic. Every payday.\"","onscreen":"Rule 1: rainy day first","audio":"Piano builds","assets":"#HDB-bedroom","transition_in":"cut","prompt":"CU of a paper wall calendar with pages flipping month by month, sunlight sweeping across the wall, HDB bedroom, hopeful, teal-and-cream grade, camera: Static, Hyperlapse, 50mm, 9:16, no readable text"},
+    {"id":"S04-SH03","scene":4,"shot":3,"start":40,"end":45,"duration":5,"size":"CU","angle":"Eye level","move":"Dolly In","effect":"","action":"Rachel sets a small blue tin of her own on the desk and smiles.","dialogue":"","onscreen":"Aim: 3-6 months of expenses","audio":"Piano","assets":"@Rachel, small blue tin","transition_in":"cut","prompt":"CU eye-level of @Rachel placing a small round blue tin on her desk and smiling, daylight, proud, teal-and-cream grade, camera: Dolly In, 50mm, 9:16, no on-screen text"},
+    {"id":"S05-SH01","scene":5,"shot":1,"start":45,"end":50,"duration":5,"size":"WS","angle":"Eye level","move":"Static","effect":"","action":"Six months later: Rachel's phone slips off the desk and the screen cracks. Mirrors S01-SH01's framing.","dialogue":"","onscreen":"6 months later","audio":"Crack; music pauses","assets":"@Rachel, small blue tin","transition_in":"dip","prompt":"WS eye-level of @Rachel at her HDB desk as her phone slides off and hits the floor, small blue tin visible on the desk, evening lamp light, sudden, teal-and-kopi-brown grade, camera: Static, 28mm, 9:16, no on-screen text"},
+    {"id":"S05-SH02","scene":5,"shot":2,"start":50,"end":55,"duration":5,"size":"MCU","angle":"Eye level","move":"Dolly Out","effect":"","action":"Rachel picks up the phone, glances at the tin, exhales and smiles.","dialogue":"RACHEL (VO): \"This time, I was ready.\"","onscreen":"","audio":"Music resolves","assets":"@Rachel, small blue tin","transition_in":"cut","prompt":"MCU eye-level of @Rachel holding a cracked phone, glancing at a small blue tin, relieved smile, evening lamp light, calm, teal-and-kopi-brown grade, camera: Dolly Out, 50mm, 9:16, no on-screen text"},
+    {"id":"S06-SH01","scene":6,"shot":1,"start":55,"end":60,"duration":5,"size":"Graphic","angle":"n/a","move":"Static","effect":"","action":"End card on cream: logo, CTA, disclaimer. Built in the editor; no generation.","dialogue":"","onscreen":"Start your rainy-day tin this payday. For general education only. Not financial advice.","audio":"Logo sting","assets":"Kopi & Coins logo","transition_in":"dip","prompt":"EDITOR GRAPHIC: no Higgsfield generation. Cream #FAF3E6 background, kopi brown #6B4226 text, teal #2F7F7A accent."}
+  ]
+}
+</script>
+
+<header>
+  <h1 id="title"></h1>
+  <div class="meta" id="meta"></div>
+</header>
+<div class="banner" id="banner" role="status"></div>
+<p class="timing" id="timing"></p>
+<div class="bar" id="bar" aria-hidden="true"></div>
+<main id="grid" aria-label="Shot cards"></main>
+<footer>
+  <button type="button" id="copyfb">Copy feedback for Claude</button>
+  <textarea id="out" readonly aria-label="Feedback text to paste into the chat"></textarea>
+  <h3>Changelog</h3>
+  <ul class="log" id="log"></ul>
+</footer>
+
+<script>
+(function () {
+  var d = JSON.parse(document.getElementById('storyboard-data').textContent);
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var approved = String(d.status).toUpperCase() === 'APPROVED';
+  document.title = 'Storyboard: ' + d.title + ' v' + d.version + (approved ? ' (APPROVED)' : ' (DRAFT)');
+  document.getElementById('title').textContent = d.title;
+  document.getElementById('meta').innerHTML = ['Project: ' + esc(d.project), 'Platform: ' + esc(d.platform), 'Aspect: ' + esc(d.aspect), 'Target: ' + esc(d.target_seconds) + ' s', 'Version ' + esc(d.version), d.shots.length + ' shots'].map(function (x) { return '<span>' + x + '</span>'; }).join('');
+  var b = document.getElementById('banner');
+  if (approved) { b.className = 'banner approved'; b.innerHTML = 'Status: APPROVED' + '<small>Approved ' + esc(d.approved_at) + (d.approved_by ? ' by ' + esc(d.approved_by) : '') + '. Locked for production in Higgsfield.</small>'; }
+  else { b.className = 'banner draft'; b.innerHTML = 'Status: DRAFT, awaiting your approval' + '<small>Reply <b>APPROVE</b> in the chat to lock it, or add notes below each shot and press "Copy feedback for Claude".</small>'; }
+  var total = d.shots.reduce(function (a, s) { return a + Number(s.duration || 0); }, 0);
+  var t = document.getElementById('timing');
+  var off = Math.abs(total - Number(d.target_seconds));
+  t.textContent = 'Timing: shots add up to ' + total.toFixed(1) + ' s of ' + d.target_seconds + ' s target' + (off > 0.5 ? ' (off by ' + off.toFixed(1) + ' s: fix before approval)' : ' (on target)');
+  if (off > 0.5) t.className = 'timing bad';
+  var palette = ['#2F7F7A', '#6B4226', '#c08a3e', '#4b6c9c', '#8a5a8c', '#7a8c3e'];
+  document.getElementById('bar').innerHTML = d.shots.map(function (s) { return '<span title="' + esc(s.id) + '" style="width:' + (100 * s.duration / total) + '%;background:' + palette[(s.scene - 1) % palette.length] + '"></span>'; }).join('');
+  var vertical = /9:16|4:5|1:1/.test(d.aspect);
+  document.getElementById('grid').innerHTML = d.shots.map(function (s, i) {
+    return '<article class="card" aria-labelledby="h' + i + '">' +
+      '<h2 id="h' + i + '"><span>' + esc(s.id) + '</span><span>' + esc(s.start) + '–' + esc(s.end) + ' s (' + esc(s.duration) + ' s)</span></h2>' +
+      '<div><span class="chip">' + esc(s.size) + '</span><span class="chip">' + esc(s.angle) + '</span><span class="chip">' + esc(s.move) + '</span>' + (s.effect ? '<span class="chip">' + esc(s.effect) + '</span>' : '') + '<span class="chip">in: ' + esc(s.transition_in) + '</span></div>' +
+      '<div class="frame' + (vertical ? '' : ' h') + '">Frame ' + esc(s.id) + '<br>' + esc(s.size) + '</div>' +
+      '<dl><dt>Action</dt><dd>' + esc(s.action) + '</dd>' +
+      '<dt>Dialogue/VO</dt><dd>' + (esc(s.dialogue) || '—') + '</dd>' +
+      '<dt>On-screen</dt><dd>' + (esc(s.onscreen) || '—') + '</dd>' +
+      '<dt>SFX/music</dt><dd>' + (esc(s.audio) || '—') + '</dd>' +
+      '<dt>Assets</dt><dd>' + (esc(s.assets) || '—') + '</dd></dl>' +
+      '<div class="prompt" aria-label="Higgsfield prompt">' + esc(s.prompt) + '</div>' +
+      '<label class="note" for="n' + i + '">Your note on ' + esc(s.id) + '</label><textarea id="n' + i + '" data-id="' + esc(s.id) + '" placeholder="e.g. make this a Crash Zoom In"></textarea>' +
+      '</article>';
+  }).join('');
+  document.getElementById('log').innerHTML = (d.changelog || []).map(function (c) { return '<li>' + esc(c) + '</li>'; }).join('');
+  document.getElementById('copyfb').addEventListener('click', function () {
+    var notes = Array.prototype.slice.call(document.querySelectorAll('textarea[data-id]')).filter(function (x) { return x.value.trim(); }).map(function (x) { return x.getAttribute('data-id') + ': ' + x.value.trim(); });
+    var text = notes.length ? 'Storyboard v' + d.version + ' changes:\n' + notes.join('\n') : 'APPROVE storyboard v' + d.version;
+    var out = document.getElementById('out'); out.style.display = 'block'; out.value = text; out.focus(); out.select();
+    var btn = this;
+    var done = function () { btn.textContent = 'Copied! Paste it into the chat'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function () { document.execCommand('copy'); done(); }); }
+    else { try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Select the text below and copy it'; } }
+  });
+})();
+</script>
+</body>
+</html>

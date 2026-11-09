@@ -3,212 +3,102 @@
 # Agentic AI for Video Creation
 
 [![Course](https://img.shields.io/badge/Course-C436-1f6feb?style=for-the-badge)](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html)
-[![Duration](https://img.shields.io/badge/Duration-2_days_15_instructional_hours-5E5E5E?style=for-the-badge)](#course-toolkit)
-[![Labs](https://img.shields.io/badge/Labs-4-34d399?style=for-the-badge)](labs/README.md)
+[![Duration](https://img.shields.io/badge/Duration-2_days_15_hours-5E5E5E?style=for-the-badge)](#course-toolkit)
+[![Labs](https://img.shields.io/badge/Labs-7-34d399?style=for-the-badge)](labs/index.html)
 [![License](https://img.shields.io/badge/License-Educational-fbbf24?style=for-the-badge)](#license)
 
-**A connected, hands-on course in Agentic AI for Video Creation — create your first video in Hermes Agent, improve it with tools and skills, produce it with a five-agent Kanban team, then build a consistent one-minute micro-drama series.**
+**Run a one-person AI video studio. Claude Desktop writes, boards and directs; Higgsfield shoots; LahLah Video cuts; you approve every credit and every upload.**
 
-[📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Hands-On Labs](labs/README.md) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>) · [🐛 Report Bug](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues) · [💡 Request Feature](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues)
+[📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Labs Home](labs/index.html) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>) · [🐛 Report Bug](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues)
 
 </div>
-
-> [!NOTE]
-> **These are the official hands-on lab materials for the commercial course:**
-> ### 🎓 Agentic AI for Video Creation
-> **Course Code:** `C436` · by Tertiary Courses / Tertiary Infotech<br>
-> **Duration:** 2 days · 15 instructional hours<br>
-> **Course page:** https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html
 
 | Course detail | Information |
 |---|---|
 | Course code | `C436` |
 | Programme | Non-WSQ (commercial short course) |
-| Duration | 2 days · 15 instructional hours |
-| Assessment | None — this is a non-WSQ course |
+| Duration | 2 days · 15 instructional hours (9:30 AM – 5:30 PM) |
 | Registration | [View course details and register](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) |
-| Funding | No funding is available for this course. A WSQ counterpart is offered separately. |
+| Edition | v4.0 · Claude + Higgsfield edition · 9 Nov 2026 |
 
 ---
 
-## Lab Activities
+## About the course
 
-The 4 labs form one connected practical journey — one video taken from a simple first draft to a polished tool-assisted version, a multi-agent team workflow, and a consistent one-minute micro-drama episode. Complete them in order so each result can support the activities that follow.
+You become the AI video producer of **Kopi & Coins**, a fictitious Singapore studio that makes 60-second money stories for young working adults. On Day 1 you set up a Claude Desktop studio (five video skills, the Higgsfield connector, a project), plan and storyboard Episode 1, and shoot it in Higgsfield. On Day 2 you cut and fix it in LahLah Video, package the studio's standards as your own Claude skill, and finish with a mini capstone: **your own short film, from idea to a private TikTok or YouTube upload**.
 
-| # | Topic | Activity | Main result |
-|---:|---|----------|---------|
-| **1** | Topic 1 | [Create Your First Video with Hermes](labs/lab-01-create-first-video-with-hermes/README.md) | `simple-video.mp4`, `first-video-prompt.md` and `review-notes.md`. |
-| **2** | Topic 2 | [Improve the Video with Tools and Skills](labs/lab-02-improve-video-with-tools-and-skills/README.md) | `improved-video.mp4`, `tool-and-skill-plan.md` and `before-after-review.md`. |
-| **3** | Topic 3 | [Improve the Video with a Multi-Agent Team](labs/lab-03-multi-agent-video-kanban-youtube-schedule/README.md) | `team-video.mp4`, `kanban-export.json`, `audit-review.md`, `private-upload-preview.json` and `schedule-preview.json`. |
-| **4** | Topic 4 | [Create a One-Minute Micro-Drama Episode](labs/lab-04-create-one-minute-micro-drama-series/README.md) | `micro-drama-pilot.mp4`, `series-bible.yaml`, `character-bible.yaml`, `storyboard.md` and `continuity-review.md`. |
+## Learning outcomes
 
-Each lab package ships copy-ready prompts in Markdown and PDF, example inputs, starter scripts or configuration, and an evidence checklist. The sample YouTube upload defaults to `private` and scheduled publishing starts paused.
+- **LO1** Develop editing strategies and work plans to achieve creative vision.
+- **LO2** Assess edited footage to enhance storytelling and ensure technical compliance.
+- **LO3** Develop remedial actions to ensure industry compliance and facilitate the adoption of new technologies in visual editing.
 
----
+## Topics covered
 
-## About
+| Topic | What it covers |
+|---|---|
+| **1 · Creative Strategy and End-to-End Video Production with Agentic AI** | How AI is remaking video (AI films, micro-dramas, singers, influencers, ads); Higgsfield basics: cast, sets and props, Cinema Studio, Supercomputer; storytelling principles; Claude directs Higgsfield in the Ah Ma demo; quality issues, script review, editing standards and work plans |
+| **2 · AI-Assisted Video Editing, Storytelling and Quality Assurance** | The production run in Higgsfield; references, camera presets and the scene prompt formula; draft low-res, upgrade the keepers; story and technical review; fixes in LahLah Video |
+| **3 · Workflow Optimisation, Industry Compliance and Emerging Video Technologies** | Claude Skills as the studio's know-how; industry quality standards and remedial actions; publishing with the AI label on; adopting new technology; the ethics of GenAI video |
 
-This repository contains the complete lab and courseware package for **Agentic AI for Video Creation** (**C436**) by Tertiary Courses / Tertiary Infotech. Learners set up Hermes Agent with MiniMax M3, create a first short video from a clear prompt, improve it with tools and reusable skills, coordinate a five-agent Kanban team through private YouTube publishing, and finish with a consistent one-minute micro-drama built from a series bible, character bible and six-shot storyboard.
+## Labs
 
-### Learning outcomes
+Seven connected labs: each one starts from what the last one produced. Open [labs/index.html](labs/index.html) first: it links every lab's prompt page, its PDF guide, the Higgsfield sign-up and the Prompt Builder.
 
-- Explain the agentic loop, set up Hermes Agent with MiniMax M3, and create a first short video from a clear prompt.
-- Improve the first video with suitable tools, reusable skills, branding, tone and style guidance.
-- Coordinate Researcher, Scriptwriter, Video Creator, Auditor and YouTube Publisher agents on Kanban and schedule the workflow.
-- Create a consistent one-minute micro-drama using a series bible, character bible and six-shot storyboard.
+| # | Lab | Day | You produce |
+|---:|---|:---:|---|
+| 1 | [Set Up Your Claude Video Studio](labs/lab-01-set-up-your-claude-video-studio/README.pdf) | 1 | A Claude project with five video skills, Higgsfield connected, LahLah Video installed |
+| 2 | [Plan the Story with Claude and the Storytelling Skill](labs/lab-02-plan-the-story-with-claude/README.pdf) | 1 | Creative brief, 60-second script and a script review |
+| 3 | [Storyboard Artifact, Editing Standards and Work Plan](labs/lab-03-storyboard-standards-and-work-plan/README.pdf) | 1 | Approved storyboard, asset bible, editing standards, work-plan CSV |
+| 4 | [Create Episode 1 with Claude and Higgsfield](labs/lab-04-create-episode-1-in-higgsfield/README.pdf) | 1 | Every shot drafted low-res, the keepers upgraded to 1080p, filed in one Higgsfield folder |
+| 5 | [Edit, Review and Refine in LahLah Video](labs/lab-05-edit-review-and-refine-in-lahlah-video/README.pdf) | 2 | EP01 v1 and v2, a story review, a QC report with values and a fix log |
+| 6 | [Build a Compliance Skill and Plan Remedial Actions](labs/lab-06-compliance-skill-and-remedial-actions/README.pdf) | 2 | Your own `kopi-compliance-review` skill, a remedial action plan, EP01 v3 |
+| 7 | [Mini Capstone: Your Own Short Film, Idea to Upload](labs/lab-07-mini-capstone-your-own-short-film/README.pdf) | 2 | Your own short film, a private upload with the AI label on, an adoption plan |
 
-### Topics covered
-
-- **Topic 1** — AI agents, the agentic loop, Hermes installation, MiniMax M3 and practical video prompt engineering
-- **Topic 2** — tools and skills, Remotion, Manim, Higgsfield, reusable video styles and improving the first video
-- **Topic 3** — five Hermes profiles, Kanban coordination, private YouTube publishing and scheduling
-- **Topic 4** — story and character consistency, six-shot storyboarding and a one-minute micro-drama series
-
-### What you'll learn
-
-- Complete **4 connected hands-on labs** and carry one video through the whole journey.
-- Practise with **Hermes Agent · MiniMax M3 · Remotion · Manim · Higgsfield · YouTube** and the resources supplied in the repository.
-- Begin with **Create Your First Video with Hermes** and finish with **Create a One-Minute Micro-Drama Episode**.
-- Apply practical prompt engineering covering audience, subject, action, setting, camera, style, format and continuity.
-
-### Public package boundary
-
-This repository is learner-facing. It contains the presentation deck, Learner Guide, Lesson Plan, Learner Guide Markdown, lab instructions, prompt PDFs, synthetic data, example skills, scripts and safe sample outputs. Credentials, private configuration and QA renders are excluded. This is a non-WSQ course and therefore has **no assessment, answer keys or marking guides** of any kind.
-
-> 📖 **Full walkthrough:** see the [Learner Guide](<LG-Agentic AI for Video Creation.md>) for the complete course narrative, and [labs/README.md](labs/README.md) for the lab index. Slides, the Learner Guide and the Lesson Plan are in [courseware/](courseware/).
-
----
+Each lab folder holds a README (PDF), `prompts.html` with one-click copy, `prompts.pdf`, mock assets (so the lab still runs if credits run out) and `evidence/checklist.pdf`.
 
 ## Course Toolkit
 
 | Category | Details |
-|----------|---------|
+|---|---|
 | **Duration** | 2 days · 15 instructional hours |
-| **Delivery** | Instructor-led, hands-on practical labs |
-| **Core tools** | Hermes Agent (Desktop + CLI) · MiniMax M3 · Remotion · Manim · FFmpeg · YouTube Data API |
-| **Practical work** | 4 connected labs, each with an evidence checklist |
-| **Courseware** | PowerPoint and PDF slides, Word and PDF guides, Markdown lab instructions |
+| **Delivery** | Instructor-led, hands-on labs |
+| **Core tools** | Claude Desktop (skills, connectors, projects) · Higgsfield through MCP · LahLah Video or CapCut · FFmpeg (optional) |
+| **Accounts** | Claude on a plan that allows a custom connector and skills; the free 3-day Higgsfield Plus trial (100 credits) or a paid plan |
+| **Courseware** | Slides (PPTX + PDF), Learner Guide and Lesson Plan (DOCX + PDF), Learner Guide in Markdown, seven lab folders |
 
----
+The Higgsfield sign-up link on the labs home page is the trainer's affiliate link; the trainer may earn a commission.
 
-## Learning Journey
+## Public package
 
-```text
-START
-  Topic 1 — Agentic loop, Hermes setup, MiniMax M3, prompt engineering
-  Lab 1    Create Your First Video with Hermes
-     │
-     ▼
-  Topic 2 — Tools, skills, Remotion, Manim, Higgsfield, reusable styles
-  Lab 2    Improve the Video with Tools and Skills
-     │
-     ▼
-  Topic 3 — Five Hermes profiles, Kanban, private YouTube, scheduling
-  Lab 3    Improve the Video with a Multi-Agent Team
-     │
-     ▼
-  Topic 4 — Story and character consistency, six-shot storyboarding
-  Lab 4    Create a One-Minute Micro-Drama Episode
-     │
-     ▼
-FINISH
-```
+| File | What it is |
+|---|---|
+| [Slides (PPTX)](<courseware/Agentic AI for Video Creation-v4.0.pptx>) · [PDF](<courseware/Agentic AI for Video Creation-v4.0.pdf>) | The 166-slide deck, v4.0 |
+| [Learner Guide (DOCX)](<courseware/LG-Agentic AI for Video Creation.docx>) · [PDF](<courseware/LG-Agentic AI for Video Creation.pdf>) · [Markdown](<LG-Agentic AI for Video Creation.md>) | Every idea and the full step-by-step for every lab |
+| [Lesson Plan (DOCX)](<courseware/LP-Agentic AI for Video Creation.docx>) · [PDF](<courseware/LP-Agentic AI for Video Creation.pdf>) | Timings, slide ranges and methods for both days |
+| [labs/](labs/) | Seven lab folders, the labs home page and the Prompt Builder |
 
-Connected workflow: `First video → Tools and skills → Multi-agent Kanban and YouTube → One-minute micro-drama series`
+This repository is learner-facing. It is a non-WSQ course, so there are no assessment papers, answer keys or marking guides. Credentials and private configuration are never committed; never paste an API key into a prompt, a file you share or a screenshot.
 
----
-
-## Project Structure
+## Project structure
 
 ```text
 C436-Agentic-AI-for-Video-Creation/
 ├── README.md
-├── LG-Agentic AI for Video Creation.md
-│
+├── LG-Agentic AI for Video Creation.md   # Learner Guide (Markdown)
+├── courseware/                           # slides, LG and LP (+ assets/lg figures)
+│   └── archive/                          # superseded decks (kept locally, not published)
 ├── labs/
-│   ├── README.md                 # Start here: complete lab index
-│   └── lab-NN-<slug>/            # 4 connected lab packages
-│       ├── README.md             #   activity instructions
-│       ├── AI-PROMPTS.md/.pdf    #   copy-ready learner prompts
-│       ├── data/                 #   example inputs
-│       ├── starter/              #   starter scripts and prompt templates
-│       ├── solution/             #   worked example outputs
-│       └── evidence/checklist.md #   evidence gate
-│
-└── courseware/
-    ├── *.pptx / *.pdf            # Trainer and learner slides
-    ├── LG-*.docx / LG-*.pdf      # Learner Guide
-    ├── LP-*.docx / LP-*.pdf      # Lesson Plan
-    └── archive/                  # Superseded versions
+│   ├── index.html                        # start here
+│   ├── prompt-builder.html
+│   └── lab-NN-<slug>/                    # README.pdf, prompts.html/.pdf, assets/, evidence/
+└── build/                                # conversion scripts for this edition
 ```
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- **Hermes Desktop** installed from the official page at https://hermes-agent.nousresearch.com/desktop, with administrator rights to install desktop software.
-- A **MiniMax account and API key** for the `MiniMax-M3` model. Trial, quota and region terms are time-sensitive — confirm the live offer in your own account at sign-up.
-- **Python 3**, **FFmpeg** and **FFprobe** on `PATH` for the supplied verifiers and preview renderers.
-- A Google account with a YouTube channel for the release labs. Uploads stay `private`; public visibility is never required to complete a lab.
-- Synthetic or authorised data only. Never paste a MiniMax key, OAuth token or YouTube credential into a prompt, lab file, screenshot or repository.
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation.git
-cd C436-Agentic-AI-for-Video-Creation
-```
-
-### 2. Open the lab index
-
-Start with [labs/README.md](labs/README.md), then complete Labs 1–4 in order. Open each lab folder as the current project in Hermes Desktop and read its `AI-PROMPTS.md` before prompting.
-
-### 3. Check off the evidence and keep your outputs
-
-Work through `evidence/checklist.md` in each lab folder and retain the files it asks for. Later labs build on these outputs, so keep them in place as you go.
-
----
-
-## Contributing
-
-Contributions, corrections and improvements are welcome:
-
-1. **Fork** the repository.
-2. Create a feature branch: `git checkout -b feature/my-improvement`.
-3. Commit your changes: `git commit -m "Add my improvement"`.
-4. Push the branch: `git push origin feature/my-improvement`.
-5. Open a **Pull Request**.
-
-Found a bug or have an idea? Open an [issue](https://github.com/tertiarycourses/C436-Agentic-AI-for-Video-Creation/issues).
-
----
 
 ## License
 
-This material is provided for **educational use** as part of the commercial course **Agentic AI for Video Creation (C436)**. © Tertiary Infotech Pte. Ltd. All rights reserved.
+Provided for **educational use** as part of the commercial course **Agentic AI for Video Creation (C436)**. Kopi & Coins and its characters are fictitious. © Tertiary Infotech Academy Pte Ltd. All rights reserved.
 
----
+## Developed by
 
-## Developed By
-
-**Tertiary Infotech Pte. Ltd.** — [Tertiary Courses](https://www.tertiarycourses.com.sg)<br>
-Course: [Agentic AI for Video Creation (C436)](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html)
-
-## Acknowledgements
-
-- The teams behind Hermes Agent, MiniMax, Remotion, Manim and FFmpeg.
-- Course trainers and learners of C436.
-
----
-
-<div align="center">
-
-⭐ **If these materials helped you learn Agentic AI for Video Creation, star the repository!**
-
-Powered by [Tertiary Infotech Academy Pte Ltd](https://www.tertiaryinfotech.com/)
-
-[📘 Course Page](https://www.tertiarycourses.com.sg/agentic-ai-for-video-creation.html) · [🧪 Hands-On Labs](labs/README.md) · [📖 Learner Guide](<LG-Agentic AI for Video Creation.md>)
-
-</div>
+**Tertiary Infotech Academy Pte Ltd** (UEN 201200696W) · [Tertiary Courses](https://www.tertiarycourses.com.sg) · enquiry@tertiaryinfotech.com · +65 6100 0613

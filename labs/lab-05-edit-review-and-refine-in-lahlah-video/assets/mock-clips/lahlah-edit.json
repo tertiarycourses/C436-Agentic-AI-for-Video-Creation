@@ -1,0 +1,125 @@
+{
+ "schema": "lahlah-edit/1",
+ "title": "Kopi & Coins Ep1 - The Rainy-Day Tin (MOCK CLIPS)",
+ "platform": "tiktok",
+ "aspect": "9:16",
+ "fps": 30,
+ "higgsfield_project": {
+  "name": "Kopi & Coins – Ep1 micro-drama (TikTok)",
+  "url": "https://higgsfield.ai/asset/all"
+ },
+ "clips": [
+  {
+   "id": "S01-SH01",
+   "scene": 1,
+   "shot": 1,
+   "src": "S01-SH01.mp4",
+   "duration": 5.0,
+   "trim_in": 0,
+   "trim_out": 5.0,
+   "transition_in": "cut",
+   "caption": "$1,400 vs $312",
+   "voiceover": "The night before my biggest pitch."
+  },
+  {
+   "id": "S02-SH01",
+   "scene": 2,
+   "shot": 1,
+   "src": "S02-SH01.mp4",
+   "duration": 10.0,
+   "trim_in": 0,
+   "trim_out": 10.0,
+   "transition_in": "crossfade",
+   "caption": "",
+   "voiceover": "Ah Ma... can I borrow some money?"
+  },
+  {
+   "id": "S03-SH01",
+   "scene": 3,
+   "shot": 1,
+   "src": "S03-SH01.mp4",
+   "duration": 15.0,
+   "trim_in": 0,
+   "trim_out": 15.0,
+   "transition_in": "crossfade",
+   "caption": "RAINY DAY · ANG PAO · HOLIDAY",
+   "voiceover": "Every payday, rainy day first."
+  },
+  {
+   "id": "S04-SH01",
+   "scene": 4,
+   "shot": 1,
+   "src": "S04-SH01.mp4",
+   "duration": 15.0,
+   "trim_in": 0,
+   "trim_out": 15.0,
+   "transition_in": "crossfade",
+   "caption": "Rule 1: rainy day first",
+   "voiceover": "So I made my own tin. Automatic."
+  },
+  {
+   "id": "S05-SH01",
+   "scene": 5,
+   "shot": 1,
+   "src": "S05-SH01.mp4",
+   "duration": 10.0,
+   "trim_in": 0,
+   "trim_out": 10.0,
+   "transition_in": "crossfade",
+   "caption": "6 months later",
+   "voiceover": "This time, I was ready."
+  },
+  {
+   "id": "S06-SH01",
+   "scene": 6,
+   "shot": 1,
+   "src": "S06-SH01.mp4",
+   "duration": 5.0,
+   "trim_in": 0,
+   "trim_out": 5.0,
+   "transition_in": "crossfade",
+   "caption": "Start your rainy-day tin this payday. For general education only. Not financial advice.",
+   "voiceover": "Start your rainy-day tin this payday."
+  }
+ ],
+ "audio": [
+  {
+   "src": "music-bed.mp3",
+   "start": 0,
+   "volume": 0.3,
+   "type": "music"
+  }
+ ],
+ "captions": [
+  {
+   "start": 0.3,
+   "end": 4.5,
+   "text": "The night before my biggest pitch."
+  },
+  {
+   "start": 5.3,
+   "end": 9.5,
+   "text": "Ah Ma... can I borrow some money?"
+  },
+  {
+   "start": 15.3,
+   "end": 19.5,
+   "text": "Every payday, rainy day first."
+  },
+  {
+   "start": 30.3,
+   "end": 34.5,
+   "text": "So I made my own tin. Automatic."
+  },
+  {
+   "start": 45.3,
+   "end": 49.5,
+   "text": "This time, I was ready."
+  },
+  {
+   "start": 55.3,
+   "end": 59.5,
+   "text": "Start your rainy-day tin this payday."
+  }
+ ]
+}

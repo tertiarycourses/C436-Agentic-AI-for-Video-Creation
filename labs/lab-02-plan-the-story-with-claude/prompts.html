@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Lab 02 prompts — Plan the Story with Claude and the Storytelling Skill</title><style>
+:root{--ink:#21201C;--muted:#6B6862;--accent:#D97757;--teal:#2F7F7A;
+--cream:#FAF9F5;--card:#fff;--rule:#E5E1D8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,
+"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink);
+line-height:1.5}main{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}.card{background:var(--card);
+border:1px solid var(--rule);border-radius:12px;padding:16px 18px;
+margin:14px 0}.row{display:flex;gap:10px;align-items:center;
+justify-content:space-between;flex-wrap:wrap}.label{font-weight:700}
+pre{white-space:pre-wrap;background:#F4F1EA;border-radius:8px;padding:12px;
+font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:10px 0 0}
+mark{background:#FDE7C8;border-radius:3px;padding:0 2px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:8px;
+padding:9px 14px;cursor:pointer;background:var(--accent);color:#fff;
+text-decoration:none;display:inline-block}.btn.alt{background:var(--teal)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--rule)}
+button:focus-visible,.btn:focus-visible{outline:3px solid #1f6feb;
+outline-offset:2px}.toast{position:fixed;bottom:18px;left:50%;
+transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px
+16px;border-radius:8px;opacity:0;transition:opacity .2s}.toast.show{
+opacity:1}ol li,ul li{margin:4px 0}table{border-collapse:collapse;
+width:100%}td,th{border-bottom:1px solid var(--rule);padding:8px;
+text-align:left;vertical-align:top}.tag{font-size:13px;color:var(--teal);
+font-weight:600}
+</style></head><body><main><p><a class="btn ghost" href="../index.html">← Labs home</a> <a class="btn alt" href="../prompt-builder.html">Prompt Builder</a> <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Open Claude</a></p><h1>Lab 02 — Plan the Story with Claude and the Storytelling Skill</h1><p class="sub">Claude Desktop — the storytelling skill · about 50 minutes</p><p>Use one AI agent and one skill to turn an idea into a brief and a timed script, then review the script to decide the edits each scene needs.</p><h2>Steps</h2><ol><li><b>Open the project</b> — Start a new chat inside the Ep1 project. Attach episode-01-idea.pdf.</li><li><b>Build the prompt</b> — Open prompt-builder.html: Stage Story, Genre Micro-drama, Platform TikTok. Fill the brackets, Copy, paste — or use Prompt A.</li><li><b>Brief first</b> — Prompt A calls the storytelling skill for the creative brief. Correct anything that breaks the studio rules.</li><li><b>Write the script</b> — Prompt B: six timed scenes, voice-over, on-screen text and sound for 60 seconds.</li><li><b>Review for edits</b> — Prompt C: for every scene Claude names the edit types it needs and why.</li><li><b>Forecast quality issues</b> — Prompt D: the quality issues most likely in each scene and how to prevent them.</li><li><b>Decide as the producer</b> — Accept or reject at least two suggestions. Save the three files to project knowledge with the 01-idea__ prefix.</li></ol><h2>Prompts</h2><p class="sub">Change only the <mark>[HIGHLIGHTED]</mark> words, then Copy and paste into the Claude project chat.</p><section class="card"><div class="row"><span class="label">PROMPT A — creative brief (storytelling skill)</span><button onclick="copyText('p0')" aria-label="Copy PROMPT A — creative brief (storytelling skill)">Copy</button></div><pre id="p0">Use the storytelling skill. Read the studio brief in this
+project and the attached episode idea.
+
+Write a one-page creative brief for Episode 1, &quot;The Rainy-Day
+Tin&quot;: audience, the one message, platform and format (TikTok,
+9:16, 60 seconds), tone, logline, characters, call to action,
+must include, must avoid.
+
+Rules: general money education only. No product names, no
+promised returns, no numbers we cannot source. Ask me up to
+three questions before you write if anything is unclear.</pre></section><section class="card"><div class="row"><span class="label">PROMPT B — the 60-second script</span><button onclick="copyText('p1')" aria-label="Copy PROMPT B — the 60-second script">Copy</button></div><pre id="p1">Using the approved brief, write the script for Episode 1.
+
+Six scenes, timed to exactly 60 seconds:
+hook (0-5s), set-up, turn, choice, payoff, end card (55-60s).
+
+For each scene give: time range, what we SEE, voice-over or
+dialogue, on-screen text, and sound (music cue or effect).
+Keep spoken lines short — under 140 words in total.
+End card: &quot;Start your rainy-day tin this payday.&quot; plus the
+disclaimer from the studio brief.</pre></section><section class="card"><div class="row"><span class="label">PROMPT C — script review for edits</span><button onclick="copyText('p2')" aria-label="Copy PROMPT C — script review for edits">Copy</button></div><pre id="p2">Review script-v1 as a video editor before production.
+
+Make a table, one row per scene: scene, what the scene must
+make the viewer feel, the edit types it needs (for example cut,
+cutaway or B-roll, match cut, montage, J or L cut, text
+overlay, speed ramp, transition, music cue), and why each edit
+serves the story.
+
+Then list two scenes where a different edit would be stronger,
+and say what you would change.</pre></section><section class="card"><div class="row"><span class="label">PROMPT D — quality-issue forecast</span><button onclick="copyText('p3')" aria-label="Copy PROMPT D — quality-issue forecast">Copy</button></div><pre id="p3">For the same six scenes, forecast the quality issues we are
+most likely to meet when Higgsfield generates this episode.
+
+Group them as: technical (picture and sound), AI generation
+(for example face drift, extra fingers, garbled text), story
+and continuity, and compliance (music rights, disclaimer,
+misleading money claims).
+
+For each issue give the scene, how we would notice it, and
+one way to prevent it in the prompt or the edit.</pre></section><h2>Check your work</h2><ul><li>The brief names one audience, one message and the must-avoid rules.</li><li>The script has six scenes that add up to exactly 60 seconds.</li><li>The end card carries the call to action and the disclaimer.</li><li>The script review lists the edit types for every scene, with a reason for each.</li><li>The quality forecast covers all four groups of issues.</li><li>You accepted or rejected at least two suggestions and wrote why.</li></ul></main><div id="toast" class="toast" role="status" aria-live="polite">Copied — paste it into Claude</div><script>
+function copyText(id){const t=document.getElementById(id).innerText;
+const done=()=>{const s=document.getElementById('toast');s.classList.add('show');
+setTimeout(()=>s.classList.remove('show'),1400)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done)}
+else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);
+a.select();document.execCommand('copy');a.remove();done()}}
+</script></body></html>

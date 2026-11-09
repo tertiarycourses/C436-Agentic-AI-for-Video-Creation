@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Builder: Claude Desktop + Higgsfield | Tertiary Infotech Academy</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect width=%2216%22 height=%2216%22 rx=%224%22 fill=%22%23123c7a%22/%3E%3Cpath d=%22M6 4l6 4-6 4z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+<meta name="description" content="Build copy-ready prompts for every stage of AI video production: idea, story, storyboard, script, Higgsfield generation, edit and publish.">
+<style>
+  :root {
+    --ink:#14213d; --muted:#4a5568; --bg:#f6f7fb; --panel:#ffffff; --line:#d9dee8;
+    --brand:#123c7a; --brand-2:#0f766e; --brand-ink:#ffffff; --chip:#eef2f8; --chip-on:#123c7a;
+    --warn:#9a3412; --mark:#fff1c2; --focus:#f59e0b; --radius:12px;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; color:var(--ink); background:var(--bg); }
+  a { color:var(--brand); }
+  .skip { position:absolute; left:-999px; top:8px; background:var(--brand); color:#fff; padding:8px 12px; border-radius:8px; z-index:10; }
+  .skip:focus { left:8px; }
+  header.top { background:linear-gradient(120deg,var(--brand),#1d4f9c 60%,var(--brand-2)); color:var(--brand-ink); padding:22px 20px 18px; }
+  header.top .org { font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; opacity:.9; margin:0; }
+  header.top h1 { margin:4px 0 6px; font-size:clamp(1.4rem,3.4vw,2rem); line-height:1.2; }
+  header.top p.pitch { margin:0; max-width:60rem; opacity:.95; }
+  .flow { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; padding:0; list-style:none; font-size:.8rem; }
+  .flow li { background:rgba(255,255,255,.16); border-radius:999px; padding:3px 10px; }
+  .wrap { max-width:1280px; margin:0 auto; padding:18px 16px 96px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:18px; align-items:start; }
+  @media (max-width: 900px) { .wrap { grid-template-columns:1fr; } }
+  section.panel { background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:16px; margin-bottom:16px; }
+  h2 { font-size:1.08rem; margin:0 0 10px; display:flex; align-items:center; gap:8px; }
+  h2 .n { display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--brand); color:#fff; font-size:.85rem; flex:none; }
+  fieldset { border:0; margin:0; padding:0; min-width:0; }
+  legend { font-weight:700; margin-bottom:6px; padding:0; }
+  .pills { display:flex; flex-wrap:wrap; gap:6px; }
+  .pill input, .chip input { position:absolute; opacity:0; width:1px; height:1px; }
+  .pill span { display:inline-block; padding:7px 12px; border-radius:999px; border:1.5px solid var(--line); background:#fff; cursor:pointer; font-size:.92rem; }
+  .pill input:checked + span { background:var(--brand); color:#fff; border-color:var(--brand); font-weight:700; }
+  .pill input:focus-visible + span, .chip input:focus-visible + span { outline:3px solid var(--focus); outline-offset:2px; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+  @media (max-width: 520px) { .row { grid-template-columns:1fr; } }
+  label.f { display:block; font-weight:700; font-size:.92rem; margin-bottom:4px; }
+  select, input[type=text], textarea { width:100%; font:inherit; color:var(--ink); padding:9px 10px; border:1.5px solid var(--line); border-radius:8px; background:#fff; }
+  textarea { min-height:84px; resize:vertical; }
+  select:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible, a.btn:focus-visible, summary:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+  .hint { color:var(--muted); font-size:.82rem; margin:3px 0 0; }
+  .info { background:#f2f6fb; border-left:4px solid var(--brand-2); border-radius:6px; padding:8px 12px; font-size:.9rem; margin-top:12px; }
+  .info b { color:var(--brand); }
+  .fields { display:grid; gap:12px; }
+  .field-vocab { font-size:.78rem; color:var(--brand-2); font-weight:600; }
+  details.cat { border:1px solid var(--line); border-radius:10px; padding:8px 12px; margin-top:10px; background:#fff; }
+  details.cat summary { cursor:pointer; font-weight:700; display:flex; justify-content:space-between; gap:8px; }
+  details.cat summary .count { font-weight:600; color:var(--brand-2); font-size:.85rem; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .chip { position:relative; }
+  .chip span { display:inline-block; padding:5px 11px; border-radius:999px; background:var(--chip); border:1.5px solid transparent; cursor:pointer; font-size:.86rem; }
+  .chip input:checked + span { background:var(--chip-on); color:#fff; font-weight:700; }
+  .chip input:checked + span::before { content:"✓ "; }
+  .chip .tip { display:none; position:absolute; left:0; bottom:calc(100% + 6px); z-index:5; width:max-content; max-width:min(260px,70vw); background:#111827; color:#fff; font-size:.78rem; line-height:1.35; padding:6px 8px; border-radius:6px; pointer-events:none; }
+  .chip:hover .tip, .chip:focus-within .tip { display:block; }
+  html, body { overflow-x:clip; }
+  .filter { margin-top:8px; }
+  .preview-col { position:sticky; top:12px; }
+  @media (max-width: 900px) { .preview-col { position:static; } }
+  .preview { white-space:pre-wrap; word-wrap:break-word; font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; background:#0f172a; color:#e5e7eb; border-radius:10px; padding:14px; min-height:240px; max-height:60vh; overflow:auto; margin:0; }
+  .preview mark { background:#fde68a; color:#111827; border-radius:3px; padding:0 2px; }
+  .stats { display:flex; flex-wrap:wrap; gap:6px 14px; font-size:.85rem; color:var(--muted); margin:8px 0 0; }
+  .stats .todo { color:var(--warn); font-weight:700; }
+  .actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  button, a.btn { font:inherit; font-weight:700; border-radius:10px; padding:10px 14px; border:1.5px solid var(--brand); background:#fff; color:var(--brand); cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  button.primary { background:var(--brand); color:#fff; font-size:1.08rem; padding:13px 22px; flex:1 1 220px; justify-content:center; }
+  a.btn.claude { background:var(--brand-2); border-color:var(--brand-2); color:#fff; }
+  button.ghost { border-color:var(--line); color:var(--muted); }
+  .note { font-size:.85rem; color:var(--muted); margin:10px 0 0; }
+  .toast { position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(30px); background:#065f46; color:#fff; font-weight:700; padding:12px 20px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.2); opacity:0; transition:opacity .2s, transform .2s; z-index:20; pointer-events:none; }
+  .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  .mobilebar { display:none; }
+  @media (max-width: 900px) {
+    .mobilebar { display:flex; position:fixed; left:0; right:0; bottom:0; gap:8px; padding:10px 12px; background:rgba(255,255,255,.96); border-top:1px solid var(--line); z-index:15; }
+    .mobilebar button { flex:1; justify-content:center; }
+  }
+  footer { text-align:center; color:var(--muted); font-size:.82rem; padding:0 16px 28px; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#preview">Skip to the prompt preview</a>
+<header class="top">
+  <p class="org">Tertiary Infotech Academy · Agentic AI for Video Creation</p>
+  <h1>Build the prompt. Paste it into Claude. Ship the video.</h1>
+  <p class="pitch">Twelve stages from idea to posted video, ten genres, six platforms. Pick a stage, fill the blanks, tap the camera moves Higgsfield knows by name, and copy a prompt your Claude project can run.</p>
+  <ol class="flow" aria-label="Production flow">
+    <li>Idea</li><li>Story</li><li>Storyboard</li><li>Script</li><li>Assets</li><li>Scenes</li><li>Effects</li><li>Higgsfield</li><li>Review</li><li>Download</li><li>Edit</li><li>Publish</li>
+  </ol>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <section class="panel" aria-labelledby="h-stage">
+      <h2 id="h-stage"><span class="n">1</span>Pick your stage</h2>
+      <fieldset><legend class="sr">Stage</legend><div class="pills" id="stages"></div></fieldset>
+      <div class="row">
+        <div><label class="f" for="genre">Genre</label><select id="genre"></select></div>
+        <div><label class="f" for="platform">Platform</label><select id="platform"></select></div>
+      </div>
+      <div class="info" id="info" aria-live="polite"></div>
+      <div class="actions">
+        <button type="button" id="example">Load the Kopi &amp; Coins example</button>
+        <button type="button" class="ghost" id="reset">Reset everything</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-fields">
+      <h2 id="h-fields"><span class="n">2</span>Fill the blanks</h2>
+      <p class="hint" style="margin-top:-4px">Each box replaces a [SQUARE_BRACKET] in the template. What you type carries across stages, so you write your title once.</p>
+      <div class="fields" id="fields"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="h-chips">
+      <h2 id="h-chips"><span class="n">3</span>Direct the camera</h2>
+      <p class="hint" style="margin-top:-4px">Tap to add. Hover or focus a chip to see what it means. Picks fill matching blanks (camera move, lens…) or are listed under "Cinematic choices". Camera moves use Higgsfield's own preset names.</p>
+      <div class="filter"><label class="f" for="chipfilter">Find a term</label><input type="text" id="chipfilter" placeholder="e.g. dolly, orbit, golden" autocomplete="off"></div>
+      <div id="vocab"></div>
+    </section>
+  </div>
+
+  <div class="preview-col">
+    <section class="panel" aria-labelledby="h-prev">
+      <h2 id="h-prev"><span class="n">4</span>Copy and run it</h2>
+      <pre class="preview" id="preview" tabindex="0" aria-label="Prompt preview"></pre>
+      <p class="stats" id="stats" aria-live="polite"></p>
+      <div class="actions">
+        <button type="button" class="primary" id="copy">Copy prompt</button>
+        <a class="btn claude" id="openclaude" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Open Claude ↗</a>
+        <button type="button" id="copyall">Copy all 12 stages as one pack</button>
+      </div>
+      <p class="note">Working in <b>Claude Desktop</b>? Open your video project (e.g. "Kopi &amp; Coins – Ep1 micro-drama (TikTok)"), start a new chat, turn on the Higgsfield connector under <b>+ &gt; Connectors</b>, and paste. "Open Claude" opens claude.ai in your browser.</p>
+    </section>
+  </div>
+</div>
+
+<div class="mobilebar" aria-hidden="false">
+  <button type="button" class="primary" id="copy-m">Copy prompt</button>
+  <a class="btn claude" href="https://claude.ai/new" target="_blank" rel="noopener noreferrer">Open Claude ↗</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer>Tertiary Infotech Academy · Course C436 · Templates checked 8 Nov 2026 · Kopi &amp; Coins is a fictitious studio. Works offline.</footer>
+
+<style>.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}</style>
+<script id="templates-data" type="application/json">{"meta":{"name":"Claude Desktop + Higgsfield prompt templates","course":"Agentic AI for Video Creation (C436), Tertiary Infotech Academy","version":"1.0","checked":"2026-11-08","how_to_use":"Pick a stage, genre and platform. Replace every [SQUARE_BRACKET] with your own words. {CURLY} tokens fill in automatically from your genre and platform.","auto_tokens":{"{GENRE}":"genre name","{GENRE_STRUCTURE}":"beats for the genre","{GENRE_HOOK}":"hook pattern for the genre","{PLATFORM}":"platform name","{PLATFORM_SPEC}":"aspect, frame, length","{ASPECT}":"aspect ratio","{SAFE_ZONE}":"caption safe zone","{DISCLOSURE}":"AI-disclosure click path","{LAHLAH_PLATFORM}":"platform value for lahlah-edit.json"}},"scene_formula":"[SHOT_SIZE] [ANGLE] of [SUBJECT], [ACTION], in [LOCATION_TIME], [LIGHTING], [MOOD], [COLOUR_GRADE], camera: [CAMERA_MOVE], [LENS], {ASPECT}, no on-screen text, no logos","stages":[{"id":"idea","name":"1. Idea","skill":"none (plain chat)","goal":"Find the angle that stops the scroll before you build anything.","template":"I want to make a [LENGTH]-second {GENRE} video for {PLATFORM} called \"[TITLE]\".\nThe idea: [IDEA]\nAudience: [AUDIENCE].\nThe one thing they must remember: [MESSAGE].\nMust avoid: [MUST_AVOID].\n\nGive me 3 different angles on this idea. For each: a 3-second hook that works with the sound off ({GENRE_HOOK}), the emotional turn, and the ending. Then pick one and tell me why in two sentences.","placeholders":["LENGTH","TITLE","IDEA","AUDIENCE","MESSAGE","MUST_AVOID"],"example_chips":{}},{"id":"story","name":"2. Story","skill":"storytelling","goal":"Lock the logline, hook, timed beats and character bible.","template":"Use the storytelling skill.\nTitle: \"[TITLE]\". Format: {PLATFORM_SPEC}. Target: [LENGTH] s.\nIdea: [IDEA]\nAudience: [AUDIENCE]. One message: [MESSAGE]. CTA: \"[CTA]\".\nCharacters: [CHARACTERS].\nTone: [TONE].\nStructure to follow: {GENRE_STRUCTURE}\nMust avoid: [MUST_AVOID].\n\nGive me the logline, the hook (0-3 s), timed beats that add up to [LENGTH] s, the ending and the character bible. Show it as a DRAFT artifact and wait for my APPROVE.","placeholders":["TITLE","LENGTH","IDEA","AUDIENCE","MESSAGE","CTA","CHARACTERS","TONE","MUST_AVOID"],"example_chips":{"mood":["Tender","Hopeful"]}},{"id":"storyboard","name":"3. Storyboard","skill":"storyboard","goal":"Turn the brief into shot cards you can approve.","template":"Use the storyboard skill on the approved story brief for \"[TITLE]\".\nPlan about [SHOT_COUNT] shots that add up to exactly [LENGTH] s for {PLATFORM} ({PLATFORM_SPEC}).\nFor every shot: shot size, angle, Higgsfield camera move, action, dialogue/VO, on-screen text (6 words max), SFX/music, asset handles, transition in, and a Higgsfield prompt.\nShot 1 lands the hook inside 3 s. Keep captions inside the safe zone: {SAFE_ZONE}.\nRender the storyboard HTML artifact with the DRAFT banner and stop for my approval.","placeholders":["TITLE","SHOT_COUNT","LENGTH"],"example_chips":{"camera_moves":["Dolly In","Crash Zoom In","Tilt Down","Arc Right","Dolly Out"],"pacing":["Conversational"]}},{"id":"script","name":"4. Script","skill":"video-script","goal":"Write the production bible Higgsfield will follow line by line.","template":"Use the video-script skill on approved storyboard v[VERSION] of \"[TITLE]\".\nKeep every shot ID. Spoken words: [WORD_LIMIT] max.\nFor each shot add the model (prefer [MODEL]; check models_explore), seconds to generate, a text-to-video prompt with the full look, an image-to-video prompt with motion only, the start frame, the caption and the transition.\nTiming must add up to [LENGTH] s. Include the asset bible, the music plan and the caption list.\nRender the script artifact as a DRAFT and wait for my APPROVE.","placeholders":["VERSION","TITLE","WORD_LIMIT","MODEL","LENGTH"],"example_chips":{"colour_grade":["Warm kopi browns"]}},{"id":"assets","name":"5. Asset descriptions","skill":"video-script","goal":"Describe every character, place and prop once, precisely, for consistency.","template":"Write the asset bible for \"[TITLE]\".\nCharacters: [CHARACTERS].\nLocations: [LOCATIONS].\nProps: [PROPS].\nFor each asset give: a handle (@ for people and props, # for places), the full look description I will paste into every prompt, 3 details that must never change, a reference-still prompt (front view, neutral soft light, plain [BACKGROUND] background, photoreal, {ASPECT}), and the consistency method: Higgsfield Element, Soul ID or start frame. Fictional people only.","placeholders":["TITLE","CHARACTERS","LOCATIONS","PROPS","BACKGROUND"],"example_chips":{"lighting":["Soft window light"]}},{"id":"scene","name":"6. Scene creation prompt","skill":"video-script","goal":"Write one shot prompt with the formula.","template":"[SHOT_SIZE] [ANGLE] of [SUBJECT], [ACTION], in [LOCATION_TIME], [LIGHTING], [MOOD], [COLOUR_GRADE], camera: [CAMERA_MOVE], [LENS], {ASPECT}, no on-screen text, no logos","placeholders":["SHOT_SIZE","ANGLE","SUBJECT","ACTION","LOCATION_TIME","LIGHTING","MOOD","COLOUR_GRADE","CAMERA_MOVE","LENS"],"example_chips":{}},{"id":"effects","name":"7. Cinematic effects","skill":"storyboard","goal":"Choose the move that serves the beat, not the flashiest one.","template":"For shot [SHOT_ID] of \"[TITLE]\" the beat is: [BEAT].\nI want the viewer to feel: [MOOD].\nMy current picks: camera [CAMERA_MOVE], transition in: [TRANSITION].\nSuggest the best Higgsfield Camera Controls move and one alternative, plus shot size, angle, lens, lighting and the transition into the next shot. One line each on why. Flag anything that will fight the {ASPECT} frame or the caption safe zone ({SAFE_ZONE}).","placeholders":["SHOT_ID","TITLE","BEAT","MOOD","CAMERA_MOVE","TRANSITION"],"example_chips":{"camera_moves":["Tilt Down","Focus Change"],"transitions":["cut"]}},{"id":"generate","name":"8. Higgsfield generation","skill":"higgsfield-video","goal":"Produce the approved shots, references first, inside a credit budget.","template":"Use the higgsfield-video skill. Storyboard v[VERSION] and script v[VERSION] of \"[TITLE]\" are APPROVED.\nHiggsfield folder: \"[HIGGSFIELD_FOLDER]\". Budget: [CREDIT_BUDGET] credits.\n1) Run balance, then models_explore for {ASPECT} image-to-video, then presets_show.\n2) Show me a cost table (+30% for retries) and wait for my yes.\n3) Generate reference stills for every asset first and let me pick.\n4) Draft every shot LOW-RES first from those start frames: [DRAFT_MODEL] at [DRAFT_RESOLUTION]. Show me the drafts.\n5) Upgrade only the drafts I approve to 1080p on [MODEL], with the same still, prompt and camera preset. No 1080p shot without an approved draft.\n6) Update the status table after every poll. Max 2 retries per shot. Keep everything in Higgsfield; give me result links only.","placeholders":["VERSION","TITLE","HIGGSFIELD_FOLDER","CREDIT_BUDGET","DRAFT_MODEL","MODEL","DRAFT_RESOLUTION"],"example_chips":{}},{"id":"review","name":"9. Review & approve","skill":"higgsfield-video","goal":"Keep what works, re-roll only what fails, and say exactly why.","template":"My review of the generated shots for \"[TITLE]\":\n[REVIEW_NOTES]\nKeep: [KEEP_SHOTS].\nRe-roll: [REROLL_SHOTS].\nFor each re-roll, change only what my note asks, reuse the same start frame, re-roll the LOW-RES draft first, and show the credit cost before generating. Mark kept shots APPROVED in the status table.","placeholders":["TITLE","REVIEW_NOTES","KEEP_SHOTS","REROLL_SHOTS"],"example_chips":{}},{"id":"download","name":"10. Download","skill":"higgsfield-video","goal":"Get every clip onto your laptop in timeline order, with names the editor understands.","template":"All shots for \"[TITLE]\" are approved. List the result links in timeline order with the filename I should save each one as (S01-SH01.mp4, S01-SH02.mp4 …). Also list the job IDs I need to Move to the Higgsfield folder \"[HIGGSFIELD_FOLDER]\". Don't download the files yourself; I'll save them into 05-edit.","placeholders":["TITLE","HIGGSFIELD_FOLDER"],"example_chips":{}},{"id":"edit","name":"11. Edit hand-off","skill":"higgsfield-video","goal":"Open the whole edit in one click in LahLah Video, or rebuild it fast in CapCut.","template":"Write the edit hand-off for \"[TITLE]\": lahlah-edit.json (schema lahlah-edit/1, platform \"{LAHLAH_PLATFORM}\", aspect {ASPECT}, fps [FPS]) and captions.srt.\nUse the Higgsfield result URLs as src, trim each clip to the script timings, and take transitions from the storyboard. Music: [MUSIC_FILE] at volume [MUSIC_VOLUME].\nRun build_handoff.py with --target [LENGTH], give me both files, then tell me how to open them in [EDITOR].","placeholders":["TITLE","FPS","MUSIC_FILE","MUSIC_VOLUME","LENGTH","EDITOR"],"example_chips":{"transitions":["cut","crossfade","dip"]}},{"id":"publish","name":"12. Publish","skill":"platform-publish","goal":"Post with the right file, copy and AI label the first time.","template":"Use the platform-publish skill for \"[TITLE]\" on {PLATFORM}. Final length: [LENGTH] s.\nGive me: export settings ({PLATFORM_SPEC}), the title/first line, a description ending with \"[CTA]\", [HASHTAG_COUNT] hashtags including [SERIES_TAG], a pinned comment, a thumbnail/cover prompt with overlay words, the exact AI-disclosure clicks ({DISCLOSURE}), and the posting checklist as an artifact.\nDisclaimer to include: [DISCLAIMER].","placeholders":["TITLE","LENGTH","CTA","HASHTAG_COUNT","SERIES_TAG","DISCLAIMER"],"example_chips":{}}],"fields":{"TITLE":{"label":"Title","hint":"Working title of the video","example":"Kopi & Coins Ep 1: The Rainy-Day Tin","multiline":false,"vocab":null},"LENGTH":{"label":"Length (seconds)","hint":"Target runtime","example":"60","multiline":false,"vocab":null},"IDEA":{"label":"Idea","hint":"2-4 sentences: who, what goes wrong, what changes","example":"Rachel's laptop dies the night before a client pitch. The repair quote is $1,400; her bank app shows $312. She video-calls Ah Ma, who opens a blue butter-cookie tin with three envelopes: RAINY DAY, ANG PAO, HOLIDAY. Rachel sets up three savings buckets with an automatic payday transfer. Six months later her phone cracks, and she pays calmly.","multiline":true,"vocab":null},"AUDIENCE":{"label":"Audience","hint":"Who, age, where they watch, what they believe now","example":"young working adults in Singapore, 22-35, who earn well but save last","multiline":false,"vocab":null},"MESSAGE":{"label":"One message","hint":"The single thing viewers remember","example":"build an emergency fund first: about 3-6 months of expenses","multiline":false,"vocab":null},"CTA":{"label":"Call to action","hint":"One action the viewer can take today","example":"Start your rainy-day tin this payday.","multiline":false,"vocab":null},"MUST_AVOID":{"label":"Must avoid","hint":"Legal, brand and compliance no-gos","example":"product names, percentages, promised returns, real names, readable bank screens","multiline":false,"vocab":null},"CHARACTERS":{"label":"Characters","hint":"Handle + 3-4 visual details each","example":"@Rachel (29, round tortoiseshell glasses, mustard-yellow cardigan), @AhMa (74, silver perm, jade bangle on left wrist, muted-blue floral blouse)","multiline":true,"vocab":null},"TONE":{"label":"Tone","hint":"3 adjectives + a reference","example":"warm, hopeful, a little funny; like a Netflix cold open, but HDB-warm","multiline":false,"vocab":null},"SHOT_COUNT":{"label":"Shot count","hint":"Roughly 10-14 per 60 s","example":"13","multiline":false,"vocab":null},"VERSION":{"label":"Approved version","hint":"Version number of the approved artifact","example":"1","multiline":false,"vocab":null},"WORD_LIMIT":{"label":"Spoken word limit","hint":"About 2.5 words per second, less for drama","example":"60","multiline":false,"vocab":null},"MODEL":{"label":"Final model (1080p keepers)","hint":"e.g. kling3_0, seedance_2_5, veo3_1 (check models_explore)","example":"kling3_0","multiline":false,"vocab":null},"LOCATIONS":{"label":"Locations","hint":"Handle + look","example":"#HDB-bedroom-night (desk, warm lamp), #AhMa-kitchen (wooden table, window)","multiline":false,"vocab":null},"PROPS":{"label":"Props","hint":"Handle + look","example":"@BlueTin (round blue butter-cookie tin, dent on lid, envelopes RAINY DAY / ANG PAO / HOLIDAY), a small blue tin","multiline":false,"vocab":null},"BACKGROUND":{"label":"Reference background","hint":"Plain colour for reference stills","example":"cream","multiline":false,"vocab":null},"SHOT_SIZE":{"label":"Shot size","hint":"ECU, CU, MCU, MS, WS…","example":"CU","multiline":false,"vocab":"shot_sizes"},"ANGLE":{"label":"Angle","hint":"Eye level, low, high, overhead…","example":"high angle","multiline":false,"vocab":"angles"},"SUBJECT":{"label":"Subject + look","hint":"Use the handle and the never-change details","example":"@AhMa's hands with a jade bangle on the left wrist","multiline":false,"vocab":null},"ACTION":{"label":"Action","hint":"Strong verb + detail","example":"lift the lid of @BlueTin to reveal three labelled envelopes","multiline":false,"vocab":null},"LOCATION_TIME":{"label":"Location + time","hint":"Where and when","example":"an HDB kitchen at 7 pm, on a worn wooden table","multiline":false,"vocab":null},"LIGHTING":{"label":"Lighting","hint":"Source and quality","example":"soft window light","multiline":false,"vocab":"lighting"},"MOOD":{"label":"Mood","hint":"What the viewer feels","example":"tender, nostalgic","multiline":false,"vocab":"mood"},"COLOUR_GRADE":{"label":"Colour grade","hint":"Palette","example":"cream and kopi-brown, low saturation","multiline":false,"vocab":"colour_grade"},"CAMERA_MOVE":{"label":"Camera move","hint":"A Higgsfield Camera Controls name","example":"Tilt Down","multiline":false,"vocab":"camera_moves"},"LENS":{"label":"Lens","hint":"Focal length / depth of field","example":"85mm, shallow depth of field","multiline":false,"vocab":"lens"},"SHOT_ID":{"label":"Shot ID","hint":"S01-SH01 style","example":"S03-SH01","multiline":false,"vocab":null},"BEAT":{"label":"Beat","hint":"What this moment does in the story","example":"the turn: Ah Ma reveals her rule","multiline":false,"vocab":null},"TRANSITION":{"label":"Transition in","hint":"cut, crossfade, slide, zoom, wipe, dip","example":"cut","multiline":false,"vocab":"transitions"},"HIGGSFIELD_FOLDER":{"label":"Higgsfield folder","hint":"Same as your Claude project name","example":"Kopi & Coins – Ep1 micro-drama (TikTok)","multiline":false,"vocab":null},"CREDIT_BUDGET":{"label":"Credit budget","hint":"Hard limit you'll approve","example":"400","multiline":false,"vocab":null},"RESOLUTION":{"label":"Resolution","hint":"720p drafts, 1080p keepers","example":"720p for drafts, 1080p for keepers","multiline":false,"vocab":null},"DRAFT_MODEL":{"label":"Draft model (cheap, low-res)","hint":"e.g. Kling 3.0 Turbo or Veo 3.1 Lite (check models_explore)","example":"Kling 3.0 Turbo","multiline":false,"vocab":null},"DRAFT_RESOLUTION":{"label":"Draft resolution","hint":"480p or 720p","example":"720p","multiline":false,"vocab":null},"REVIEW_NOTES":{"label":"Review notes","hint":"Shot ID: what's wrong","example":"S01-SH02: the watch turned gold; S03-SH02: envelope labels garbled","multiline":true,"vocab":null},"KEEP_SHOTS":{"label":"Keep","hint":"Shot IDs to lock","example":"S01-SH01, S02-SH01, S02-SH02, S03-SH01","multiline":false,"vocab":null},"REROLL_SHOTS":{"label":"Re-roll","hint":"Shot IDs + the one change","example":"S01-SH02 (silver watch), S03-SH02 (blank envelopes; labels go in the editor)","multiline":false,"vocab":null},"FPS":{"label":"Frame rate","hint":"30 unless told otherwise","example":"30","multiline":false,"vocab":null},"MUSIC_FILE":{"label":"Music file","hint":"Licensed track, local filename","example":"music/rainy-day-piano.mp3","multiline":false,"vocab":null},"MUSIC_VOLUME":{"label":"Music volume","hint":"0-1; 0.6 sits under VO","example":"0.6","multiline":false,"vocab":null},"EDITOR":{"label":"Editor","hint":"LahLah Video or CapCut","example":"LahLah Video","multiline":false,"vocab":null},"HASHTAG_COUNT":{"label":"Hashtag count","hint":"3-5 specific beats 20 generic","example":"5","multiline":false,"vocab":null},"SERIES_TAG":{"label":"Series tag","hint":"Your recurring hashtag","example":"#KopiAndCoins","multiline":false,"vocab":null},"DISCLAIMER":{"label":"Disclaimer","hint":"Required line, if any","example":"For general education only. Not financial advice.","multiline":false,"vocab":null}},"genres":[{"id":"microdrama","name":"Micro-drama","seen_on":"ReelShort, DramaBox, ShortMax, TikTok","structure":"cold open on the crisis (0-5 s) → the ask or bad move → the turn (a rule or reveal) → the choice → payoff that mirrors shot 1, or a cliffhanger for a serial → end card","hook":"show the worst moment first","notes":"One location per episode keeps generation cheap. End on a reacting face."},{"id":"product-ad","name":"Marketing / product ad","seen_on":"YouTube in-stream, TikTok in-feed, Reels ads","structure":"problem (0-3 s) → agitate: what it costs → solve: product in use → proof: demo, number or reaction → offer + logo","hook":"the pain, shot close","notes":"Product reference still first; logos and claims go in the editor."},{"id":"explainer","name":"Explainer / educational","seen_on":"YouTube, Shorts, LinkedIn","structure":"question (0-5 s) → the common wrong answer → why it's wrong → the right answer with one visual model → rule of thumb on screen","hook":"a number that breaks an assumption","notes":"One idea per video. The visual model does the teaching."},{"id":"ugc","name":"UGC testimonial","seen_on":"TikTok, Reels","structure":"mid-sentence hook to camera → \"I didn't think it would work\" → first try, handheld → result with one specific detail → soft nudge","hook":"a face to camera, mid-sentence","notes":"Handheld, ring light, phone framing. Fictional presenter only."},{"id":"brand-story","name":"Brand story / documentary","seen_on":"YouTube, LinkedIn","structure":"one telling detail (cold open) → origin → the obstacle that nearly ended it → turning point → today, with people → the belief in one line","hook":"one telling detail, close","notes":"Slow camera, natural light, room for silence."},{"id":"music-video","name":"Music video","seen_on":"YouTube, TikTok","structure":"3 visual motifs → verse: motifs introduced, 2-4 s cuts → chorus: motifs combined, 0.5-1.5 s cuts on the beat → bridge: break the look → final chorus: everything at once","hook":"the strongest image on the first downbeat","notes":"Cut to the BPM. Generate extra B-roll for the chorus."},{"id":"event-recap","name":"Event recap","seen_on":"LinkedIn, Reels, TikTok","structure":"loudest moment first → arrival → three peak moments → faces and reactions → one stat or quote → next date","hook":"the loudest moment, not the entrance","notes":"Mix real footage with generated transitions; never fake attendees."},{"id":"food","name":"F&B / food","seen_on":"TikTok, Reels, Shorts","structure":"sizzle macro → hands at work → plating → first bite + reaction → name, address, hours","hook":"macro of the hero dish, steam rising","notes":"Robo Arm, Eating Zoom and Overhead earn their keep here."},{"id":"real-estate","name":"Real estate walkthrough","seen_on":"YouTube, Reels, TikTok","structure":"best room or view first → exterior and entrance → room by room in walking order → signature feature → neighbourhood in 2 shots → agent CTA","hook":"the best room, not the front door","notes":"Slow moves only (Dolly In, Arc). Don't invent features the unit lacks."},{"id":"corporate-training","name":"Corporate training","seen_on":"LinkedIn, LMS, YouTube (unlisted)","structure":"the costly mistake on screen → why people make it → the right move, step by step → one-line rule → a 1-question check","hook":"a costly mistake in 3 s","notes":"Fictional staff; no client logos or real systems on screen."}],"platforms":[{"id":"tiktok","name":"TikTok","lahlah":"tiktok","aspect":"9:16","spec":"9:16, 1080×1920, 30 fps; 21-60 s works (upload limit 60 min)","safe_zone":"keep text clear of the right-side buttons and the bottom ~25% (third-party guide; TikTok publishes no pixel figure)","disclosure":"Add post > Next > More options > AI-generated content ON","hook":"proposition in 3 s, hook landed within 6 s (TikTok creative guidance)"},{"id":"youtube","name":"YouTube (16:9)","lahlah":"youtube","aspect":"16:9","spec":"16:9, 1920×1080, H.264 MP4, ~8 Mbps at 30 fps; 15 min cap until the account is verified","safe_zone":"keep titles off the bottom bar and the top-right corner","disclosure":"YouTube Studio upload > Attributes > AI use = Yes","hook":"promise the payoff in the first 5 s"},{"id":"youtube-shorts","name":"YouTube Shorts","lahlah":"youtube-shorts","aspect":"9:16","spec":"9:16 or 1:1, 1080×1920; up to 3 min","safe_zone":"keep text out of the bottom third and the right edge (no official figure)","disclosure":"YouTube Studio upload > Attributes > AI use = Yes","hook":"hook in 3 s; loop the last frame into the first"},{"id":"reels","name":"Instagram Reels","lahlah":"reels","aspect":"9:16","spec":"9:16, 1080×1920; up to 20 min, but over 3 min isn't recommended to new audiences","safe_zone":"Meta: leave 14% top, 35% bottom, 6% each side clear","disclosure":"after choosing the video: Next > Add AI label ON (wording awaiting verification)","hook":"hook in 3 s; cover frame readable as a grid tile"},{"id":"microdrama-app","name":"Micro-drama app (ReelShort / DramaBox style)","lahlah":"microdrama","aspect":"9:16","spec":"9:16, 1080×1920; 60-120 s episodes, 70-80 episodes per season is typical (trade press; no app publishes a spec)","safe_zone":"use the Reels figures: 14% top, 35% bottom, 6% sides","disclosure":"per the commissioning contract; label AI use on any social cut","hook":"≤3 s recap sting, then escalate; end every episode on a cliffhanger"},{"id":"linkedin","name":"LinkedIn","lahlah":"youtube","aspect":"1:1","spec":"1:1 (1080×1080), 9:16 or 16:9; Pages up to 10 min; 75 KB-5 GB","safe_zone":"keep captions inside the centre 80%","disclosure":"no creator toggle; write \"Made with AI (Higgsfield)\" in the post","hook":"a business problem in the first line of the post and the first 3 s","note":"lahlah-edit/1 has no 'linkedin' value; use 'youtube' for 16:9 or 'reels' for 9:16 and set aspect yourself."}],"vocab":{"camera_moves":{"label":"Camera moves (Higgsfield Camera Controls)","source":"https://higgsfield.ai/camera-controls","items":[{"name":"Static","meaning":"Camera holds still; let the action move."},{"name":"Handheld","meaning":"Slight human shake; feels real and urgent."},{"name":"Dolly In","meaning":"Camera glides toward the subject; builds focus or tension."},{"name":"Dolly Out","meaning":"Camera glides away; reveals context or loneliness."},{"name":"Dolly Left","meaning":"Camera slides left past the subject."},{"name":"Dolly Right","meaning":"Camera slides right past the subject."},{"name":"Super Dolly In","meaning":"A long, fast push from wide to close."},{"name":"Super Dolly Out","meaning":"A long pull from close to very wide."},{"name":"Double Dolly","meaning":"Subject and camera travel together; the subject seems to glide."},{"name":"Dolly Zoom In","meaning":"Background warps while the subject stays the same size; a realisation."},{"name":"Dolly Zoom Out","meaning":"The reverse warp; the world closes in."},{"name":"Zoom In","meaning":"Lens zooms in; the camera stays put."},{"name":"Zoom Out","meaning":"Lens zooms out; reveals the wider scene."},{"name":"Crash Zoom In","meaning":"Sudden, violent zoom in; shock or comic beat."},{"name":"Crash Zoom Out","meaning":"Sudden zoom out; the floor drops away."},{"name":"Rapid Zoom In","meaning":"Quick zoom in, smoother than a crash."},{"name":"Rapid Zoom Out","meaning":"Quick zoom out to reveal."},{"name":"YoYo Zoom","meaning":"Zooms in and back out in one beat; playful emphasis."},{"name":"Eating Zoom","meaning":"Pushes into a mouthful of food; the F&B hook."},{"name":"Pan Left","meaning":"Camera turns left on the spot to follow or reveal."},{"name":"Pan Right","meaning":"Camera turns right on the spot to follow or reveal."},{"name":"Whip Pan","meaning":"Very fast pan that blurs; energetic link between moments."},{"name":"Tilt Up","meaning":"Camera tips up; reveals height or status."},{"name":"Tilt Down","meaning":"Camera tips down; lands on a detail."},{"name":"Arc Left","meaning":"Camera circles part-way left around the subject."},{"name":"Arc Right","meaning":"Camera circles part-way right around the subject."},{"name":"360 Orbit","meaning":"Full circle around the subject; hero moment."},{"name":"Lazy Susan","meaning":"Subject turns as if on a turntable; product showcase."},{"name":"3D Rotation","meaning":"The scene rotates in 3D around the subject."},{"name":"Crane Up","meaning":"Camera rises high; opens or ends a scene."},{"name":"Crane Down","meaning":"Camera descends into the scene."},{"name":"Crane Over The Head","meaning":"Camera rises and sweeps over the subject."},{"name":"Jib Up","meaning":"A shorter rise; a small reveal."},{"name":"Jib Down","meaning":"A shorter drop to eye level."},{"name":"Aerial Pullback","meaning":"Pulls up and away into a wide aerial; a closing shot."},{"name":"FPV Drone","meaning":"Fast, swooping first-person drone flight."},{"name":"Overhead","meaning":"Straight down from above; flat-lay or map view."},{"name":"Incline","meaning":"Camera rises on a slant past the subject."},{"name":"Dutch Angle","meaning":"Tilted horizon; something is off."},{"name":"Fisheye","meaning":"Ultra-wide bulging lens; skate or street energy."},{"name":"Focus Change","meaning":"Focus pulls from one subject to another."},{"name":"Low Shutter","meaning":"Motion smears into streaks; dreamy or dazed."},{"name":"Hyperlapse","meaning":"Moving timelapse; time passes as the camera travels."},{"name":"Timelapse Glam","meaning":"Time races around a still subject being styled."},{"name":"Timelapse Human","meaning":"Subject stays still while the crowd rushes past."},{"name":"Timelapse Landscape","meaning":"Sky and light change fast over a place."},{"name":"Bullet Time","meaning":"Action freezes while the camera moves around it."},{"name":"Through Object In","meaning":"Camera passes through a gap or window into the scene."},{"name":"Through Object Out","meaning":"Camera exits through a gap or object."},{"name":"Flying Cam Transition","meaning":"Camera flies from one space into another; a built-in scene change."},{"name":"Head Tracking","meaning":"Camera locks onto a moving head."},{"name":"Eyes In","meaning":"Push into the eyes; an inner moment."},{"name":"Mouth In","meaning":"Push into the mouth; speech or eating emphasis."},{"name":"Object POV","meaning":"We see from an object's point of view: a phone, a cup, a tin."},{"name":"Hero Cam","meaning":"Low, rising move that makes the subject look heroic."},{"name":"Snorricam","meaning":"Camera rigged to the actor; the world sways around them."},{"name":"Robo Arm","meaning":"Precise, fast robotic-arm move; product or food."},{"name":"Car Grip","meaning":"Camera fixed to a car; driving dialogue."},{"name":"Car Chasing","meaning":"Camera chases a moving car."},{"name":"Road Rush","meaning":"Low, fast travel along a road."},{"name":"Buckle Up","meaning":"Intense push inside a moving vehicle."},{"name":"BTS","meaning":"Behind-the-scenes look with crew and gear in frame."},{"name":"Glam","meaning":"Slow, flattering beauty move."},{"name":"Wiggle","meaning":"Small playful back-and-forth shake."}]},"angles":{"label":"Camera angles","items":[{"name":"Eye level","meaning":"Neutral; we meet the subject as an equal."},{"name":"Low angle","meaning":"Looking up; the subject feels powerful."},{"name":"High angle","meaning":"Looking down; the subject feels small or exposed."},{"name":"Bird's-eye","meaning":"Straight down; pattern and geography."},{"name":"Worm's-eye","meaning":"From the ground up; scale and awe."},{"name":"Dutch angle","meaning":"Tilted frame; tension or confusion."},{"name":"Over-the-shoulder","meaning":"From behind one person toward another; conversation."},{"name":"POV","meaning":"Through the character's eyes."},{"name":"Profile","meaning":"Side-on; contemplation or confrontation."},{"name":"Three-quarter","meaning":"Between front and profile; the flattering default."}]},"shot_sizes":{"label":"Shot sizes","items":[{"name":"EWS","meaning":"Extreme wide: a tiny figure in a big world."},{"name":"WS","meaning":"Wide: full body plus the place."},{"name":"MWS","meaning":"Medium wide: knees up; body language."},{"name":"MS","meaning":"Medium: waist up; everyday dialogue."},{"name":"MCU","meaning":"Medium close-up: chest up; the talking-head standard."},{"name":"CU","meaning":"Close-up: the face fills the frame; emotion."},{"name":"ECU","meaning":"Extreme close-up: eyes, hands, a detail."},{"name":"Insert","meaning":"A cutaway of an object that matters."},{"name":"Two-shot","meaning":"Two people in one frame; relationship."}]},"lens":{"label":"Lens / focal length","items":[{"name":"14mm ultra-wide","meaning":"Huge space, stretched edges; action or drama."},{"name":"24mm wide","meaning":"Room and subject together; vlogs and interiors."},{"name":"35mm","meaning":"Natural street-level view; versatile storytelling."},{"name":"50mm","meaning":"Close to the human eye; honest and calm."},{"name":"85mm","meaning":"Flattering portrait; soft background."},{"name":"100mm macro","meaning":"Tiny details big: food, labels, textures."},{"name":"135mm telephoto","meaning":"Compressed background; voyeur feel."},{"name":"Anamorphic","meaning":"Wide cinematic frame with oval bokeh and flares."},{"name":"Shallow depth of field","meaning":"Only the subject is sharp."},{"name":"Deep focus","meaning":"Everything sharp front to back."}]},"lighting":{"label":"Lighting","items":[{"name":"Soft window light","meaning":"Gentle, natural, flattering."},{"name":"Golden hour","meaning":"Warm, low sun; nostalgia and hope."},{"name":"Blue hour","meaning":"Cool dusk; quiet melancholy."},{"name":"Single practical lamp","meaning":"One visible lamp; intimate night scenes."},{"name":"High-key","meaning":"Bright, few shadows; ads and comedy."},{"name":"Low-key","meaning":"Dark with hard shadows; drama and mystery."},{"name":"Neon night","meaning":"Coloured signage light; city energy."},{"name":"Backlit rim light","meaning":"Light behind the subject outlines them."},{"name":"Overcast","meaning":"Flat and even; documentary feel."},{"name":"Ring light","meaning":"Even front light with eye catchlights; UGC."},{"name":"Fluorescent office","meaning":"Cool, flat, slightly green; workplace realism."}]},"mood":{"label":"Mood","items":[{"name":"Tense","meaning":"Something is about to go wrong."},{"name":"Tender","meaning":"Warmth between people."},{"name":"Hopeful","meaning":"Things are turning around."},{"name":"Playful","meaning":"Light, funny, quick."},{"name":"Urgent","meaning":"No time to lose."},{"name":"Nostalgic","meaning":"A warm look back."},{"name":"Triumphant","meaning":"The win lands."},{"name":"Awkward","meaning":"Cringe the audience feels too."},{"name":"Calm","meaning":"Steady and reassuring."},{"name":"Eerie","meaning":"Quiet and unsettling."}]},"colour_grade":{"label":"Colour grade","items":[{"name":"Teal & orange","meaning":"Blockbuster contrast: warm skin, cool shadows."},{"name":"Warm kopi browns","meaning":"Coffee and cream tones; homely (the Kopi & Coins look)."},{"name":"Bleach bypass","meaning":"Desaturated and gritty; harsh reality."},{"name":"Pastel","meaning":"Soft, light colours; lifestyle and beauty."},{"name":"Monochrome","meaning":"Black and white; timeless or stark."},{"name":"Film stock look","meaning":"Fine grain, gentle highlights; analogue warmth."},{"name":"Neon cyberpunk","meaning":"Magenta and cyan; night-city tech."},{"name":"Natural Rec.709","meaning":"True-to-life colour; documentary and training."},{"name":"High-contrast commercial","meaning":"Punchy, clean, saturated; product ads."}]},"transitions":{"label":"Transitions","items":[{"name":"cut","meaning":"Instant change; the default. (LahLah: cut)"},{"name":"crossfade","meaning":"One shot dissolves into the next; time passes. (LahLah: crossfade)"},{"name":"slide","meaning":"The next shot pushes the last off-screen. (LahLah: slide)"},{"name":"zoom","meaning":"A zoom blur carries you into the next shot. (LahLah: zoom)"},{"name":"wipe","meaning":"A line sweeps the new shot in. (LahLah: wipe)"},{"name":"dip","meaning":"Fade through black or white; a chapter break. (LahLah: dip)"},{"name":"Match cut","meaning":"Cut between two shapes or actions that rhyme (made with a cut)."},{"name":"Smash cut","meaning":"Abrupt cut from quiet to loud, or back (made with a cut)."},{"name":"J-cut","meaning":"The next scene's sound starts before its picture."},{"name":"L-cut","meaning":"This scene's sound carries over the next picture."}]},"pacing":{"label":"Pacing","items":[{"name":"Slow burn","meaning":"4-6 s shots; let moments breathe."},{"name":"Conversational","meaning":"3-4 s shots; follows dialogue."},{"name":"Punchy","meaning":"1-2 s shots; ads and hooks."},{"name":"On the beat","meaning":"Cuts land on the music's beats."},{"name":"Speed ramp","meaning":"Slows down or speeds up inside one shot."},{"name":"Hold on reaction","meaning":"Stay on a face a beat longer than comfortable."}]}},"example":{"name":"Kopi & Coins Ep 1: The Rainy-Day Tin","genre":"microdrama","platform":"tiktok"}}</script>
+<script>
+(function () {
+  'use strict';
+  var D = JSON.parse(document.getElementById('templates-data').textContent);
+  var KEY = 'tia-video-prompt-builder-v1';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var byId = function (arr, id) { for (var i = 0; i < arr.length; i++) if (arr[i].id === id) return arr[i]; return arr[0]; };
+
+  function fresh() { return { stage: D.stages[0].id, genre: D.genres[0].id, platform: D.platforms[0].id, values: {}, chips: {} }; }
+  var S = fresh();
+  try { var saved = JSON.parse(localStorage.getItem(KEY) || 'null'); if (saved && saved.values) S = Object.assign(fresh(), saved); } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+
+  // ---------- build static controls ----------
+  $('stages').innerHTML = D.stages.map(function (s) {
+    return '<label class="pill"><input type="radio" name="stage" value="' + s.id + '"><span>' + esc(s.name) + '</span></label>';
+  }).join('');
+  $('genre').innerHTML = D.genres.map(function (g) { return '<option value="' + g.id + '">' + esc(g.name) + '</option>'; }).join('');
+  $('platform').innerHTML = D.platforms.map(function (p) { return '<option value="' + p.id + '">' + esc(p.name) + '</option>'; }).join('');
+  var cats = Object.keys(D.vocab);
+  $('vocab').innerHTML = cats.map(function (c, ci) {
+    var cat = D.vocab[c];
+    return '<details class="cat" data-cat="' + c + '"' + (ci === 0 ? ' open' : '') + '><summary><span>' + esc(cat.label) + '</span><span class="count" id="cnt-' + c + '"></span></summary>' +
+      '<fieldset><legend class="sr">' + esc(cat.label) + '</legend><div class="chips">' + cat.items.map(function (it, i) {
+        var id = 'c-' + c + '-' + i;
+        return '<label class="chip" data-name="' + esc(it.name.toLowerCase()) + ' ' + esc(it.meaning.toLowerCase()) + '"><input type="checkbox" id="' + id + '" data-cat="' + c + '" value="' + esc(it.name) + '" aria-describedby="' + id + '-t"><span>' + esc(it.name) + '</span><span class="tip" role="tooltip" id="' + id + '-t">' + esc(it.meaning) + '</span></label>';
+      }).join('') + '</div></fieldset></details>';
+  }).join('');
+
+  // ---------- helpers ----------
+  function stage() { return byId(D.stages, S.stage); }
+  function genre() { return byId(D.genres, S.genre); }
+  function platform() { return byId(D.platforms, S.platform); }
+  function chipsFor(stId) { return S.chips[stId] || (S.chips[stId] = {}); }
+
+  function auto(g, p) {
+    return { '{GENRE}': g.name, '{GENRE_STRUCTURE}': g.structure, '{GENRE_HOOK}': g.hook, '{PLATFORM}': p.name, '{PLATFORM_SPEC}': p.spec,
+      '{ASPECT}': p.aspect, '{SAFE_ZONE}': p.safe_zone, '{DISCLOSURE}': p.disclosure, '{LAHLAH_PLATFORM}': p.lahlah };
+  }
+
+  // returns {text, missing:[...]}
+  function compose(st, g, p, values, chips) {
+    var txt = st.template, a = auto(g, p), missing = [], used = {};
+    Object.keys(a).forEach(function (k) { txt = txt.split(k).join(a[k]); });
+    txt = txt.replace(/\[([A-Z_]+)\]/g, function (m, key) {
+      var v = (values[key] || '').trim();
+      var f = D.fields[key];
+      if (!v && f && f.vocab && chips[f.vocab] && chips[f.vocab].length) { v = chips[f.vocab].join(', '); used[f.vocab] = true; }
+      if (!v) { if (missing.indexOf(key) < 0) missing.push(key); return '\u0000' + key + '\u0001'; }
+      return v;
+    });
+    var extra = cats.filter(function (c) { return !used[c] && chips[c] && chips[c].length; });
+    if (extra.length) {
+      txt += '\n\nCinematic choices (use these by name; camera moves are Higgsfield Camera Controls presets):\n' +
+        extra.map(function (c) { return '- ' + D.vocab[c].label.replace(/ \(.*\)$/, '') + ': ' + chips[c].join(', '); }).join('\n');
+    }
+    if (p.note && /edit/.test(st.id)) txt += '\n\nNote: ' + p.note;
+    return { text: txt, missing: missing };
+  }
+  function plain(t) { return t.replace(/\u0000([A-Z_]+)\u0001/g, '[$1]'); }
+  function html(t) { return esc(t).replace(/\u0000([A-Z_]+)\u0001/g, '<mark>[$1]</mark>'); }
+
+  // ---------- render ----------
+  function renderFields() {
+    var st = stage();
+    $('fields').innerHTML = st.placeholders.map(function (k) {
+      var f = D.fields[k] || { label: k, hint: '' }, id = 'f-' + k, v = esc(S.values[k] || '');
+      var vocabNote = f.vocab ? '<span class="field-vocab"> · or pick from "' + esc(D.vocab[f.vocab].label) + '" below</span>' : '';
+      var input = f.multiline
+        ? '<textarea id="' + id + '" data-key="' + k + '" aria-describedby="' + id + '-h" placeholder="' + esc(f.example) + '">' + v + '</textarea>'
+        : '<input type="text" id="' + id + '" data-key="' + k + '" aria-describedby="' + id + '-h" placeholder="' + esc(f.example) + '" value="' + v + '">';
+      return '<div><label class="f" for="' + id + '">' + esc(f.label) + ' <code style="font-weight:400;color:#64748b">[' + k + ']</code></label>' + input + '<p class="hint" id="' + id + '-h">' + esc(f.hint) + vocabNote + '</p></div>';
+    }).join('') || '<p class="hint">This stage has no blanks.</p>';
+  }
+  function renderChips() {
+    var c = chipsFor(S.stage);
+    Array.prototype.forEach.call(document.querySelectorAll('#vocab input[type=checkbox]'), function (box) {
+      box.checked = (c[box.dataset.cat] || []).indexOf(box.value) >= 0;
+    });
+    cats.forEach(function (k) { var n = (c[k] || []).length; $('cnt-' + k).textContent = n ? n + ' picked' : ''; });
+  }
+  function renderInfo() {
+    var st = stage(), g = genre(), p = platform();
+    $('info').innerHTML = '<div><b>' + esc(st.name) + ':</b> ' + esc(st.goal) + ' Skill: <code>' + esc(st.skill) + '</code></div>' +
+      '<div><b>' + esc(g.name) + ':</b> ' + esc(g.structure) + (g.seen_on ? ' <i>(seen on ' + esc(g.seen_on) + ')</i>' : '') + '</div>' +
+      '<div><b>' + esc(p.name) + ':</b> ' + esc(p.spec) + '. AI label: ' + esc(p.disclosure) + '.</div>';
+  }
+  function renderPreview() {
+    var r = compose(stage(), genre(), platform(), S.values, chipsFor(S.stage));
+    $('preview').innerHTML = html(r.text);
+    $('stats').innerHTML = '<span>' + plain(r.text).length + ' characters</span>' +
+      (r.missing.length ? '<span class="todo">' + r.missing.length + ' blank' + (r.missing.length > 1 ? 's' : '') + ' to fill: ' + r.missing.join(', ') + '</span>' : '<span>All blanks filled ✓</span>');
+  }
+  function renderAll() {
+    Array.prototype.forEach.call(document.getElementsByName('stage'), function (r) { r.checked = r.value === S.stage; });
+    $('genre').value = S.genre; $('platform').value = S.platform;
+    renderInfo(); renderFields(); renderChips(); renderPreview(); save();
+  }
+
+  // ---------- events ----------
+  $('stages').addEventListener('change', function (e) { if (e.target.name === 'stage') { S.stage = e.target.value; renderAll(); } });
+  $('genre').addEventListener('change', function () { S.genre = this.value; renderInfo(); renderPreview(); save(); });
+  $('platform').addEventListener('change', function () { S.platform = this.value; renderInfo(); renderPreview(); save(); });
+  $('fields').addEventListener('input', function (e) { var k = e.target.dataset.key; if (k) { S.values[k] = e.target.value; renderPreview(); save(); } });
+  $('vocab').addEventListener('change', function (e) {
+    var b = e.target; if (b.type !== 'checkbox') return;
+    var c = chipsFor(S.stage), list = c[b.dataset.cat] || (c[b.dataset.cat] = []), i = list.indexOf(b.value);
+    if (b.checked && i < 0) list.push(b.value); if (!b.checked && i >= 0) list.splice(i, 1);
+    renderChips(); renderPreview(); save();
+  });
+  $('chipfilter').addEventListener('input', function () {
+    var q = this.value.trim().toLowerCase();
+    Array.prototype.forEach.call(document.querySelectorAll('#vocab .chip'), function (ch) { ch.style.display = !q || ch.dataset.name.indexOf(q) >= 0 ? '' : 'none'; });
+    Array.prototype.forEach.call(document.querySelectorAll('#vocab details'), function (d) {
+      var any = d.querySelectorAll('.chip:not([style*="none"])').length; d.style.display = any ? '' : 'none'; if (q && any) d.open = true;
+    });
+  });
+
+  function placeTip(e) {
+    var chip = e.target.closest && e.target.closest('.chip'); if (!chip) return;
+    var tip = chip.querySelector('.tip'); tip.style.left = '0px';
+    var r = tip.getBoundingClientRect(), cw = document.documentElement.clientWidth, dx = 0;
+    if (!r.width) return;
+    if (r.right > cw - 8) dx = cw - 8 - r.right;
+    if (r.left + dx < 8) dx = 8 - r.left;
+    tip.style.left = dx + 'px';
+  }
+  $('vocab').addEventListener('mouseover', placeTip);
+  $('vocab').addEventListener('focusin', placeTip);
+
+  var toastT;
+  function toast(msg) { var t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove('show'); }, 1800); }
+  function copyText(text, msg) {
+    var ok = function () { toast(msg); };
+    var fallback = function () {
+      var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); var good = false; try { good = document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta);
+      if (good) ok(); else toast('Copy blocked: select the preview text and press Ctrl/Cmd+C');
+    };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(ok, fallback); else fallback();
+  }
+  function current() { return plain(compose(stage(), genre(), platform(), S.values, chipsFor(S.stage)).text); }
+  $('copy').addEventListener('click', function () { copyText(current(), 'Copied! Paste it into Claude'); });
+  $('copy-m').addEventListener('click', function () { copyText(current(), 'Copied! Paste it into Claude'); });
+  $('copyall').addEventListener('click', function () {
+    var g = genre(), p = platform();
+    var title = (S.values.TITLE || '[TITLE]');
+    var pack = '# Prompt pack: ' + title + '\n# Genre: ' + g.name + ' · Platform: ' + p.name + '\n# Run these one at a time, in order. Approve each artifact before the next.\n';
+    pack += D.stages.map(function (st) { return '\n\n## ' + st.name + ' (skill: ' + st.skill + ')\n\n' + plain(compose(st, g, p, S.values, chipsFor(st.id)).text); }).join('');
+    copyText(pack, 'Copied all 12 stages!');
+  });
+  $('example').addEventListener('click', function () {
+    S.genre = D.example.genre; S.platform = D.example.platform;
+    Object.keys(D.fields).forEach(function (k) { S.values[k] = D.fields[k].example; });
+    S.chips = {}; D.stages.forEach(function (st) { S.chips[st.id] = JSON.parse(JSON.stringify(st.example_chips || {})); });
+    renderAll(); toast('Kopi & Coins example loaded');
+  });
+  $('reset').addEventListener('click', function () { S = fresh(); $('chipfilter').value = ''; $('chipfilter').dispatchEvent(new Event('input')); renderAll(); toast('Cleared. Fresh start.'); });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Lab 04 prompts — Create Episode 1 with Claude and Higgsfield</title><style>
+:root{--ink:#21201C;--muted:#6B6862;--accent:#D97757;--teal:#2F7F7A;
+--cream:#FAF9F5;--card:#fff;--rule:#E5E1D8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,
+"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink);
+line-height:1.5}main{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}.card{background:var(--card);
+border:1px solid var(--rule);border-radius:12px;padding:16px 18px;
+margin:14px 0}.row{display:flex;gap:10px;align-items:center;
+justify-content:space-between;flex-wrap:wrap}.label{font-weight:700}
+pre{white-space:pre-wrap;background:#F4F1EA;border-radius:8px;padding:12px;
+font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:10px 0 0}
+mark{background:#FDE7C8;border-radius:3px;padding:0 2px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:8px;
+padding:9px 14px;cursor:pointer;background:var(--accent);color:#fff;
+text-decoration:none;display:inline-block}.btn.alt{background:var(--teal)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--rule)}
+button:focus-visible,.btn:focus-visible{outline:3px solid #1f6feb;
+outline-offset:2px}.toast{position:fixed;bottom:18px;left:50%;
+transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px
+16px;border-radius:8px;opacity:0;transition:opacity .2s}.toast.show{
+opacity:1}ol li,ul li{margin:4px 0}table{border-collapse:collapse;
+width:100%}td,th{border-bottom:1px solid var(--rule);padding:8px;
+text-align:left;vertical-align:top}.tag{font-size:13px;color:var(--teal);
+font-weight:600}
+</style></head><body><main><p><a class="btn ghost" href="../index.html">← Labs home</a> <a class="btn alt" href="../prompt-builder.html">Prompt Builder</a> <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Open Claude</a></p><h1>Lab 04 — Create Episode 1 with Claude and Higgsfield</h1><p class="sub">Claude Desktop + Higgsfield MCP — the video-script and higgsfield-video skills · about 75 minutes</p><p>Direct Claude to produce the episode in Higgsfield — script, prompts, approval, budget, references, low-res drafts, then high-res finals — and keep every asset traceable in one Higgsfield folder.</p><h2>Steps</h2><ol><li><b>Script the shots</b> — Prompt A calls the video-script skill: shots, VO, asset descriptions and two video prompts per shot, as an artifact.</li><li><b>Add cinematic effects, approve</b> — Prompt Builder (Stage Scene creation): tick camera presets, angles, lens, lighting, grade; paste as changes; reply APPROVED.</li><li><b>Agree the budget</b> — Prompt B calls the higgsfield-video skill: balance, models_explore, a credit table at draft and final resolution.</li><li><b>References first</b> — Claude calls generate_image for Rachel, Ah Ma and the tin. Pick one still each.</li><li><b>Draft every shot low-res</b> — Cheap model, 480p or 720p, generate_video_batch then jobs_wait. Fix the story here, where a re-roll is cheap.</li><li><b>Upgrade the keepers</b> — Prompt C re-makes only the approved drafts at 1080p on the final model, from the same still and prompt.</li><li><b>File, download, hand off</b> — Move every job into the Higgsfield folder; save each clip as S01-SH01.mp4 in 05-edit; download lahlah-edit.json and captions.srt.</li></ol><h2>Prompts</h2><p class="sub">Change only the <mark>[HIGHLIGHTED]</mark> words, then Copy and paste into the Claude project chat.</p><section class="card"><div class="row"><span class="label">PROMPT A — shots, assets and video prompts (video-script skill)</span><button onclick="copyText('p0')" aria-label="Copy PROMPT A — shots, assets and video prompts (video-script skill)">Copy</button></div><pre id="p0">Use the video-script skill on the approved storyboard.
+
+For every shot give: shot ID, timeline seconds, the one action,
+dialogue or VO, on-screen text (added in the editor, never
+generated), the assets in shot with their five fixed traits,
+and two prompts:
+- i2v: animate from the approved reference still;
+- t2v: fallback with no still.
+
+Scene prompt formula:
+<mark>[SHOT_SIZE]</mark> <mark>[ANGLE]</mark> of <mark>[SUBJECT]</mark>, <mark>[ACTION]</mark>, in
+<mark>[LOCATION_TIME]</mark>, <mark>[LIGHTING]</mark>, <mark>[MOOD]</mark>, <mark>[COLOUR_GRADE]</mark>,
+camera: <mark>[CAMERA_MOVE]</mark>, <mark>[LENS]</mark>, 9:16, no on-screen text,
+no logos.
+
+Show it as an HTML artifact marked DRAFT and stop.</pre></section><section class="card"><div class="row"><span class="label">PROMPT B — budget, references, low-res drafts (higgsfield-video skill)</span><button onclick="copyText('p1')" aria-label="Copy PROMPT B — budget, references, low-res drafts (higgsfield-video skill)">Copy</button></div><pre id="p1">Use the higgsfield-video skill to produce Episode 1.
+
+1. Check the storyboard and script are APPROVED.
+2. Call balance and models_explore: a cheap draft model
+   (480p or 720p) and a final model (1080p).
+3. Credit table: stills, low-res drafts, 1080p upgrades,
+   +30%. Budget <mark>[BUDGET]</mark> credits. Ask before every batch.
+4. On Go: generate_image for Rachel, Ah Ma and the tin;
+   wait for my picks.
+5. Draft every shot LOW-RES with generate_video_batch;
+   poll jobs_wait; keep the status table. No 1080p yet.
+6. Folder: &quot;Kopi &amp; Coins – Ep1 micro-drama (TikTok)&quot;.
+   List the job IDs to Move into it.</pre></section><section class="card"><div class="row"><span class="label">PROMPT C — upgrade the keepers to high resolution</span><button onclick="copyText('p2')" aria-label="Copy PROMPT C — upgrade the keepers to high resolution">Copy</button></div><pre id="p2">These drafts are approved: <mark>[SHOT_IDS]</mark>. Re-generate ONLY these at
+1080p on the final model, from the same reference still, the
+same prompt and the same camera preset. Show the cost first.
+Leave rejected drafts alone. Add the new job IDs to the status
+table and the folder list.</pre></section><section class="card"><div class="row"><span class="label">PROMPT D — re-roll one draft, then hand off</span><button onclick="copyText('p3')" aria-label="Copy PROMPT D — re-roll one draft, then hand off">Copy</button></div><pre id="p3">S03-SH01 drifted: the tin has no dent and the labels are
+garbled. Re-roll this LOW-RES draft only, from the approved tin
+still, camera Static, no text in the prompt — we add the
+labels in LahLah Video.
+
+When every shot is final, write lahlah-edit.json (schema
+lahlah-edit/1, platform tiktok, 9:16, 30 fps, clips in timeline
+order with trim_in and trim_out, transitions from the
+storyboard, captions in timeline seconds) and captions.srt.
+Give me the 1080p download links in order, named S01-SH01.mp4
+and so on, and the total credits spent.</pre></section><h2>Check your work</h2><ul><li>The script artifact is APPROVED, with an i2v and a t2v prompt and one camera move for every shot.</li><li>A credit table at draft and final resolution was approved before any generation.</li><li>One approved reference still each for Rachel, Ah Ma and the tin.</li><li>Every shot was drafted low-res first; only approved drafts were upgraded to 1080p.</li><li>Every still, draft and final sits in the Higgsfield folder named after the project, with its job ID in the status table.</li><li>The 1080p clips are saved in 05-edit as S01-SH01.mp4 …, with lahlah-edit.json and captions.srt beside them.</li></ul></main><div id="toast" class="toast" role="status" aria-live="polite">Copied — paste it into Claude</div><script>
+function copyText(id){const t=document.getElementById(id).innerText;
+const done=()=>{const s=document.getElementById('toast');s.classList.add('show');
+setTimeout(()=>s.classList.remove('show'),1400)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done)}
+else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);
+a.select();document.execCommand('copy');a.remove();done()}}
+</script></body></html>

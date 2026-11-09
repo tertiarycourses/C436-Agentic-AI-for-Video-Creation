@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>Lab 07 prompts — Mini Capstone: Your Own Short Film, Idea to Upload</title><style>
+:root{--ink:#21201C;--muted:#6B6862;--accent:#D97757;--teal:#2F7F7A;
+--cream:#FAF9F5;--card:#fff;--rule:#E5E1D8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,
+"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink);
+line-height:1.5}main{max-width:980px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:19px;margin:28px 0 10px}
+.sub{color:var(--muted);margin:0 0 18px}.card{background:var(--card);
+border:1px solid var(--rule);border-radius:12px;padding:16px 18px;
+margin:14px 0}.row{display:flex;gap:10px;align-items:center;
+justify-content:space-between;flex-wrap:wrap}.label{font-weight:700}
+pre{white-space:pre-wrap;background:#F4F1EA;border-radius:8px;padding:12px;
+font:14px/1.45 ui-monospace,Menlo,Consolas,monospace;margin:10px 0 0}
+mark{background:#FDE7C8;border-radius:3px;padding:0 2px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:8px;
+padding:9px 14px;cursor:pointer;background:var(--accent);color:#fff;
+text-decoration:none;display:inline-block}.btn.alt{background:var(--teal)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--rule)}
+button:focus-visible,.btn:focus-visible{outline:3px solid #1f6feb;
+outline-offset:2px}.toast{position:fixed;bottom:18px;left:50%;
+transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px
+16px;border-radius:8px;opacity:0;transition:opacity .2s}.toast.show{
+opacity:1}ol li,ul li{margin:4px 0}table{border-collapse:collapse;
+width:100%}td,th{border-bottom:1px solid var(--rule);padding:8px;
+text-align:left;vertical-align:top}.tag{font-size:13px;color:var(--teal);
+font-weight:600}
+</style></head><body><main><p><a class="btn ghost" href="../index.html">← Labs home</a> <a class="btn alt" href="../prompt-builder.html">Prompt Builder</a> <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Open Claude</a></p><h1>Lab 07 — Mini Capstone: Your Own Short Film, Idea to Upload</h1><p class="sub">Claude Desktop + Higgsfield + LahLah Video — all skills, platform-publish · about 70 minutes</p><p>Prove you can run the whole pipeline on a story of your own: approve the board, generate on a budget, cut, check, publish privately with the AI label on, and plan the adoption with your own numbers.</p><h2>Steps</h2><ol><li><b>Pitch your film</b> — Any story you like, 20-45 seconds, 3-5 shots, fictional people only. Fill short-film-brief-template.pdf (see the Ah Ma sample).</li><li><b>New project</b> — Create &quot;Capstone – [FILM TITLE]&quot; from project-capstone-setup.pdf; add your brief and your standards.</li><li><b>Idea to approved board</b> — Prompt A chains storytelling and storyboard: three loglines, then the brief, asset bible and board. Approve it.</li><li><b>Cast, then shoot</b> — Prompt B: references saved as Elements, low-res drafts with dialogue in quotes, upgrade the keepers, hard budget.</li><li><b>Cut and export</b> — Open lahlah-edit.json in LahLah Video; captions, music under the voices, end card, AI label; export EP02_v1.mp4.</li><li><b>Check, publish privately, plan</b> — Run kopi-compliance-review, then Prompt C (platform-publish, Private or draft) and Prompt D (adoption plan).</li></ol><h2>Prompts</h2><p class="sub">Change only the <mark>[HIGHLIGHTED]</mark> words, then Copy and paste into the Claude project chat.</p><section class="card"><div class="row"><span class="label">PROMPT A — your idea to an approved storyboard</span><button onclick="copyText('p0')" aria-label="Copy PROMPT A — your idea to an approved storyboard">Copy</button></div><pre id="p0">Use the storytelling skill, then the storyboard skill.
+
+My short film: <mark>[ONE-LINE IDEA]</mark>. Genre <mark>[GENRE]</mark>, for
+<mark>[PLATFORM]</mark>, 9:16, <mark>[LENGTH: 20-45]</mark> seconds, <mark>[3-5]</mark> shots,
+fictional characters only: <mark>[WHO]</mark>.
+
+Give me three loglines and stop. After I pick one, write the
+brief, the asset bible (characters, location, props) and the
+storyboard artifact marked DRAFT, then stop for my approval.</pre></section><section class="card"><div class="row"><span class="label">PROMPT B — cast, then shoot on a hard budget</span><button onclick="copyText('p1')" aria-label="Copy PROMPT B — cast, then shoot on a hard budget">Copy</button></div><pre id="p1">Use the video-script skill on the approved storyboard, then
+the higgsfield-video skill.
+
+1. References first: one 9:16 still per character, location
+   and key prop; save the ones I approve as Elements.
+2. Draft every shot at 480p on Seedance 2.0 Mini, sound on;
+   put each spoken line in quotes with the speaker named.
+3. Upgrade to 1080p only the drafts I approve.
+
+Hard limit: <mark>[BUDGET]</mark> credits in total; ask before each batch.
+Higgsfield project: &quot;Capstone – <mark>[FILM TITLE]</mark>&quot;. Finish with the
+status table, download links, lahlah-edit.json (fps = the
+clips&#x27; frame rate) and captions.srt.</pre></section><section class="card"><div class="row"><span class="label">PROMPT C — publish privately (platform-publish skill)</span><button onclick="copyText('p2')" aria-label="Copy PROMPT C — publish privately (platform-publish skill)">Copy</button></div><pre id="p2">Use the platform-publish skill for EP02_v1 (&quot;<mark>[FILM TITLE]</mark>&quot;)
+on <mark>[PLATFORM]</mark>.
+
+Give me: export settings, a title under 60 characters, a
+description with the AI disclosure, five hashtags, a
+thumbnail prompt, and the exact clicks to switch on the
+AI-content label. The upload stays Private (YouTube) or a
+draft (TikTok). Do not publish anything yourself.</pre></section><section class="card"><div class="row"><span class="label">PROMPT D — adoption plan</span><button onclick="copyText('p3')" aria-label="Copy PROMPT D — adoption plan">Copy</button></div><pre id="p3">Write an adoption plan for running Kopi &amp; Coins on Claude,
+Higgsfield and LahLah Video.
+
+Use my numbers: Episode 1 took <mark>[HOURS]</mark> hours and <mark>[CREDITS]</mark>
+credits; my capstone film took <mark>[HOURS]</mark> hours and <mark>[CREDITS]</mark>
+credits; low-res drafting saved about <mark>[SAVED]</mark> credits.
+
+Sections: baseline; a 4-week pilot (scope, team); at least four
+metrics with targets; training and support; governance (credit
+caps, low-res-first rule, approval gates, the compliance skill,
+AI labels, who may publish); the decision point to scale,
+adjust or stop.</pre></section><h2>Check your work</h2><ul><li>Your capstone project holds the brief, the approved storyboard and the approved script.</li><li>References saved as Elements; every shot drafted low-res and the keepers upgraded within budget.</li><li>EP02_v1.mp4 exported: your film, 9:16, captions on, AI label on the end card.</li><li>The compliance review shows no high-risk findings.</li><li>A screenshot shows the private or draft upload with the AI label switched on.</li><li>The adoption plan has a baseline, a pilot, four metrics with targets, governance and a decision point.</li></ul></main><div id="toast" class="toast" role="status" aria-live="polite">Copied — paste it into Claude</div><script>
+function copyText(id){const t=document.getElementById(id).innerText;
+const done=()=>{const s=document.getElementById('toast');s.classList.add('show');
+setTimeout(()=>s.classList.remove('show'),1400)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done)}
+else{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);
+a.select();document.execCommand('copy');a.remove();done()}}
+</script></body></html>

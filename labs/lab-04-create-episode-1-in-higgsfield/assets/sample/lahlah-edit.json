@@ -1,0 +1,245 @@
+{
+  "schema": "lahlah-edit/1",
+  "title": "Kopi & Coins Ep 1: The Rainy-Day Tin",
+  "platform": "tiktok",
+  "aspect": "9:16",
+  "fps": 30,
+  "higgsfield_project": {
+    "name": "Kopi & Coins – Ep1 micro-drama (TikTok)",
+    "url": "https://higgsfield.ai/asset/all"
+  },
+  "clips": [
+    {
+      "id": "S01-SH01",
+      "scene": 1,
+      "shot": 1,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S01-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 3.0,
+      "transition_in": "cut",
+      "caption": "The night before my biggest pitch.",
+      "voiceover": "The night before my biggest pitch."
+    },
+    {
+      "id": "S01-SH02",
+      "scene": 1,
+      "shot": 2,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S01-SH02.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 3.0,
+      "transition_in": "cut",
+      "caption": "$1,400 vs $312",
+      "voiceover": ""
+    },
+    {
+      "id": "S02-SH01",
+      "scene": 2,
+      "shot": 1,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S02-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "Ah Ma… can I borrow some money?",
+      "voiceover": "Ah Ma… can I borrow some money?"
+    },
+    {
+      "id": "S02-SH02",
+      "scene": 2,
+      "shot": 2,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S02-SH02.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 4.0,
+      "transition_in": "cut",
+      "caption": "Wait ah.",
+      "voiceover": "Wait ah."
+    },
+    {
+      "id": "S03-SH01",
+      "scene": 3,
+      "shot": 1,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S03-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "",
+      "voiceover": ""
+    },
+    {
+      "id": "S03-SH02",
+      "scene": 3,
+      "shot": 2,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S03-SH02.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "Rainy day first",
+      "voiceover": ""
+    },
+    {
+      "id": "S03-SH03",
+      "scene": 3,
+      "shot": 3,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S03-SH03.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "Every payday, rainy day first. Then the rest.",
+      "voiceover": "Every payday, rainy day first. Then the rest."
+    },
+    {
+      "id": "S04-SH01",
+      "scene": 4,
+      "shot": 1,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S04-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "crossfade",
+      "caption": "So I made my own tin.",
+      "voiceover": "So I made my own tin."
+    },
+    {
+      "id": "S04-SH02",
+      "scene": 4,
+      "shot": 2,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S04-SH02.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "Automatic. Every payday.",
+      "voiceover": "Automatic. Every payday."
+    },
+    {
+      "id": "S04-SH03",
+      "scene": 4,
+      "shot": 3,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S04-SH03.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "Aim: 3-6 months of expenses",
+      "voiceover": ""
+    },
+    {
+      "id": "S05-SH01",
+      "scene": 5,
+      "shot": 1,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S05-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "dip",
+      "caption": "6 months later",
+      "voiceover": ""
+    },
+    {
+      "id": "S05-SH02",
+      "scene": 5,
+      "shot": 2,
+      "src": "https://PASTE-HIGGSFIELD-RESULT-URL/S05-SH02.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "cut",
+      "caption": "This time, I was ready.",
+      "voiceover": "This time, I was ready."
+    },
+    {
+      "id": "S06-SH01",
+      "scene": 6,
+      "shot": 1,
+      "src": "https://PASTE-END-CARD-URL-OR-EXPORT/S06-SH01.mp4",
+      "duration": 5.0,
+      "trim_in": 0,
+      "trim_out": 5.0,
+      "transition_in": "dip",
+      "caption": "Start your rainy-day tin this payday. For general education only. Not financial advice.",
+      "voiceover": ""
+    }
+  ],
+  "audio": [
+    {
+      "src": "music/rainy-day-piano.mp3",
+      "start": 15,
+      "volume": 0.6,
+      "type": "music"
+    },
+    {
+      "src": "vo/rachel-vo-full.wav",
+      "start": 0,
+      "volume": 1.0,
+      "type": "vo"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.0,
+      "end": 3.0,
+      "text": "The night before my biggest pitch."
+    },
+    {
+      "start": 3.0,
+      "end": 6.0,
+      "text": "$1,400 vs $312"
+    },
+    {
+      "start": 6.0,
+      "end": 11.0,
+      "text": "Ah Ma… can I borrow some money?"
+    },
+    {
+      "start": 11.0,
+      "end": 15.0,
+      "text": "Wait ah."
+    },
+    {
+      "start": 20.0,
+      "end": 25.0,
+      "text": "Rainy day first"
+    },
+    {
+      "start": 25.0,
+      "end": 30.0,
+      "text": "Every payday, rainy day first. Then the rest."
+    },
+    {
+      "start": 30.0,
+      "end": 35.0,
+      "text": "So I made my own tin."
+    },
+    {
+      "start": 35.0,
+      "end": 40.0,
+      "text": "Automatic. Every payday."
+    },
+    {
+      "start": 40.0,
+      "end": 45.0,
+      "text": "Aim: 3-6 months of expenses"
+    },
+    {
+      "start": 45.0,
+      "end": 50.0,
+      "text": "6 months later"
+    },
+    {
+      "start": 50.0,
+      "end": 55.0,
+      "text": "This time, I was ready."
+    },
+    {
+      "start": 55.0,
+      "end": 60.0,
+      "text": "Start your rainy-day tin this payday. For general education only. Not financial advice."
+    }
+  ]
+}

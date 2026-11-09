@@ -3,3 +3,10 @@ __pycache__/
 ~$*
 .DS_Store
 courseware/qa-render/
+
+# conversion input (WSQ source, read-only) and superseded decks
+source-wsq/
+courseware/archive/
+CLAUDE.md
+build/__pycache__/
+.agents/
